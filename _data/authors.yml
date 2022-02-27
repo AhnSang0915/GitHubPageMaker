@@ -1,0 +1,11 @@
+AhnSang0915 :
+  username: AhnSang0915   # user name : martin
+  name: AhnSang0915       # user full name : Martin Luther King
+  url_full:             # Homepage url
+  url:
+  bio: <a href="https://github.com/AhnSang0915"> 개발 달려
+                        # 회사정보
+  picture: assets/built/images/author-logo.jpg   # author image
+  facebook:             # facebook ID
+  twitter:              # twitter ID
+  cover: False
