@@ -159,7 +159,7 @@ alert(NaN === NaN);             //false NaN(Not-a-Number)은 이값은 숫자가
 
 ---
 
-## 4.부정과 부등호\
+## 4.부정과 부등호
 
 <br>
 <br>
