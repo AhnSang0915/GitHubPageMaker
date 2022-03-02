@@ -3,7 +3,7 @@ layout: post
 current: post
 cover:  assets/built/images/javascript-logo.png
 navigation: True
-title: Javascript - JavaScript - 숫자와 문자
+title: Javascript - JavaScript 숫자와 문자
 date: 2022-03-01 21:06 +0900
 tags: [javascript]
 class: post-template
