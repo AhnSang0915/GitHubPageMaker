@@ -4,7 +4,7 @@ current: post
 cover:  assets/built/images/javascript-logo.png
 navigation: True
 title: Javascript - JavaScript 배열
-date: 2022-03-06 22:30 +0900
+date: 2022-03-06 10:39 +0900
 tags: [javascript]
 class: post-template
 subclass: 'post tag-javascript'
