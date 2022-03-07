@@ -4,379 +4,188 @@ current: post
 cover:  assets/built/images/javascript-logo.png
 navigation: True
 title: Javascript - JavaScript 객체(Object)
-date: 2022-03-06 10:39 +0900
+date: 2022-03-07 22:32 +0900
 tags: [javascript]
 class: post-template
 subclass: 'post tag-javascript'
 author: AhnSang0915
 ---
 
-# JavaScript 배열
+# JavaScript 객체(Object)
 
 <br>
 <br>
 <br>
 
-## 1. 배열의 문법
+## 1. 객체의 소개와 문법
+<br>
+<br>
+배열은 연관되어 있는 데이터들을 담아내기 위한 그릇이다. 마찬가지로 객체도 연관된 데이터를 담아내는 것에 있어서 유사하다. 하지만 똑같은 그릇이 있다고 쳤을 때 객체도 그릇에 담아내는 것은 같지만 index의 값으로 숫자나 문자를 쓸 수도 있지만, 인덱스로 우리가 원하는 데이터를 지정할 수 있다는 것이 둘의 차이점이라고 할 수 있다. 다른 언어에서는 연관배열(associative array) 또는 맵(map), 딕셔너리(Dictionary)라는 데이터 타입이 객체에 해당한다.
 <br>
 <br>
 
-### 배열
+
+### 객체의 생성
 <br>
 <br>
-배열(array)이란 연관된 데이터를 모아서 통으로 관리하기 위해 사용하는 데이터의 형식이다. 변수는 하나의 데이터를 저장하기 위한 것이라면 배열은 여러 개의 데이터를 하나의 변수에 저장하기 위해 사용한다. <br>
-아래 코드는 name이라는 변수에 'Ahnsang'이라는 데이터를 할당한 것이다.
+객체를 만드는 법을 알아보자. 배열은 대괄호로 시작해 대괄호로 끝나지만,객체는 중괄호로 시작해 중괄호로 끝나게 된다. 아래는 데이터값으로 숫자를 썻지만 문자나 다른 데이터를 할당하는 것도 가능하다. 아래 예제에서 ansang은 key(index)가 되고 10은 value(데이터 값)가 된다.
 
 ~~~javascript
 
-var name = 'Ahnsang'
-alert(name);
-
-~~~
-
-### 배열의 생성
-<br>
-<br>
-위에선 변수에 하나의 데이터를 할당 했다. 이제 배열로 여러개의 데이터를 변수에 할당하는 방법을 공부해 보자.<br>
-여러개의 데이터를 할당 하려면 변수명 = 뒤에 [] 대괄호를 사용해 여러개의 데이터를 작성할 수 있다.
-
-~~~javascript
-
-var member = ['Ahnsang', 'SangHyun', 'AhnSangHyun']
-
-~~~
-
-이 각각의 데이터를 요소,또는 원소(Element)라고 부르고 이제 이 원소들을 호출할것이다. 요소는 순서대로 0,1,2의 고유한 값,식별자를 가지게 된다. 색인 이라고도 하고 index라고도한다.
-
-~~~javascript
-
-var member = ['Ahnsang', 'SangHyun', 'AhnSangHyun']
-alert(member[0]);
-alert(member[1]);
-alert(member[2]);
-
-~~~
-코드를 실행하면 차례대로 'Ahnsang', 'SangHyun', 'AhnSangHyun' 세개의 데이터를 차례로 경고창에 출력해준다.
-
-
----
-
-## 2. 배열의 효용성
-<br>
-<br>
-배열이 없다면 변수에 하나의 데이터만 할당할수 있기 때문에 불편할 것이다. 아래의 예제를 보자.
-함수는 여러개의 입력값을 받을 수 있지만, 하나의 출력만 할 수 있다.
-
-~~~javascript
-
-function get_member1(){
-    return 'Ahnsang';
-}
-document.write(get_member1());
+var grades = {'ansang': 10, 'sanghyun': 6, 'ansanghyun': 80};
+            // key : value  key : value  key : value
  
-function get_member2(){
-    return 'SangHyun';
-}
-document.write(get_member2());
- 
- 
-function get_member3(){
-    return 'AhnSangHyun';
-}
-
 ~~~
 
-위 코드처럼 배열을 사용하지 않으면 각각의 회원정보를 반환하는 함수로 표한해야한다. 배열을 사용해 코드를 만들어 보자. return 안에 배열을 사용해 각각의 색인으로 원하는 정보를 호출할 수 있다.
+위의 상태에서 객체를 대표하는 변수를 grades로 지정하고 grades를 호출하면 아래와 같은 값이 나오게 된다.
 
 ~~~javascript
 
-function get_members() {
-    return ['Ahnsang', 'SangHyun', 'AhnSangHyun']
-}
-var members = get_members();
-document.write(members[0]);
-document.write(members[1]);
-document.write(members[2]);
+grades
+
+odject {ansang: 10, sanghyun: 6, ansanghyun: 80}
+
+~~~
+
+아래는 객체를 만드는 다른 방법이다.
+
+~~~javascript
+
+var grades = {};
+grades['ansang'] = 10; //key는 ansang value는 10
+grades['sanghyun'] = 6; //key는 sanghyun value는 6
+grades['ansanghyun'] = 80; //key는 ansanghyun value는 80
+
+~~~
+
+위에선 객체를 호출하는 방법은 아래와 같다. 아무래도 garade.ansang가 간편하지만, 프로그래밍 적인 기재가 불가능하다 이 경우 garade.'an'+'sang'로 호출하게 되면 SyntaxError가 나오게 된다. 즉 . 뒤의 내용을 프로그래밍 적으로 만들 수 없다. []안에 들어가는 값은 프로그래밍 적으로 생성이 가능하기 때문에 필요에 따라 대괄호 안에 작성하는 게 편리하거나 써야만 하는 상황이 있을 수 있다.
+
+~~~javascript
+
+grades['ansang'] //value 10
+garade.ansang //value 10
+grades['an'+'sang'] //value 10
 
 ~~~
 
 ---
 
-## 3. 배열의 사용 - 배열과 반복문
+## 2.객체와 반복문 for in
 <br>
 <br>
-우리가 배열을 사용해 index값을 호출할때 그 값을 일일히 기억해서 호출한다는것은 불가능하다. 배열이 몇백 몇천개가 사용될수도 있기 때문이다. 그렇기 때문에 배열이란 결국 배열에 담겨있는 값을 하나하나 꺼내서 그꺼내진 값을 가공하는게 배열의 핵심적인 요소라고 할수있다.
-
-<br>
-<br>
-아래 예제에서 출력값을 대문자로 출력하려고 .toUpperCase();라는 javascript내장함수를 사용해 출력했다.
-'AHNSANG','SANGHYUN','AHNSANGHYUN'을 출력하게 될것이다.
+객체에 저장된 데이터를 기준으로 반복하는 작업을 알아보자. 배열은 저장된 데이터들이 순서를 가지고 있다. 그래서 배열에선 순서 자체가 중요한 정보이다. 하지만 객체엔 순서가 없고, key와 value로 이루어져 있기 때문에 저장된 순서는 없기 때문에 저장된 값이 순서에 따라서 나오지 않을 것 이라는 걸 인지해야 한다.
 
 ~~~javascript
 
-function get_members() {
-    return ['Ahnsang', 'SangHyun', 'AhnSangHyun']
+var grades = {'ansang' : 10, 'sanghyun' : 6, 'ansanghynu' : 80}
+for(key in grandes) {
+    document.write("key : "+key+" value : " + grades[key] + "<br />");
 }
-var members = get_members();
-document.write(members[0].toUpperCase()+"<br />");
-document.write(members[1].toUpperCase()+"<br />");
-document.write(members[2].toUpperCase()+"<br />");
+/*출력
+key : ansang value : 10
+key : snaghyun value : 6
+key : ansanghyun value : 80
+*/
 
 ~~~
-위 예제 처럼 우리가 직접 손으로 배열을 호출을 하기엔 무리가 있다. 이때 사용할 수 있는 방법이 배열과 반복문을 결합하는 것이다. 그전에 한가지 예제를 더 보자. 아래 예제는 배열의 값이 몇개인지 나타내 주는 함수이다. 경고창 내용은 3을 출력하게 된다.
+또는 key부분을 변수로 바꿔도 된다. 아래는 var name으로 바꿔보았다.
 ~~~javascript
 
-var a = ['Ahnsang', 'SangHyun', 'AhnSangHyun']
-alert (a.length);
-~~~
-이제 배열과 반복문을 결합한 예제를 보자. i란변수를 지정하고 시작은 0에서 1씩 증가해 2로 끝나게 된다. 이렇게 나온 0, 1, 2는 index 값으로 사용하고, members[index값]에 i의 값이 어가게 되어 차례로 출력할 수 있게 된다.'AHNSANG','SANGHYUN','AHNSANGHYUN'을 출력하게 될것이다.
-
-~~~javascript
-
-function get_members() {
-    return ['Ahnsang', 'SangHyun', 'AhnSangHyun']
+var grades = {'ansang' : 10, 'sanghyun' : 6, 'ansanghynu' : 80}
+for(var name in grandes) {
+    document.write("key : "+name+" value : " + grades[name] + "<br />");
 }
-var members = get_members();
-for(var i = 0; i < 3; i++) {
-    document.write(members[i].toUpperCase()+"<br />");
-}
+/*출력
+key : ansang value : 10
+key : snaghyun value : 6
+key : ansanghyun value : 80
+*/
 
 ~~~
+더 보기 편하게 리스트 형태로 만들어보자. html에서의 ul태그와 li태그를 사용해본다.
+~~~html
 
-그런데 여기서 배열의 갯수가 늘어난다면 우리는 반복문의 조건을 수정해야한다. 이것도 함수를 사용해 더 편리하게 만들어 보면, 우리는 members라는 변수에 get_members라는 함수를 호출했다. 그 함수안에 return의 배열이 들어있기 때문에 members.length함수를 사용하면 배열안의 요소의 갯수를 호출해 사용할 수 있다.
+  <ul>
+    <script type="text/javascript">
+        var grades = {'ansang': 10, 'sanghyun': 6, 'ansanghynu': 80};
+            for(var name in grades) {
+            document.write("<li>key : "+name+" value : "+grades[name]+"</li>");
+            }    
+    </script>
+  </ul>
+
+        /* 출력
+        -key : ansang value : 10
+        -key : snaghyun value : 6
+        -key : ansanghyun value : 80
+        */
+~~~
+배열도 for in문으로 사용할수 있다. 배열에선 var name으로 지정한 값이 index가 됨으로 console.log(name)에서 012라는 index가 추출되고 console.log(arr[name])에선 abc라는 데이터가 출력된다. 
 
 ~~~javascript
 
-function get_members() {
-    return ['Ahnsang', 'SangHyun', 'AhnSangHyun']
+var arr = ['a', 'b', 'c']
+for(var name in arr) {
+    console.log(name);
 }
-var members = get_members();
-for(var i = 0; i < members.length; i++) {
-    document.write(members[i].toUpperCase()+"<br />");
+//출력 
+//0
+//1
+//2
+for(var name in arr) {
+    console.olg(arr[name]);
 }
+
 
 ~~~
 
 ---
 
-## 4. 배열의 제어
+## 3. 객체 지향 프로그래밍
 <br>
 <br>
-배열은 복수의 데이터를 효율적으로 관리, 전달하기 위한 목적으로 고안된 데이터 타입이다. 따라서 데이터의 추가/수정/삭제와 같은 일을 편리하게 할 수 있도록 돕는 다양한 기능을 가지고 있다. 몇가지 중요한 기능들만 살펴보자.
+객체 지향 프로그래밍이란 서로 연관되어있는 데이터와 처리형식을 하나의 그릇안에 그룹핑 해놓은 프로그래밍을 객체 지향 프로그래밍 이라한다.
 <br>
 <br>
 
-### 배열의 조작 - 추가 push
-<br>
-<br>
-배열의 끝에 원소를 추가하는 방법을 알아보자. push는 인자로 전달된 값을 배열에 추가하는 javascript 내장함수 이다. 아래 코드를 실행하면 "f"가 추가된 배열이 출력된다.
+객체에 담길 수 있는 값이 무엇지에 대해 알아보자. 아래 예제는 객체 안에 객체와 함수를 담았다. list라는 key 값에 {'ansang' : 10, 'sanghyun' : 8, 'ansanghyun' : 80}라는 value를 넣었고 이 value는 객체이다. show라는 key값에 function(){ alert('Hello World')}; 라는 value를 담았다. javascript에서는 함수도 일종의 값이고 함수도 변수에 저장될 수 있기 때문에 마찬가지로 값으로서의 함수도 객체 안에 저장될 수 있다(고하는데 아직 뭔 소린지 모르겠음).grades에 담긴 
 
 ~~~javascript
 
-var li = ['a', 'b', 'c', 'd', 'e'];
-li.push('f');
-alert(li);
-
-~~~
-아래의 함수와 위의 함수는 같다.
-~~~javascript
-
-function numbering() {
-    var i = 0;
-    while(1 < 10) {
-        document.write(i);
-        i += i;
+var grades = {
+    'list' : {'ansang' : 10, 'sanghyun' : 8, 'ansanghyun' : 80},
+    'show' : function(){
+        alert('Hello World');
     }
 }
-
+alert(grades['list']['ansang']); //ansang이라는 key가 갖고있는 10이라는 value에 접근
+alert(grades['show']); // 함수에 접근
 ~~~
-
-아래 함수는 이름을 정하지도 않고 변수도 붙이지 않았다. 함수를 정의하고 함수를 괄호로 묶었다. 그다음에 호출할때 사용하는 기호 ();로 호출하게 되면 정의와 호출을 하나의 문장으로 같이하는 함수로 <u>익명함수</u>라고 한다. 일회 성으로 호출할때 이런 함수를 사용한다.
+this라는 키워드를 알아보자. this라는 것은 javascript에서 약속되어있는 변수이다. this 변수는 함수가 속해있는 객체를 가르치는 변수이다. 함수가 소속되어있는 객체를 가르친다는 말이다.아래 예제는 grades라는 객체가 갖고있는 key 값 중 show를 호출해 show 함수가 가진 this변수로 list객체{'ansang' : 10, 'sanghyun' : 8, 'ansanghyun' : 80}를 출력하게 된다.
 
 ~~~javascript
 
-(function(){
-    i = 0;
-    while(i < 10){
-        document.write(i);
-        i += 1;
-    }   
-}) ();
-
-~~~
-
-### 배열의 추가 concat
-<br>
-<br>
-concat(concatenate)은 복수의 원소를 배열에 추가하는 방법이다. 추가한 출력은 ['a', 'b', 'c', 'd', 'e','f', 'g'] 가된다.
-
-~~~javascript
-
-var li = ['a', 'b', 'c', 'd', 'e'];
-li = li.concat(['f', 'g']);
-alert(li);
-
-~~~
-
-### 배열의 추가 unshift
-<br>
-<br>
-unshift는 배열의 시작점에 원소를 추가하는 방법이다. 출력은 ['z','a', 'b', 'c', 'd', 'e'] 가되고 index도 0~5로 변경된다.
-
-~~~javascript
-
-var li = ['a', 'b', 'c', 'd', 'e'];
-li.unshift('z');
-alert(li);
-
-~~~
-
-### 배열의 추가 splice
-<br>
-<br>
-splice는 배열의 특정구간을 추출하거나, 특정구간에 특정 배열을 추가하는 방법이다. 문법은 아래와 같고,
-
-~~~javascript
-
-array.splice(index, howmany, element1, ...., elementN);
-
-~~~
-아래 표를 보면서 이해해보자.
-
-|인자명|데이터형|필수/옵션|설명|
-|:---|---:|:---:|
-|index|number|필수|배열에 추가할 특정 배열의 위치를 가르키는 index|
-|howmany|number|필수|index에서부터 제거될 원소들의 수. index부터 index+howmany에 <br>해당하는 원소들은 삭제된다. 이 값이 0이면 어떠한 원소도 삭제되지<br> 않는다.|
-|element1,...,elementN|number|옵션|index와 index+howmany 사이에 추가될 값|
-
-아래와 같이 splice를 이용해 배열에 'x','y'를 추가하는 코드가 있다. splice뒤에 오는 1은 [a,b,c] 배열에서 'b'를 가르키고 0은 'b'를 제거하지 않고 index 1번 위치에 'x','y'를 추가하겠다는 말이다.
-이러면 배열은 ['a','x','y','b','c'] 가된다.
-
-~~~javascript
-
-var a = ['a','b','c']
-a.splice(1,0,['x','y'])
-
-~~~
-
-이번엔 기존 배열을 삭제하고 추가하는 예제를 보자. index 1번자리에 있는 'b'의 자리에서 2개의 원소를 삭제하고 ['x','y']를 순서대로 넣어주겠다는 말이다. 변경된 배열은 ['a' , 'x', 'y']가 된다.
-
-~~~javascript
-
-var a = ['a','b','c']
-a.splice(1,2,['x','y'])
-
-~~~
-
-몇가지 예제를 더보자.
-
-~~~javascript
-
-var numbers = [1,2,3,4,5,6,7,8,9,10];
-alert(numbers.splice(2)); //2번 index를 포함 이후의 모든 요소를 제거한다.
-alert(numbers); // [1,2]
- 
-var numbers = [1,2,3,4,5,6,7,8,9,10];
-alert(numbers.splice(2, 4)); // array, [3,4,5,6]
- 
-var numbers = [1,2,3,4,5,6,7,8,9,10];
-alert(numbers.splice(2, 4, 'three', 'four', 'five', 'six')); // array, [3,4,5,6]
-alert(numbers); // array, [1,2,three,four,five,six,7,8,9,10]
-
-~~~
-
----
-
-
-## 5. 배열의 조작 - 제거, 정렬
-<br>
-<br>
-
-### 제거 shift
-<br>
-<br>
-shift는 배열의 첫번째 원소를 제거하는 방법이다. index 0번에 위치한 원소를 제거하고 나머지 값들을 한칸씩 앞으로 당겨온다. 만약 배열의 length가 0이면 undefined을 리턴한다. 아래 예제의 결과는 b, c, d, e다.
-
-~~~javascript
-
-var li = ['a', 'b', 'c', 'd', 'e'];
-li.shift();
-alert(li);
-
-~~~
-
-### 제거 pop
-<br>
-<br>
-pop은 배열의 마지막 원소를 제거하는 방법이다. 마지막 index에 위치한 원소를 제거하고 마찬가지로 빈 배열이라면 undefined을 리턴한다.
-
-~~~javascript
-
-var li = ['a', 'b', 'c', 'd', 'e'];
-li.pop();
-alert(li);
-
-~~~
-
-### 정렬 sort
-<br>
-<br>
-배열을 이용하는 중요한 이유중 하나가 정렬이다. sort는 배열의 정렬을 하고싶을때 사용한다.
-
-~~~javascript
-
-var li = ['c', 'e', 'a', 'b', 'd'];
-li.sort();
-alert(li);
-
-~~~
-
-하지만 만약 배열이 ['1', '10', '6'] 인경우엔 정렬이 1, 10, 6이 된다. 데이터를 문자로 보기때문에 앞에 1이 온 10을더 작다고 보는것이다. 이것을 올바르게 정렬하려면 아래와 같은 예제를 사용한다.
-
-~~~javascript
-
-function sortNumber(a,b){
-    return a-b; //역순을 구한다면 b-a를 활용한다.
+var grades = {
+    'list' : {'ansang' : 10, 'sanghyun' : 8, 'ansanghyun' : 80},
+    'show' : function(){
+        alert(this.list);
+    }
 }
-var numbers = [20, 10, 9,8,7,6,5,4,3,2,1];
-alert(numbers.sort(sortNumber)); // array, [1,2,3,4,5,6,7,8,9,10,20]
+grades['show']();
 
 ~~~
-
-위 함수 a-b; 부분을 이해하려 찾아보았다. 정확하게 javascript에서 어떤 알고리즘으로 작동하는지 모르지만 이런 식으로 작동할 것이라는 글을 보게 되었다.<br>
-만약 5,4,6,1,3,2 라는 배열이 있다고 가정하자.<br>
-a-b에서 양수면 위치를 바꾸고 음수면 유지한다.<br>
-5-4는 양수로 위치를바꾼다.<br>
-4,5,6,1,3,2<br>
-4-6은 음수로 유지.<br>
-4,5,6,1,3,2<br>
-4-1은 양수로 변경.<br>
-1,5,6,4,3,2<br>
-1-3,1-2도 음수로 자리를 유지하고 index0번위치에 1이 오게된다.<br>
-이제 1,5,6,4,3,2에서 두번째 자리를 찾는다.<br>
-5-6은 음수로 유지.<br>
-1,5,6,4,3,2<br>
-5-4는 양수로 변경.<br>
-1,4,6,5,3,2<br>
-4-3은 양수로 변경.<br>
-1,3,6,5,4,2<br>
-3-2는 양수로 변경.<br>
-1,2,6,5,4,3 두번째 자리를 찾았다.<br>
-....<br>
-...<br>
-이런 식으로 반복해서 찾는다는 글을 봤는데 맞는진 모르겠지만 이렇게 이해하면 좋을 것 같다.
-<br>
-<br>
-
-### 정렬 reverse
-<br>
-<br>
-reverse는 역순으로 정렬하고 싶을때 사용한다.
+이번엔 개발자 도구에서 console.log(name, this.list\[name\]);를 사용해 key와 value를 호출해보자. value를 호출하는 방법은 위에서 배웠듯,  grades\['ansang'\] , garade.ansang 두가지가 있다. for in 문을 사용했기 때문에 list\[name\]을 사용하면 value 값을 불러올 수 있다.
 
 ~~~javascript
 
-var li = ['c', 'e', 'a', 'b', 'd'];
-li.reverse();
-alert(li);
+var grades = {
+    'list' : {'ansang' : 10, 'sanghyun' : 8, 'ansanghyun' : 80},
+    'show' : function(){
+        for(var name in this.list){
+            console.log(name, this.list[name]); // ,를 쓰게되면 여러 값을 출력할 수 있다.
+        }
+    }
+}
+grades.show();
 
 ~~~
