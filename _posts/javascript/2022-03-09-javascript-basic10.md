@@ -4,7 +4,7 @@ current: post
 cover:  assets/built/images/javascript-logo.png
 navigation: True
 title: Javascript - JavaScript UI와 API
-date: 2022-03-09 17:58 +0900
+date: 2022-03-09 17:55 +0900
 tags: [javascript]
 class: post-template
 subclass: 'post tag-javascript'
