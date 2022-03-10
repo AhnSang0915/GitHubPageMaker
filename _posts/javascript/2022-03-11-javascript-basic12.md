@@ -4,7 +4,7 @@ current: post
 cover:  assets/built/images/javascript-logo.png
 navigation: True
 title: Javascript - JavaScript 함수지향 - 유효범위
-date: 2022-03-10 00:14 +0900
+date: 2022-03-11 01:11 +0900
 tags: [javascript]
 class: post-template
 subclass: 'post tag-javascript'
