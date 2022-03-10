@@ -196,7 +196,7 @@ console.log(result);
 ## 6. 치환
 <br>
 <br>
-아래 코드는 본문 중의 URL을 링크 html 태그로 교체한다. \b는 단어를 식별한다. ?:로 https를 캡쳐로 지정하지 않고 뒤에 ?로 https, http가 모두 해당되게 한다. 뒤에 //는 escape를 사용해 문자화 시켰고 그뒤의 a-z는 a부터 z까지 0-9 는 0에서 9까지 그리고 그뒤에 주소에 들어갈만한 특수문자들 까지 해당되게 해줬다. replace라는 메소드가 실행될때 urlPattern해당되는 텍스트를 찾을때마다 두번째인자로 전달된 함수가 replace라는 메소드 내부로 호출된다. 호출될때 javascript는 호출된 시점에서 검색된 문자열을 첫번째 인자(url)로 전달되게 약속되어있다. 그리고 그 텍스트를 가공을하고 리턴을 해주면 우리가 변경하고싶은 내용으로 변경되게 된다.
+아래 코드는 본문 중의 URL을 링크 html 태그로 교체한다. \b는 단어를 식별한다. ?:로 https를 캡쳐로 지정하지 않고 뒤에 ?로 https, http가 모두 해당되게 했다. 뒤에 //는 escape를 사용해 문자화 시켰고 그뒤의 a-z는 a부터 z까지 0-9 는 0에서 9까지 그리고 그뒤에 주소에 들어갈만한 특수문자들 까지 해당되게 해줬다. 그리고 replace라는 메소드가 실행될때 urlPattern해당되는 텍스트를 찾을때마다 두번째인자로 전달된 함수가 replace라는 메소드 내부로 호출된다. 호출될때 javascript는 호출된 시점에서 검색된 문자열을 첫번째 인자(url)로 전달되게 약속되어있다. 그리고 그 텍스트를 가공을하고 리턴을 해주면 우리가 변경하고싶은 내용으로 변경되게 된다.
 
 ~~~javascript
 
@@ -209,3 +209,4 @@ console.log(result);
 //생활코딩 : <a href="http://opentutorials.org/course/1">http://opentutorials.org/course/1</a> 입니다. 네이버 : <a href="http://naver.com">http://naver.com</a> 입니다.
 
 ~~~
+
