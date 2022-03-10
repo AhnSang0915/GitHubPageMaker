@@ -34,7 +34,7 @@ fscope();
 
 ~~~
 
-아래를 실행하게 되면 결과는 '함수안 local'과 '함수밖 global'이 출력된다. fscope 함수안에 vscope라는 변수가 할당되어 있기 때문에 vscope는 자기자신과 가까이에 있는 vscope를 가르키기 때문에 'local'이라는 값을 출력하게 된다. 함수안의 fscope 함수안에 정의 되어 있는 vscope는 지역변수(local variables) 이고, 함수밖에  정의되어 있는 vscope변수는 전역변수(global variables)라고 한다.
+아래를 실행하게 되면 결과는 '함수안 local'과 '함수밖 global'이 출력된다. fscope 함수안에 vscope라는 변수가 할당되어 있기 때문에 vscope는 자기자신과 가까이에 있는 vscope를 가르키기 때문에 'local'이라는 값을 출력하게 된다. 함수안의 fscope 함수안에 정의 되어 있는 vscope는 지역변수(local variables) 이고, 함수밖에  정의되어 있는 vscope변수는 전역변수(global variables)라고 한다.즉 지역변수의 유효범위는 함수 안이고, 전역변수의 유효범위는 에플리케이션 전역인데, 같은 이름의 지역변수와 전역변수가 동시에 정의되어 있다면 지역변수가 우선한다는 것을 알 수 있다.
 
 ~~~javascript
 
@@ -48,189 +48,170 @@ alert('함수밖 '+vscope);
 
 ~~~
 
+var을 쓴것과 쓰지않은것의 차이점을 알아보자. var을쓰면 전역변수를 호출하게되고 var을 쓰지않으면 vscope가 지역변수가 되어 global을 local로 변경하게된다. 즉,  var을 사용하지 않은 지역변수는 전역변수가 된다. fscope라는 함수에 var쓰고 변수를 지정하게 되면 fscope함수에 지역변수를 지정한것이다. 그렇기 때문에 전역 변수의 값이 local로 변경 된 것이다. 그렇기 때문에 출력은 local이 되게 된다.
 
 ~~~javascript
 
 var vscope = 'global';
 function fscope(){
     var vscope = 'local';
-    alert('함수안 '+vscope);
+   
 }
 fscope();
-alert('함수밖 '+vscope);
-
+alert(vscope);
+// var을 쓸때 global
+// var을 쓰지 않을때 local
 ~~~
 
-
----
-
-## 2. RegExp객체의 사용
-<br>
-<br>
-우리가 어떤일을 할때 두가지 방법이 있다. 작업을 할 대상을 선택하고 그리고 그대상에 대하 어떤작업을 할지 정한다. 먼저 해야할 것은 작업할 대상을 찾는것이다. 이작업을 할수 있게 해주는게 정규표현식이다.
-<br>
-<br>
-
-
-### 정규표현식 메소드 실행
-<br>
-<br>
-정규표현식을 컴파일해서 객체를 만들었다면 이제 문자열에서 원하는 문자를 찾아내야 한다. 
-
-
-#### RegExp.exec()
-<br>
-<br>
-문자열 a를 찾고싶다고할때 pattern변수안에 정규표현식 a를 지정하고 RegExp.exec()로 실행을 시킬수 있다.
-RegExp는 정규표현식을 의미하고 exec는 실행을 의미한다. 즉, 우리가 지정한 정규표현식을 실행하는데 그실행의 대상을 첫번째 인자로 전달하고, 그정보가 있는지 없는지 찾으려고 하는 정보가 ('abcdef') 이고 이것이 두번째 인자가 된다. 
-<br>
-<br>
-
-실행결과는 문자열 a를 값으로 하는 배열을 리턴한다.
+아래 예제는 어떻게 될까? 마찬가지로 global을 출력하게 된다. 이유는 이미 var vscope으로 인해 지역변수가 생성이되었다. 그렇기 때문에 vscope를 사용해도 지역변수가 되는것이지 전역변수가 변경되지는 않는다.
 
 ~~~javascript
-var pattern = /a/;
-console.log(pattern.exec('abcdef')); // ["a"]
-~~~
 
-이번엔 변수에 정규표현식 a.을 담았다. 결과는 ab가되는데 이것은 정규표현식에서 .이 문자 1개를 의미하기 때문이다.
+var vscope = 'global';
+function fscope(){
+    var vscope = 'local';
+    vscope = 'local';   
+}
+fscope();
+alert(vscope);
+// global
 
-~~~javascript
-var pattern = /a./;
-console.log(pattern.exec('abcdef')); // ["ab"]
-~~~
-
-인자 'bcdef'에는 a가 없기 때문에 null을 리턴한다.
-
-~~~javascript
-var pattern = /a/;
-console.log(pattern.exec('bcdefg')); // null
-~~~
-
-#### RegExp.test()
-<br>
-<br>
-우리가 필요한 정보를 추출해내야 할때 사용한다. 우리가 찾는 어떤 정보가 있는지 없는지를 존재 유무를 테스트 한다.
-<br>
-<br>
-test는 인자 안에 패턴에 해당되는 문자열이 있으면 true, 없으면 false를 리턴한다
-
-
-~~~javascript
-var pattern = /a/;
-console.log(pattern.test('abcdef')); // true
-cnosole.log(pattern.test('bcdefg')); // false
 ~~~
 
 ---
 
-
-## 3. String과 정규표현식
-
-###  String.match()
+## 2. 유효범위의 효용
 <br>
 <br>
-RegExp.exec()와 비슷하다.
+아래 두개의 예제는 변수 i를 지역변수로 사용했을 때와 전역변수로 사용했을 때의 차이점을 보여준다. 전역변수는 각기 다른 로직에서 사용하는 같은 이름의 변수값을 변경시켜서 의도하지 않은 문제를 발생시킨다.
+<br>
+<br>
+같은 이름을 사용했지만 var을 사용하는것과 사용하지 않는것의 차이가 있다. for문 안에들어있는 i의 값이 선언된것은 어떤 함수에 소속되지 않은 것이다. 그렇기 때문에 전역변수이고 함수 a를 호출하게 되면 변수 i의 값을 0으로 바꿔주고 있다. 그런데 var을 붙이지 않은것은 전역변수를 의미하게 된다. a함수와 for문이 가르키고 있는 i가 같기때문에 a가 실행될때마다 i의값이 매번 0으로 초기화된다. 따라서 무한반복하는 현상이 나타나고 같은이름의 변수를 중복해서 사용했지만 각각의 취지가 다를 때 이런현상이 일어난다.
 
 ~~~javascript
 
-var pattern = /a/;
-console.log('abcdef'.match(pattern)); // ["a"]
-console.log('bcdefg'.match(pattern)); // null
+function a (){
+    var i = 0; //결과 01234
+    // i=0; // 결과 무한반복
+}
+for(var i = 0; i < 5; i++){
+    a();
+    document.write(i);
+}
 
 ~~~
-
-###  String.replace()
-<br>
-<br>
-String.replace()는 문자열에서 패턴을 검색해서 이를 변경한 후에 변경된 값을 리턴한다.
-<br>
-<br>
-pattern a를 찾아 A로 치환해주었다.
-
-~~~javascript
-
-console.log('abcdef'.replace(pattern, 'A'));  // Abcdef
-
-~~~
-
 
 ---
 
-## 4. 옵션(i, g)
+## 3. 전역변수를 사용하는 법
 <br>
 <br>
-정규표현식 패턴을 만들 때 옵션을 설정할수있다. 찾고자하는 값 뒤에 옵션을 넣어주면 되고, 옵션에 따라 검출되는 데이터가 달라진다.
+불가피하게 전역변수를 사용해야 하는 경우는 하나의 객체를 전역변수로 만들고 객체의 속성으로 변수를 관리하는 방법을 사용한다.
 
 <br>
 <br>
-i는 대소문자 구분을 없애주는 역할을 한다. 
+아래의 예제는 MYAPP이라는 전역변수 하나를 만들어서 속성을 지정해 만들었다. 이처럼 전역변수 하나만을 만들고 나머지 다른 전역변수들은 바로 그 전역변수의 소속에 해당되게 만들면 변수의 이름이 충돌할 가능성이 낮아진다.
+
 
 ~~~javascript
 
-var xi = /a/;
-console.log("Abcde".match(xi)); // null
-var oi = /a/i;
-console.log("Abcde".match(oi)); // ["A"];
+var MYAPP = {}
+MYAPP.calculator = { //calculator 속성
+    'left' : null,
+    'right' : null
+}
+MYAPP.coordinate = {
+    'left' : null,
+    'right' : null
+}
+ 
+MYAPP.calculator.left = 10;
+MYAPP.calculator.right = 20;
+function sum(){
+    return MYAPP.calculator.left + MYAPP.calculator.right;
+}
+document.write(sum());
 
 ~~~
 
-g는 문자열에 포함되어 있는 패턴에 해당되는 문자열들을 모두 리턴해준다.
+아래의 예제는 함수안에 변수를 지정해 함수의 지역변수로 만들었다. 함수를 정의하고 바로 호출하는 기법을 익명함수라고 한다. 이러한 기법을 이용해 전역변수가 하나도 존재하지않는 방식을 사용할 수도있다.
 
 ~~~javascript
 
-var xg = /a/;
-console.log("abcdea".match(xg)); // ["a"]
-var og = /a/g;
-console.log("abcdea".match(og)); // ["a","a"]
-
-~~~
-
-두가지 모두 사용도 가능하다.
-
-~~~javascript
-
-var og = /a/ig;
-console.log("AabcdAa".match(ig)); // ["A","a","A","a"]
-
-~~~
-
-
----
-
-
-## 5. 캡쳐
-<br>
-<br>
-그룹을 지정하고 지정된 그룹을 가져와 사용하는 기능, 또는 사용할 수 있는 개념을 캡쳐라고 부른다.
-
-~~~javascript
-
-var pattern = /(\w+)\s(\w+)/; // 문자열 공백 문자열
-var str = "coding everybody"; //coding$1 everybody$2
-var result = str.replace(pattern, "$2, $1"); //$2,(공백)$1로 치환.
-console.log(result);
-//everybody, coding
+(function(){
+    var MYAPP = {}
+    MYAPP.calculator = {
+        'left' : null,
+        'right' : null
+    }
+    MYAPP.coordinate = {
+        'left' : null,
+        'right' : null
+    }
+    MYAPP.calculator.left = 10;
+    MYAPP.calculator.right = 20;
+    function sum(){
+        return MYAPP.calculator.left + MYAPP.calculator.right;
+    }
+    document.write(sum());
+}())
 
 ~~~
 
 ---
 
 
-## 6. 치환
+## 4. 유효범위의 대상
 <br>
 <br>
-아래 코드는 본문 중의 URL을 링크 html 태그로 교체한다. \b는 단어를 식별한다. ?:로 https를 캡쳐로 지정하지 않고 뒤에 ?로 https, http가 모두 해당되게 했다. 뒤에 //는 escape를 사용해 문자화 시켰고 그뒤의 a-z는 a부터 z까지 0-9 는 0에서 9까지 그리고 그뒤에 주소에 들어갈만한 특수문자들 까지 해당되게 해줬다. 그리고 replace라는 메소드가 실행될때 urlPattern해당되는 텍스트를 찾을때마다 두번째인자로 전달된 함수가 replace라는 메소드 내부로 호출된다. 호출될때 javascript는 호출된 시점에서 검색된 문자열을 첫번째 인자(url)로 전달되게 약속되어있다. 그리고 그 텍스트를 가공을하고 리턴을 해주면 우리가 변경하고싶은 내용으로 변경되게 된다.
+Javascript는 함수에 대한 유효범위만을 제공한다. 다시말해 Javascript 에선 for문이나 if문에서 중괄호 안에서 선언된 변수는 지역변수로서의 의미를 갖지 않는다. 많은 언어들이 블록(대체로 {,})에 대한 유효범위를 제공하는 것과 다른 점이다. 아래 예제의 결과는 coding everybody이다.
 
 ~~~javascript
 
-var urlPattern = /\b(?:https?):\/\/[a-z0-9-+&@#\/%?=~_|!:,.;]*/gim;
-var content = '생활코딩 : http://opentutorials.org/course/1 입니다. 네이버 : http://naver.com 입니다. ';
-var result = content.replace(urlPattern, function(url){
-    return '<a href="'+url+'">'+url+'</a>';
-});
-console.log(result);
-//생활코딩 : <a href="http://opentutorials.org/course/1">http://opentutorials.org/course/1</a> 입니다. 네이버 : <a href="http://naver.com">http://naver.com</a> 입니다.
+for(var i = 0; i < 1; i++){
+    var name = 'coding everybody';
+}
+alert(name);
 
+~~~
+
+자바에서는 아래의 코드는 허용되지 않는다. name은 지역변수로 for 문 안에서 선언 되었는데 이를 for문 밖에서 호출하고 있기 때문이다.
+
+
+~~~javascript
+
+for(int i = 0; i < 10; i++){
+    String name = "egoing";
+}
+System.out.println(name);
+
+~~~
+
+---
+
+
+## 5. 정적 유효범위
+<br>
+<br>
+자바스크립트는 함수가 선언된 시점에서의 유효범위를 갖는다. 이러한 유효범위의 방식을 정적 유효범위(static scoping), 혹은 렉시컬(lexical scoping)이라고 한다. 이는 이후에 살펴볼 클로저와 연관되어 있다.
+<br>
+<br>
+전역변수 var i = 5가 정의되어 있고 a 함수는 var i = 10이라는 지역변수를 정의하고 있다. a라고 하는 함수를 호출했을 때 함수의 내부적으로 i의 값이 10이 된다. 그 상태에서 b를 호출하게 되면 i는 b 함수 안에 i라고 하는 지역변수가 존재하는지 찾게 된다. 없다면 전역변수를 찾게 되는데 b를 호출하고 있는 함수는 a이다.그렇다면 a 함수에 정의된 변수 a를 호출하게 될까? 아니다. 왜냐하면, 함수 b가 선언된 시점에서 i의 전역변수가 사용되는 것이지 b가 호출된 시점에서 b가 담겨있는 함수의 지역변수가 사용되는 것이 아니다. 즉, 사용될 때 가 아니고 정의 될 때의 전역변수가 사용되게 된다는 말이다. 이러한 것을 정적 유효범위 또는 렉시컬(lexical scoping)유효범위라고 한다.
+
+~~~javascript
+
+var i = 5; // 전역변수
+ 
+function a(){
+    var i = 10; // 지역변수
+    b();
+}
+ 
+function b(){
+    document.write(i);
+}
+ 
+a();
+ // 5
 ~~~
 
