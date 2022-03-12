@@ -4,7 +4,7 @@ current: post
 cover:  assets/built/images/javascript-logo.png
 navigation: True
 title: Javascript - JavaScript 함수지향 - 값으로서의 함수와 콜백
-date: 2022-03-12 22:20 +0900
+date: 2022-03-12 23:10 +0900
 tags: [javascript]
 class: post-template
 subclass: 'post tag-javascript'
@@ -42,7 +42,7 @@ a = {
 
 ~~~
 
-또한 함수는 값이기 때문에 다른 함수의 인자로 전달 될수도 있다. increase는 num이라는 매개변수에 +1을해 리턴, decrease는 -1알한 값을 리턴해준다. cal이라는 함수는 func, num이라는 매개변수를 갖고있고 func의 험수에 num이라는 값을 호출하고있다. alert(cal(increase, 1));을 하게되면 cal의 매개변수가 increase, 1이 인자가 된다. 즉, increase라는 함수에 1이라는 인자가 전달되기 때문에 2가된다.
+또한 함수는 값이기 때문에 다른 함수의 인자로 전달 될수도 있다. increase는 num이라는 매개변수에 +1을해 리턴, decrease는 -1알한 값을 리턴해준다. cal이라는 함수는 func, num이라는 매개변수를 갖고있고 func의 함수에 num이라는 값을 호출하고있다. alert(cal(increase, 1));을 하게되면 cal의 매개변수가 increase, 1이 인자가 된다. 즉, increase라는 함수에 1이라는 인자가 전달되기 때문에 2가된다.
 
 ~~~javascript
 
@@ -67,7 +67,7 @@ alert(cal(decrease, 1));
 ## 2. 값으로서의 함수와 콜백 - 함수의 용도2
 <br>
 <br>
-함수는 함수의 리턴 값으로도 사용할 수 있다. 아래 코드를 보자. cal라는 함수를 호출할때 첫번째 인자로 'plus' 라는값을 주면 객체를 담고있는 함수에 'plus'라는 인자가 들어가게 되고 function cal('plus'), return funcs('plus')가 된다. alert(cal('plus') (2, 1))에서 (cal('plus')는 function(left, right){return left + right} 이부분이 되고, alert(cal('plus') (2, 1)) 에서 (2, 1)은 함수를 호출하겠다는 말이고 인자로 2, 1을 전달하겠다는 것이다. 결과는 3이된다.\
+함수는 함수의 리턴 값으로도 사용할 수 있다. 아래 코드를 보자. cal라는 함수를 호출할때 첫번째 인자로 'plus' 라는값을 주면 객체를 담고있는 함수에 'plus'라는 인자가 들어가게 되고 function cal('plus'), return funcs('plus')가 된다. alert(cal('plus') (2, 1))에서 (cal('plus')는 function(left, right){return left + right} 이부분이 되고, alert(cal('plus') (2, 1)) 에서 (2, 1)은 함수를 호출하겠다는 말이고 인자로 2, 1을 전달하겠다는 것이다. 결과는 3이된다.
 
 ~~~javascript
 
@@ -163,6 +163,7 @@ alert(input);
 ~~~
 
 위의 코드를 단순하게 하면 아래처럼 된다. 아래의 함수에서 sortfunc가 콜백함수가 되고 콜백 함수 라는것은 
+콜백함수를 수신받는 sort메소드가 sortfunc를 인자로 전달받아 내부적으로 호출하는 것을 통해서 sort함수가 동작하는 기본적인 동작방법을 변경할수 있게 된다. 즉, 값으로서 함수를 사용할수 있기때문에 함수의 동작방법을 값을 전달하는 것을 통해 바꿀수 있는게 콜백 이다. 그리고 콜백이 가능한 것은 Javascript의 함수가 값이기 때문에 가능한 것이다.
 
 ~~~html
 
@@ -190,26 +191,34 @@ alert(input);
 ## 4. 비동기 콜백과  Ajax
 <br>
 <br>
-Javascript는 함수에 대한 유효범위만을 제공한다. 다시말해 Javascript 에선 for문이나 if문에서 중괄호 안에서 선언된 변수는 지역변수로서의 의미를 갖지 않는다. 많은 언어들이 블록(대체로 {,})에 대한 유효범위를 제공하는 것과 다른 점이다. 아래 예제의 결과는 coding everybody이다.
+예를 들어 우리가 홈페이지를 운영하는데 만명정도의 구독자가 있다고 치자. 우리가 글을쓰면 만명에게 메일이 전송되게 되어있다. 한명에게 메일을 보내는데 1초가 걸리면 만명에게 보내는데에는 만초가 걸리게 된다. 글을 작성하고 이메일을 전송후 작성완료까지 3시간을 기다려야 한다면 이런 서비스를 사용하기는 힘들것이다.이렇게 순서대로 실행하는 것을 동기적 처리라고한다. 그런데 우리가 글작성을하고 이메일을 발송하지 않고 발송 예약후 작성완료를 하게 되면 시간이 훨씬 줄어들게 된다. 그리고 내부적으로 사용자에게 노출되지 않는 프로그램이 작동하면서 이메일 발송예약이 들어와 있는지 아닌지를 확인해 들어와있다면 프로그램이 만명에게 이메일 발송하는 작업을 3시간동안 백그라운드에서 진행하면 될것이다. 이렇게 처리하는 방식을 비동기적인 처리라고한다. 우리는 이 비동기적 처리를 Ajax(Asynchronous javascript and xml) 로 사용할 수 있다.
+<br>
+
+우리가 아래와 같은 객체를 만든 파일을 만들었다고 가정하고 예제를 보자.
 
 ~~~javascript
 
-for(var i = 0; i < 1; i++){
-    var name = 'coding everybody';
-}
-alert(name);
+{"title":"JavaScript","author":"egoing"}
 
 ~~~
 
-자바에서는 아래의 코드는 허용되지 않는다. name은 지역변수로 for 문 안에서 선언 되었는데 이를 for문 밖에서 호출하고 있기 때문이다.
-
+생활코딩의 동영상을 보고 이해하는것이 좋겠다...(아직 이해못함.)
 
 ~~~javascript
 
-for(int i = 0; i < 10; i++){
-    String name = "egoing";
-}
-System.out.println(name);
+<!DOCTYPE html>
+<html>
+<head>
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+</head>
+<body>
+<script type="text/javascript">
+    $.get('./datasource.json.js', function(result){ //$는 jquery가 제공하는 특수한 객체이다. 여기에 get이라는 메소드를 사용해 json타입 파일을 호출하는 것이다.
+        console.log(result);
+    }, 'json');
+</script>
+</body>
+</html>
 
 ~~~
 
