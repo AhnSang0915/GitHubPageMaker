@@ -19,7 +19,7 @@ author: AhnSang0915
 arguments객체는 배열과 유사하다. arguments는 함수안에서 사용할 수 있도록 그 이름이나 특성이 약속되어 있는 일종의 배열이다. 몇개의 인자가 들어올지 모를떄 인자를 정의하지 않고 그함수 안에 arguments를 사용하여 결과를 알아내면 되겠다.
 <br>
 <br>
-아래의 예제는 매개변수가 없는 sum이라는 함수가 있다. javacsript는 관대한 언어이다. 매개변수가 없거나, 인자의 수와 매개변수의 수가 다르더라도 문제가 생기지 않는다.아래 for문에서의 arguments는 Javascript와 약속되어있는 특수한 이름의 변수명이다. arguments라는 배열이 담겨져 있다. 이 배열의 역할을 사용자가 전달한 인자(1,2,3,4)를 담는것이다. 그래서arguments.length는 4가되고 4만큼 for문이 반복되게된다.<br>document.write(i+' : '+arguments[i]+'\<br \/>');는 0 : 1(인덱스0) 부터 차례로 표시하게되고, 그후 _sum의 변수에 +=(a+=1;는a=a+1;과 같다) arguments[i];를 담았다. 이말은 (1,2,3,4)의 값을 
+아래의 예제는 매개변수가 없는 sum이라는 함수가 있다. javacsript는 관대한 언어이다. 매개변수가 없거나, 인자의 수와 매개변수의 수가 다르더라도 문제가 생기지 않는다.아래 for문에서의 arguments는 Javascript와 약속되어있는 특수한 이름의 변수명이다. arguments라는 배열이 담겨져 있다. 이 배열의 역할을 사용자가 전달한 인자(1,2,3,4)를 담는것이다. 그래서arguments.length는 4가되고 4만큼 for문이 반복되게된다.<br>document.write(i+' : '+arguments[i]+'<\br />');는 0 : 1(인덱스0) 부터 차례로 표시하게되고, 그후 _sum의 변수에 +=(a+=1;는a=a+1;과 같다) arguments[i];를 담았다. 이말은 (1,2,3,4)의 값을 
 _sum = _sum + arguments[i]이다. 즉, sum_에 1234를 차례로 더한다는 것이다. _sum의 초기값은 0이기 때문에 10이된다. 
 
 ~~~javascript
