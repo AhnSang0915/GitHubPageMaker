@@ -4,7 +4,7 @@ current: post
 cover:  assets/built/images/javascript-logo.png
 navigation: True
 title: Javascript - JavaScript 함수지향 - arguments
-date: 2022-03-13 22:10 +0900
+date: 2022-03-13 21:50 +0900
 tags: [javascript]
 class: post-template
 subclass: 'post tag-javascript'
