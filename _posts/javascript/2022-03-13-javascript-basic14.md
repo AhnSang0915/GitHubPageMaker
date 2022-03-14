@@ -11,7 +11,7 @@ subclass: 'post tag-javascript'
 author: AhnSang0915
 ---
 
-# JavaScript 함수지향 - 함수지향 - 클로저
+# JavaScript 함수지향 - 클로저
 
 <br>
 <br>
