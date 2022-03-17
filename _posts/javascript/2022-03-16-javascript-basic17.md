@@ -4,7 +4,7 @@ current: post
 cover:  assets/built/images/javascript-logo.png
 navigation: True
 title: Javascript - JavaScript 객체지향 - 객체지향 프로그래밍 소개
-date: 2022-03-15 17:17 +0900
+date: 2022-03-16 17:17 +0900
 tags: [javascript]
 class: post-template
 subclass: 'post tag-javascript'
