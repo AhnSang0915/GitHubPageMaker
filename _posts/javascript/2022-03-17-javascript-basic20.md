@@ -13,6 +13,11 @@ author: AhnSang0915
 
 # JavaScript 객체지향 - this
 
+<br>
+<br>
+
+---
+
 ## 1. 함수와 this
 <br>
 <br>

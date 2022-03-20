@@ -15,7 +15,8 @@ author: AhnSang0915
 
 <br>
 <br>
-<br>
+
+---
 
 ## 1. 함수란?
 <br>

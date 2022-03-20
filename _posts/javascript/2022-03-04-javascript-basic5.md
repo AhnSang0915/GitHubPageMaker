@@ -15,7 +15,8 @@ author: AhnSang0915
 
 <br>
 <br>
-<br>
+
+---
 
 ## 1. 반복문 기본문법-while
 <br>

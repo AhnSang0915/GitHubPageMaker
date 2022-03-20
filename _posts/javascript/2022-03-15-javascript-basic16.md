@@ -13,6 +13,11 @@ author: AhnSang0915
 
 # JavaScript 함수지향 - 함수의 호출
 
+<br>
+<br>
+
+---
+
 ## 1. apply 소개
 <br>
 <br>

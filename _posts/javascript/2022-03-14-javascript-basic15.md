@@ -13,6 +13,11 @@ author: AhnSang0915
 
 # JavaScript 함수지향 - arguments
 
+<br>
+<br>
+
+---
+
 ## 1. arguments 소개
 <br>
 <br>

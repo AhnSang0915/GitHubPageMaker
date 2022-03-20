@@ -15,7 +15,8 @@ author: AhnSang0915
 
 <br>
 <br>
-<br>
+
+---
 
 ## 1. 배열의 문법
 <br>

@@ -13,6 +13,11 @@ author: AhnSang0915
 
 # JavaScript 객체지향 - 상속
 
+<br>
+<br>
+
+---
+
 ## 1. 상속(inheritance)이란?
 <br>
 <br>

@@ -15,7 +15,8 @@ author: AhnSang0915
 
 <br>
 <br>
-<br>
+
+---
 
 ## 1. 객체의 소개와 문법
 <br>

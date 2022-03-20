@@ -13,6 +13,11 @@ author: AhnSang0915
 
 # JavaScript 객체지향 - 생성자와 new
 
+<br>
+<br>
+
+---
+
 ## 1.자바스트립트의 객체지향
 <br>
 <br>

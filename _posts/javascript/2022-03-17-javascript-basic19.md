@@ -13,6 +13,11 @@ author: AhnSang0915
 
 # JavaScript 객체지향 - 전역객체
 
+<br>
+<br>
+
+---
+
 ## 1. 전역객체란?
 <br>
 <br>

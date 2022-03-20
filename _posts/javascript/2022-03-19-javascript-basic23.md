@@ -13,6 +13,11 @@ author: AhnSang0915
 
 # JavaScript 객체지향-Object
 
+<br>
+<br>
+
+---
+
 ## 1. Object란?
 <br>
 <br>

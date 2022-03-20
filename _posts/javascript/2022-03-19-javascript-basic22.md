@@ -13,6 +13,11 @@ author: AhnSang0915
 
 # JavaScript 객체지향-표준 내장객체의 확장
 
+<br>
+<br>
+
+---
+
 ## 1. 표준 내장 객체란?
 <br>
 <br>

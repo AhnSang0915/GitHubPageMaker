@@ -13,6 +13,11 @@ author: AhnSang0915
 
 # JavaScript 객체지향-테이터 타입
 
+<br>
+<br>
+
+---
+
 ## 1. 원시 데이터 타입과 객체
 <br>
 <br>
