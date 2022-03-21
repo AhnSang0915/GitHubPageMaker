@@ -10,6 +10,7 @@ class: post-template
 subclass: 'post tag-javascript'
 author: AhnSang0915
 ---
+{% include javascript-table-of-contents.html %}
 
 # JavaScript 숫자와 문자
 

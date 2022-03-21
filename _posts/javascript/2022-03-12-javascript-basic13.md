@@ -10,6 +10,8 @@ class: post-template
 subclass: 'post tag-javascript'
 author: AhnSang0915
 ---
+{% include javascript-table-of-contents.html %}
+
 
 # JavaScript 함수지향 - 값으로서의 함수와 콜백
 

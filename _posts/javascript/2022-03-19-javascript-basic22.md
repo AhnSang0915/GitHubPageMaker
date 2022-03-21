@@ -10,6 +10,8 @@ class: post-template
 subclass: 'post tag-javascript'
 author: AhnSang0915
 ---
+{% include javascript-table-of-contents.html %}
+
 
 # JavaScript 객체지향-표준 내장객체의 확장
 
