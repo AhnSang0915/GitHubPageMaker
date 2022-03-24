@@ -92,4 +92,3 @@ if a == 10:
 
 ~~~
 
-![코드블록(코딩도장)](https://dojang.io/pluginfile.php/13388/mod_page/content/3/004002.png)
