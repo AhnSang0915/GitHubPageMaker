@@ -4,7 +4,7 @@ current: post
 cover:  assets/built/images/python-logo.png
 navigation: True
 title: Python - Python 변수 만들기
-date: 2022-03-23 10:20 +0900
+date: 2022-03-24 10:20 +0900
 tags: [python]
 class: post-template
 subclass: 'post tag-python'
@@ -334,7 +334,7 @@ type(a)
 ### 입력 값을 정수로 변환하기
 <br>
 <br>
-10 + 20의 결과가 30이 나오게 하려면 input에서 입력받은 문자열을 숫자(정수)로 들어주어야 한다.
+10 + 20의 결과가 30이 나오게 하려면 input에서 입력받은 문자열을 숫자(정수)로 들어주어야 한다. int로 문자열'10'을 정수 10으로 바꿔준다. 만약 실수를 더하려면 int대신 float를 사용한다.
 
 ~~~python
 
@@ -342,5 +342,88 @@ a = int(input('첫 번째 숫자를 입력하세요: '))    # int를 사용하�
 b = int(input('두 번째 숫자를 입력하세요: '))    # int를 사용하여 입력 값을 정수로 변환
  
 print(a + b)
+
+~~~
+
+---
+
+## 4. 입력 값을 변수 두 개에 저장하기
+<br>
+<br>
+input 한번에 값을 여러 개 입력받는 방법을 알아보자. input에서 split을 사용하여 변수 여러 개에 저장해주면 된다. 공백으로 변수 a와 b의 값을 구분짓는다.
+
+~~~python
+
+a, b = input('문자열 두 개를 입력하세요: ').split()
+문자열 두 개를 입력하세요: an sang
+print(a)
+an
+print(b)
+sang
+
+~~~
+
+### 두 숫자의 합 구하기
+<br>
+<br>
+두 숫자의 합을 구해보는 예제이다. 전 항목에서와 마찬가지로 input으로 입력받은 값은 문자열 이기 때문에 합의 값이 1020이 나온다.
+
+~~~python
+
+a, b = input('숫자 두개를 입력하세요: ').split()
+숫자 두개를 입력하세요: 10 20
+print(a + b)
+1020
+
+~~~
+
+### 입력 값을 정수로 변환하기
+<br>
+<br>
+a = int(a)와 같이 int에 변수를 넣은 뒤 다시 변수에 저장해주면 변수가 정수 자료형으로 변환된다.
+
+~~~python
+
+a = int(a)
+b = int(b)
+print(a + b)
+30
+
+~~~
+print안에서 int로 바꾸어 정수값을 얻는 방법도 있다.
+
+~~~python
+
+print(int(a) + int(b))
+# 30
+
+~~~
+
+### map을 사용하여 정수로 변환하기
+<br>
+<br>
+ map에 int와 input().split()을 넣으면 int로 변환하지 않아도 split의 결과를 모두 int로 변환해준다(실수로 변환할 때는 int 대신 float를 넣는다.).
+
+ ~~~python
+
+a, b = map(int, input('숫자 두 개를 입력하세요: ').split())
+숫자 두 개를 입력하세요: 10 20
+print(a + b)
+30
+
+ ~~~
+
+ ### 입력받는 값을 콤마를 기준으로 분리하기
+<br>
+<br>
+split에 기준 문자열을 지정하여 공백이 아닌 다른 문자로 값을 분리해 보자.
+
+~~~python
+
+a, b = map(int, input('숫자 두 개를 입력하세요: ').split(','))
+숫자 두 개를 입력하세요: 10,20
+print(a + b)
+30
+
 
 ~~~
