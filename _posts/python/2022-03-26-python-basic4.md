@@ -3,7 +3,7 @@ layout: post
 current: post
 cover:  assets/built/images/python-logo.png
 navigation: True
-title: Python - Python 출력 방법 알아보기
+title: Python - Python 출력 방법
 date: 2022-03-26 10:20 +0900
 tags: [python]
 class: post-template
