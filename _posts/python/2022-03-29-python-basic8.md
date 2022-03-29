@@ -330,17 +330,77 @@ Traceback (most recent call last):
   File "<pyshell#1>", line 1, in <module>
     a[5]
 IndexError: list index out of range 
+
 ~~~
 
 
 ### 마지막 요소에 접근하기
 <br>
 <br>
+시퀀스 객체의 인덱스를 -1로 지정하게되면 뒤에서 첫번째 요소에 접근한다. 시퀀스 객체의 마지막 요소에 접근하는 다른 방법을 알아보자.
+<br>
+아래와 같이 len함수를 사용해 길이를 구하고 그 값을 그대로 넣으면 에러가 발생한다. 인덱스 값은 요소의 전체 숫자보다 하나가 작기 때문이다. 
+
+~~~python
+
+a = [38, 21, 53, 62, 19]
+a[len(a)]
+Traceback (most recent call last):
+  File "<pyshell#3>", line 1, in <module>
+    a[len(a)]
+IndexError: list index out of range 
+
+~~~
+
+요소의 길이를 구하고 -1을 해주게끔 코드를 바꿔보자.
+
+~~~python
+
+a = [38, 21, 53, 62, 19]
+a[len(a)-1]
+# 19
+
+~~~
 
 ### 요소에 값 할당하기
 <br>
 <br>
+시퀀스 객체중 리스트만이 요소를 수정, 변경, 삭제할 수 있다. 튜플, range, 문자열은 값 할당이 불가능하다. 시퀀스 객체는 []로 요소에 접근한뒤 = 로 값을 할당한다. 이때도 볌위를 벗어난 인덱스는 지정할 수 없다.
+
+~~~python
+
+a = [0, 0, 0, 0, 0]    # 0이 5개 들어있는 리스트
+a[0] = 38
+a[1] = 21
+a[2] = 53
+a[3] = 62
+a[4] = 19
+a
+[38, 21, 53, 62, 19]
+a[0]
+38
+a[4]
+19
+
+# 인덱스 범위를 벗어나 지정할 경우
+a[5] = 90
+Traceback (most recent call last):
+  File "<pyshell#4>", line 1, in <module>
+    a[5] = 90
+IndexError: list assignment index out of range 
+
+~~~
 
 ### del로 요소 삭제하기
 <br>
 <br>
+마찬가지로 리스트만 삭제가 가능하고 튜플, range, 문자열은 불가능하다. 삭제 방법은 del 시퀀스객체[index]로 삭제할 수 있다.
+
+~~~python
+
+a = [38, 21, 53, 62, 19]
+del a[2]
+a
+[38, 21, 62, 19]
+
+~~~
