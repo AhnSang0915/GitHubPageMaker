@@ -3,7 +3,7 @@ layout: post
 current: post
 cover:  assets/built/images/python-logo.png
 navigation: True
-title: Python - Python  for 반복문
+title: Python - Python for 반복문
 date: 2022-04-02 22:20 +0900
 tags: [python]
 class: post-template
