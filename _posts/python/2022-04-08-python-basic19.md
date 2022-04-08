@@ -3,7 +3,7 @@ layout: post
 current: post
 cover:  assets/built/images/python-logo.png
 navigation: True
-title: Python - Python 리스트와 튜플 응용하기
+title: Python - Python 리스트와 튜플 응용하기 - 1
 date: 2022-04-08 12:35 +0900
 tags: [python]
 class: post-template
@@ -607,3 +607,5 @@ while i < len(a):
     i += 1
 
 ~~~
+
+
