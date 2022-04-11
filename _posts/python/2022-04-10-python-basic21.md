@@ -420,3 +420,89 @@ a
 b
 [[500, 20], [30, 40]]
 ~~~
+
+### 23.7 심사문제: 지뢰찾기
+표준 입력으로 2차원 리스트의 가로(col)와 세로(row)가 입력되고 그 다음 줄부터 리스트의 요소로 들어갈 문자가 입력됩니다. 이때 2차원 리스트 안에서 *는 지뢰이고 .은 지뢰가 아닙니다. 지뢰가 아닌 요소에는 인접한 지뢰의 개수를 출력하는 프로그램을 만드세요(input에서 안내 문자열은 출력하지 않아야 합니다).
+
+여러 줄을 입력 받으려면 다음과 같이 for 반복문에서 input을 호출한 뒤 append로 각 줄을 추가하면 됩니다(list 안에 문자열을 넣으면 문자열이 문자 리스트로 변환됩니다).
+
+~~~python
+
+matrix = []
+for i in range(row):
+    matrix.append(list(input()))
+
+~~~
+
+입력
+
+~~~python
+
+3 3
+.**
+*..
+.*.
+
+~~~
+
+출력
+
+~~~python
+
+2**
+*43
+2*1
+
+~~~
+
+입력
+
+~~~python
+
+5 5
+..*..
+...*.
+.*...
+.***.
+*.*..
+
+~~~
+
+출력
+
+~~~python
+
+01*21
+123*1
+2*532
+3***1
+*4*31
+
+~~~
+
+~~~python
+
+col, row = map(int, input().split())
+
+matrix = []
+    
+for i in range(row):
+    matrix.append(list(input()))  # 입력한 값을 리스트로 만들어준다.
+
+for i in range(col): # 0 ~ 2
+    for j in range(row): # 0 ~ 2
+        if matrix[i][j]=='*': #2차원 리스트의 각 인덱스 값을 *와 비교.
+            print('*',end='') #*와 비교해 같으면 *을 출력.
+            
+        else:
+            count=0 # 초기값
+            for k in range(i-1,i+2): # 위for문의 i 값을 가져와 대입
+                for l in range(j-1,j+2): #  위for문의 j 값을 가져와 대입
+                    if k<0 or k>=col or l<0 or l>=row: # 지뢰 찾기 주변 8칸중 첫칸, 끝칸의 주변 값을 확일할때 인덱스 범위를 넘어가면 continue로 다시 반복하게 함.
+                        continue
+                    elif matrix[k][l]=='*':
+                        count+=1 # 값이 * 과일치하면 count의 값을 1씩 더해준다.
+            print(count,end='')
+    print()
+
+~~~
