@@ -163,10 +163,10 @@ set('안녕하세요')
 
 ~~~python
 
-a = {{1, 2}, {3, 4}}
+a = {% raw %}{{1, 2}, {3, 4}}{% endraw %} 
 Traceback (most recent call last):
   File "<pyshell#3>", line 1, in <module>
-    a = {{1, 2}, {3, 4}}
+    a = {% raw %}{{1, 2}, {3, 4}}{% endraw %} 
 TypeError: unhashable type: 'set'
 
 ~~~
