@@ -226,6 +226,54 @@ print(fib(n))
 
 ~~~python
 
+def fib(n):
+    if n <= 1:
+        return n
+    return fib(n-1)+fib(n-2)
+
+#또는 
+
+def fib(n):
+    if n < 3: # 피보나치 수열의 2번쨰 까지 값이 1이다. 첫번째 값은 0이지만 덧셈에 영향을 주지 않아 값은 그대로 나오는것.
+        return 1
+    return fib(n-1)+fib(n-2)
+
+#재귀함수를 사용하지 않은 코드
+
+# 0 1 1 2 3 5 8 13 21 34 55 89
+# fib(1) = [1], fib(2) = [1, 1] fib(3) = [1, 1, 2]
+def fib(num):
+    result = []    
+    first = 1
+    second = 1
+    if(num > 1):
+        result.append(first)
+        
+    result.append(second)    
+    for i in range(2, num):
+        third = first + second
+        result.append(third)
+        first = second
+        second = third   
+    return result.pop()
+    
+print(fib(num))
+
+
 
 
 ~~~
+
+피보나치 수열을 재귀함수로 해결하려면 결과와 정의를 잘 봐야한다. 재귀함수를 풀때는 역순으로 생각하는게 편하며 지문에서 말했듯이 '바로앞의 두 피보나치 수의 합이 다음 번 피보나치 수가 된다.'를 코드로 작성하면 fib(n) = fib(n-1)+fib(n-2) 이라는 것이다. 이 예제는 트리 형태를 띄고 있으며 10을 호출했을 경우를 풀어서 작성해보자. 각 함수 fib(n) 안에 다시 fib함수가 들어있는 형태이다.
+
+- fib(10) = fib(9) + fib(8) 34+21 = 55
+- fib(9) = fib(8) + fib(7) 21+13 = 34
+- fib(8) = fib(7) + fib(6) 13+8 = 21
+- fib(7) = fib(6) + fib(5) 8+5 = 13
+- fib(6) = fib(5) + fib(4) 5+3 = 8
+- fib(5) = fib(4) + fib(3) 3+2 = 5
+- fib(4) = fib(3) + fib(2) 2+1 = 3
+- fib(3) = fib(2) + fib(1) 1+1 = 2
+- fib(2) = fib(1) + fib(0) 1+0 = 1
+- fib(1) = 1
+
