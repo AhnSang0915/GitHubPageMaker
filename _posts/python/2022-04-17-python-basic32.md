@@ -589,23 +589,21 @@ james.__greeting()    # 에러: 클래스 바깥에서는 비공개 메서드를
 ### 예제1
 <br>
 <br>
-다음 소스 코드를 완성하여 함수 c를 호출할 때마다 호출 횟수가 출력되게 만드세요. 여기서는 함수를 클로저로 만들어야 합니다.
+다음 소스 코드에서 클래스를 작성하여 게임 캐릭터의 능력치와 '베기'가 출력되게 만드세요.
 
 ~~~python
 
-def counter():
-    i = 0
-    def count():
-                       
-        
-                       
+ ______________                                           
+...
+ ______________                                          
  
-c = counter()
-for i in range(10):
-    print(c(), end=' ')
+x = Knight(health=542.4, mana=210.3, armor=38)
+print(x.health, x.mana, x.armor)
+x.slash()
 
-# 결과
-1 2 3 4 5 6 7 8 9 10 
+#결과
+542.4 210.3 38
+베기
 
 ~~~
 
@@ -614,25 +612,28 @@ for i in range(10):
 
 ~~~python
 
-        nonlocal i
-        i += 1
-        return i
-    return count
+class Knight:
+    def __init__(self, health, mana, armor):
+        self.health = health
+        self.mana = mana
+        self.armor = armor
+ 
+    def slash(self):
+        print('베기')
 
 ~~~
 
-함수 counter를 호출해서 반환값을 c에 저장한 뒤에 c를 호출하고 있다. 그리고 c를 호출할 때마다 값이 계속 유지되게 하려면 함수를 클로저로 만들어야 한다.
-함수 counter에서는 지역 변수 i에 0이 할당되어 있고, 함수 count가 만들어져 있다. 따라서 count에서 i에 1을 더한 값을 저장한 뒤 i를 반환한다. 이때 nonlocal을 사용하여 함수 바깥쪽의 지역 변수 i를 변경할 수 있도록 만들어야 한다.
-마지막으로 함수 counter에서 함수 count를 반환하면 된다(함수를 반환할 때는 함수 이름만 반환해야 하며 ( )(괄호)를 붙이면 안 된다).
+x = Knight(health=542.4, mana=210.3, armor=38)와 같이 클래스에 값을 넣어서 인스턴스를 생성하고, print(x.health, x.mana, x.armor)와 같이 인스턴스 속성을 출력하고 있다. 따라서 class로 Knight 클래스를 만들고 \__init__ 메서드에 매개변수로 self, health, mana, armor를 지정한다. 이때 반드시 첫 번째 매개변수는 self어야 한다. 함수 안에서는 self.health = health처럼 모든 매개변수를 그대로 속성으로 만들어준다.
+
+그다음에 x.slash()와 같이 인스턴스로 메서드를 호출하고 있으므로 Knight 클래스 안에 slash 메서드를 만들고 print로 '베기'를 출력하도록 만들면 되겠다.
 
 ### 예제2
 <br>
 <br>
-표준 입력으로 정수가 입력됩니다. 다음 소스 코드를 완성하여 함수 c를 호출할 때마다 숫자가 1씩 줄어들게 만드세요. 여기서는 함수를 클로저로 만들어야 합니다. 정답에 코드를 작성할 때는 def countdown(n):에 맞춰서 들여쓰기를 해주세요.
+표준 입력으로 게임 캐릭터 능력치(체력, 마나, AP)가 입력됩니다. 다음 소스 코드에서 애니(Annie) 클래스를 작성하여 티버(tibbers) 스킬의 피해량이 출력되게 만드세요. 티버의 피해량은 AP * 0.65 + 400이며 AP(Ability Power, 주문력)는 마법 능력치를 뜻합니다.
 
 ~~~python
 
-def countdown(n):
 ________________
 ________________
 ________________
@@ -640,37 +641,50 @@ ________________
 ________________
 ________________
 
-n = int(input())
+health, mana, ability_power = map(float, input().split())
  
-c = countdown(n)
-for i in range(n):
-    print(c(), end=' ')
+x = Annie(health=health, mana=mana, ability_power=ability_power)
+x.tibbers()
 
 #입력
-10
+511.68 334.0 298
 
 #결과
-10 9 8 7 6 5 4 3 2 1 
+티버: 피해량 593.7
 
 #입력
-20
+1803.68 1184.0 645
 
 #결과
-20 19 18 17 16 15 14 13 12 11 10 9 8 7 6 5 4 3 2 1 
+티버: 피해량 819.25
 
 ~~~
 
-답
+내가 쓴 답
 
 ~~~python
 
-    i = n +1
-    def count():
-        nonlocal i
-        i -= 1
-        return i
-    return count
+class Annie:
+    def __init__(self,**kwargs):
+        self.health = kwargs['health']
+        self.mana = kwargs['mana']
+        self.ability_power = kwargs['ability_power']
+    def tibbers(self):
+        print("티버: 피해량", (self.ability_power * 0.65 + 400))
 
 ~~~
 
-반환 값을 c에 저장하고 c를 호출한다.  먼저 함수 countdown에 지역변수를 만들고 매개변수 n에 1을 더해서 할당한다. 여기선느 입력값이 10이면 10부터 숫자가 1씩 줄어들고 있으므로 처음 시작할 값은 11로 만든다(n = 10일때 for i in ragne(11)이어야 10부터 출력). 그리고 count 함수로 지역 변수 i를 변경하기 위해 nonlacal을 사용하고 i를 호출될때마다 1씩 감소하게 한다. i를 반환하게 만든 후 count함수를 다시 리턴하게 만든다.
+코딩도장 풀이
+
+~~~python
+
+class Annie:
+    def __init__(self, health, mana, ability_power):
+        self.health = health
+        self.mana = mana
+        self.ability_power = ability_power
+    def tibbers(self):
+        print("티버: 피해량 {0} ".format(self.ability_power * 0.65 + 400))
+
+~~~
+
