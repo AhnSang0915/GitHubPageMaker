@@ -623,22 +623,15 @@ print(x)
 
 ~~~python
 
-class AdvancedList(list):
-    def replace(self, old, new):
-        while old in self:
-            self[self.index(old)] = new
+class AdvancedList(list): 
+    def replace(self, old, new): 
+        while old in self: # self = x리스트 , 리스트에 old에 지정한 숫자가 있는동안 반복
+            self[self.index(old)] = new 
+#리스트 a라고 가정하면 a[a.index(1)] []대괄호 안에 1의 인덱스위치를 넣어주고 리스트a의 
+#요소를 new로 바꾸어 준다.
 
 ~~~
 
-list를 상속받아서 AdvancedList를 만들라고 했으므로 클래스는 class AdvancedList(list):와 같이 만듭니다.
-
-replace 메서드는 리스트에서 특정 값으로 된 요소를 찾아서 다른 값으로 바꾼다고 했습니다. 먼저 클래스의 메서드 안에서 현재 객체를 조작하려면 self를 이용해야 합니다. 여기서는 AdvancedList가 list를 상속받았으므로 self로 리스트의 모든 메서드를 사용할 수 있습니다.
-
-특정 값을 찾을 때는 리스트의 index 메서드를 사용하고, index로 찾은 인덱스를 self에 지정해준 뒤 새 값을 할당하면 값을 바꿀 수 있습니다. 이때 리스트에서 같은 값이 여러 개 들어있을 수도 있으므로 모든 값을 바꿔주어야 합니다.
-
-즉, while로 반복하면서 self에 특정 요소가 있을 때 계속 반복하도록 만든 뒤 요소를 바꿔주면 됩니다. 물론 리스트에서 특정 요소가 있는지 확인할 때는 in 연산자를 사용합니다. 이 방식을 사용하면 리스트에서 요소를 계속 바꾸다가 바꿀 값이 없으면 반복을 끝냅니다.
-
-while self.count(찾을값) != 0:처럼 count 메서드를 사용해서 요소 개수가 0이 아닐 때 계속 반복하는 방식도 가능합니다.
 
 ### 예제2
 <br>
