@@ -76,13 +76,13 @@ dir(g)
 
 ~~~python
 
->>> g.__next__()
+g.__next__()
 0
->>> g.__next__()
+g.__next__()
 1
->>> g.__next__()
+g.__next__()
 2
->>> g.__next__()
+g.__next__()
 Traceback (most recent call last):
   File "<pyshell#29>", line 1, in <module>
     g.__next__()
