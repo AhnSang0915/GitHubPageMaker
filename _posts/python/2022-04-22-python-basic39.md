@@ -547,7 +547,7 @@ def find(word):
 ### 예제2
 <br>
 <br>
-표준 입력으로 정수 두 개가 입력됩니다(첫 번째 입력 값의 범위는 10~1000, 두 번째 입력 값의 범위는 100~1000이며 첫 번째 입력 값은 두 번째 입력 값보다 항상 작습니다). 다음 소스 코드에서 첫 번째 정수부터 두 번째 정수 사이의 소수(prime number)를 생성하는 제너레이터를 만드세요. 소수는 1과 자기자신만으로 나누어 떨어지는 1보다 큰 양의 정수입니다.
+표준 입력으로 사칙연산 계산식이 여러 개 입력됩니다. 다음 소스 코드에서 각 계산식의 결과를 구하는 코루틴을 만드세요. 계산식은 문자열 형태이며 값과 연산자는 공백으로 구분됩니다. 그리고 값은 정수로 변환하여 사용하고, 나눗셈은 / 연산자를 사용하세요.
 
 ~~~python
 
@@ -568,23 +568,27 @@ ________________
 ________________
 ________________
 
-start, stop = map(int, input().split())
+expressions = input().split(', ')
  
-g = prime_number_generator(start, stop)
-print(type(g))
-for i in g:
-    print(i, end=' ')
+c = calc()
+next(c)
+ 
+for e in expressions:
+    print(c.send(e))
+ 
+c.close()
 
-#입력
-50 100
-#결과
-<class 'generator'>
-53 59 61 67 71 73 79 83 89 97 
-#입력
-950 1000
-#결과
-<class 'generator'>
-953 967 971 977 983 991 997 
+# 입력
+1 + 2, 4 - 9
+# 결과
+3
+-5
+# 입력
+3 * 4, 10 / 5, 20 + 39
+# 결과
+12
+2.0
+59
 
 ~~~
 
@@ -592,21 +596,21 @@ for i in g:
 
 ~~~python
 
-def isPrime(number): # 아래 prime_number_generator함수에서 i의 값이 매개변수로 들어간다.
-    if number == 1:
-        return False #소수는 1보다 큰 자연수 중 1과 자기자신만을 약수로 가지는 수이다. 
-                     #1은 1보다 크지 않기 때문에 소수가 아니다.
-    for i in range(2, number): # 2부터 전달된 number의 값까지 i에 전달하고 
-        if number % i == 0: # 전달된 number를 number전의 수까지로 나누어 0이 되면 소수가 아니다.
-            return False
-    return True
-
-def prime_number_generator(start, stop):
-    for i in range(start, stop+1):
-        if isPrime(i):
-            yield i
+def calc():
+    result = 0
+    while True:
+        x = (yield result)
+        a, y, b = x.split()
+        if y == '+':
+            result = int(a) + int(b)
+        elif y == '-':
+            result = int(a) - int(b)
+        elif y == '/':
+            result = int(a) / int(b)
+        elif y == '*':
+            result = int(a) * int(b)
 
 ~~~
 
-
+코루틴으로 무한루프를 만들고 (yield 변수) 형식으로 바깥으로 값을 전달한다. 전달한 값은 next(c)함수와 send메서드의 반환값으로 들어가게 된다. expressions에 입력 받은 값을 split 함수로 각 문자열로 쪼개면 expressions[0].split()->['1', '+', '2'] 이런 형태가 되는데 a, y, b = x.split()로 각 요소를 a, y, b변수에 할당해 준다. 그리고 if와 elif 조건문으로 y의 값이 특정 값일때의 조건을 넣어주면 된다.
 
