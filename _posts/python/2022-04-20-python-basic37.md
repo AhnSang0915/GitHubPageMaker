@@ -4,7 +4,7 @@ current: post
 cover:  assets/built/images/python-logo.png
 navigation: True
 title: Python - Python 이터레이터 사용하기
-date: 2022-04-19 18:00 +0900
+date: 2022-04-20 18:00 +0900
 tags: [python]
 class: post-template
 subclass: 'post tag-python'

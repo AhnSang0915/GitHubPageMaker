@@ -4,7 +4,7 @@ current: post
 cover:  assets/built/images/python-logo.png
 navigation: True
 title: Python - Python 제너레이터 사용하기
-date: 2022-04-20 13:00 +0900
+date: 2022-04-21 13:00 +0900
 tags: [python]
 class: post-template
 subclass: 'post tag-python'
