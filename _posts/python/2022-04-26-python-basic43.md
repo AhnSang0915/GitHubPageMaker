@@ -605,18 +605,26 @@ def rectangle_area(width, height):
 ### 예제1
 <br>
 <br>
-다음 소스 코드를 완성하여 소수점 이하를 올림, 버림한 숫자가 출력되게 만드세요. 올림 함수는 math 모듈의 ceil, 버림 함수는 math 모듈의 floor 함수입니다.
+다음 소스 코드를 완성하여 from database import * 형식으로 패키지를 사용할 수 있게 만드세요. 여기서는 database 패키지 안에 sqlite 패키지가 들어있습니다.
 
 ~~~python
 
+
+# database/__init__.py
  _______________________                               
  
-x = 1.5
+# database/sqlite/__init__.py
+# 내용이 비어 있음
+# database/sqlite/dbapi.py
+def connect(database):
+    print(database)
+# practice_package.py
+from database import *
  
-print(ceil(x), floor(x))
+connect(':memory:')
 
-#실행 결과
-2 1
+# 실행 결과
+:memmory:
 
 ~~~
 
@@ -625,34 +633,43 @@ print(ceil(x), floor(x))
 
 ~~~python
 
-from math import ceil, floor
+from .sqlite.dbapi import *
 
 ~~~
 
 ### 예제2
 <br>
 <br>
-표준 입력으로 URL 문자열이 입력 입력됩니다. 입력된 URL이 올바르면 True, 잘못되었으면 False를 출력하는 프로그램을 만드세요. 이 심사문제에서 판단해야 할 URL의 규칙은 다음과 같습니다.
-
-- http:// 또는 https://로 시작
-- 도메인은 도메인.최상위도메인 형식이며 영문 대소문자, 숫자, -로 되어 있어야 함
-- 도메인 이하 경로는 /로 구분하고, 영문 대소문자, 숫자, -, _, ., ?, =을 사용함
+표준 입력으로 정수가 입력됩니다. 주어진 calcpkg 패키지를 활용하여 입력된 정수의 제곱근과 입력된 정수를 반지름으로 하는 원의 넓이가 출력되게 만드세요. 제곱근은 calcpkg 패키지에서 operation 모듈의 squareroot 함수를 사용하고, 원의 넓이는 calcpkg 패키지에서 geometry 모듈의 circle_area 함수를 사용하세요(calcpkg 패키지를 사용하지 않고 계산하면 결과가 맞더라도 틀린 것으로 처리됩니다. 반드시 calcpkg 패키지를 사용하세요).
 
 ~~~python
 
+
+
+# calcpkg/__init__.py
+# 내용이 비어 있음
+
+# calcpkg/operation.py
+import math
+ 
+def squareroot(n):
+    return math.sqrt(n)
+
+# calcpkg/geometry.py
+import math
+ 
+def circle_area(radius):
+    return radius * radius * math.pi
 ________________
 ________________
 ________________
 
 
-# 입력
-http://www.example.com/hello/world.do?key=python
-# 결과
-True
-# 입력
-https://example/hello/world.html
-# 결과
-False
+# 표준 입력
+2
+# 표준 출력
+1.4142135623730951
+12.566370614359172
 
 ~~~
 
@@ -660,34 +677,12 @@ False
 
 ~~~python
 
-import re
+import calcpkg.operation
+import calcpkg.geometry
 
-url = input()
+n = int(input())
 
-p = re.compile('^[a-zA-Z0-9]+\:\/\/[a-zA-Z0-9.]+\.[a-zA-Z0-9.-_?=/]')
-
-print(p.match(url) != None, end=' ')
-
-~~~
-
-답
-
-~~~python
-
-import re
-
-p = re.compile('^(http?://)[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+/[a-zA-Z0-9-_/.?=]*')
-
-print(p.match(input()) != None)
-
+print(calcpkg.operation.squareroot(n))
+print(calcpkg.geometry.circle_area(n))
 
 ~~~
-
-
-먼저 URL은 http:// 또는 https://로 시작한다고 했으므로 정규표현식은 ^https?://로 시작합니다. 여기서 맨 앞에 ^를 붙였으므로 http 또는 https로 시작하는지 판단합니다. 그리고 https?와 같이 만들면 s가 0개 또는 1개 있어야 합니다. 따라서 http와 https를 둘 다 판별할 수 있습니다.
-
-이제 도메인을 판단합니다. 도메인 부분은 [a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+/와 같이 만들어줍니다. 먼저 [a-zA-Z0-9-]+와 같이 영문 대소문자, 숫자, -이면서 문자 1개 이상인지 판단합니다. 그리고 중간에 \.를 넣어서 도메인.최상위도메인 형식인지 판단합니다. 여기서 .은 정규표현식에 사용하는 특수 문자이므로 앞에 반드시 \를 붙여야 합니다. 특히 최상위 도메인은 여러 단계일 수도 있으므로 [a-zA-Z0-9-.]+/와 같이 범위에 .을 넣어줍니다. 그리고 도메인과 도메인 이하 경로를 구분할 수 있도록 /를 붙여줍니다.
-
-도메인 이하 경로는 영문 대소문자, 숫자, -, \_, ., ?, =을 사용한다고 했으므로 [a-zA-Z0-9-_/.?=]\*와 같이 만들어줍니다. 특히 하위 경로가 더 나올 수 있으므로 범위 안에 /를 넣어야 합니다.
-
-지금까지 만든 정규표현식을 차례대로 연결해서 re.match 함수로 url을 판단해주면 됩니다. 그리고 re.match 함수의 반환값이 있으면(None이 아니면) True를 출력하고, None이면 False를 출력하면 됩니다.
