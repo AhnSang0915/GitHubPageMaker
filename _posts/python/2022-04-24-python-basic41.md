@@ -3,8 +3,8 @@ layout: post
 current: post
 cover:  assets/built/images/python-logo.png
 navigation: True
-title: Python - Python 모듈과 패키지 사용하기
-date: 2022-04-25 15:00 +0900
+title: Python - Python 정규표현식 사용하기
+date: 2022-04-24 15:00 +0900
 tags: [python]
 class: post-template
 subclass: 'post tag-python'
@@ -13,7 +13,7 @@ author: AhnSang0915
 
 {% include python-table-of-contents.html %}
 
-# 모듈과 패키지 사용하기
+# 정규표현식 사용하기
 
 <br>
 <br>
