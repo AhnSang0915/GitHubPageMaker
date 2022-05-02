@@ -1,0 +1,1097 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <!-- Document Settings -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <!-- Base Meta -->
+    <!-- dynamically fixing the title for tag/author pages -->
+
+
+
+    <title>Javascript - JavaScript 객체지향-Object</title>
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Styles'n'Scripts -->
+    <link rel="stylesheet" type="text/css" href="/assets/built/screen.css" />
+    <link rel="stylesheet" type="text/css" href="/assets/built/screen.edited.css" />
+    <link rel="stylesheet" type="text/css" href="/assets/built/syntax.css" />
+
+    <!--    costom.css-->
+    <link rel="stylesheet" type="text/css" href="/assets/built/custom.css" />
+
+    <!--    Font Awsome-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!--    웹폰트 추가-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/nanumgothic.css">
+
+    <!--    syntax.css-->
+    <link rel="stylesheet" type="text/css" href="/assets/built/syntax.css" />
+
+
+    <!-- highlight.js -->
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">
+    <style>.hljs { background: none; }</style>
+
+    <!--[if IE]>
+        <style>
+            p, ol, ul{
+                width: 100%;
+            }
+            blockquote{
+                width: 100%;
+            }
+        </style>
+    <![endif]-->
+    
+    <!-- This tag outputs SEO meta+structured data and other important settings -->
+    <meta name="description" content="Learn Coding" />
+    <link rel="shortcut icon" href="https://AhnSang0915.github.io/assets/built/images/favicon.png" type="image/png" />
+    <link rel="canonical" href="https://AhnSang0915.github.io/javascript-basic23" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
+
+     <!--title below is coming from _includes/dynamic_title-->
+    <meta property="og:site_name" content="My Coding Practice Gym" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Javascript - JavaScript 객체지향-Object" />
+    <meta property="og:description" content="Javascript JavaScript 기본 JavaScript 숫자와 문자 JavaScript 변수, 비교 JavaScript 조건문 JavaScript 반복문 JavaScript 함수 JavaScript 배열 JavaScript 객체(Object) JavaScript 모듈 JavaScript UI와 API JavaScript 정규표현식 JavaScript 함수지향 - 유효범위 JavaScript 함수지향 - 값으로서의 함수와 콜백 JavaScript 함수지향 - 클로저 JavaScript 함수지향 - arguments 함수지향 - 함수의 호출 객체지향 -" />
+    <meta property="og:url" content="https://AhnSang0915.github.io/javascript-basic23" />
+    <meta property="og:image" content="https://AhnSang0915.github.io/assets/built/images/javascript-logo.png" />
+    <meta property="article:publisher" content="https://www.facebook.com/" />
+    <meta property="article:author" content="https://www.facebook.com/" />
+    <meta property="article:published_time" content="2022-03-19T14:10:00+00:00" />
+    <meta property="article:modified_time" content="2022-03-19T14:10:00+00:00" />
+    <meta property="article:tag" content="Javascript" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Javascript - JavaScript 객체지향-Object" />
+    <meta name="twitter:description" content="Javascript JavaScript 기본 JavaScript 숫자와 문자 JavaScript 변수, 비교 JavaScript 조건문 JavaScript 반복문 JavaScript 함수 JavaScript 배열 JavaScript 객체(Object) JavaScript 모듈 JavaScript UI와 API JavaScript 정규표현식 JavaScript 함수지향 - 유효범위 JavaScript 함수지향 - 값으로서의 함수와 콜백 JavaScript 함수지향 - 클로저 JavaScript 함수지향 - arguments 함수지향 - 함수의 호출 객체지향 -" />
+    <meta name="twitter:url" content="https://AhnSang0915.github.io/" />
+    <meta name="twitter:image" content="https://AhnSang0915.github.io/assets/built/images/javascript-logo.png" />
+    <meta name="twitter:label1" content="Written by" />
+    <meta name="twitter:data1" content="My Coding Practice Gym" />
+    <meta name="twitter:label2" content="Filed under" />
+    <meta name="twitter:data2" content="Javascript" />
+    <meta name="twitter:site" content="@" />
+    <meta name="twitter:creator" content="@" />
+    <meta property="og:image:width" content="1400" />
+    <meta property="og:image:height" content="933" />
+
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Website",
+    "publisher": {
+        "@type": "Organization",
+        "name": "My Coding Practice Gym",
+        "logo": "https://AhnSang0915.github.io/"
+    },
+    "url": "https://AhnSang0915.github.io/javascript-basic23",
+    "image": {
+        "@type": "ImageObject",
+        "url": "https://AhnSang0915.github.io/assets/built/images/javascript-logo.png",
+        "width": 2000,
+        "height": 666
+    },
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://AhnSang0915.github.io/javascript-basic23"
+    },
+    "description": "Javascript JavaScript 기본 JavaScript 숫자와 문자 JavaScript 변수, 비교 JavaScript 조건문 JavaScript 반복문 JavaScript 함수 JavaScript 배열 JavaScript 객체(Object) JavaScript 모듈 JavaScript UI와 API JavaScript 정규표현식 JavaScript 함수지향 - 유효범위 JavaScript 함수지향 - 값으로서의 함수와 콜백 JavaScript 함수지향 - 클로저 JavaScript 함수지향 - arguments 함수지향 - 함수의 호출 객체지향 -"
+}
+    </script>
+
+    <!-- <script type="text/javascript" src="https://demo.ghost.io/public/ghost-sdk.min.js?v=724281a32e"></script>
+    <script type="text/javascript">
+    ghost.init({
+    	clientId: "ghost-frontend",
+    	clientSecret: "f84a07a72b17"
+    });
+    </script> -->
+
+    <meta name="generator" content="Jekyll 3.6.2" />
+    <link rel="alternate" type="application/rss+xml" title="Javascript - JavaScript 객체지향-Object" href="/feed.xml" />
+
+
+</head>
+<body class="post-template">
+
+    <div class="site-wrapper">
+        <!-- All the main content gets inserted here, index.hbs, post.hbs, etc -->
+        <!-- default -->
+
+<!-- The tag above means: insert everything in this file
+into the {body} of the default.hbs template -->
+
+<header class="site-header outer">
+    <div class="inner">
+        <nav class="site-nav">
+    <div class="site-nav-left">
+        
+            
+                <a class="site-nav-logo" href="https://AhnSang0915.github.io/">My Coding Practice Gym</a>
+            
+        
+        
+            <ul class="nav" role="menu">
+    <li class="nav-home" role="menuitem"><a href="/">Home</a></li>
+    <li class="nav-about" role="menuitem"><a href="/about/">About</a></li>
+    <li class="nav-javascript" role="menuitem"><a href="/tag/javascript/">Javascript</a></li>
+    <li class="nav-python" role="menuitem"><a href="/tag/python/">Python</a></li>
+    <li class="nav-archive" role="menuitem">
+        <a href="/archive.html">All Posts</a>
+    </li>
+    <li class="nav-archive" role="menuitem">
+        <a href="/author_archive.html">Tag별 Posts</a>
+    </li>
+</ul>
+        
+    </div>
+    <div class="site-nav-right">
+        <div class="social-links">
+            
+            
+        </div>
+        
+            <a class="subscribe-button" href="#subscribe">Search</a>
+        
+    </div>
+</nav>
+
+    </div>
+</header>
+
+<!-- Everything inside the #post tags pulls data from the post -->
+<!-- #post -->
+
+<main id="site-main" class="site-main outer" role="main">
+    <div class="inner">
+
+        <article class="post-full  tag-javascript post tag-javascript ">
+
+            <header class="post-full-header">
+                <section class="post-full-meta">
+                    <time class="post-full-meta-date" datetime="19 March 2022">19 March 2022</time>
+                    
+                        <span class="date-divider">/</span>
+                        
+                            
+                               <a href='/tag/javascript/'>JAVASCRIPT</a>
+                            
+                        
+                    
+                </section>
+                <h1 class="post-full-title">Javascript - JavaScript 객체지향-Object</h1>
+            </header>
+
+            
+            <figure class="post-full-image" style="background-image: url(/assets/built/images/javascript-logo.png)">
+            </figure>
+            
+
+            <section class="post-full-content">
+                <div class="kg-card-markdown">
+                    <p><span class="table-of-contents-list">Javascript</span></p>
+<ul class="table-of-contents-list">
+    <li><a href="./javascript-basic">JavaScript 기본 </a></li>
+    <li><a href="./javascript-basic2">JavaScript 숫자와 문자 </a></li>
+    <li><a href="./javascript-basic3">JavaScript 변수, 비교</a></li>
+    <li><a href="./javascript-basic4">JavaScript 조건문</a></li>
+    <li><a href="./javascript-basic5">JavaScript 반복문</a></li>
+    <li><a href="./javascript-basic6">JavaScript 함수</a></li>
+    <li><a href="./javascript-basic7">JavaScript 배열</a></li>
+    <li><a href="./javascript-basic8">JavaScript 객체(Object)</a></li>
+    <li><a href="./javascript-basic9">JavaScript 모듈</a></li>
+    <li><a href="./javascript-basic10">JavaScript UI와 API</a></li>
+    <li><a href="./javascript-basic11">JavaScript 정규표현식</a></li>
+    <li><a href="./javascript-basic12">JavaScript 함수지향 - 유효범위</a></li>
+    <li><a href="./javascript-basic13">JavaScript 함수지향 - 값으로서의 함수와 콜백</a></li>
+    <li><a href="./javascript-basic14">JavaScript 함수지향 - 클로저</a></li>
+    <li><a href="./javascript-basic15">JavaScript 함수지향 - arguments</a></li>
+    <li><a href="./javascript-basic16">함수지향 - 함수의 호출</a></li>
+    <li><a href="./javascript-basic17">객체지향 - 객체지향 프로그래밍 소개</a></li>
+    <li><a href="./javascript-basic18">객체지향 - 생성자와 new</a></li>
+    <li><a href="./javascript-basic19">객체지향 - 전역객체</a></li>
+    <li><a href="./javascript-basic20">객체지향 - this</a></li>
+    <li><a href="./javascript-basic21">객체지향 - 상속</a></li>
+    <li><a href="./javascript-basic22">객체지향-표준 내장객체의 확장</a></li>
+    <li><a href="./javascript-basic23">JavaScript 객체지향-Object</a></li>
+
+</ul>
+
+<h1 id="javascript-객체지향-object">JavaScript 객체지향-Object</h1>
+
+<p><br />
+<br /></p>
+
+<hr />
+
+<h2 id="1-object란">1. Object란?</h2>
+<p><br />
+<br />
+Object객체는 객체의 가장 기본적인 형태를 가지고 있는 객체이다. 다시 말해서 아무것도 상속받지 않는 순수한 객체다. Javascript에서는 값을 지정하는 기본적인 단위로 Object를 사용한다. 
+<br />
+<br /></p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="kd">var</span> <span class="nx">grades</span> <span class="o">=</span> <span class="p">{</span><span class="dl">'</span><span class="s1">egoing</span><span class="dl">'</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="dl">'</span><span class="s1">k8805</span><span class="dl">'</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span> <span class="dl">'</span><span class="s1">sorialgi</span><span class="dl">'</span><span class="p">:</span> <span class="mi">80</span><span class="p">};</span>
+
+</code></pre></div></div>
+
+<p>우리는 이전에 property에대해 배울 때 Ultra, Super, Sub라는 생성자 예제를 통해 상속에대해 알아보았다. Sub는 Super를 Super는 Ultra를 상속받았다. Ultra는 최상위에 있는것처럼 보이지만 암시적으로는 사실 Object라는 객체에 상속되어 있는것이다. Object라는 객체의 프로퍼티는 모든 객체가 갖고있는 프로퍼티가 되는것이다. 즉 Object의 prototype은 모든객체가 사용할 수 있는 prototype이 된다는 것이다. 우리가 모든 객체가 가지고 있었으면 하는 기능이 있다면 Object의 prototype에 우리가 직접 기능을 추가하는 것을 통해서 모든객체가 그기능을 갖게 할 수 있다는 것이다.</p>
+
+<hr />
+
+<h2 id="2-object-api사용법">2. Object API사용법</h2>
+<p><br />
+<br />
+Object.keys는 배열이 어떠한 인덱스값을 가지고 있는지 배열로 리턴하는 메소드이다. 따라서 첫번째 결과는 Object.keys(arr)[‘0’, ‘1’, ‘2’] 이된다. toString은 문자열을 리턴해준다고 생각하자. 중요한 것은 Object.keys()와 Object.prototype.toString()에서 prototype이 있고 없고의 차이가 뭔지 알아야한다. prototype이 있는 것은 어떠한 객체를 만든다. 그리고 그객체를 담고있는 식별자. toString이라고 한다. 그런데 prototype이 없는 Object.keys같은 경우에는 Object.keys(arr)처럼 어떠한 인자를 받아서 처리한다. 이러한 차이는 Object라고 하는 것이 생성자 함수인 것이다. 함수는 javascript에서 객체이기 때문에 프로퍼티를 가질수 있다. 그래서 Object.keys가 가능한 것이고 이렇게 정의되었을 것이다 Object.keys = function(){}. toString의 경우는 prototype의 프로퍼티이다. 즉 Object.prototype.toString = function(){} 로 정의되어 있다. 어떠한 메소드가 new Object를 실행을 시키는 순간에 어떠한 객체를 만들고 그객체는 prototype이라고 하는 특수한 프로퍼티에 저장되어있는 객체를 원형으로 하는 객체가 생성이 되는것이다. 그렇게 생성된 객체는 toString이라는 메소드를 사용할 수 있기 때문에 메소드로서 사용하게 되는것이다.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="c1">//Object.keys()</span>
+<span class="kd">var</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[</span><span class="dl">"</span><span class="s2">a</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">b</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">c</span><span class="dl">"</span><span class="p">];</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">Object.keys(arr)</span><span class="dl">'</span><span class="p">,</span><span class="nb">Object</span><span class="p">.</span><span class="nx">keys</span><span class="p">(</span><span class="nx">arr</span><span class="p">));</span>
+
+<span class="c1">//Object.prototype.toString()</span>
+<span class="kd">var</span> <span class="nx">o</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Object</span><span class="p">();</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">o.toString()</span><span class="dl">'</span><span class="p">,</span><span class="nx">o</span><span class="p">.</span><span class="nx">toString</span><span class="p">());</span>
+
+<span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Array</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">a.toString()</span><span class="dl">'</span><span class="p">),</span><span class="nx">a</span><span class="p">.</span><span class="nx">toString</span><span class="p">());</span>
+
+
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="3-object-확장">3. Object 확장</h2>
+<p><br />
+<br />
+우리가 필요한 기능을 모든 객체에서 사용 가능한 Object를 만드는 방법을 알아보자.
+<br />
+<br />
+아래 배열과 객체에서 contain.(인자)메소드로 어떤 인자를 전달하게되면 인자가 해당 되는 값이 그 객체나 배열에 있다면 true 없다면 false를 리턴하게하는 코드를 만들어 보았다. 모든 객체의 부모는 Object이기 때문에 Object라고 적어주고, o와a모두 객체이다. 객체에 어떤 기능, 메소드를 갖도록 추가하고 싶다면 prototype이라고하는 프로퍼티안의 객체를 변경하면 된다. for in문으로 배열과 객체를 차례로 나열하여 값을 확인하는 코드를 작성했다. 아래 코드에서 메소드 안의 this는 그 메소드가 소속되어있는 객체를 의미한다. name에는 각각의 객체에대한 키값이 담기게 된다. 현재 열거되고 있는 value값을 가져오려면 this[name]으로 가져오고 그값과 neddle을 비교하여 두 값이 일치하면 true를 리턴한다. 마지막 value까지 나열했는데 일치하는 값이 없다면 false를 리턴한다.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="nb">Object</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">contain</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">neddle</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">for</span><span class="p">(</span><span class="kd">var</span> <span class="nx">name</span> <span class="k">in</span> <span class="k">this</span><span class="p">){</span>
+        <span class="k">if</span><span class="p">(</span><span class="k">this</span><span class="p">[</span><span class="nx">name</span><span class="p">]</span> <span class="o">===</span> <span class="nx">neddle</span><span class="p">){</span>
+            <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="kd">var</span> <span class="nx">o</span> <span class="o">=</span> <span class="p">{</span><span class="dl">'</span><span class="s1">name</span><span class="dl">'</span> <span class="p">:</span> <span class="dl">'</span><span class="s1">ansang</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">city</span><span class="dl">'</span> <span class="p">:</span> <span class="dl">'</span><span class="s1">suwon</span><span class="dl">'</span><span class="p">}</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">o</span><span class="p">.</span><span class="nx">contain</span><span class="p">(</span><span class="dl">'</span><span class="s1">ansang</span><span class="dl">'</span><span class="p">));</span>
+<span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="p">[</span><span class="dl">'</span><span class="s1">ansang</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">sang</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">hyun</span><span class="dl">'</span><span class="p">];</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span><span class="p">.</span><span class="nx">contain</span><span class="p">(</span><span class="dl">'</span><span class="s1">sang</span><span class="dl">'</span><span class="p">));</span>
+
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="4-object-확장의-위험">4. Object 확장의 위험</h2>
+<p><br />
+<br />
+확장의 위험성에 대해 알아보자. 확장을 함으로써 모든 객체에 영향을 주기때문에 주의해야한다.
+<br />
+<br />
+크롬 개발자 도구에서 아래 코드를입력후 for(var name in o){console.log(o[name]);}을 출력한 결과를 보자. 함수까지 출력된 상황이다. 이유는 contain이 포함되었기 때문이다. 개발자 도구에서 다시 코드를 작성해보자. for(var name in o){console.log(name)}의 결과는 name, city, contian이다.for(var name in a){console.log(name)}의 실행결과 역시 0,1,2,contain이다.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="nb">Object</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">contain</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">neddle</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">for</span><span class="p">(</span><span class="kd">var</span> <span class="nx">name</span> <span class="k">in</span> <span class="k">this</span><span class="p">){</span>
+        <span class="k">if</span><span class="p">(</span><span class="k">this</span><span class="p">[</span><span class="nx">name</span><span class="p">]</span> <span class="o">===</span> <span class="nx">neddle</span><span class="p">){</span>
+            <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="kd">var</span> <span class="nx">o</span> <span class="o">=</span> <span class="p">{</span><span class="dl">'</span><span class="s1">name</span><span class="dl">'</span> <span class="p">:</span> <span class="dl">'</span><span class="s1">ansang</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">city</span><span class="dl">'</span> <span class="p">:</span> <span class="dl">'</span><span class="s1">suwon</span><span class="dl">'</span><span class="p">}</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">o</span><span class="p">.</span><span class="nx">contain</span><span class="p">(</span><span class="dl">'</span><span class="s1">ansang</span><span class="dl">'</span><span class="p">));</span>
+<span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="p">[</span><span class="dl">'</span><span class="s1">ansang</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">sang</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">hyun</span><span class="dl">'</span><span class="p">];</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span><span class="p">.</span><span class="nx">contain</span><span class="p">(</span><span class="dl">'</span><span class="s1">sang</span><span class="dl">'</span><span class="p">));</span>
+
+<span class="c1">// 개발자 도구에서 for(var name in o){console.log(name)}을 출력한 결과</span>
+<span class="k">for</span><span class="p">(</span><span class="kd">var</span> <span class="nx">name</span> <span class="k">in</span> <span class="nx">o</span><span class="p">){</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">o</span><span class="p">[</span><span class="nx">name</span><span class="p">]);}</span>
+<span class="nl">VM693</span><span class="p">:</span><span class="mi">2</span> <span class="nx">ansang</span>
+<span class="nx">VM693</span><span class="p">:</span><span class="mi">2</span> <span class="nx">suwon</span>
+<span class="nx">VM693</span><span class="p">:</span><span class="mi">2</span> <span class="nx">ƒ</span> <span class="p">(</span><span class="nx">neddle</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">for</span><span class="p">(</span><span class="kd">var</span> <span class="nx">name</span> <span class="k">in</span> <span class="k">this</span><span class="p">){</span>
+        <span class="k">if</span><span class="p">(</span><span class="k">this</span><span class="p">[</span><span class="nx">name</span><span class="p">]</span> <span class="o">===</span> <span class="nx">neddle</span><span class="p">){</span>
+            <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="c1">// 개발자 도구에서 for(var name in a){console.log(name);}을 출력한 결과</span>
+
+<span class="mi">1</span>
+<span class="mi">2</span>
+<span class="nx">contain</span>
+
+</code></pre></div></div>
+
+<p>부모로 부터 contain이라는 프로퍼티까지 상속받았기 때문에 위와같은 결과가 나오는 것이다. 그렇다면 이런 문제를 해결할수 있는 메소드를 알아보자. a.hasOwnProperty(name)는 실행되는 객체가 인자로 전달된 값을 자신의 프로퍼티로 가지고 있는지 확인할 수 있는 메소드이다. contain은 부모로부터 상속받은 프로퍼티이기 때문에 어떠한 프로퍼티의 이름이 그객체의 직접적으로 정의되어있는지 확인하는 기능인 hasOwnProperty로 구별할 수 있다.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="nb">Object</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">contain</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">neddle</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">for</span><span class="p">(</span><span class="kd">var</span> <span class="nx">name</span> <span class="k">in</span> <span class="k">this</span><span class="p">){</span>
+        <span class="k">if</span><span class="p">(</span><span class="k">this</span><span class="p">[</span><span class="nx">name</span><span class="p">]</span> <span class="o">===</span> <span class="nx">neddle</span><span class="p">){</span>
+            <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="kd">var</span> <span class="nx">o</span> <span class="o">=</span> <span class="p">{</span><span class="dl">'</span><span class="s1">name</span><span class="dl">'</span> <span class="p">:</span> <span class="dl">'</span><span class="s1">ansang</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">city</span><span class="dl">'</span> <span class="p">:</span> <span class="dl">'</span><span class="s1">suwon</span><span class="dl">'</span><span class="p">}</span>
+<span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="p">[</span><span class="dl">'</span><span class="s1">ansang</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">sang</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">hyun</span><span class="dl">'</span><span class="p">];</span>
+
+<span class="k">for</span><span class="p">(</span><span class="kd">var</span> <span class="nx">name</span> <span class="k">in</span> <span class="nx">o</span><span class="p">){</span>
+    <span class="k">if</span><span class="p">(</span><span class="nx">o</span><span class="p">.</span><span class="nx">hasOwnProperty</span><span class="p">(</span><span class="nx">name</span><span class="p">)){</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">name</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="c1">//name, city</span>
+<span class="k">for</span><span class="p">(</span><span class="kd">var</span> <span class="nx">name</span> <span class="k">in</span> <span class="nx">a</span><span class="p">){</span>
+    <span class="k">if</span><span class="p">(</span><span class="nx">a</span><span class="p">.</span><span class="nx">hasOwnProperty</span><span class="p">(</span><span class="nx">name</span><span class="p">)){</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">name</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="c1">//0,1,2</span>
+</code></pre></div></div>
+
+<h2 id="5-prototype-vs-proto">5. prototype vs <strong>proto</strong></h2>
+<p><br />
+<br />
+이번엔 prototype과 _<em>proto__의 관계를 알아보자. 그전에 함수란 무엇인가를 확인해 보면. 함수는 javascript에서는 객체이다. function Person(){}는 var Person = new Function();으로 표현할수 있다. javascript에서 함수는 객체이기 때문에 프로퍼티를 가질 수 있다. 
+<br />
+<br />
+아래와 같은 함수를정의하면 객체이기 때문에 함수에 해당되는 Person이라고하는 객체가 생성되고 Person의 prototype이라는 객체가 하나 더 생긴다. 두개의 객체는 서로 연관되어 있기 때문에 Person이라고하는 객체는 내부적으로 prototype이라는 프로퍼티가 생기고 그 프로퍼티는 Person의 prototype객체를 의미한다. 그래서  Pserson.prototype이라 함은 Person의 prototype객체를 의미한다. Person의 prototype객체도 자신이 Person의 소속인것을 표시하기 위해서 어딘가에 기록해야한다. 그러기 위해서 Person의 prototype객체 안에 constructor라고하는 프로퍼티를 만들고 이 프로퍼티는 Person을 가르키게 된다. 서로간의 상호참조를 하고있는 것이다. Person은 prototype프로퍼티를 통해서 Person의 prototype객체를 가르키고 Person의 prototype객체는 constructor프로퍼티를 통해서 Person객체를 가르킨다는 것이다. 그다음person.prototype.sum = function(){} 를정의하게 되면 Person의 prototype객체에 sum이라는 함수가 없기때문에 생성하고 함수를 정의한다. var kim=new Person(‘kim’,10,20) 이렇게 객체를 생성하면 kim이라고하는 객체가 생성되고 kim이라는 객체 안에 프로퍼티 값으로 name,first,second 그리고 __proto__가 생성이 된다. kim객체의 __proto_</em> 프로퍼티는 Person의 prototype객체를 의미한다. 그렇다면 Person.prototype을통해서 Person의 prototype객체에 접근할 수 있고, kim.__proto__를 통해서도 접근 할 수 있다. var lee = new Person(‘lee’,10,10)를 통해서도 같은 접근을 할 수 있다. console.log(kim.name)을하면 name이라는 프로퍼티가 있는지를 확인하고 그값을 출력할 것이다. 만약 name이라는 값이 없다면 __proto__가 가르키는 객체에 name이 있는지 다시 찾아본다. kim.sum()을 하게 되면 kim이라는 객체에는 sum이라는 메소드가 없다. 그렇다면 javascript는 __proto__가 가르키는 Person의 prototype객체에 sum이 있는지 찾는다. 이런식으로 prototype이 동작하는 것이다.</p>
+
+<p><img src="https://media.vlpt.us/images/turtle601/post/93a9e49b-c4a0-428a-825b-b73adca66227/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202021-08-30%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%209.29.11.png" alt="프로토타입 설명" /></p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="kd">function</span> <span class="nx">Person</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span> <span class="nx">first</span><span class="p">,</span> <span class="nx">second</span><span class="p">){</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="nx">name</span><span class="p">;</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">first</span> <span class="o">=</span> <span class="nx">first</span><span class="p">;</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">second</span> <span class="o">=</span> <span class="nx">second</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nx">person</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">sum</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){}</span>
+
+<span class="kd">var</span> <span class="nx">kim</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Person</span><span class="p">(</span><span class="dl">'</span><span class="s1">kim</span><span class="dl">'</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">20</span><span class="p">)</span>
+<span class="kd">var</span> <span class="nx">lee</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Person</span><span class="p">(</span><span class="dl">'</span><span class="s1">lee</span><span class="dl">'</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">kim</span><span class="p">.</span><span class="nx">name</span><span class="p">)</span>
+<span class="nx">kim</span><span class="p">.</span><span class="nx">sum</span><span class="p">()</span>
+</code></pre></div></div>
+
+                </div>
+            </section>
+
+            <!-- Email subscribe form at the bottom of the page -->
+            
+                <section class="subscribe-form">
+                    <h3 class="subscribe-form-title">Subscribe to My Coding Practice Gym</h3>
+                    <p>Get the latest posts delivered right to your inbox</p>
+                    <span id="searchform" method="post" action="/subscribe/" class="">
+    <input class="confirm" type="hidden" name="confirm"  />
+    <input class="location" type="hidden" name="location"  />
+    <input class="referrer" type="hidden" name="referrer"  />
+
+    <div class="form-group">
+        <input class="subscribe-email" onkeyup="myFunc()" 
+               id="searchtext" type="text" name="searchtext"  
+               placeholder="Search..." />
+    </div>
+    <script type="text/javascript">
+        function myFunc() {
+            if(event.keyCode == 13) {
+                var url = encodeURIComponent($("#searchtext").val());
+                location.href = "/search.html?query=" + url;
+            }
+        }
+    </script>
+</span>
+                </section>
+            
+
+            <footer class="post-full-footer">
+                <!-- Everything inside the #author tags pulls data from the author -->
+                <!-- #author-->
+                
+                    
+                        <section class="author-card">
+                            
+                                <img class="author-profile-image" src="/assets/built/images/author-logo.jpg" alt="AhnSang0915" />
+                            
+                            <section class="author-card-content">
+                                <h4 class="author-card-name"><a href="/author/AhnSang0915">AhnSang0915</a></h4>
+                                
+                                    <p><a href="https://github.com/AhnSang0915"> 개발 달려</p>
+                                
+                            </section>
+                        </section>
+                        <div class="post-full-footer-right">
+                            <a class="author-card-button" href="/author/AhnSang0915">Read More</a>
+                        </div>
+                    
+                
+                <!-- /author  -->
+            </footer>
+
+            <!-- If you use Disqus comments, just uncomment this block.
+            The only thing you need to change is "test-apkdzgmqhj" - which
+            should be replaced with your own Disqus site-id. -->
+            
+                <section class="post-full-comments">
+                    <div id="disqus_thread"></div>
+                    <script>
+                        var disqus_config = function () {
+                            var this_page_url = 'https://AhnSang0915.github.io/javascript-basic23';
+                            var this_page_identifier = '/javascript-basic23';
+                            var this_page_title = 'Javascript - JavaScript 객체지향-Object';
+                        };
+                        (function() {
+                            var d = document, s = d.createElement('script');
+                            s.src = 'https://xxxxxxxx.disqus.com/embed.js';
+                            s.setAttribute('data-timestamp', +new Date());
+                            (d.head || d.body).appendChild(s);
+                        })();
+                    </script>
+                </section>
+            
+
+        </article>
+
+    </div>
+</main>
+
+<!-- Links to Previous/Next posts -->
+<aside class="read-next outer">
+    <div class="inner">
+        <div class="read-next-feed">
+            
+                
+                
+                
+                
+                    <article class="read-next-card"
+                        
+                            style="background-image: url(/assets/built/images/blog-cover1.jpg)"
+                        
+                    >
+                        <header class="read-next-card-header">
+                            <small class="read-next-card-header-sitetitle">&mdash; My Coding Practice Gym &mdash;</small>
+                            
+                                <h3 class="read-next-card-header-title"><a href="/tag/javascript/">Javascript</a></h3>
+                            
+                        </header>
+                        <div class="read-next-divider"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 14.5s2 3 5 3 5.5-2.463 5.5-5.5S21 6.5 18 6.5c-5 0-7 11-12 11C2.962 17.5.5 15.037.5 12S3 6.5 6 6.5s4.5 3.5 4.5 3.5"/></svg>
+</div>
+                        <div class="read-next-card-content">
+                            <ul>
+                                
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                            <li><a href="/javascript-basic25">Javascript - JavaScript 객체지향 - 참조</a></li>
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                            <li><a href="/javascript-basic24">Javascript - JavaScript 객체지향 - 데이터타입</a></li>
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                            <li><a href="/javascript-basic22">Javascript - JavaScript 객체지향-표준 내장객체의 확장</a></li>
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                            </ul>
+                        </div>
+                        <footer class="read-next-card-footer">
+                            <a href="/tag/javascript/">
+                                
+                                    See all 24 posts  →
+                                
+                            </a>
+                        </footer>
+                    </article>
+                
+            
+
+            <!-- If there's a next post, display it using the same markup included from - partials/post-card.hbs -->
+            
+                
+
+    <article class="post-card post-template">
+        
+            <a class="post-card-image-link" href="/javascript-basic24">
+                <div class="post-card-image" style="background-image: url(/assets/built/images/javascript-logo.png)"></div>
+            </a>
+        
+        <div class="post-card-content">
+            <a class="post-card-content-link" href="/javascript-basic24">
+                <header class="post-card-header">
+                    
+                        
+                            
+                                <span class="post-card-tags">Javascript</span>
+                            
+                        
+                    
+
+                    <h2 class="post-card-title">Javascript - JavaScript 객체지향 - 데이터타입</h2>
+                </header>
+                <section class="post-card-excerpt">
+                    
+                        <p>Javascript JavaScript 기본 JavaScript 숫자와 문자 JavaScript 변수, 비교 JavaScript 조건문 JavaScript 반복문 JavaScript 함수 JavaScript 배열 JavaScript 객체(Object) JavaScript 모듈 JavaScript UI와 API JavaScript 정규표현식 JavaScript 함수지향 - 유효범위 JavaScript 함수지향 -</p>
+                    
+                </section>
+            </a>
+            <footer class="post-card-meta">
+                
+                    
+                        
+                        <img class="author-profile-image" src="/assets/built/images/author-logo.jpg" alt="AhnSang0915" />
+                        
+                        <span class="post-card-author">
+                            <a href="/author/AhnSang0915/">AhnSang0915</a>
+                        </span>
+                    
+                
+                <span class="reading-time">
+                    
+                    
+                      1 min read
+                    
+                </span>
+            </footer>
+        </div>
+    </article>
+
+            
+
+            <!-- If there's a previous post, display it using the same markup included from - partials/post-card.hbs -->
+            
+                
+
+    <article class="post-card post-template">
+        
+            <a class="post-card-image-link" href="/javascript-basic22">
+                <div class="post-card-image" style="background-image: url(/assets/built/images/javascript-logo.png)"></div>
+            </a>
+        
+        <div class="post-card-content">
+            <a class="post-card-content-link" href="/javascript-basic22">
+                <header class="post-card-header">
+                    
+                        
+                            
+                                <span class="post-card-tags">Javascript</span>
+                            
+                        
+                    
+
+                    <h2 class="post-card-title">Javascript - JavaScript 객체지향-표준 내장객체의 확장</h2>
+                </header>
+                <section class="post-card-excerpt">
+                    
+                        <p>Javascript JavaScript 기본 JavaScript 숫자와 문자 JavaScript 변수, 비교 JavaScript 조건문 JavaScript 반복문 JavaScript 함수 JavaScript 배열 JavaScript 객체(Object) JavaScript 모듈 JavaScript UI와 API JavaScript 정규표현식 JavaScript 함수지향 - 유효범위 JavaScript 함수지향 -</p>
+                    
+                </section>
+            </a>
+            <footer class="post-card-meta">
+                
+                    
+                        
+                        <img class="author-profile-image" src="/assets/built/images/author-logo.jpg" alt="AhnSang0915" />
+                        
+                        <span class="post-card-author">
+                            <a href="/author/AhnSang0915/">AhnSang0915</a>
+                        </span>
+                    
+                
+                <span class="reading-time">
+                    
+                    
+                      1 min read
+                    
+                </span>
+            </footer>
+        </div>
+    </article>
+
+            
+
+        </div>
+    </div>
+</aside>
+
+<!-- Floating header which appears on-scroll, included from includes/floating-header.hbs -->
+<div class="floating-header">
+    <div class="floating-header-logo">
+        <a href="https://AhnSang0915.github.io/">
+            
+            <span>My Coding Practice Gym</span>
+        </a>
+    </div>
+    <span class="floating-header-divider">&mdash;</span>
+    <div class="floating-header-title">Javascript - JavaScript 객체지향-Object</div>
+    <div class="floating-header-share">
+        <div class="floating-header-share-label">Share this <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <path d="M7.5 15.5V4a1.5 1.5 0 1 1 3 0v4.5h2a1 1 0 0 1 1 1h2a1 1 0 0 1 1 1H18a1.5 1.5 0 0 1 1.5 1.5v3.099c0 .929-.13 1.854-.385 2.748L17.5 23.5h-9c-1.5-2-5.417-8.673-5.417-8.673a1.2 1.2 0 0 1 1.76-1.605L7.5 15.5zm6-6v2m-3-3.5v3.5m6-1v2"/>
+</svg>
+</div>
+        <a class="floating-header-share-tw" href="https://twitter.com/share?text=Javascript+-+JavaScript+%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5-Object&amp;url=https://AhnSang0915.github.iojavascript-basic23"
+            onclick="window.open(this.href, 'share-twitter', 'width=550,height=235');return false;">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"/></svg>
+
+        </a>
+        <a class="floating-header-share-fb" href="https://www.facebook.com/sharer/sharer.php?u=https://AhnSang0915.github.iojavascript-basic23"
+            onclick="window.open(this.href, 'share-facebook','width=580,height=296');return false;">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M19 6h5V0h-5c-3.86 0-7 3.14-7 7v3H8v6h4v16h6V16h5l1-6h-6V7c0-.542.458-1 1-1z"/></svg>
+
+        </a>
+    </div>
+    <progress class="progress" value="0">
+        <div class="progress-container">
+            <span class="progress-bar"></span>
+        </div>
+    </progress>
+</div>
+
+
+<!-- /post -->
+
+<!-- The #contentFor helper here will send everything inside it up to the matching #block helper found in default.hbs -->
+
+
+        <!-- Previous/next page links - displayed on every page -->
+        
+
+        <!-- The footer at the very bottom of the screen -->
+        <footer class="site-footer outer">
+            <div class="site-footer-content inner">
+                <section class="copyright"><a href="https://AhnSang0915.github.io/">My Coding Practice Gym</a> &copy; 2022</section>
+                <section class="poweredby">Proudly published with <a href="https://jekyllrb.com/">Jekyll</a> &
+                    <a href="https://pages.github.com/" target="_blank" rel="noopener">GitHub Pages</a> using
+                    <a href="https://github.com/jekyllt/jasper2" target="_blank" rel="noopener">Jasper2</a></section>
+                <nav class="site-footer-nav">
+                    <a href="/">Latest Posts</a>
+                    
+                    
+                    <a href="https://ghost.org" target="_blank" rel="noopener">Ghost</a>
+                </nav>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- The big email subscribe modal content -->
+    
+    <div id="subscribe" class="subscribe-overlay">
+        <a class="subscribe-overlay-close" href="#"></a>
+            <div class="subscribe-overlay-content">
+                
+                <h1 class="subscribe-overlay-title">Search My Coding Practice Gym</h1>
+                <p class="subscribe-overlay-description">
+                블로그 포스팅 검색 </p>
+                <span id="searchform" method="post" action="/subscribe/" class="">
+    <input class="confirm" type="hidden" name="confirm"  />
+    <input class="location" type="hidden" name="location"  />
+    <input class="referrer" type="hidden" name="referrer"  />
+
+    <div class="form-group">
+        <input class="subscribe-email" onkeyup="myFunc()" 
+               id="searchtext" type="text" name="searchtext"  
+               placeholder="Search..." />
+    </div>
+    <script type="text/javascript">
+        function myFunc() {
+            if(event.keyCode == 13) {
+                var url = encodeURIComponent($("#searchtext").val());
+                location.href = "/search.html?query=" + url;
+            }
+        }
+    </script>
+</span>
+            </div>
+    </div>
+    
+
+    <!-- highlight.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.10.0/components/prism-abap.min.js"></script>
+    <script>$(document).ready(function() {
+      $('pre code').each(function(i, block) {
+        hljs.highlightBlock(block);
+      });
+    });</script>
+
+    <!-- jQuery + Fitvids, which makes all video embeds responsive -->
+    <script
+        src="https://code.jquery.com/jquery-3.2.1.min.js"
+        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous">
+    </script>
+    <script type="text/javascript" src="/assets/js/jquery.fitvids.js"></script>
+    <script type="text/javascript" src="https://demo.ghost.io/assets/js/jquery.fitvids.js?v=724281a32e"></script>
+
+
+    <!-- Paginator increased to "infinit" in _config.yml -->
+    <!-- if paginator.posts  -->
+    <!-- <script>
+        var maxPages = parseInt('');
+    </script>
+    <script src="/assets/js/infinitescroll.js"></script> -->
+    <!-- /endif -->
+
+    
+
+
+    <!-- Add Google Analytics  -->
+    <!-- Google Analytics Tracking code -->
+ <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-xxxxxxxx-x', 'auto');
+  ga('send', 'pageview');
+
+ </script>
+
+
+    <!-- The #block helper will pull in data from the #contentFor other template files. In this case, there's some JavaScript which we only want to use in post.hbs, but it needs to be included down here, after jQuery has already loaded. -->
+    
+        <script>
+
+// NOTE: Scroll performance is poor in Safari
+// - this appears to be due to the events firing much more slowly in Safari.
+//   Dropping the scroll event and using only a raf loop results in smoother
+//   scrolling but continuous processing even when not scrolling
+$(document).ready(function () {
+    // Start fitVids
+    var $postContent = $(".post-full-content");
+    $postContent.fitVids();
+    // End fitVids
+
+    var progressBar = document.querySelector('progress');
+    var header = document.querySelector('.floating-header');
+    var title = document.querySelector('.post-full-title');
+
+    var lastScrollY = window.scrollY;
+    var lastWindowHeight = window.innerHeight;
+    var lastDocumentHeight = $(document).height();
+    var ticking = false;
+
+    function onScroll() {
+        lastScrollY = window.scrollY;
+        requestTick();
+    }
+
+    function onResize() {
+        lastWindowHeight = window.innerHeight;
+        lastDocumentHeight = $(document).height();
+        requestTick();
+    }
+
+    function requestTick() {
+        if (!ticking) {
+            requestAnimationFrame(update);
+        }
+        ticking = true;
+    }
+
+    function update() {
+        var trigger = title.getBoundingClientRect().top + window.scrollY;
+        var triggerOffset = title.offsetHeight + 35;
+        var progressMax = lastDocumentHeight - lastWindowHeight;
+
+        // show/hide floating header
+        if (lastScrollY >= trigger + triggerOffset) {
+            header.classList.add('floating-active');
+        } else {
+            header.classList.remove('floating-active');
+        }
+
+        progressBar.setAttribute('max', progressMax);
+        progressBar.setAttribute('value', lastScrollY);
+
+        ticking = false;
+    }
+
+    window.addEventListener('scroll', onScroll, {passive: true});
+    window.addEventListener('resize', onResize, false);
+
+    update();
+});
+</script>
+
+    
+
+    <!-- Ghost outputs important scripts and data with this tag - it should always be the very last thing before the closing body tag -->
+    <!-- ghost_foot -->
+
+</body>
+</html>

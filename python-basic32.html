@@ -1,0 +1,1686 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <!-- Document Settings -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <!-- Base Meta -->
+    <!-- dynamically fixing the title for tag/author pages -->
+
+
+
+    <title>Python - Python 클래스 사용하기</title>
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Styles'n'Scripts -->
+    <link rel="stylesheet" type="text/css" href="/assets/built/screen.css" />
+    <link rel="stylesheet" type="text/css" href="/assets/built/screen.edited.css" />
+    <link rel="stylesheet" type="text/css" href="/assets/built/syntax.css" />
+
+    <!--    costom.css-->
+    <link rel="stylesheet" type="text/css" href="/assets/built/custom.css" />
+
+    <!--    Font Awsome-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!--    웹폰트 추가-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/nanumgothic.css">
+
+    <!--    syntax.css-->
+    <link rel="stylesheet" type="text/css" href="/assets/built/syntax.css" />
+
+
+    <!-- highlight.js -->
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">
+    <style>.hljs { background: none; }</style>
+
+    <!--[if IE]>
+        <style>
+            p, ol, ul{
+                width: 100%;
+            }
+            blockquote{
+                width: 100%;
+            }
+        </style>
+    <![endif]-->
+    
+    <!-- This tag outputs SEO meta+structured data and other important settings -->
+    <meta name="description" content="Learn Coding" />
+    <link rel="shortcut icon" href="https://AhnSang0915.github.io/assets/built/images/favicon.png" type="image/png" />
+    <link rel="canonical" href="https://AhnSang0915.github.io/python-basic32" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
+
+     <!--title below is coming from _includes/dynamic_title-->
+    <meta property="og:site_name" content="My Coding Practice Gym" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Python - Python 클래스 사용하기" />
+    <meta property="og:description" content="Python Python 기본 Python 숫자 계산하기 Python 변수 만들기 Python 출력 방법 Python 불과 비교, 논리 연산자 Python 문자열 사용하기 Python 리스트와 튜플 사용하기 Python 시퀀스 자료형 활용하기 Python 딕셔너리 사용하기 Python if 조건문으로 특정 조건일 때 코드 실행하기 Python else를 사용하여 두 방향으로 분기하기 Python elif를 사용하여 두 방향으로" />
+    <meta property="og:url" content="https://AhnSang0915.github.io/python-basic32" />
+    <meta property="og:image" content="https://AhnSang0915.github.io/assets/built/images/python-logo.png" />
+    <meta property="article:publisher" content="https://www.facebook.com/" />
+    <meta property="article:author" content="https://www.facebook.com/" />
+    <meta property="article:published_time" content="2022-04-17T06:00:00+00:00" />
+    <meta property="article:modified_time" content="2022-04-17T06:00:00+00:00" />
+    <meta property="article:tag" content="Python" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Python - Python 클래스 사용하기" />
+    <meta name="twitter:description" content="Python Python 기본 Python 숫자 계산하기 Python 변수 만들기 Python 출력 방법 Python 불과 비교, 논리 연산자 Python 문자열 사용하기 Python 리스트와 튜플 사용하기 Python 시퀀스 자료형 활용하기 Python 딕셔너리 사용하기 Python if 조건문으로 특정 조건일 때 코드 실행하기 Python else를 사용하여 두 방향으로 분기하기 Python elif를 사용하여 두 방향으로" />
+    <meta name="twitter:url" content="https://AhnSang0915.github.io/" />
+    <meta name="twitter:image" content="https://AhnSang0915.github.io/assets/built/images/python-logo.png" />
+    <meta name="twitter:label1" content="Written by" />
+    <meta name="twitter:data1" content="My Coding Practice Gym" />
+    <meta name="twitter:label2" content="Filed under" />
+    <meta name="twitter:data2" content="Python" />
+    <meta name="twitter:site" content="@" />
+    <meta name="twitter:creator" content="@" />
+    <meta property="og:image:width" content="1400" />
+    <meta property="og:image:height" content="933" />
+
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Website",
+    "publisher": {
+        "@type": "Organization",
+        "name": "My Coding Practice Gym",
+        "logo": "https://AhnSang0915.github.io/"
+    },
+    "url": "https://AhnSang0915.github.io/python-basic32",
+    "image": {
+        "@type": "ImageObject",
+        "url": "https://AhnSang0915.github.io/assets/built/images/python-logo.png",
+        "width": 2000,
+        "height": 666
+    },
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://AhnSang0915.github.io/python-basic32"
+    },
+    "description": "Python Python 기본 Python 숫자 계산하기 Python 변수 만들기 Python 출력 방법 Python 불과 비교, 논리 연산자 Python 문자열 사용하기 Python 리스트와 튜플 사용하기 Python 시퀀스 자료형 활용하기 Python 딕셔너리 사용하기 Python if 조건문으로 특정 조건일 때 코드 실행하기 Python else를 사용하여 두 방향으로 분기하기 Python elif를 사용하여 두 방향으로"
+}
+    </script>
+
+    <!-- <script type="text/javascript" src="https://demo.ghost.io/public/ghost-sdk.min.js?v=724281a32e"></script>
+    <script type="text/javascript">
+    ghost.init({
+    	clientId: "ghost-frontend",
+    	clientSecret: "f84a07a72b17"
+    });
+    </script> -->
+
+    <meta name="generator" content="Jekyll 3.6.2" />
+    <link rel="alternate" type="application/rss+xml" title="Python - Python 클래스 사용하기" href="/feed.xml" />
+
+
+</head>
+<body class="post-template">
+
+    <div class="site-wrapper">
+        <!-- All the main content gets inserted here, index.hbs, post.hbs, etc -->
+        <!-- default -->
+
+<!-- The tag above means: insert everything in this file
+into the {body} of the default.hbs template -->
+
+<header class="site-header outer">
+    <div class="inner">
+        <nav class="site-nav">
+    <div class="site-nav-left">
+        
+            
+                <a class="site-nav-logo" href="https://AhnSang0915.github.io/">My Coding Practice Gym</a>
+            
+        
+        
+            <ul class="nav" role="menu">
+    <li class="nav-home" role="menuitem"><a href="/">Home</a></li>
+    <li class="nav-about" role="menuitem"><a href="/about/">About</a></li>
+    <li class="nav-javascript" role="menuitem"><a href="/tag/javascript/">Javascript</a></li>
+    <li class="nav-python" role="menuitem"><a href="/tag/python/">Python</a></li>
+    <li class="nav-archive" role="menuitem">
+        <a href="/archive.html">All Posts</a>
+    </li>
+    <li class="nav-archive" role="menuitem">
+        <a href="/author_archive.html">Tag별 Posts</a>
+    </li>
+</ul>
+        
+    </div>
+    <div class="site-nav-right">
+        <div class="social-links">
+            
+            
+        </div>
+        
+            <a class="subscribe-button" href="#subscribe">Search</a>
+        
+    </div>
+</nav>
+
+    </div>
+</header>
+
+<!-- Everything inside the #post tags pulls data from the post -->
+<!-- #post -->
+
+<main id="site-main" class="site-main outer" role="main">
+    <div class="inner">
+
+        <article class="post-full  tag-python post tag-python ">
+
+            <header class="post-full-header">
+                <section class="post-full-meta">
+                    <time class="post-full-meta-date" datetime="17 April 2022">17 April 2022</time>
+                    
+                        <span class="date-divider">/</span>
+                        
+                            
+                               <a href='/tag/python/'>PYTHON</a>
+                            
+                        
+                    
+                </section>
+                <h1 class="post-full-title">Python - Python 클래스 사용하기</h1>
+            </header>
+
+            
+            <figure class="post-full-image" style="background-image: url(/assets/built/images/python-logo.png)">
+            </figure>
+            
+
+            <section class="post-full-content">
+                <div class="kg-card-markdown">
+                    <p><span class="table-of-contents-list">Python</span></p>
+<ul class="table-of-contents-list">
+    <li><a href="./python-basic">Python 기본</a></li>
+    <li><a href="./python-basic2">Python 숫자 계산하기</a></li>
+    <li><a href="./python-basic3">Python 변수 만들기</a></li>
+    <li><a href="./python-basic4">Python 출력 방법</a></li>
+    <li><a href="./python-basic5">Python 불과 비교, 논리 연산자</a></li>
+    <li><a href="./python-basic6">Python 문자열 사용하기</a></li>
+    <li><a href="./python-basic7">Python 리스트와 튜플 사용하기</a></li>
+    <li><a href="./python-basic8">Python 시퀀스 자료형 활용하기</a></li>
+    <li><a href="./python-basic9">Python 딕셔너리 사용하기</a></li>
+    <li><a href="./python-basic10">Python if 조건문으로 특정 조건일 때 코드 실행하기</a></li>
+    <li><a href="./python-basic11">Python else를 사용하여 두 방향으로 분기하기</a></li>
+    <li><a href="./python-basic12">Python elif를 사용하여 두 방향으로 분기하기</a></li>
+    <li><a href="./python-basic13">Python for 반복문</a></li>
+    <li><a href="./python-basic14">Python while 반복문</a></li>
+    <li><a href="./python-basic15">Python break, continue로 반복문 제어하기</a></li>
+    <li><a href="./python-basic16">Python 중첩루프</a></li>
+    <li><a href="./python-basic17">Python FizzBuzz 문제</a></li>
+    <li><a href="./python-basic18">Python 터틀 그래픽스로 그림 그리기</a></li>
+    <li><a href="./python-basic19">Python 리스트와 튜플 응용하기</a></li>
+    <li><a href="./python-basic20">Python 리스트와 튜플 응용하기 - 2</a></li>
+    <li><a href="./python-basic21">Python 2차원 리스트 사용하기</a></li>
+    <li><a href="./python-basic22">Python 문자열 응용하기</a></li>
+    <li><a href="./python-basic23">Python 딕셔너리 응용하기</a></li>
+    <li><a href="./python-basic24">Python 세트 사용하기</a></li>
+    <li><a href="./python-basic25">Python 파일 사용하기</a></li>
+    <li><a href="./python-basic26">Python 회문 판별과 N-gram 만들기</a></li>
+    <li><a href="./python-basic27">Python 함수 사용하기</a></li>
+    <li><a href="./python-basic28">Python 함수에서 위치 인수와 키워드 인수 사용하기</a></li>
+    <li><a href="./python-basic29">Python 함수에서 재귀호출 사용하기</a></li>
+    <li><a href="./python-basic30">Python 람다 표현식 사용하기</a></li>
+    <li><a href="./python-basic31">Python 클로저 사용하기</a></li>
+    <li><a href="./python-basic32">Python 클래스 사용하기</a></li>
+    <li><a href="./python-basic33">Python 클래스 속성과 정적, 클래스 메서드 사용하기</a></li>
+    <li><a href="./python-basic34">Python 클래스 상속 사용하기</a></li>
+    <li><a href="./python-basic35">Python 두 점 사이의 거리 구하기</a></li>
+    <li><a href="./python-basic36">Python 예외 처리 사용하기</a></li>
+    <li><a href="./python-basic37">Python 이터레이터 사용하기</a></li>
+    <li><a href="./python-basic38">Python 제너레이터 사용하기</a></li>
+    <li><a href="./python-basic39">Python 코루틴 사용하기</a></li>
+    <li><a href="./python-basic40">Python 데코레이터 사용하기</a></li>
+    <li><a href="./python-basic41">Python 정규표현식 사용하기</a></li>
+    <li><a href="./python-basic42">Python 모듈과 패키지 사용하기</a></li>
+    <li><a href="./python-basic43">Python 모듈과 패키지 만들기</a></li>
+
+
+</ul>
+
+<h1 id="클래스-사용하기">클래스 사용하기</h1>
+
+<p><br />
+<br />
+클래스는 객체를 표현하기 위한 문법이다. 예를들어 게임을 만든다고 한다면 기사, 마법사, 궁수, 사제등 직업별로 클래스를 만들어 표현할 수 있다. 이처럼 특정한 개념이나 모양으로 존재하는 것을 객체(object)라고 부른다. 그리고 프로그래밍으로 객체를 만들때 사용하는 것이 클래스이다. 게임의 기사 캐릭터를 클래스로 표현해보자. 일단 게임 캐릭터는 체력, 마나, 물리 공격력, 주문력 등이 필요합니다. 그리고 기사 캐릭터는 칼로 베기, 찌르기 등의 스킬이 있어야 한다. 여기서 체력, 마나, 물리 공격력, 주문력 등의 데이터를 클래스의 속성(attribute)이라 부르고, 베기, 찌르기 등의 기능을 메서드(method)라고 부른다.</p>
+
+<p><br />
+이런 식의 프로그래밍을 객체지향(object oriented) 프로그래밍이라고 한다. 객체지향 프로그래밍은 복잡한 문제를 잘게 나누어 객체로 만들고, 객체를 조합해서 문제를 해결한다. 따라서 현실 세계의 복잡한 문제를 처리하는데 유용하며 기능을 개선하고 발전시킬 때도 해당 클래스만 수정하면 되므로 유지 보수에도 효율적이다.</p>
+
+<hr />
+
+<h2 id="1-클래스와-메서드-만들기">1. 클래스와 메서드 만들기</h2>
+<p><br />
+<br />
+클래스는 class에 클래스 이름을 지정하고:(콜론)을 붙인 뒤 다음 줄부터 def로 메서드를 작성한다. 여기서 메서드는 클래스 안에 들어있는 함수를 뜻한다.
+<br />
+클래스 이름을 짓는 방법은 변수와 같다. 보통 파이썬에서 클래스의 이름은 대문자로 시작한다. 그리고 메서드 작성 방법은 함수와 같으며 코드는 반드시 들여쓰기를 해야한다. 특히 메서드의 첫 번째 매개변수는 반드시 self를 지정해야 한다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="k">class</span> <span class="nc">클래스이름</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">메서드</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">코드</span>
+
+<span class="c1"># 메서드의 첫 번째 매개변수를 self로 지정하지 않았을때.
+</span><span class="nb">TypeError</span><span class="p">:</span> <span class="p">...</span> <span class="n">takes</span> <span class="mi">0</span> <span class="n">positional</span> <span class="n">arguments</span> <span class="n">but</span> <span class="mi">1</span> <span class="n">was</span> <span class="n">given</span><span class="p">:</span> <span class="bp">self</span>
+
+<span class="n">간단한</span> <span class="n">사람</span> <span class="n">클래스를</span> <span class="n">작성했다</span><span class="p">.</span>
+
+<span class="o">~~~</span><span class="n">python</span>
+
+<span class="k">class</span> <span class="nc">Person</span><span class="p">:</span>
+     <span class="k">def</span> <span class="nf">greeting</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+         <span class="k">print</span><span class="p">(</span><span class="s">'Hello'</span><span class="p">)</span>
+         
+</code></pre></div></div>
+
+<p>이렇게 만든 클래스를 사용하려면 클래스에 ()를 붙인 뒤 변수에 할당한다. Person으로 변수 james를 만들었는데 이 james가 Person의 인스턴스(instance)다. 클래스는 특정 개념을 표현만 할뿐 사용을 하려면 인스턴스를 생성해야 한다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="n">james</span> <span class="o">=</span> <span class="n">Person</span><span class="p">()</span>
+
+</code></pre></div></div>
+
+<h3 id="메서드-호출하기">메서드 호출하기</h3>
+<p><br />
+<br />
+메서드는 클래스가 아니라 인스턴트를 통해 호출한다. 다음과 같이 이스턴스 뒤에 .을 붙이고 메서드를 호출하면 된다. james.greeting()을 호출하니 ‘Hello’가 출력되었다. 이렇게 인스턴트를 통해 호출하는 메서드를 인스턴트 메서드라고 부른다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="n">james</span><span class="p">.</span><span class="n">greeting</span><span class="p">()</span>
+<span class="n">Hello</span>
+
+</code></pre></div></div>
+
+<h3 id="파이썬에서-흔히-볼-수-있는-클래스">파이썬에서 흔히 볼 수 있는 클래스</h3>
+<p><br />
+<br /></p>
+
+<p>지금까지 사용한 int, list, dict 등도 사실 클래스다. 우리는 이 클래스로 인스턴스를 만들고 메서드를 사용했다. int 클래스에 10을 넣어서 인스턴스 a를 만들었다. 마찬가지로 list 클래스에 range(10)을 넣어서 인스턴스 b를 만들고, dict 클래스에 x=10, y=20을 넣어서 인스턴스 c를 만들었다. 잘 보면 Person으로 인스턴스를 만드는 방법과 똑같다. 물론 정수는 매우 자주 사용하므로 int를 생략하고 10을 바로 넣는다. 그리고 리스트와 딕셔너리도 자주 사용하므로 축약된 문법인 [ ]과 { }를 제공하지만 클래스인 것은 같다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="n">a</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">a</span>
+<span class="mi">10</span>
+<span class="n">b</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+<span class="n">b</span>
+<span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">]</span>
+<span class="n">c</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">c</span>
+<span class="p">{</span><span class="s">'x'</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="s">'y'</span><span class="p">:</span> <span class="mi">20</span><span class="p">}</span>
+
+</code></pre></div></div>
+
+<p>인스턴스 b에서 메서드 append를 호출해서 값을 추가한다. 이 부분도 지금까지 메서드를 만들고 사용한 것과 같은 방식이다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="n">b</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+<span class="n">b</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">b</span>
+<span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">20</span><span class="p">]</span>
+
+</code></pre></div></div>
+
+<p>즉, 파이썬에서는 자료형도 클래스이다. 다음과 같이 type을 사용하면 객체(인스턴스)가 어떤 클래스인지 확인할 수 있다.</p>
+
+<ul>
+  <li>type(객체)</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="n">a</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="nb">type</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="o">&lt;</span><span class="k">class</span> <span class="err">'</span><span class="nc">int</span><span class="s">'&gt;
+b = [0, 1, 2]
+type(b)
+&lt;class '</span><span class="nb">list</span><span class="s">'&gt;
+c = {'</span><span class="n">x</span><span class="s">':10, '</span><span class="n">y</span><span class="s">':20}
+type(c)
+&lt;class '</span><span class="nb">dict</span><span class="s">'&gt;
+maria = Person()
+type(maria)
+&lt;class '</span><span class="n">__main__</span><span class="p">.</span><span class="n">Person</span><span class="s">'&gt;
+
+</span></code></pre></div></div>
+
+<h3 id="인스턴스와-객체의-차이점">인스턴스와 객체의 차이점?</h3>
+<p><br />
+<br />
+클래스는 객체를 표현하는 문법이라고 했는데, 클래스로 인스턴스를 만든다고 하니 좀 헷갈린다. 사실 인스턴스와 객체는 같은 것을 뜻한다. 보통 객체만 지칭할 때는 그냥 객체(object)라고 부른다. 하지만 클래스와 연관지어서 말할 때는 인스턴스(instance)라고 부른다. 그래서 다음과 같이 리스트 변수 a, b가 있으면 a, b는 객체이다. 그리고 a와 b는 list클래스의 인스턴스이다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="n">a</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+<span class="n">b</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">20</span><span class="p">))</span>
+
+</code></pre></div></div>
+
+<h3 id="빈-클래스-만들기">빈 클래스 만들기</h3>
+<p><br />
+<br />
+내용이 없는 빈 클래스를 만들 때는 코드 부분에 pass를 넣어준다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="k">class</span> <span class="nc">Person</span><span class="p">:</span>
+    <span class="k">pass</span>
+
+</code></pre></div></div>
+
+<h3 id="메서드-안에서-메서드-호출하기">메서드 안에서 메서드 호출하기</h3>
+<p><br />
+<br />
+메서드 안에서 메서드를 호출할 때는 다음과 같이 self.메서드() 형식으로 호출해야 한다. self 없이 메서드 이름만 사용하면 클래스 바깥쪽에 있는 함수를 호출한다는 뜻이 되므로 주의해야 한다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="k">class</span> <span class="nc">Person</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">greeting</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">'Hello'</span><span class="p">)</span>
+ 
+    <span class="k">def</span> <span class="nf">hello</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">greeting</span><span class="p">()</span>    <span class="c1"># self.메서드() 형식으로 클래스 안의 메서드를 호출
+</span> 
+<span class="n">james</span> <span class="o">=</span> <span class="n">Person</span><span class="p">()</span>
+<span class="n">james</span><span class="p">.</span><span class="n">hello</span><span class="p">()</span>    <span class="c1"># Hello
+</span>
+</code></pre></div></div>
+
+<h3 id="특정-클래스의-인스턴스인지-확인하기">특정 클래스의 인스턴스인지 확인하기</h3>
+<p><br />
+<br />
+현재 인스턴스가 특정 클래스의 인스턴스인지 확인할 때는 isinstance 함수를 사용한다. 특정 클래스의 인스턴스가 맞으면 True, 아니면 False를 반환한다.</p>
+
+<ul>
+  <li>isinstance(인스턴스, 클래스)</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="k">class</span> <span class="nc">Person</span><span class="p">:</span>
+     <span class="k">pass</span>
+
+<span class="n">james</span> <span class="o">=</span> <span class="n">Person</span><span class="p">()</span>
+<span class="nb">isinstance</span><span class="p">(</span><span class="n">james</span><span class="p">,</span> <span class="n">Person</span><span class="p">)</span>
+<span class="bp">True</span>
+
+</code></pre></div></div>
+
+<p>isinstance는 주로 객체의 자료형을 판단할 때 사용한다. 예를 들어 팩토리얼 함수는 1부터 n까지 양의 정수를 차례대로 곱해야 하는데, 실수와 음의 정수는 계산할 수 없다. 이런 경우에 isinstance를 사용하여 숫자(객체)가 정수일 때만 계산하도록 만들 수 있다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="k">def</span> <span class="nf">factorial</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span> <span class="ow">or</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>    <span class="c1"># n이 정수가 아니거나 음수이면 함수를 끝냄
+</span>        <span class="k">return</span> <span class="bp">None</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">n</span> <span class="o">*</span> <span class="n">factorial</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="2-속성-사용하기">2. 속성 사용하기</h2>
+<p><br />
+<br />
+지금까지 클래스에서 메서드를 만들고 호출해봤다. 이번엔 클래스에서 속성을 만들고 사용해보자. 속성(attribute)을 만들 때는 __init__ 메서드 안에서 self.속성에 값을 할당한다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="k">class</span> <span class="nc">클래스이름</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">속성</span> <span class="o">=</span> <span class="n">값</span>
+
+</code></pre></div></div>
+
+<p>다음 코드를 실행해 보자.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="k">class</span> <span class="nc">Person</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">hello</span> <span class="o">=</span> <span class="s">'안녕하세요.'</span>
+ 
+    <span class="k">def</span> <span class="nf">greeting</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">hello</span><span class="p">)</span>
+ 
+<span class="n">james</span> <span class="o">=</span> <span class="n">Person</span><span class="p">()</span>
+<span class="n">james</span><span class="p">.</span><span class="n">greeting</span><span class="p">()</span>
+
+<span class="c1">#실행결과
+</span><span class="n">안녕하세요</span><span class="p">.</span>
+
+</code></pre></div></div>
+
+<p>Person 클래스의 __init__ 메서드에서 self.hello에 ‘안녕하세요.’ 인사말을 넣었다. __init__ 메서드는 james = Person()처럼 클래스에 ( )(괄호)를 붙여서 인스턴스를 만들 때 호출되는 특별한 메서드다. 즉, __init__(initialize)이라는 이름 그대로 인스턴스(객체)를 초기화한다. 특히 이렇게 앞 뒤로 __(밑줄 두 개)가 붙은 메서드는 파이썬이 자동으로 호출해주는 메서드인데 스페셜 메서드(special method) 또는 매직 메서드(magic method)라고 부른다. 앞으로 파이썬의 여러 가지 기능을 사용할 때 이 스페셜 메서드를 채우는 식으로 사용하게 된다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="k">class</span> <span class="nc">Person</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">hello</span> <span class="o">=</span> <span class="s">'안녕하세요.'</span>
+
+</code></pre></div></div>
+
+<p>이제 greeting 메서드를 살펴보자. greeting 메서드에서는 print로 self.hello를 출력하게 만들었다. 그다음에 Person 클래스로 인스턴스를 만들고, greeting 메서드를 호출해보면 self.hello에 저장된 ‘안녕하세요.’가 출력된다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+    <span class="k">def</span> <span class="nf">greeting</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">hello</span><span class="p">)</span>
+
+<span class="n">james</span> <span class="o">=</span> <span class="n">Person</span><span class="p">()</span>
+<span class="n">james</span><span class="p">.</span><span class="n">greeting</span><span class="p">()</span>    <span class="c1"># 안녕하세요.
+</span>
+</code></pre></div></div>
+
+<h3 id="self의-의미">self의 의미</h3>
+<p><br />
+<br />
+self는 인스턴스 자기 자신을 의미한다. 우리는 인스턴스가 생성될 때 self.hello = ‘안녕하세요.’처럼 자기 자신에 속성을 추가했다. 여기서 __init의 매개변수 self에 들어가는 값은 person()이라 할 수 있다. 그리고 self가 완성된 뒤 james에 할당된다. 이후 메서드를 호출하면 현재 인스턴스가 자동으로 매개변수 self에 들어오게 된다. 그래서 greeting메서드에서 print(self.hello)처럼 속성을 출력할 수 있었던 것이다.</p>
+
+<h3 id="인스턴스를-만들-때-값-받기">인스턴스를 만들 때 값 받기</h3>
+<p><br />
+<br />
+이번에는 클래스로 인스턴스를 만들 때 값을 받는 방법을 알아보겠습니다. 다음과 같이 <strong>init</strong> 메서드에서 self 다음에 값을 받을 매개변수를 지정합니다. 그리고 매개변수를 self.속성에 넣어줍니다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="k">class</span> <span class="nc">클래스이름</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">매개변수1</span><span class="p">,</span> <span class="n">매개변수2</span><span class="p">):</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">속성1</span> <span class="o">=</span> <span class="n">매개변수1</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">속성2</span> <span class="o">=</span> <span class="n">매개변수2</span>
+
+
+</code></pre></div></div>
+
+<p>그럼 Person 클래스로 인스턴스를 만들 때 이름, 나이, 주소를 받아보자.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="k">class</span> <span class="nc">Person</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">,</span> <span class="n">address</span><span class="p">):</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">hello</span> <span class="o">=</span> <span class="s">'안녕하세요.'</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">age</span> <span class="o">=</span> <span class="n">age</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">address</span> <span class="o">=</span> <span class="n">address</span>
+ 
+    <span class="k">def</span> <span class="nf">greeting</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">'{0} 저는 {1}입니다.'</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">hello</span><span class="p">,</span> <span class="bp">self</span><span class="p">.</span><span class="n">name</span><span class="p">))</span>
+ 
+<span class="n">maria</span> <span class="o">=</span> <span class="n">Person</span><span class="p">(</span><span class="s">'마리아'</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="s">'서울시 서초구 반포동'</span><span class="p">)</span>
+<span class="n">maria</span><span class="p">.</span><span class="n">greeting</span><span class="p">()</span>    <span class="c1"># 안녕하세요. 저는 마리아입니다.
+</span> 
+<span class="k">print</span><span class="p">(</span><span class="s">'이름:'</span><span class="p">,</span> <span class="n">maria</span><span class="p">.</span><span class="n">name</span><span class="p">)</span>       <span class="c1"># 마리아
+</span><span class="k">print</span><span class="p">(</span><span class="s">'나이:'</span><span class="p">,</span> <span class="n">maria</span><span class="p">.</span><span class="n">age</span><span class="p">)</span>        <span class="c1"># 20
+</span><span class="k">print</span><span class="p">(</span><span class="s">'주소:'</span><span class="p">,</span> <span class="n">maria</span><span class="p">.</span><span class="n">address</span><span class="p">)</span>    <span class="c1"># 서울시 서초구 반포동
+</span>
+<span class="c1">#실행 결과
+</span><span class="n">안녕하세요</span><span class="p">.</span> <span class="n">저는</span> <span class="n">마리아입니다</span><span class="p">.</span>
+<span class="n">이름</span><span class="p">:</span> <span class="n">마리아</span>
+<span class="n">나이</span><span class="p">:</span> <span class="mi">20</span>
+<span class="n">주소</span><span class="p">:</span> <span class="n">서울시</span> <span class="n">서초구</span> <span class="n">반포동</span>
+
+</code></pre></div></div>
+
+<p>__init__ 메서드를 보면 self 다음에 name, age, address를 지정했습니다. 그리고 메서드 안에서는 self.name = name처럼 매개변수를 그대로 self에 넣어서 속성으로 만들었다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">,</span> <span class="n">address</span><span class="p">):</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">hello</span> <span class="o">=</span> <span class="s">'안녕하세요.'</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">age</span> <span class="o">=</span> <span class="n">age</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">address</span> <span class="o">=</span> <span class="n">address</span>
+
+</code></pre></div></div>
+
+<p>greeting 메서드는 인사를 하고 이름을 출력하도록 수정했다. 물론 name 속성에 접근할 때는 self.name처럼 사용해야한다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+    <span class="k">def</span> <span class="nf">greeting</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">'{0} 저는 {1}입니다.'</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">hello</span><span class="p">,</span> <span class="bp">self</span><span class="p">.</span><span class="n">name</span><span class="p">))</span>
+
+</code></pre></div></div>
+
+<p>이제 Person의 ( )(괄호) 안에 이름, 나이, 주소를 콤마로 구분해서 넣은 뒤에 변수에 할당한다. 이렇게 하면 이름은 ‘마리아’, 나이는 20, 주소는 ‘서울시 서초구 반포동’인 maria 인스턴스가 만들어진다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="n">maria</span> <span class="o">=</span> <span class="n">Person</span><span class="p">(</span><span class="s">'마리아'</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="s">'서울시 서초구 반포동'</span><span class="p">)</span>
+
+</code></pre></div></div>
+
+<p>maria 인스턴스의 greeting 메서드를 호출해보면 ‘안녕하세요. 저는 마리아입니다.’처럼 인삿말과 함께 이름도 출력된다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="n">maria</span><span class="p">.</span><span class="n">greeting</span><span class="p">()</span>    <span class="c1"># 안녕하세요. 저는 마리아입니다.
+</span>
+</code></pre></div></div>
+
+<p>클래스 안에서 속성에 접근할 때는 self.속성 형식이 있었다. 클래스 바깥에서 속성에 접근할 때는 인스턴스.속성 형식으로 접근한다. 다음과 같이 maria.name, maria.age, maria.address의 값을 출력해보면 Person으로 인스턴스를 만들 때 넣었던 값이 출력된다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="k">print</span><span class="p">(</span><span class="s">'이름:'</span><span class="p">,</span> <span class="n">maria</span><span class="p">.</span><span class="n">name</span><span class="p">)</span>       <span class="c1"># 마리아
+</span><span class="k">print</span><span class="p">(</span><span class="s">'나이:'</span><span class="p">,</span> <span class="n">maria</span><span class="p">.</span><span class="n">age</span><span class="p">)</span>        <span class="c1"># 20
+</span><span class="k">print</span><span class="p">(</span><span class="s">'주소:'</span><span class="p">,</span> <span class="n">maria</span><span class="p">.</span><span class="n">address</span><span class="p">)</span>    <span class="c1"># 서울시 서초구 반포동
+</span>
+</code></pre></div></div>
+
+<h3 id="클래스의-위치-인수-키워드-인수">클래스의 위치 인수, 키워드 인수</h3>
+<p><br />
+<br />
+클래스로 인스턴스를 만들 때 위치 인수와 키워드 인수를 사용할 수 있다. 규칙은 함수와 같다. 위치 인수와 리스트 언패킹을 사용하려면 다음과 같이 *args를 사용하면 됩니다. 이때 매개변수에서 값을 가져오려면 args[0]처럼 사용해야 한다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="k">class</span> <span class="nc">Person</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">age</span> <span class="o">=</span> <span class="n">args</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">address</span> <span class="o">=</span> <span class="n">args</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+ 
+<span class="n">maria</span> <span class="o">=</span> <span class="n">Person</span><span class="p">(</span><span class="o">*</span><span class="p">[</span><span class="s">'마리아'</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="s">'서울시 서초구 반포동'</span><span class="p">])</span>
+
+</code></pre></div></div>
+
+<p>키워드 인수와 딕셔너리 언패킹을 사용하려면 다음과 같이 **kwargs를 사용하면 됩니다. 이때 매개변수에서 값을 가져오려면 kwargs[‘name’]처럼 사용해야 한다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="k">class</span> <span class="nc">Person</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>    <span class="c1"># 키워드 인수
+</span>        <span class="bp">self</span><span class="p">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s">'name'</span><span class="p">]</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">age</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s">'age'</span><span class="p">]</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">address</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s">'address'</span><span class="p">]</span>
+ 
+<span class="n">maria1</span> <span class="o">=</span> <span class="n">Person</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s">'마리아'</span><span class="p">,</span> <span class="n">age</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">address</span><span class="o">=</span><span class="s">'서울시 서초구 반포동'</span><span class="p">)</span>
+<span class="n">maria2</span> <span class="o">=</span> <span class="n">Person</span><span class="p">(</span><span class="o">**</span><span class="p">{</span><span class="s">'name'</span><span class="p">:</span> <span class="s">'마리아'</span><span class="p">,</span> <span class="s">'age'</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span> <span class="s">'address'</span><span class="p">:</span> <span class="s">'서울시 서초구 반포동'</span><span class="p">})</span>
+
+</code></pre></div></div>
+
+<h3 id="인스턴스를-생성한-뒤에-속성-추가하기-특정-속성만-허용하기">인스턴스를 생성한 뒤에 속성 추가하기, 특정 속성만 허용하기</h3>
+<p><br />
+<br />
+지금까지 클래스의 인스턴스 속성은 <strong>init</strong> 메서드에서 추가한 뒤 사용했다. 하지만 클래스로 인스턴스를 만든 뒤에도 인스턴스.속성 = 값 형식으로 속성을 계속 추가할 수 있다. 다음 Person 클래스는 빈 클래스이지만 인스턴스를 만든 뒤 name 속성을 추가한다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="k">class</span> <span class="nc">Person</span><span class="p">:</span>
+     <span class="k">pass</span>
+
+<span class="n">maria</span> <span class="o">=</span> <span class="n">Person</span><span class="p">()</span>         <span class="c1"># 인스턴스 생성
+</span><span class="n">maria</span><span class="p">.</span><span class="n">name</span> <span class="o">=</span> <span class="s">'마리아'</span>    <span class="c1"># 인스턴스를 만든 뒤 속성 추가
+</span><span class="n">maria</span><span class="p">.</span><span class="n">name</span>
+<span class="s">'마리아'</span>
+
+</code></pre></div></div>
+
+<p>이렇게 추가한 속성은 해당 인스턴스에만 생성된다. 따라서 클래스로 다른 인스턴스를 만들었을 때는 추가한 속성이 생성되지 않는다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="n">james</span> <span class="o">=</span> <span class="n">Person</span><span class="p">()</span>    <span class="c1"># james 인스턴스 생성
+</span><span class="n">james</span><span class="p">.</span><span class="n">name</span>    <span class="c1"># maria 인스턴스에만 name 속성을 추가했으므로 james 인스턴스에는 name 속성이 없음
+</span><span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
+  <span class="n">File</span> <span class="s">"&lt;pyshell#11&gt;"</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+    <span class="n">james</span><span class="p">.</span><span class="n">name</span>
+<span class="nb">AttributeError</span><span class="p">:</span> <span class="s">'Person'</span> <span class="nb">object</span> <span class="n">has</span> <span class="n">no</span> <span class="n">attribute</span> <span class="s">'name'</span>
+
+</code></pre></div></div>
+
+<p>인스턴스는 생성한 뒤에 속성을 추가할 수 있으므로 <strong>init</strong> 메서드가 아닌 다른 메서드에서도 속성을 추가할 수 있다. 단, 이때는 메서드를 호출해야 속성이 생성된다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="k">class</span> <span class="nc">Person</span><span class="p">:</span>
+     <span class="k">def</span> <span class="nf">greeting</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+         <span class="bp">self</span><span class="p">.</span><span class="n">hello</span> <span class="o">=</span> <span class="s">'안녕하세요'</span>    <span class="c1"># greeting 메서드에서 hello 속성 추가
+</span>
+<span class="n">maria</span> <span class="o">=</span> <span class="n">Person</span><span class="p">()</span>
+<span class="n">maria</span><span class="p">.</span><span class="n">hello</span>    <span class="c1"># 아직 hello 속성이 없음
+</span><span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
+  <span class="n">File</span> <span class="s">"&lt;pyshell#22&gt;"</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+    <span class="n">maria</span><span class="p">.</span><span class="n">hello</span>
+<span class="nb">AttributeError</span><span class="p">:</span> <span class="s">'Person'</span> <span class="nb">object</span> <span class="n">has</span> <span class="n">no</span> <span class="n">attribute</span> <span class="s">'hello'</span>
+<span class="n">maria</span><span class="p">.</span><span class="n">greeting</span><span class="p">()</span>    <span class="c1"># greeting 메서드를 호출해야
+</span><span class="n">maria</span><span class="p">.</span><span class="n">hello</span>         <span class="c1"># hello 속성이 생성됨
+</span><span class="s">'안녕하세요'</span>
+
+</code></pre></div></div>
+
+<p>인스턴스는 자유롭게 속성을 추가할 수 있지만 특정 속성만 허용하고 다른 속성은 제한하고 싶을 수도 있다. 이때는 클래스에서 __slots__에 허용할 속성 이름을 리스트로 넣어주면 된다. 특히 속성 이름은 반드시 문자열로 지정해준다.</p>
+
+<ul>
+  <li>__slots__ = [‘속성이름1, ‘속성이름2’]</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="k">class</span> <span class="nc">Person</span><span class="p">:</span>
+     <span class="n">__slots__</span> <span class="o">=</span> <span class="p">[</span><span class="s">'name'</span><span class="p">,</span> <span class="s">'age'</span><span class="p">]</span>    <span class="c1"># name, age만 허용(다른 속성은 생성 제한)
+</span>
+<span class="n">maria</span> <span class="o">=</span> <span class="n">Person</span><span class="p">()</span>
+<span class="n">maria</span><span class="p">.</span><span class="n">name</span> <span class="o">=</span> <span class="s">'마리아'</span>                     <span class="c1"># 허용된 속성
+</span><span class="n">maria</span><span class="p">.</span><span class="n">age</span> <span class="o">=</span> <span class="mi">20</span>                            <span class="c1"># 허용된 속성
+</span><span class="n">maria</span><span class="p">.</span><span class="n">address</span> <span class="o">=</span> <span class="s">'서울시 서초구 반포동'</span>    <span class="c1"># 허용되지 않은 속성은 추가할 때 에러가 발생함
+</span><span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
+  <span class="n">File</span> <span class="s">"&lt;pyshell#32&gt;"</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+    <span class="n">maria</span><span class="p">.</span><span class="n">address</span> <span class="o">=</span> <span class="s">'서울시 서초구 반포동'</span>
+<span class="nb">AttributeError</span><span class="p">:</span> <span class="s">'Person'</span> <span class="nb">object</span> <span class="n">has</span> <span class="n">no</span> <span class="n">attribute</span> <span class="s">'address'</span>
+
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="3-비공개-속성-사용하기">3. 비공개 속성 사용하기</h2>
+<p><br />
+<br />
+위에서 만든 person클래스에는 hello, name, age, address 속성이 있었다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="k">class</span> <span class="nc">Person</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">,</span> <span class="n">address</span><span class="p">):</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">hello</span> <span class="o">=</span> <span class="s">'안녕하세요.'</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">age</span> <span class="o">=</span> <span class="n">age</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">address</span> <span class="o">=</span> <span class="n">address</span>
+
+</code></pre></div></div>
+
+<p>이 속성들은 메서드에서 self로 접근할 수 있고, <strong>인스턴스.속성</strong> 형식으로 클래스 바깥에서도 접근할 수 있다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="n">maria</span> <span class="o">=</span> <span class="n">Person</span><span class="p">(</span><span class="s">'마리아'</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="s">'서울시 서초구 반포동'</span><span class="p">)</span>
+<span class="n">maria</span><span class="p">.</span><span class="n">name</span>
+<span class="s">'마리아'</span>
+
+</code></pre></div></div>
+
+<p>이번에는 클래스 바깥에서는 접근할 수 없고 클래스 안에서만 사용할 수 있는 비공개 속성(private attribute)을 사용해보자.</p>
+
+<p>비공개 속성은 <strong>__속성</strong>과 같이 이름이 <strong>(밑줄 두 개)로 시작해야 한다. 단, **__속성</strong>**처럼 밑줄 두 개가 양 옆에 왔을 때는 비공개 속성이 아니므로 주의해야 한다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="k">class</span> <span class="nc">클래스이름</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">매개변수</span><span class="p">)</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">__속성</span> <span class="o">=</span> <span class="n">값</span>
+
+</code></pre></div></div>
+
+<p>Person 클래스에 지갑 속성 __wallet을 넣어 봤다. 다음 내용을 IDLE의 소스 코드 편집 창에 입력한 뒤 실행해보자. 실행을 해보면 에러가 발생한다. self.__wallet처럼 앞에 밑줄 두 개를 붙여서 비공개 속성으로 만들었으므로 클래스 바깥에서 maria.__wallet으로는 접근할 수 없다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="k">class</span> <span class="nc">Person</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">,</span> <span class="n">address</span><span class="p">,</span> <span class="n">wallet</span><span class="p">):</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">age</span> <span class="o">=</span> <span class="n">age</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">address</span> <span class="o">=</span> <span class="n">address</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">__wallet</span> <span class="o">=</span> <span class="n">wallet</span>    <span class="c1"># 변수 앞에 __를 붙여서 비공개 속성으로 만듦
+</span> 
+<span class="n">maria</span> <span class="o">=</span> <span class="n">Person</span><span class="p">(</span><span class="s">'마리아'</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="s">'서울시 서초구 반포동'</span><span class="p">,</span> <span class="mi">10000</span><span class="p">)</span>
+<span class="n">maria</span><span class="p">.</span><span class="n">__wallet</span> <span class="o">-=</span> <span class="mi">10000</span>    <span class="c1"># 클래스 바깥에서 비공개 속성에 접근하면 에러가 발생함
+</span>
+<span class="c1">#실행결과
+</span><span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
+  <span class="n">File</span> <span class="s">"C:\project\class_private_attribute_error.py"</span><span class="p">,</span> <span class="n">line</span> <span class="mi">9</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+    <span class="n">maria</span><span class="p">.</span><span class="n">__wallet</span> <span class="o">-=</span> <span class="mi">10000</span>    <span class="c1"># 클래스 바깥에서 비공개 속성에 접근하면 에러가 발생함
+</span><span class="nb">AttributeError</span><span class="p">:</span> <span class="s">'Person'</span> <span class="nb">object</span> <span class="n">has</span> <span class="n">no</span> <span class="n">attribute</span> <span class="s">'__wallet'</span> 
+
+</code></pre></div></div>
+
+<p>비공개 속성은 클래스 안의 메서드에서만 접근할 수 있다. 다음과 같이 돈을 내는 pay 메서드를 만들어보자. pay는 돈을 내면 해당 금액을 지갑에서 빼도록 만들었다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="k">class</span> <span class="nc">Person</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">,</span> <span class="n">address</span><span class="p">,</span> <span class="n">wallet</span><span class="p">):</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">age</span> <span class="o">=</span> <span class="n">age</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">address</span> <span class="o">=</span> <span class="n">address</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">__wallet</span> <span class="o">=</span> <span class="n">wallet</span>    <span class="c1"># 변수 앞에 __를 붙여서 비공개 속성으로 만듦
+</span> 
+    <span class="k">def</span> <span class="nf">pay</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">amount</span><span class="p">):</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">__wallet</span> <span class="o">-=</span> <span class="n">amount</span>   <span class="c1"># 비공개 속성은 클래스 안의 메서드에서만 접근할 수 있음
+</span>        <span class="k">print</span><span class="p">(</span><span class="s">'이제 {0}원 남았네요.'</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">__wallet</span><span class="p">))</span>
+ 
+<span class="n">maria</span> <span class="o">=</span> <span class="n">Person</span><span class="p">(</span><span class="s">'마리아'</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="s">'서울시 서초구 반포동'</span><span class="p">,</span> <span class="mi">10000</span><span class="p">)</span>
+<span class="n">maria</span><span class="p">.</span><span class="n">pay</span><span class="p">(</span><span class="mi">3000</span><span class="p">)</span>
+
+<span class="c1"># 실행결과
+</span>
+<span class="n">이제</span> <span class="mi">7000</span><span class="n">원</span> <span class="n">남았네요</span><span class="p">.</span>
+
+</code></pre></div></div>
+
+<p>물론 지갑에 든 돈은 굳이 밝힐 필요가 없으므로 print로 출력하지 않아도 된다. 보통은 다음과 같이 지갑에 든 돈이 얼마인지 확인하고 돈이 모자라면 쓰지 못하는 식으로 만든다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+    <span class="k">def</span> <span class="nf">pay</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">amount</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">amount</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="p">.</span><span class="n">__wallet</span><span class="p">:</span>    <span class="c1"># 사용하려고 하는 금액보다 지갑에 든 돈이 적을 때
+</span>            <span class="k">print</span><span class="p">(</span><span class="s">'돈이 모자라네...'</span><span class="p">)</span>
+            <span class="k">return</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">__wallet</span> <span class="o">-=</span> <span class="n">amount</span>
+
+</code></pre></div></div>
+
+<p>이처럼 비공개 속성은 클래스 바깥으로 드러내고 싶지 않은 값에 사용한다. 즉, 중요한 값인데 바깥에서 함부로 바꾸면 안될 때 비공개 속성을 주로 사용한다. 비공개 속성을 바꾸는 경우는 클래스의 메서드로 한정한다.</p>
+
+<h3 id="공개-속성과-비공개-속성">공개 속성과 비공개 속성</h3>
+<p><br />
+<br />
+클래스 바깥에서 접근할 수 있는 속성을 공개 속성(public attribute)이라 부르고, 클래스 안에서만 접근할 수 있는 속성을 비공개 속성(private attribute)이라 부른다.</p>
+
+<h3 id="비공개-메서드-사용하기">비공개 메서드 사용하기</h3>
+<p><br />
+<br />
+속성뿐만 아니라 메서드도 이름이 __(밑줄 두 개)로 시작하면 클래스 안에서만 호출할 수 있는 비공개 메서드가 된다. 비공개 메서드도 메서드를 클래스 바깥으로 드러내고 싶지 않을 때 사용한다. 보통 내부에서만 호출되어야 하는 메서드를 비공개 메서드로 만든다. 예를 들어 게임 캐릭터가 마나를 소비해서 스킬을 쓴다고 치면 마나 소비량을 계산해서 차감하는 메서드는 비공개 메서드로 만들고, 스킬을 쓰는 메서드는 공개 메서드로 만든다. 만약 마나를 차감하는 메서드가 공개되어 있다면 마음대로 마나를 차감시킬 수 있으므로 잘못된 클래스 설계가 된다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="k">class</span> <span class="nc">Person</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">__greeting</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">'Hello'</span><span class="p">)</span>
+ 
+    <span class="k">def</span> <span class="nf">hello</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">__greeting</span><span class="p">()</span>    <span class="c1"># 클래스 안에서는 비공개 메서드를 호출할 수 있음
+</span> 
+<span class="n">james</span> <span class="o">=</span> <span class="n">Person</span><span class="p">()</span>
+<span class="n">james</span><span class="p">.</span><span class="n">__greeting</span><span class="p">()</span>    <span class="c1"># 에러: 클래스 바깥에서는 비공개 메서드를 호출할 수 없음
+</span>
+</code></pre></div></div>
+
+<hr />
+
+<h3 id="예제1">예제1</h3>
+<p><br />
+<br />
+다음 소스 코드에서 클래스를 작성하여 게임 캐릭터의 능력치와 ‘베기’가 출력되게 만드세요.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+ <span class="n">______________</span>                                           
+<span class="p">...</span>
+ <span class="n">______________</span>                                          
+ 
+<span class="n">x</span> <span class="o">=</span> <span class="n">Knight</span><span class="p">(</span><span class="n">health</span><span class="o">=</span><span class="mf">542.4</span><span class="p">,</span> <span class="n">mana</span><span class="o">=</span><span class="mf">210.3</span><span class="p">,</span> <span class="n">armor</span><span class="o">=</span><span class="mi">38</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="p">.</span><span class="n">health</span><span class="p">,</span> <span class="n">x</span><span class="p">.</span><span class="n">mana</span><span class="p">,</span> <span class="n">x</span><span class="p">.</span><span class="n">armor</span><span class="p">)</span>
+<span class="n">x</span><span class="p">.</span><span class="n">slash</span><span class="p">()</span>
+
+<span class="c1">#결과
+</span><span class="mf">542.4</span> <span class="mf">210.3</span> <span class="mi">38</span>
+<span class="n">베기</span>
+
+</code></pre></div></div>
+
+<p>답</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="k">class</span> <span class="nc">Knight</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">health</span><span class="p">,</span> <span class="n">mana</span><span class="p">,</span> <span class="n">armor</span><span class="p">):</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">health</span> <span class="o">=</span> <span class="n">health</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">mana</span> <span class="o">=</span> <span class="n">mana</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">armor</span> <span class="o">=</span> <span class="n">armor</span>
+ 
+    <span class="k">def</span> <span class="nf">slash</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">'베기'</span><span class="p">)</span>
+
+</code></pre></div></div>
+
+<p>x = Knight(health=542.4, mana=210.3, armor=38)와 같이 클래스에 값을 넣어서 인스턴스를 생성하고, print(x.health, x.mana, x.armor)와 같이 인스턴스 속성을 출력하고 있다. 따라서 class로 Knight 클래스를 만들고 __init__ 메서드에 매개변수로 self, health, mana, armor를 지정한다. 이때 반드시 첫 번째 매개변수는 self어야 한다. 함수 안에서는 self.health = health처럼 모든 매개변수를 그대로 속성으로 만들어준다.</p>
+
+<p>그다음에 x.slash()와 같이 인스턴스로 메서드를 호출하고 있으므로 Knight 클래스 안에 slash 메서드를 만들고 print로 ‘베기’를 출력하도록 만들면 되겠다.</p>
+
+<h3 id="예제2">예제2</h3>
+<p><br />
+<br />
+표준 입력으로 게임 캐릭터 능력치(체력, 마나, AP)가 입력됩니다. 다음 소스 코드에서 애니(Annie) 클래스를 작성하여 티버(tibbers) 스킬의 피해량이 출력되게 만드세요. 티버의 피해량은 AP * 0.65 + 400이며 AP(Ability Power, 주문력)는 마법 능력치를 뜻합니다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="n">________________</span>
+<span class="n">________________</span>
+<span class="n">________________</span>
+<span class="n">________________</span>
+<span class="n">________________</span>
+<span class="n">________________</span>
+
+<span class="n">health</span><span class="p">,</span> <span class="n">mana</span><span class="p">,</span> <span class="n">ability_power</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">float</span><span class="p">,</span> <span class="nb">input</span><span class="p">().</span><span class="n">split</span><span class="p">())</span>
+ 
+<span class="n">x</span> <span class="o">=</span> <span class="n">Annie</span><span class="p">(</span><span class="n">health</span><span class="o">=</span><span class="n">health</span><span class="p">,</span> <span class="n">mana</span><span class="o">=</span><span class="n">mana</span><span class="p">,</span> <span class="n">ability_power</span><span class="o">=</span><span class="n">ability_power</span><span class="p">)</span>
+<span class="n">x</span><span class="p">.</span><span class="n">tibbers</span><span class="p">()</span>
+
+<span class="c1">#입력
+</span><span class="mf">511.68</span> <span class="mf">334.0</span> <span class="mi">298</span>
+
+<span class="c1">#결과
+</span><span class="n">티버</span><span class="p">:</span> <span class="n">피해량</span> <span class="mf">593.7</span>
+
+<span class="c1">#입력
+</span><span class="mf">1803.68</span> <span class="mf">1184.0</span> <span class="mi">645</span>
+
+<span class="c1">#결과
+</span><span class="n">티버</span><span class="p">:</span> <span class="n">피해량</span> <span class="mf">819.25</span>
+
+</code></pre></div></div>
+
+<p>내가 쓴 답</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="k">class</span> <span class="nc">Annie</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">health</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s">'health'</span><span class="p">]</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">mana</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s">'mana'</span><span class="p">]</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">ability_power</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s">'ability_power'</span><span class="p">]</span>
+    <span class="k">def</span> <span class="nf">tibbers</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">"티버: 피해량"</span><span class="p">,</span> <span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">ability_power</span> <span class="o">*</span> <span class="mf">0.65</span> <span class="o">+</span> <span class="mi">400</span><span class="p">))</span>
+
+</code></pre></div></div>
+
+<p>코딩도장 풀이</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="k">class</span> <span class="nc">Annie</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">health</span><span class="p">,</span> <span class="n">mana</span><span class="p">,</span> <span class="n">ability_power</span><span class="p">):</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">health</span> <span class="o">=</span> <span class="n">health</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">mana</span> <span class="o">=</span> <span class="n">mana</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">ability_power</span> <span class="o">=</span> <span class="n">ability_power</span>
+    <span class="k">def</span> <span class="nf">tibbers</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">"티버: 피해량 {0} "</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">ability_power</span> <span class="o">*</span> <span class="mf">0.65</span> <span class="o">+</span> <span class="mi">400</span><span class="p">))</span>
+
+</code></pre></div></div>
+
+
+                </div>
+            </section>
+
+            <!-- Email subscribe form at the bottom of the page -->
+            
+                <section class="subscribe-form">
+                    <h3 class="subscribe-form-title">Subscribe to My Coding Practice Gym</h3>
+                    <p>Get the latest posts delivered right to your inbox</p>
+                    <span id="searchform" method="post" action="/subscribe/" class="">
+    <input class="confirm" type="hidden" name="confirm"  />
+    <input class="location" type="hidden" name="location"  />
+    <input class="referrer" type="hidden" name="referrer"  />
+
+    <div class="form-group">
+        <input class="subscribe-email" onkeyup="myFunc()" 
+               id="searchtext" type="text" name="searchtext"  
+               placeholder="Search..." />
+    </div>
+    <script type="text/javascript">
+        function myFunc() {
+            if(event.keyCode == 13) {
+                var url = encodeURIComponent($("#searchtext").val());
+                location.href = "/search.html?query=" + url;
+            }
+        }
+    </script>
+</span>
+                </section>
+            
+
+            <footer class="post-full-footer">
+                <!-- Everything inside the #author tags pulls data from the author -->
+                <!-- #author-->
+                
+                    
+                        <section class="author-card">
+                            
+                                <img class="author-profile-image" src="/assets/built/images/author-logo.jpg" alt="AhnSang0915" />
+                            
+                            <section class="author-card-content">
+                                <h4 class="author-card-name"><a href="/author/AhnSang0915">AhnSang0915</a></h4>
+                                
+                                    <p><a href="https://github.com/AhnSang0915"> 개발 달려</p>
+                                
+                            </section>
+                        </section>
+                        <div class="post-full-footer-right">
+                            <a class="author-card-button" href="/author/AhnSang0915">Read More</a>
+                        </div>
+                    
+                
+                <!-- /author  -->
+            </footer>
+
+            <!-- If you use Disqus comments, just uncomment this block.
+            The only thing you need to change is "test-apkdzgmqhj" - which
+            should be replaced with your own Disqus site-id. -->
+            
+                <section class="post-full-comments">
+                    <div id="disqus_thread"></div>
+                    <script>
+                        var disqus_config = function () {
+                            var this_page_url = 'https://AhnSang0915.github.io/python-basic32';
+                            var this_page_identifier = '/python-basic32';
+                            var this_page_title = 'Python - Python 클래스 사용하기';
+                        };
+                        (function() {
+                            var d = document, s = d.createElement('script');
+                            s.src = 'https://xxxxxxxx.disqus.com/embed.js';
+                            s.setAttribute('data-timestamp', +new Date());
+                            (d.head || d.body).appendChild(s);
+                        })();
+                    </script>
+                </section>
+            
+
+        </article>
+
+    </div>
+</main>
+
+<!-- Links to Previous/Next posts -->
+<aside class="read-next outer">
+    <div class="inner">
+        <div class="read-next-feed">
+            
+                
+                
+                
+                
+                    <article class="read-next-card"
+                        
+                            style="background-image: url(/assets/built/images/blog-cover1.jpg)"
+                        
+                    >
+                        <header class="read-next-card-header">
+                            <small class="read-next-card-header-sitetitle">&mdash; My Coding Practice Gym &mdash;</small>
+                            
+                                <h3 class="read-next-card-header-title"><a href="/tag/python/">Python</a></h3>
+                            
+                        </header>
+                        <div class="read-next-divider"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 14.5s2 3 5 3 5.5-2.463 5.5-5.5S21 6.5 18 6.5c-5 0-7 11-12 11C2.962 17.5.5 15.037.5 12S3 6.5 6 6.5s4.5 3.5 4.5 3.5"/></svg>
+</div>
+                        <div class="read-next-card-content">
+                            <ul>
+                                
+                                
+                                  
+                                    
+                                        
+                                        
+                                            <li><a href="/practice-3">Python으로 웹 스크래퍼 만들기-2</a></li>
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                            <li><a href="/python-basic43">Python - Python 모듈과 패키지 만들기</a></li>
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                            <li><a href="/python-basic42">Python - Python 모듈과 패키지 사용하기</a></li>
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                            </ul>
+                        </div>
+                        <footer class="read-next-card-footer">
+                            <a href="/tag/python/">
+                                
+                                    See all 45 posts  →
+                                
+                            </a>
+                        </footer>
+                    </article>
+                
+            
+
+            <!-- If there's a next post, display it using the same markup included from - partials/post-card.hbs -->
+            
+                
+
+    <article class="post-card post-template">
+        
+            <a class="post-card-image-link" href="/python-basic33">
+                <div class="post-card-image" style="background-image: url(/assets/built/images/python-logo.png)"></div>
+            </a>
+        
+        <div class="post-card-content">
+            <a class="post-card-content-link" href="/python-basic33">
+                <header class="post-card-header">
+                    
+                        
+                            
+                                <span class="post-card-tags">Python</span>
+                            
+                        
+                    
+
+                    <h2 class="post-card-title">Python - Python 클래스 속성과 정적, 클래스 메서드 사용하기</h2>
+                </header>
+                <section class="post-card-excerpt">
+                    
+                        <p>Python Python 기본 Python 숫자 계산하기 Python 변수 만들기 Python 출력 방법 Python 불과 비교, 논리 연산자 Python 문자열 사용하기 Python 리스트와 튜플 사용하기 Python 시퀀스 자료형 활용하기 Python 딕셔너리 사용하기 Python if</p>
+                    
+                </section>
+            </a>
+            <footer class="post-card-meta">
+                
+                    
+                        
+                        <img class="author-profile-image" src="/assets/built/images/author-logo.jpg" alt="AhnSang0915" />
+                        
+                        <span class="post-card-author">
+                            <a href="/author/AhnSang0915/">AhnSang0915</a>
+                        </span>
+                    
+                
+                <span class="reading-time">
+                    
+                    
+                      7 min read
+                    
+                </span>
+            </footer>
+        </div>
+    </article>
+
+            
+
+            <!-- If there's a previous post, display it using the same markup included from - partials/post-card.hbs -->
+            
+                
+
+    <article class="post-card post-template">
+        
+            <a class="post-card-image-link" href="/python-basic31">
+                <div class="post-card-image" style="background-image: url(/assets/built/images/python-logo.png)"></div>
+            </a>
+        
+        <div class="post-card-content">
+            <a class="post-card-content-link" href="/python-basic31">
+                <header class="post-card-header">
+                    
+                        
+                            
+                                <span class="post-card-tags">Python</span>
+                            
+                        
+                    
+
+                    <h2 class="post-card-title">Python - Python 클로저 사용하기</h2>
+                </header>
+                <section class="post-card-excerpt">
+                    
+                        <p>Python Python 기본 Python 숫자 계산하기 Python 변수 만들기 Python 출력 방법 Python 불과 비교, 논리 연산자 Python 문자열 사용하기 Python 리스트와 튜플 사용하기 Python 시퀀스 자료형 활용하기 Python 딕셔너리 사용하기 Python if</p>
+                    
+                </section>
+            </a>
+            <footer class="post-card-meta">
+                
+                    
+                        
+                        <img class="author-profile-image" src="/assets/built/images/author-logo.jpg" alt="AhnSang0915" />
+                        
+                        <span class="post-card-author">
+                            <a href="/author/AhnSang0915/">AhnSang0915</a>
+                        </span>
+                    
+                
+                <span class="reading-time">
+                    
+                    
+                      9 min read
+                    
+                </span>
+            </footer>
+        </div>
+    </article>
+
+            
+
+        </div>
+    </div>
+</aside>
+
+<!-- Floating header which appears on-scroll, included from includes/floating-header.hbs -->
+<div class="floating-header">
+    <div class="floating-header-logo">
+        <a href="https://AhnSang0915.github.io/">
+            
+            <span>My Coding Practice Gym</span>
+        </a>
+    </div>
+    <span class="floating-header-divider">&mdash;</span>
+    <div class="floating-header-title">Python - Python 클래스 사용하기</div>
+    <div class="floating-header-share">
+        <div class="floating-header-share-label">Share this <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <path d="M7.5 15.5V4a1.5 1.5 0 1 1 3 0v4.5h2a1 1 0 0 1 1 1h2a1 1 0 0 1 1 1H18a1.5 1.5 0 0 1 1.5 1.5v3.099c0 .929-.13 1.854-.385 2.748L17.5 23.5h-9c-1.5-2-5.417-8.673-5.417-8.673a1.2 1.2 0 0 1 1.76-1.605L7.5 15.5zm6-6v2m-3-3.5v3.5m6-1v2"/>
+</svg>
+</div>
+        <a class="floating-header-share-tw" href="https://twitter.com/share?text=Python+-+Python+%ED%81%B4%EB%9E%98%EC%8A%A4+%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0&amp;url=https://AhnSang0915.github.iopython-basic32"
+            onclick="window.open(this.href, 'share-twitter', 'width=550,height=235');return false;">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"/></svg>
+
+        </a>
+        <a class="floating-header-share-fb" href="https://www.facebook.com/sharer/sharer.php?u=https://AhnSang0915.github.iopython-basic32"
+            onclick="window.open(this.href, 'share-facebook','width=580,height=296');return false;">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M19 6h5V0h-5c-3.86 0-7 3.14-7 7v3H8v6h4v16h6V16h5l1-6h-6V7c0-.542.458-1 1-1z"/></svg>
+
+        </a>
+    </div>
+    <progress class="progress" value="0">
+        <div class="progress-container">
+            <span class="progress-bar"></span>
+        </div>
+    </progress>
+</div>
+
+
+<!-- /post -->
+
+<!-- The #contentFor helper here will send everything inside it up to the matching #block helper found in default.hbs -->
+
+
+        <!-- Previous/next page links - displayed on every page -->
+        
+
+        <!-- The footer at the very bottom of the screen -->
+        <footer class="site-footer outer">
+            <div class="site-footer-content inner">
+                <section class="copyright"><a href="https://AhnSang0915.github.io/">My Coding Practice Gym</a> &copy; 2022</section>
+                <section class="poweredby">Proudly published with <a href="https://jekyllrb.com/">Jekyll</a> &
+                    <a href="https://pages.github.com/" target="_blank" rel="noopener">GitHub Pages</a> using
+                    <a href="https://github.com/jekyllt/jasper2" target="_blank" rel="noopener">Jasper2</a></section>
+                <nav class="site-footer-nav">
+                    <a href="/">Latest Posts</a>
+                    
+                    
+                    <a href="https://ghost.org" target="_blank" rel="noopener">Ghost</a>
+                </nav>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- The big email subscribe modal content -->
+    
+    <div id="subscribe" class="subscribe-overlay">
+        <a class="subscribe-overlay-close" href="#"></a>
+            <div class="subscribe-overlay-content">
+                
+                <h1 class="subscribe-overlay-title">Search My Coding Practice Gym</h1>
+                <p class="subscribe-overlay-description">
+                블로그 포스팅 검색 </p>
+                <span id="searchform" method="post" action="/subscribe/" class="">
+    <input class="confirm" type="hidden" name="confirm"  />
+    <input class="location" type="hidden" name="location"  />
+    <input class="referrer" type="hidden" name="referrer"  />
+
+    <div class="form-group">
+        <input class="subscribe-email" onkeyup="myFunc()" 
+               id="searchtext" type="text" name="searchtext"  
+               placeholder="Search..." />
+    </div>
+    <script type="text/javascript">
+        function myFunc() {
+            if(event.keyCode == 13) {
+                var url = encodeURIComponent($("#searchtext").val());
+                location.href = "/search.html?query=" + url;
+            }
+        }
+    </script>
+</span>
+            </div>
+    </div>
+    
+
+    <!-- highlight.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.10.0/components/prism-abap.min.js"></script>
+    <script>$(document).ready(function() {
+      $('pre code').each(function(i, block) {
+        hljs.highlightBlock(block);
+      });
+    });</script>
+
+    <!-- jQuery + Fitvids, which makes all video embeds responsive -->
+    <script
+        src="https://code.jquery.com/jquery-3.2.1.min.js"
+        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous">
+    </script>
+    <script type="text/javascript" src="/assets/js/jquery.fitvids.js"></script>
+    <script type="text/javascript" src="https://demo.ghost.io/assets/js/jquery.fitvids.js?v=724281a32e"></script>
+
+
+    <!-- Paginator increased to "infinit" in _config.yml -->
+    <!-- if paginator.posts  -->
+    <!-- <script>
+        var maxPages = parseInt('');
+    </script>
+    <script src="/assets/js/infinitescroll.js"></script> -->
+    <!-- /endif -->
+
+    
+
+
+    <!-- Add Google Analytics  -->
+    <!-- Google Analytics Tracking code -->
+ <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-xxxxxxxx-x', 'auto');
+  ga('send', 'pageview');
+
+ </script>
+
+
+    <!-- The #block helper will pull in data from the #contentFor other template files. In this case, there's some JavaScript which we only want to use in post.hbs, but it needs to be included down here, after jQuery has already loaded. -->
+    
+        <script>
+
+// NOTE: Scroll performance is poor in Safari
+// - this appears to be due to the events firing much more slowly in Safari.
+//   Dropping the scroll event and using only a raf loop results in smoother
+//   scrolling but continuous processing even when not scrolling
+$(document).ready(function () {
+    // Start fitVids
+    var $postContent = $(".post-full-content");
+    $postContent.fitVids();
+    // End fitVids
+
+    var progressBar = document.querySelector('progress');
+    var header = document.querySelector('.floating-header');
+    var title = document.querySelector('.post-full-title');
+
+    var lastScrollY = window.scrollY;
+    var lastWindowHeight = window.innerHeight;
+    var lastDocumentHeight = $(document).height();
+    var ticking = false;
+
+    function onScroll() {
+        lastScrollY = window.scrollY;
+        requestTick();
+    }
+
+    function onResize() {
+        lastWindowHeight = window.innerHeight;
+        lastDocumentHeight = $(document).height();
+        requestTick();
+    }
+
+    function requestTick() {
+        if (!ticking) {
+            requestAnimationFrame(update);
+        }
+        ticking = true;
+    }
+
+    function update() {
+        var trigger = title.getBoundingClientRect().top + window.scrollY;
+        var triggerOffset = title.offsetHeight + 35;
+        var progressMax = lastDocumentHeight - lastWindowHeight;
+
+        // show/hide floating header
+        if (lastScrollY >= trigger + triggerOffset) {
+            header.classList.add('floating-active');
+        } else {
+            header.classList.remove('floating-active');
+        }
+
+        progressBar.setAttribute('max', progressMax);
+        progressBar.setAttribute('value', lastScrollY);
+
+        ticking = false;
+    }
+
+    window.addEventListener('scroll', onScroll, {passive: true});
+    window.addEventListener('resize', onResize, false);
+
+    update();
+});
+</script>
+
+    
+
+    <!-- Ghost outputs important scripts and data with this tag - it should always be the very last thing before the closing body tag -->
+    <!-- ghost_foot -->
+
+</body>
+</html>

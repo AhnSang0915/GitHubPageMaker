@@ -1,0 +1,1763 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <!-- Document Settings -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <!-- Base Meta -->
+    <!-- dynamically fixing the title for tag/author pages -->
+
+
+
+    <title>Python - Python 시퀀스 자료형 활용하기</title>
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Styles'n'Scripts -->
+    <link rel="stylesheet" type="text/css" href="/assets/built/screen.css" />
+    <link rel="stylesheet" type="text/css" href="/assets/built/screen.edited.css" />
+    <link rel="stylesheet" type="text/css" href="/assets/built/syntax.css" />
+
+    <!--    costom.css-->
+    <link rel="stylesheet" type="text/css" href="/assets/built/custom.css" />
+
+    <!--    Font Awsome-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!--    웹폰트 추가-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/nanumgothic.css">
+
+    <!--    syntax.css-->
+    <link rel="stylesheet" type="text/css" href="/assets/built/syntax.css" />
+
+
+    <!-- highlight.js -->
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">
+    <style>.hljs { background: none; }</style>
+
+    <!--[if IE]>
+        <style>
+            p, ol, ul{
+                width: 100%;
+            }
+            blockquote{
+                width: 100%;
+            }
+        </style>
+    <![endif]-->
+    
+    <!-- This tag outputs SEO meta+structured data and other important settings -->
+    <meta name="description" content="Learn Coding" />
+    <link rel="shortcut icon" href="https://AhnSang0915.github.io/assets/built/images/favicon.png" type="image/png" />
+    <link rel="canonical" href="https://AhnSang0915.github.io/python-basic8" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
+
+     <!--title below is coming from _includes/dynamic_title-->
+    <meta property="og:site_name" content="My Coding Practice Gym" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Python - Python 시퀀스 자료형 활용하기" />
+    <meta property="og:description" content="Python Python 기본 Python 숫자 계산하기 Python 변수 만들기 Python 출력 방법 Python 불과 비교, 논리 연산자 Python 문자열 사용하기 Python 리스트와 튜플 사용하기 Python 시퀀스 자료형 활용하기 Python 딕셔너리 사용하기 Python if 조건문으로 특정 조건일 때 코드 실행하기 Python else를 사용하여 두 방향으로 분기하기 Python elif를 사용하여 두 방향으로" />
+    <meta property="og:url" content="https://AhnSang0915.github.io/python-basic8" />
+    <meta property="og:image" content="https://AhnSang0915.github.io/assets/built/images/python-logo.png" />
+    <meta property="article:publisher" content="https://www.facebook.com/" />
+    <meta property="article:author" content="https://www.facebook.com/" />
+    <meta property="article:published_time" content="2022-03-29T12:20:00+00:00" />
+    <meta property="article:modified_time" content="2022-03-29T12:20:00+00:00" />
+    <meta property="article:tag" content="Python" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Python - Python 시퀀스 자료형 활용하기" />
+    <meta name="twitter:description" content="Python Python 기본 Python 숫자 계산하기 Python 변수 만들기 Python 출력 방법 Python 불과 비교, 논리 연산자 Python 문자열 사용하기 Python 리스트와 튜플 사용하기 Python 시퀀스 자료형 활용하기 Python 딕셔너리 사용하기 Python if 조건문으로 특정 조건일 때 코드 실행하기 Python else를 사용하여 두 방향으로 분기하기 Python elif를 사용하여 두 방향으로" />
+    <meta name="twitter:url" content="https://AhnSang0915.github.io/" />
+    <meta name="twitter:image" content="https://AhnSang0915.github.io/assets/built/images/python-logo.png" />
+    <meta name="twitter:label1" content="Written by" />
+    <meta name="twitter:data1" content="My Coding Practice Gym" />
+    <meta name="twitter:label2" content="Filed under" />
+    <meta name="twitter:data2" content="Python" />
+    <meta name="twitter:site" content="@" />
+    <meta name="twitter:creator" content="@" />
+    <meta property="og:image:width" content="1400" />
+    <meta property="og:image:height" content="933" />
+
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Website",
+    "publisher": {
+        "@type": "Organization",
+        "name": "My Coding Practice Gym",
+        "logo": "https://AhnSang0915.github.io/"
+    },
+    "url": "https://AhnSang0915.github.io/python-basic8",
+    "image": {
+        "@type": "ImageObject",
+        "url": "https://AhnSang0915.github.io/assets/built/images/python-logo.png",
+        "width": 2000,
+        "height": 666
+    },
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://AhnSang0915.github.io/python-basic8"
+    },
+    "description": "Python Python 기본 Python 숫자 계산하기 Python 변수 만들기 Python 출력 방법 Python 불과 비교, 논리 연산자 Python 문자열 사용하기 Python 리스트와 튜플 사용하기 Python 시퀀스 자료형 활용하기 Python 딕셔너리 사용하기 Python if 조건문으로 특정 조건일 때 코드 실행하기 Python else를 사용하여 두 방향으로 분기하기 Python elif를 사용하여 두 방향으로"
+}
+    </script>
+
+    <!-- <script type="text/javascript" src="https://demo.ghost.io/public/ghost-sdk.min.js?v=724281a32e"></script>
+    <script type="text/javascript">
+    ghost.init({
+    	clientId: "ghost-frontend",
+    	clientSecret: "f84a07a72b17"
+    });
+    </script> -->
+
+    <meta name="generator" content="Jekyll 3.6.2" />
+    <link rel="alternate" type="application/rss+xml" title="Python - Python 시퀀스 자료형 활용하기" href="/feed.xml" />
+
+
+</head>
+<body class="post-template">
+
+    <div class="site-wrapper">
+        <!-- All the main content gets inserted here, index.hbs, post.hbs, etc -->
+        <!-- default -->
+
+<!-- The tag above means: insert everything in this file
+into the {body} of the default.hbs template -->
+
+<header class="site-header outer">
+    <div class="inner">
+        <nav class="site-nav">
+    <div class="site-nav-left">
+        
+            
+                <a class="site-nav-logo" href="https://AhnSang0915.github.io/">My Coding Practice Gym</a>
+            
+        
+        
+            <ul class="nav" role="menu">
+    <li class="nav-home" role="menuitem"><a href="/">Home</a></li>
+    <li class="nav-about" role="menuitem"><a href="/about/">About</a></li>
+    <li class="nav-javascript" role="menuitem"><a href="/tag/javascript/">Javascript</a></li>
+    <li class="nav-python" role="menuitem"><a href="/tag/python/">Python</a></li>
+    <li class="nav-archive" role="menuitem">
+        <a href="/archive.html">All Posts</a>
+    </li>
+    <li class="nav-archive" role="menuitem">
+        <a href="/author_archive.html">Tag별 Posts</a>
+    </li>
+</ul>
+        
+    </div>
+    <div class="site-nav-right">
+        <div class="social-links">
+            
+            
+        </div>
+        
+            <a class="subscribe-button" href="#subscribe">Search</a>
+        
+    </div>
+</nav>
+
+    </div>
+</header>
+
+<!-- Everything inside the #post tags pulls data from the post -->
+<!-- #post -->
+
+<main id="site-main" class="site-main outer" role="main">
+    <div class="inner">
+
+        <article class="post-full  tag-python post tag-python ">
+
+            <header class="post-full-header">
+                <section class="post-full-meta">
+                    <time class="post-full-meta-date" datetime="29 March 2022">29 March 2022</time>
+                    
+                        <span class="date-divider">/</span>
+                        
+                            
+                               <a href='/tag/python/'>PYTHON</a>
+                            
+                        
+                    
+                </section>
+                <h1 class="post-full-title">Python - Python 시퀀스 자료형 활용하기</h1>
+            </header>
+
+            
+            <figure class="post-full-image" style="background-image: url(/assets/built/images/python-logo.png)">
+            </figure>
+            
+
+            <section class="post-full-content">
+                <div class="kg-card-markdown">
+                    <p><span class="table-of-contents-list">Python</span></p>
+<ul class="table-of-contents-list">
+    <li><a href="./python-basic">Python 기본</a></li>
+    <li><a href="./python-basic2">Python 숫자 계산하기</a></li>
+    <li><a href="./python-basic3">Python 변수 만들기</a></li>
+    <li><a href="./python-basic4">Python 출력 방법</a></li>
+    <li><a href="./python-basic5">Python 불과 비교, 논리 연산자</a></li>
+    <li><a href="./python-basic6">Python 문자열 사용하기</a></li>
+    <li><a href="./python-basic7">Python 리스트와 튜플 사용하기</a></li>
+    <li><a href="./python-basic8">Python 시퀀스 자료형 활용하기</a></li>
+    <li><a href="./python-basic9">Python 딕셔너리 사용하기</a></li>
+    <li><a href="./python-basic10">Python if 조건문으로 특정 조건일 때 코드 실행하기</a></li>
+    <li><a href="./python-basic11">Python else를 사용하여 두 방향으로 분기하기</a></li>
+    <li><a href="./python-basic12">Python elif를 사용하여 두 방향으로 분기하기</a></li>
+    <li><a href="./python-basic13">Python for 반복문</a></li>
+    <li><a href="./python-basic14">Python while 반복문</a></li>
+    <li><a href="./python-basic15">Python break, continue로 반복문 제어하기</a></li>
+    <li><a href="./python-basic16">Python 중첩루프</a></li>
+    <li><a href="./python-basic17">Python FizzBuzz 문제</a></li>
+    <li><a href="./python-basic18">Python 터틀 그래픽스로 그림 그리기</a></li>
+    <li><a href="./python-basic19">Python 리스트와 튜플 응용하기</a></li>
+    <li><a href="./python-basic20">Python 리스트와 튜플 응용하기 - 2</a></li>
+    <li><a href="./python-basic21">Python 2차원 리스트 사용하기</a></li>
+    <li><a href="./python-basic22">Python 문자열 응용하기</a></li>
+    <li><a href="./python-basic23">Python 딕셔너리 응용하기</a></li>
+    <li><a href="./python-basic24">Python 세트 사용하기</a></li>
+    <li><a href="./python-basic25">Python 파일 사용하기</a></li>
+    <li><a href="./python-basic26">Python 회문 판별과 N-gram 만들기</a></li>
+    <li><a href="./python-basic27">Python 함수 사용하기</a></li>
+    <li><a href="./python-basic28">Python 함수에서 위치 인수와 키워드 인수 사용하기</a></li>
+    <li><a href="./python-basic29">Python 함수에서 재귀호출 사용하기</a></li>
+    <li><a href="./python-basic30">Python 람다 표현식 사용하기</a></li>
+    <li><a href="./python-basic31">Python 클로저 사용하기</a></li>
+    <li><a href="./python-basic32">Python 클래스 사용하기</a></li>
+    <li><a href="./python-basic33">Python 클래스 속성과 정적, 클래스 메서드 사용하기</a></li>
+    <li><a href="./python-basic34">Python 클래스 상속 사용하기</a></li>
+    <li><a href="./python-basic35">Python 두 점 사이의 거리 구하기</a></li>
+    <li><a href="./python-basic36">Python 예외 처리 사용하기</a></li>
+    <li><a href="./python-basic37">Python 이터레이터 사용하기</a></li>
+    <li><a href="./python-basic38">Python 제너레이터 사용하기</a></li>
+    <li><a href="./python-basic39">Python 코루틴 사용하기</a></li>
+    <li><a href="./python-basic40">Python 데코레이터 사용하기</a></li>
+    <li><a href="./python-basic41">Python 정규표현식 사용하기</a></li>
+    <li><a href="./python-basic42">Python 모듈과 패키지 사용하기</a></li>
+    <li><a href="./python-basic43">Python 모듈과 패키지 만들기</a></li>
+
+
+</ul>
+
+<h1 id="python-시퀀스-자료형-활용하기">Python 시퀀스 자료형 활용하기</h1>
+<p><br />
+<br />
+지금까지 사용했던 리스트, 튜플, range, 문자열을 잘 보면 공통점이 있다. 이들 모두 값이 연속적(sequence)으로 이어져 있다는 점이다. 파이썬에서는 리스트, 튜플, range, 문자열처럼 값이 연속적으로 이어진 자료형을 시퀀스 자료형(sequence types)라고 부른다.
+—</p>
+
+<h2 id="1-시퀀스-자료형의-공통-기능-사용하기">1. 시퀀스 자료형의 공통 기능 사용하기</h2>
+<p><br />
+<br /></p>
+
+<p>시퀀스 자료형의 가장 큰 특징은 공통된 동작과 기능을 제공한다는 점이다. 따라서 시퀀스 자료형의 기본적인 사용 방법을 익혀 두면 나중에 어떠한 시퀀스 자료형을 접하게 되더라도 큰 어려움 없이 바로 사용할 수 있다.
+<br />
+시퀀스 자료형으로 만든 객체를 시퀀스 객체라고 하며, 시퀀스 객체에 들어있는 각 값을 요소(element)라고 부른다.</p>
+
+<h3 id="특정-값이-있는지-확인하기">특정 값이 있는지 확인하기</h3>
+
+<p><br />
+<br /></p>
+
+<p>시퀀스 객체 안에 특정 값이 있는지 확인하는 방법이다. 아래 코드는 a에서 30과 100이 있는지 확인한다. 확인하려는 값이 있으면 True 없으면 False가 나온다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">90</span><span class="p">]</span>
+<span class="mi">30</span> <span class="ow">in</span> <span class="n">a</span>
+<span class="bp">True</span>
+<span class="mi">100</span> <span class="ow">in</span> <span class="n">a</span>
+<span class="bp">False</span>
+
+</code></pre></div></div>
+
+<p>in 앞에 not을 붙이면 값이 없는지 확인한다. 없으면 True 있으면 False가 나온다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">90</span><span class="p">]</span>
+<span class="mi">100</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">a</span>
+<span class="bp">True</span>
+<span class="mi">30</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">a</span>
+<span class="bp">False</span>
+
+</code></pre></div></div>
+
+<p>튜플, range, 문자열 에도 사용 가능하다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="mi">43</span> <span class="ow">in</span> <span class="p">(</span><span class="mi">38</span><span class="p">,</span> <span class="mi">76</span><span class="p">,</span> <span class="mi">43</span><span class="p">,</span> <span class="mi">62</span><span class="p">,</span> <span class="mi">19</span><span class="p">)</span>
+<span class="bp">True</span>
+<span class="mi">1</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="bp">True</span>
+<span class="s">'p'</span> <span class="ow">in</span> <span class="s">'Hello, Python'</span>
+<span class="bp">False</span>
+
+</code></pre></div></div>
+
+<h3 id="시퀀스-객체-연결하기">시퀀스 객체 연결하기</h3>
+
+<p><br />
+<br /></p>
+
+<p>시퀀스 객체는 +연산자를 사용하여 객체를 서로 연결하여 새 객체를 만들 수 있다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">]</span>
+<span class="n">b</span> <span class="o">=</span> <span class="p">[</span><span class="mi">9</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
+<span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+<span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
+
+</code></pre></div></div>
+
+<p>range는 +연산자로 객체를 연결할 수 없다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span> <span class="o">+</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+<span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
+  <span class="n">File</span> <span class="s">"&lt;pyshell#1&gt;"</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+    <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span> <span class="o">+</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+<span class="nb">TypeError</span><span class="p">:</span> <span class="n">unsupported</span> <span class="n">operand</span> <span class="nb">type</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="k">for</span> <span class="o">+</span><span class="p">:</span> <span class="s">'range'</span> <span class="ow">and</span> <span class="s">'range'</span> 
+
+</code></pre></div></div>
+
+<p>range를 연결하고 싶다면 리스트 또는 튜플로 연결해야 한다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span> <span class="o">+</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">))</span>
+<span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">19</span><span class="p">]</span>
+<span class="nb">tuple</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span> <span class="o">+</span> <span class="nb">tuple</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">))</span>
+<span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">19</span><span class="p">)</span>
+
+</code></pre></div></div>
+
+<p>문자열은 +연산자로 여러 문자열을 연결할 수 있다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="s">'Hello, '</span> <span class="o">+</span> <span class="s">'world!'</span>
+<span class="s">'Hello, world!'</span>
+
+</code></pre></div></div>
+
+<p>문자열에 정수,실수를 연결하고 싶다면 str을 사용해 숫자를 문자열로 변환해 연결해 주면 된다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="s">'Hello, '</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>      <span class="c1"># str을 사용하여 정수를 문자열로 변환
+</span><span class="s">'Hello, 10'</span>
+<span class="s">'Hello, '</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="mf">1.5</span><span class="p">)</span>     <span class="c1"># str을 사용하여 실수를 문자열로 변환
+</span><span class="s">'Hello, 1.5'</span>
+</code></pre></div></div>
+
+<h3 id="시퀀스-객체-반복하기">시퀀스 객체 반복하기</h3>
+
+<p><br />
+<br />
+*연산자를 사용하면 시퀀스 객체를 특정 횟수만큼 반복할 수 있다. 0또는 음수를 곱하면 빈 객체가 나오며 실수는 곱할 수 없다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">]</span> <span class="o">*</span> <span class="mi">3</span>
+<span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">]</span>
+<span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">]</span> <span class="o">*</span> <span class="mi">0</span>
+<span class="p">[]</span>
+<span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">]</span> <span class="o">*</span> <span class="o">-</span><span class="mi">1</span>
+<span class="p">[]</span>
+<span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">]</span> <span class="o">*</span> <span class="mf">3.2</span>
+<span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
+  <span class="n">File</span> <span class="s">"&lt;pyshell#45&gt;"</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+    <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">]</span> <span class="o">*</span> <span class="mf">3.2</span>
+<span class="nb">TypeError</span><span class="p">:</span> <span class="n">can</span><span class="s">'t multiply sequence by non-int of type '</span><span class="nb">float</span><span class="s">'
+
+</span></code></pre></div></div>
+
+<p>range는 연결과 마찬가지로 *연산자를 사용해 반복할 수 없다. range를 리스트나 튜플로 만들어 연결할 수 있다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span> <span class="o">*</span> <span class="mi">3</span>
+<span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+<span class="nb">tuple</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span> <span class="o">*</span> <span class="mi">3</span>
+<span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+
+
+</code></pre></div></div>
+
+<p>문자열은 *연산자를 사용해 반복이 가능하다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="s">'ansang'</span> <span class="o">*</span> <span class="mi">3</span>
+<span class="s">'ansangansangansang'</span>
+
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="2-시퀀스-객체의-요소-개수-구하기">2. 시퀀스 객체의 요소 개수 구하기</h2>
+<p><br />
+<br />
+요소의 길이는 len함수를 사용해 구할 수 있다.</p>
+
+<h3 id="리스트와-튜플의-요소-개수-구하기">리스트와 튜플의 요소 개수 구하기</h3>
+<p><br />
+<br />
+리스트의 요소는 아래와 같이 구할 수 있다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">90</span><span class="p">]</span>
+<span class="nb">len</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="mi">10</span>
+
+</code></pre></div></div>
+
+<p>튜플도 마찬가지 이다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="n">b</span> <span class="o">=</span> <span class="p">(</span><span class="mi">38</span><span class="p">,</span> <span class="mi">76</span><span class="p">,</span> <span class="mi">43</span><span class="p">,</span> <span class="mi">62</span><span class="p">,</span> <span class="mi">19</span><span class="p">)</span>
+<span class="nb">len</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+<span class="mi">5</span>
+
+</code></pre></div></div>
+<p>range에 len을 사용하면 숫자가 생성되는 개수를 구할 수 있다. 예제에서는 요소의 수가 적어 알기 쉽지만 실무에서는 요소가 많고 추가 삭제 반복을 하기 때문에 len을 사용해야한다.</p>
+
+<h3 id="문자열의-길이-구하기">문자열의 길이 구하기</h3>
+<p><br />
+<br />
+문자열도 시퀀스 자료형이므로 len 함수를 사용하면 된다. 공백도 포함이되고 문자열을 묶은 따옴표는 제외된다. 따옴표는 문자열을 표현하는 문법일뿐 길이에는 포함되지 않는다.(문자열의 큰따옴표와 작은따옴표의 경우는 포함된다.)</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="n">hello</span> <span class="o">=</span> <span class="s">'Hello, world!'</span>
+<span class="nb">len</span><span class="p">(</span><span class="n">hello</span><span class="p">)</span>
+<span class="mi">13</span>
+
+<span class="n">hello</span> <span class="o">=</span> <span class="s">'안녕하세요'</span>
+<span class="nb">len</span><span class="p">(</span><span class="n">hello</span><span class="p">)</span>
+<span class="mi">5</span>
+
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="3-인덱스-사용하기">3. 인덱스 사용하기</h2>
+<p><br />
+<br />
+시퀀스 객체에 들어있는 요소에 접근하는 방법을 알아보자. 시퀀스 객체의 각 요소는 순서가 정해져 있으며, 이 순서를 인덱스라고 부른다. 인덱스의 시작 숫자는 항상 0부터 시작하는것을 기억하자.<br />
+리스트</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">38</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">53</span><span class="p">,</span> <span class="mi">62</span><span class="p">,</span> <span class="mi">19</span><span class="p">]</span>
+<span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>    <span class="c1"># 리스트의 첫 번째(인덱스 0) 요소 출력
+</span><span class="mi">38</span>
+<span class="n">a</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>    <span class="c1"># 리스트의 세 번째(인덱스 2) 요소 출력
+</span><span class="mi">53</span>
+<span class="n">a</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span>    <span class="c1"># 리스트의 다섯 번째(인덱스 4) 요소 출력
+</span><span class="mi">19</span>
+
+</code></pre></div></div>
+
+<p>튜플</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="n">b</span> <span class="o">=</span> <span class="p">(</span><span class="mi">38</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">53</span><span class="p">,</span> <span class="mi">62</span><span class="p">,</span> <span class="mi">19</span><span class="p">)</span>
+<span class="n">b</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>        <span class="c1"># 튜플의 첫 번째(인덱스 0) 요소 출력
+</span><span class="mi">38</span>
+
+</code></pre></div></div>
+
+<p>range</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="n">r</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="c1"># 02468
+</span><span class="n">r</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>        <span class="c1"># range의 세 번째(인덱스 2) 요소 출력
+</span><span class="mi">4</span>
+
+</code></pre></div></div>
+
+<p>문자열</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="n">hello</span> <span class="o">=</span> <span class="s">'Ansang coding'</span>
+<span class="n">hello</span><span class="p">[</span><span class="mi">7</span><span class="p">]</span>    <span class="c1"># 문자열의 여덟 번째(인덱스 7) 요소 출력
+</span><span class="s">'c'</span>
+
+</code></pre></div></div>
+
+<p>시퀀스 객체에 인덱스를 지정하지 않으면 해당 객체 전체를 뜻한다. 시퀀스 객체에서 []를 사용하면 실제로는 __getitem__메서드를 호출하는 것과 같다. 따라서 __getitem__을 사용해 요소를 가져올 수도 있다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">38</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">53</span><span class="p">,</span> <span class="mi">62</span><span class="p">,</span> <span class="mi">19</span><span class="p">]</span>
+<span class="n">a</span><span class="p">.</span><span class="n">__getitem__</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="mi">21</span>
+
+</code></pre></div></div>
+
+<h3 id="음수-인덱스-지정하기">음수 인덱스 지정하기</h3>
+<p><br />
+<br />
+인덱스를 음수로 지정하면 요소의 뒤에서부터 접근한다. -1은 뒤에서 첫번째를 의미하게 되는것이다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="c1"># 리스트
+</span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">38</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">53</span><span class="p">,</span> <span class="mi">62</span><span class="p">,</span> <span class="mi">19</span><span class="p">]</span>
+<span class="n">a</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>   <span class="c1"># 리스트의 뒤에서 첫 번째(인덱스 -1) 요소 출력
+</span><span class="mi">19</span>
+<span class="n">a</span><span class="p">[</span><span class="o">-</span><span class="mi">5</span><span class="p">]</span>   <span class="c1"># 리스트의 뒤에서 다섯 번째(인덱스 -5) 요소 출력
+</span><span class="mi">38</span>
+
+<span class="c1">#튜플
+</span><span class="n">b</span> <span class="o">=</span> <span class="p">(</span><span class="mi">38</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">53</span><span class="p">,</span> <span class="mi">62</span><span class="p">,</span> <span class="mi">19</span><span class="p">)</span>
+<span class="n">b</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>        <span class="c1"># 튜플의 뒤에서 첫 번째(인덱스 -1) 요소 출력
+</span><span class="mi">19</span>
+
+<span class="c1">#range
+</span><span class="n">r</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">r</span><span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">]</span>        <span class="c1"># range의 뒤에서 세 번째(인덱스 -3) 요소 출력
+</span><span class="mi">4</span>
+
+<span class="c1">#문자열
+</span><span class="n">hello</span> <span class="o">=</span> <span class="s">'Ansang coding'</span>
+<span class="n">hello</span><span class="p">[</span><span class="o">-</span><span class="mi">4</span><span class="p">]</span>    <span class="c1"># 문자열의 뒤에서 네 번째(인덱스 -4) 요소 출력
+</span><span class="s">'d'</span>
+
+</code></pre></div></div>
+
+<h3 id="인덱스의-범위를-벗어나면">인덱스의 범위를 벗어나면?</h3>
+<p><br />
+<br />
+시퀀스 객체의 인덱스는 요소의 숫자보다 하나 작은 값이 마지막 인덱스 값이 된다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">38</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">53</span><span class="p">,</span> <span class="mi">62</span><span class="p">,</span> <span class="mi">19</span><span class="p">]</span>
+<span class="n">a</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span>    <span class="c1"># 인덱스 5는 범위를 벗어났으므로 에러
+</span><span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
+  <span class="n">File</span> <span class="s">"&lt;pyshell#1&gt;"</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+    <span class="n">a</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span>
+<span class="nb">IndexError</span><span class="p">:</span> <span class="nb">list</span> <span class="n">index</span> <span class="n">out</span> <span class="n">of</span> <span class="nb">range</span> 
+
+</code></pre></div></div>
+
+<h3 id="마지막-요소에-접근하기">마지막 요소에 접근하기</h3>
+<p><br />
+<br />
+시퀀스 객체의 인덱스를 -1로 지정하게되면 뒤에서 첫번째 요소에 접근한다. 시퀀스 객체의 마지막 요소에 접근하는 다른 방법을 알아보자.
+<br />
+아래와 같이 len함수를 사용해 길이를 구하고 그 값을 그대로 넣으면 에러가 발생한다. 인덱스 값은 요소의 전체 숫자보다 하나가 작기 때문이다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">38</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">53</span><span class="p">,</span> <span class="mi">62</span><span class="p">,</span> <span class="mi">19</span><span class="p">]</span>
+<span class="n">a</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">a</span><span class="p">)]</span>
+<span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
+  <span class="n">File</span> <span class="s">"&lt;pyshell#3&gt;"</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+    <span class="n">a</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">a</span><span class="p">)]</span>
+<span class="nb">IndexError</span><span class="p">:</span> <span class="nb">list</span> <span class="n">index</span> <span class="n">out</span> <span class="n">of</span> <span class="nb">range</span> 
+
+</code></pre></div></div>
+
+<p>요소의 길이를 구하고 -1을 해주게끔 코드를 바꿔보자.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">38</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">53</span><span class="p">,</span> <span class="mi">62</span><span class="p">,</span> <span class="mi">19</span><span class="p">]</span>
+<span class="n">a</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="c1"># 19
+</span>
+</code></pre></div></div>
+
+<h3 id="요소에-값-할당하기">요소에 값 할당하기</h3>
+<p><br />
+<br />
+시퀀스 객체중 리스트만이 요소를 수정, 변경, 삭제할 수 있다. 튜플, range, 문자열은 값 할당이 불가능하다. 시퀀스 객체는 []로 요소에 접근한뒤 = 로 값을 할당한다. 이때도 볌위를 벗어난 인덱스는 지정할 수 없다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>    <span class="c1"># 0이 5개 들어있는 리스트
+</span><span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">38</span>
+<span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">21</span>
+<span class="n">a</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="mi">53</span>
+<span class="n">a</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="mi">62</span>
+<span class="n">a</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="o">=</span> <span class="mi">19</span>
+<span class="n">a</span>
+<span class="p">[</span><span class="mi">38</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">53</span><span class="p">,</span> <span class="mi">62</span><span class="p">,</span> <span class="mi">19</span><span class="p">]</span>
+<span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="mi">38</span>
+<span class="n">a</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span>
+<span class="mi">19</span>
+
+<span class="c1"># 인덱스 범위를 벗어나 지정할 경우
+</span><span class="n">a</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="o">=</span> <span class="mi">90</span>
+<span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
+  <span class="n">File</span> <span class="s">"&lt;pyshell#4&gt;"</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+    <span class="n">a</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="o">=</span> <span class="mi">90</span>
+<span class="nb">IndexError</span><span class="p">:</span> <span class="nb">list</span> <span class="n">assignment</span> <span class="n">index</span> <span class="n">out</span> <span class="n">of</span> <span class="nb">range</span> 
+
+</code></pre></div></div>
+
+<h3 id="del로-요소-삭제하기">del로 요소 삭제하기</h3>
+<p><br />
+<br />
+마찬가지로 리스트만 삭제가 가능하고 튜플, range, 문자열은 불가능하다. 삭제 방법은 del 시퀀스객체[index]로 삭제할 수 있다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">38</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">53</span><span class="p">,</span> <span class="mi">62</span><span class="p">,</span> <span class="mi">19</span><span class="p">]</span>
+<span class="k">del</span> <span class="n">a</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+<span class="n">a</span>
+<span class="p">[</span><span class="mi">38</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">62</span><span class="p">,</span> <span class="mi">19</span><span class="p">]</span>
+
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="4-슬라이스-사용하기">4. 슬라이스 사용하기</h2>
+<p><br />
+<br />
+슬라이스는 시퀀스 객체의 일부를 잘라내 사용하는 방법이다. 다음은 리스트의 일부를 잘라내 새 리스트를 만든다. 인덱스의 끝 값은 가져오려는 범위에 포함되지 않는것을 기억하자.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">90</span><span class="p">]</span>
+<span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">4</span><span class="p">]</span>  <span class="c1"># 인덱스의 0부터 3까지 잘라내 새 리스트를 만든다.
+</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">]</span>
+
+<span class="c1"># 처음부터 끝까지 가져오려고 할때
+</span>
+<span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">10</span><span class="p">]</span> <span class="c1"># 요소의 숫자는 9개지만 모두 가져오려고 한다면 10을 끝인덱스로 지정해야한다.
+</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">90</span><span class="p">]</span>
+
+
+</code></pre></div></div>
+
+<p>슬라이스를 했을 때 실제로 가져오는 요소는 시작 인덱스 부터 끝인덱스 -1까지 이다.</p>
+
+<h3 id="리스트의-중간-부분-가져오기">리스트의 중간 부분 가져오기</h3>
+<p><br />
+<br />
+리스트 중간의 부분을 가져오는 방법도 동일하다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">90</span><span class="p">]</span>
+<span class="n">a</span><span class="p">[</span><span class="mi">4</span><span class="p">:</span><span class="mi">7</span><span class="p">]</span> <span class="c1"># 4, 5, 6 인덱스를 가져왔다.
+</span><span class="p">[</span><span class="mi">40</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">60</span><span class="p">]</span>
+
+</code></pre></div></div>
+
+<p>인덱스를 음수로 지정하면 마찬가지로 끝인덱스의 -1까지 가져온다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">90</span><span class="p">]</span>
+<span class="n">a</span><span class="p">[</span><span class="mi">4</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="c1"># 인덱스 4부터 인덱스 -2까지
+</span><span class="p">[</span><span class="mi">40</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">80</span><span class="p">]</span>
+
+</code></pre></div></div>
+
+<h3 id="인덱스-증가폭-사용하기">인덱스 증가폭 사용하기</h3>
+<p><br />
+<br />
+슬라이스는 range처럼 인덱스의 증가폭을 지정해 범위내의 요소를 가져올 수 있다.
+다음은 인덱스를 3씩 증가시키며 요소를 가져온다. 주의할 점은 인덱스의 증가폭이지 요소의 값 증가폭이 아니라는 점이다. 인덱스 2의값 그다음 5의값 그다음 8의 값을 가져올것 같지만 슬라이스는 마지막 인덱스값의 -1까지만 가져오게 되어있고 마지막 인덱스 8의 -1인 7까지에서 3씩 증가시킨 값인 2와 5의 값만을 가져오게 된다. 인덱스의 증가폭을 지정하더라도 가져오려는 인덱스를 넘어설 수 없다는 것이다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">90</span><span class="p">]</span>
+<span class="n">a</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">8</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span> <span class="c1"># 인덱스 2~8(-1인 7까지)의 값중 3씩증가시킨 인덱스 2와 5의 값
+</span><span class="p">[</span><span class="mi">20</span><span class="p">,</span> <span class="mi">50</span><span class="p">]</span>
+
+</code></pre></div></div>
+
+<p>만약 끝 인덱스 -1과 증가폭으로 증가한 인덱스가 일치하면 해당 요소까지 가져올 수 있다. 다음은 끝 인덱스를 9로 지정하여 인덱스 8의 80까지 가져온다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">90</span><span class="p">]</span>
+<span class="n">a</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">9</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span> <span class="c1"># 인덱스 2~9(-1인 8까지)의 값중 3씩증가시킨 인덱스 2, 5, 8의 값
+</span><span class="p">[</span><span class="mi">20</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">80</span><span class="p">]</span>
+
+</code></pre></div></div>
+
+<h3 id="인덱스-생략하기">인덱스 생략하기</h3>
+<p><br />
+<br />
+슬라이스 사용시 시작인덱스와 끝인덱스를 생략할 수 있다. 생략하는 방법은 객체의 길이를 몰라도 값을 가져올 수 있기 때문에 자주 쓰이는 방식이다. 주로 시퀀스 객체의 마지막 일부분만 출력할 때 사용한다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">90</span><span class="p">]</span>
+<span class="n">a</span><span class="p">[:</span><span class="mi">7</span><span class="p">]</span> <span class="c1"># 인덱스 0부터 6까지의 값을 가져온다.
+</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">60</span><span class="p">]</span>
+
+<span class="n">a</span><span class="p">[</span><span class="mi">7</span><span class="p">:]</span> <span class="c1"># 인덱스 7부터 끝까지의 값을 가져온다.
+</span><span class="p">[</span><span class="mi">70</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">90</span><span class="p">]</span>
+
+<span class="n">a</span><span class="p">[:]</span> <span class="c1"># 인덱스 처음부터 끝까지의 값을 가져온다.
+</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">90</span><span class="p">]</span>
+
+</code></pre></div></div>
+
+<h3 id="인덱스를-생략하면서-증가폭-사용하기">인덱스를 생략하면서 증가폭 사용하기</h3>
+<p><br />
+<br />
+인덱스의 처음또는 끝 값을 생략하면서 증가폭을 가지고 값을 가져올수도 있다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">90</span><span class="p">]</span>
+<span class="n">a</span><span class="p">[:</span><span class="mi">7</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span> <span class="c1"># 인덱스 0(처음)부터 6까지의 값중 인덱스 값을 2씩 증가시킨 인덱스의 값을 가져온다. 0, 2, 4, 6의 값을 가져온다.
+</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">60</span><span class="p">]</span>
+
+<span class="n">a</span><span class="p">[</span><span class="mi">7</span><span class="p">::</span><span class="mi">2</span><span class="p">]</span> <span class="c1"># 인덱스 7부터 끝까지의 값중 인덱스 값을 2씩 증가시킨 인덱스 값을 가져온다. 인덱스 7, 9의 값을 가져온다.
+</span><span class="p">[</span><span class="mi">70</span><span class="p">,</span> <span class="mi">90</span><span class="p">]</span>
+
+<span class="n">a</span><span class="p">[::</span><span class="mi">2</span><span class="p">]</span> <span class="c1"># 인덱스 처음부터 끝까지의 값중 인덱스 값을 2 씩증가시킨 인덱스 값을 가져온다. 인덱스 0, 2, 4, 6, 8의 값을 가져온다.
+</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">80</span><span class="p">]</span>
+
+<span class="n">a</span><span class="p">[</span><span class="mi">5</span><span class="p">:</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="c1"># 인덱스 5부터 2까지의 값중 인덱스의 값을 -1씩 감소시킨 인덱스 값을 가져온다. 인덱스 5, 4, 3, 2의 값을 가져온다.
+</span><span class="p">[</span><span class="mi">50</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">20</span><span class="p">]</span>
+
+<span class="n">a</span><span class="p">[::]</span> <span class="c1"># 시작, 끝, 증가폭을 모두 생략하면 리스트 전체를 가져온다. 즉, a[:]와 a[::]의 결과는 같다.
+</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">90</span><span class="p">]</span>
+
+<span class="n">a</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="c1"># 리스트 전체에서 인덱스를 1씩 감소시키며 값을 가져옴으로 리스트를 반대로 뒤집게 된다.
+</span><span class="p">[</span><span class="mi">90</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+
+</code></pre></div></div>
+
+<h3 id="len-응용하기">len 응용하기</h3>
+<p><br />
+<br />
+len을 사용하여 리스트 전체를 가져올 수 있다. len(a)의 값은 10이기 때문에 인덱스 9까지의 값을 가져오게 된다. 요소의 갯수가 9개이기 때문에 모든 값을 가져올 수 있다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">90</span><span class="p">]</span>
+<span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="nb">len</span><span class="p">(</span><span class="n">a</span><span class="p">)]</span> <span class="c1"># 인덱스 0부터 9까지의 값을 가져온다.
+</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">90</span><span class="p">]</span>
+
+<span class="n">a</span><span class="p">[:</span><span class="nb">len</span><span class="p">(</span><span class="n">a</span><span class="p">)]</span> <span class="c1"># 시작 인덱스를 생략
+</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">90</span><span class="p">]</span>
+
+
+</code></pre></div></div>
+
+<h3 id="튜플-range-문자열에-슬라이스-사용하기">튜플, range, 문자열에 슬라이스 사용하기</h3>
+<p><br />
+<br />
+튜플, range, 문자열도 시퀀스 자료형이기 때문에 슬라이스를 사용할 수 있다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="n">b</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">90</span><span class="p">)</span>
+<span class="n">b</span><span class="p">[</span><span class="mi">4</span><span class="p">:</span><span class="mi">7</span><span class="p">]</span> <span class="c1"># 인덱스 4부터 6까지의 값
+</span><span class="p">(</span><span class="mi">40</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">60</span><span class="p">)</span>
+
+<span class="n">b</span><span class="p">[</span><span class="mi">4</span><span class="p">:]</span> <span class="c1"># 인덱스 4부터 마지막까지의 값
+</span><span class="p">(</span><span class="mi">40</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">90</span><span class="p">)</span>
+
+<span class="n">b</span><span class="p">[:</span><span class="mi">7</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span> <span class="c1"># 인덱스 처음부터 6까지 중 2씩 증가한 값 0, 2, 4, 6
+</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">60</span><span class="p">)</span>
+
+</code></pre></div></div>
+
+<p>range도 연속된 숫자를 만든다. range에 슬라이스를 사용하면 지정된 범위의 숫자를 생성하는 range객체를 새로 만든다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="n">r</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="c1"># 0~9까지의 값을 만든다.
+</span><span class="n">r</span>
+<span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<span class="n">r</span><span class="p">[</span><span class="mi">4</span><span class="p">:</span><span class="mi">7</span><span class="p">]</span> <span class="c1"># 인덱스 4부터 6까지 숫자 4, 5, 6을 생성하는 range객체를 만든다.
+</span><span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span>
+<span class="n">r</span><span class="p">[</span><span class="mi">4</span><span class="p">:]</span> <span class="c1"># 인덱스 4부터 끝까지 숫자 4, 5, 6, 7, 8, 9를 생성하는 range객체를 만든다.
+</span><span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<span class="n">r</span><span class="p">[</span><span class="mi">4</span><span class="p">:</span><span class="mi">10</span><span class="p">]</span> <span class="c1"># 인덱스 4부터 9까지 숫자 4, 5, 6, 7, 8, 9를 생성하는 range객체를 만든다.
+</span><span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<span class="n">r</span><span class="p">[:</span><span class="mi">7</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span> <span class="c1"># 인덱스 0부터 6까지 증가폭2를 갖는 인덱스 값에 해당되는 0, 2, 4, 6을 생성하는 range객체를 만든다.
+</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+
+</code></pre></div></div>
+
+<p>range는 리스트 튜플과 달리 요소가 모두 표시되지 않고 범위만 표시한다. list에 넣어 표시하게 만들어보자.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="nb">list</span><span class="p">(</span><span class="n">r</span><span class="p">[</span><span class="mi">4</span><span class="p">:</span><span class="mi">7</span><span class="p">])</span>
+<span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
+<span class="nb">list</span><span class="p">(</span><span class="n">r</span><span class="p">[</span><span class="mi">4</span><span class="p">:])</span>
+<span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">]</span>
+<span class="nb">list</span><span class="p">(</span><span class="n">r</span><span class="p">[</span><span class="mi">4</span><span class="p">:</span><span class="mi">10</span><span class="p">])</span>
+<span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">]</span>
+<span class="nb">list</span><span class="p">(</span><span class="n">r</span><span class="p">[:</span><span class="mi">7</span><span class="p">:</span><span class="mi">2</span><span class="p">])</span>
+<span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
+
+</code></pre></div></div>
+
+<p>문자열도 시퀀스 자료형이기 때문에 슬라이스를 사용할 수 있다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="n">hello</span> <span class="o">=</span> <span class="s">'Hello, world!'</span>
+<span class="n">hello</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">9</span><span class="p">]</span>
+<span class="s">'llo, wo'</span>
+<span class="n">hello</span><span class="p">[</span><span class="mi">2</span><span class="p">:]</span>
+<span class="s">'llo, world!'</span>
+<span class="n">hello</span><span class="p">[:</span><span class="mi">9</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span>
+<span class="s">'Hlo o
+
+</span></code></pre></div></div>
+
+<p>파이썬에서는 slice객체를 사용하여 시퀀스 객체를 잘라낼 수도 있다. 다음과 같이 시퀀스 객체의 []또는 <strong>getitem</strong> 메서드에 slice객체를 넣어주면 지정된 범위만큼 잘라내서 새 객체를 만든다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)[</span><span class="nb">slice</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">2</span><span class="p">)]</span>
+<span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">).</span><span class="n">__getitem__</span><span class="p">(</span><span class="nb">slice</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+<span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="c1">#슬라이스 객체를 하나만 만든뒤 여러 시퀀스 객체에 사용하는 방법
+</span>
+<span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">90</span><span class="p">]</span>
+<span class="n">s</span> <span class="o">=</span> <span class="nb">slice</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span>
+<span class="n">a</span><span class="p">[</span><span class="n">s</span><span class="p">]</span>
+<span class="p">[</span><span class="mi">40</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">60</span><span class="p">]</span>
+
+<span class="n">r</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">r</span><span class="p">[</span><span class="n">s</span><span class="p">]</span>
+<span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span>
+<span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">7</span><span class="p">))</span>
+<span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
+
+<span class="n">hello</span> <span class="o">=</span> <span class="s">'Hello, world!'</span>
+<span class="n">hello</span><span class="p">[</span><span class="n">s</span><span class="p">]</span>
+<span class="s">'o, 
+
+</span></code></pre></div></div>
+
+<h3 id="슬라이스에-요소-할당하기">슬라이스에 요소 할당하기</h3>
+<p><br />
+<br />
+시퀀스 객체는 슬라이스로 범위를 지정해 여러 요소의 값을 할당할 수 있다. 리스트를 만들고 특정 범위의 요소에 값을 할당해 보자. 이렇게 범위를 지정해서 요소를 할당했을 경우에는 원래 있던 리스트가 변경되며 새 리스트는 생성되지 않는다.</p>
+
+<ul>
+  <li>시퀀스객체[시작인덱스:끝인덱스] = 시퀀스객체</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">90</span><span class="p">]</span>
+<span class="n">a</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s">'a'</span><span class="p">,</span> <span class="s">'b'</span><span class="p">,</span> <span class="s">'c'</span><span class="p">]</span> <span class="c1"># 인덱스 2부터 4까지의 값을 a, b, c로 값을 할당한다.
+</span><span class="n">a</span>
+<span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="s">'a'</span><span class="p">,</span> <span class="s">'b'</span><span class="p">,</span> <span class="s">'c'</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">90</span><span class="p">]</span>
+
+</code></pre></div></div>
+
+<p>슬라이스 범위와 할당할 리스트의 요소 개수를 맞추지 않아도 알아서 할당된다. 개수가 적으면 리스트 요소도 줄어들고 많으면 요소 개수도 늘어난다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">90</span><span class="p">]</span>
+<span class="n">a</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s">'a'</span><span class="p">]</span> <span class="c1"># 인덱스 2부터 4까지에 값 1개를 할당하여 요소의 개수가 줄어든다.
+</span><span class="n">a</span>
+<span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="s">'a'</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">90</span><span class="p">]</span>
+
+<span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">90</span><span class="p">]</span>
+<span class="n">a</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s">'a'</span><span class="p">,</span> <span class="s">'b'</span><span class="p">,</span> <span class="s">'c'</span><span class="p">,</span> <span class="s">'d'</span><span class="p">,</span> <span class="s">'e'</span><span class="p">]</span> <span class="c1"># 인덱스 2부터 4까지 값 5개를 할당하여 요소의 개수가 늘어난다.
+</span><span class="n">a</span>
+<span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="s">'a'</span><span class="p">,</span> <span class="s">'b'</span><span class="p">,</span> <span class="s">'c'</span><span class="p">,</span> <span class="s">'d'</span><span class="p">,</span> <span class="s">'e'</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">90</span><span class="p">]</span>
+
+</code></pre></div></div>
+
+<p>슬라이스는 인덱스 증가폭을 지정할 수 있었다. 이번에는 인덱스 증가폭을 지정하여 인덱슬를 건너뛰면서 할당해보자. 단, 인덱스 증가폭을 지정할때는 슬라이스 범위의 요소 개수와 할당할 요소 개수가 정확히 일치해야 한다.</p>
+
+<ul>
+  <li>시퀀스객체[시작인덱스:끝인덱스:인덱스증가폭] = 시퀀스객체</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">90</span><span class="p">]</span>
+<span class="n">a</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">8</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s">'a'</span><span class="p">,</span> <span class="s">'b'</span><span class="p">,</span> <span class="s">'c'</span><span class="p">]</span> <span class="c1"># 인덱스 2부터 7까지 2씩증가시키면서 a,b,c를 2씩 증가된 인덱스 위치에 할당.
+</span><span class="n">a</span>
+<span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="s">'a'</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="s">'b'</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="s">'c'</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">90</span><span class="p">]</span>
+
+<span class="c1"># 슬라이스 범위의 요소 개수와 할당할 요소 개수가 정확히 일치해야 한다.
+</span>
+<span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">90</span><span class="p">]</span>
+<span class="n">a</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">8</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s">'a'</span><span class="p">,</span> <span class="s">'b'</span><span class="p">]</span>
+<span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
+  <span class="n">File</span> <span class="s">"&lt;pyshell#1&gt;"</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+    <span class="n">a</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">8</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s">'a'</span><span class="p">,</span> <span class="s">'b'</span><span class="p">]</span>
+<span class="nb">ValueError</span><span class="p">:</span> <span class="n">attempt</span> <span class="n">to</span> <span class="n">assign</span> <span class="n">sequence</span> <span class="n">of</span> <span class="n">size</span> <span class="mi">2</span> <span class="n">to</span> <span class="n">extended</span> <span class="nb">slice</span> <span class="n">of</span> <span class="n">size</span> <span class="mi">3</span> 
+
+</code></pre></div></div>
+
+<p>튜플, range, 문자열은 슬라이스 범위를 지정하더라도 요소를 할당할 수 없다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="n">b</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">90</span><span class="p">)</span>
+<span class="n">b</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="s">'a'</span><span class="p">,</span> <span class="s">'b'</span><span class="p">,</span> <span class="s">'c'</span><span class="p">)</span>
+<span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
+  <span class="n">File</span> <span class="s">"&lt;pyshell#2&gt;"</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+    <span class="n">b</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="s">'a'</span><span class="p">,</span> <span class="s">'b'</span><span class="p">,</span> <span class="s">'c'</span><span class="p">)</span>
+<span class="nb">TypeError</span><span class="p">:</span> <span class="s">'tuple'</span> <span class="nb">object</span> <span class="n">does</span> <span class="ow">not</span> <span class="n">support</span> <span class="n">item</span> <span class="n">assignment</span> 
+
+<span class="n">r</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">r</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
+  <span class="n">File</span> <span class="s">"&lt;pyshell#4&gt;"</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+    <span class="n">r</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="nb">TypeError</span><span class="p">:</span> <span class="s">'range'</span> <span class="nb">object</span> <span class="n">does</span> <span class="ow">not</span> <span class="n">support</span> <span class="n">item</span> <span class="n">assignment</span> 
+
+<span class="n">hello</span> <span class="o">=</span> <span class="s">'Hello, world!'</span>
+<span class="n">hello</span><span class="p">[</span><span class="mi">7</span><span class="p">:</span><span class="mi">13</span><span class="p">]</span> <span class="o">=</span> <span class="s">'Python'</span>
+<span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
+  <span class="n">File</span> <span class="s">"&lt;pyshell#6&gt;"</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+    <span class="n">hello</span><span class="p">[</span><span class="mi">7</span><span class="p">:</span><span class="mi">13</span><span class="p">]</span> <span class="o">=</span> <span class="s">'Python'</span>
+<span class="nb">TypeError</span><span class="p">:</span> <span class="s">'str'</span> <span class="nb">object</span> <span class="n">does</span> <span class="ow">not</span> <span class="n">support</span> <span class="n">item</span> <span class="n">assignment</span> 
+
+</code></pre></div></div>
+
+<h3 id="del로-슬라이스-삭제하기">del로 슬라이스 삭제하기</h3>
+<p><br />
+<br />
+시퀀스 객체의 슬라이스를 삭제해보자. 슬라이스 삭제는 다음과 같이 del뒤에 삭제할 범위를 지정해주면 된다.</p>
+
+<ul>
+  <li>del 시퀀스객체[시작인덱스:끝인덱스]</li>
+</ul>
+
+<p>다음은 리스트의 인덱스 2부터4까지 요소를 삭제한다. del로 요소를 삭제하면 원래 있던 리스트가 변경되며 새 리스트는 생성되지 않는다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">90</span><span class="p">]</span>
+<span class="k">del</span> <span class="n">a</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span> <span class="c1"># 리스트a에서 2~4까지의 요소를 삭제.
+</span><span class="n">a</span>
+<span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">90</span><span class="p">]</span>
+
+</code></pre></div></div>
+
+<p>인덱스 증가폭을 지정하면 인덱스를 건너뛰면서 삭제한다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">90</span><span class="p">]</span>
+<span class="k">del</span> <span class="n">a</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">8</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span> <span class="c1"># 인덱스 2부터 7까지 2씩증가시키며 삭제. 인덱스 2, 4, 6의 값이 삭제된다.
+</span><span class="n">a</span>
+<span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">90</span><span class="p">]</span>
+
+</code></pre></div></div>
+
+<p>마찬가지로 튜플, range, 문자열은 del로 슬라이스를 삭제할 수 없다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="n">b</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">90</span><span class="p">)</span>
+<span class="k">del</span> <span class="n">b</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span>
+<span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
+  <span class="n">File</span> <span class="s">"&lt;pyshell#8&gt;"</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+    <span class="k">del</span> <span class="n">b</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span>
+<span class="nb">TypeError</span><span class="p">:</span> <span class="s">'tuple'</span> <span class="nb">object</span> <span class="n">does</span> <span class="ow">not</span> <span class="n">support</span> <span class="n">item</span> <span class="n">deletion</span>
+
+<span class="n">r</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="k">del</span> <span class="n">r</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span>
+<span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
+  <span class="n">File</span> <span class="s">"&lt;pyshell#10&gt;"</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+    <span class="k">del</span> <span class="n">r</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span>
+<span class="nb">TypeError</span><span class="p">:</span> <span class="s">'range'</span> <span class="nb">object</span> <span class="n">does</span> <span class="ow">not</span> <span class="n">support</span> <span class="n">item</span> <span class="n">deletion</span>
+ 
+<span class="n">hello</span> <span class="o">=</span> <span class="s">'Hello, world!'</span>
+<span class="k">del</span> <span class="n">hello</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">9</span><span class="p">]</span>
+<span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
+  <span class="n">File</span> <span class="s">"&lt;pyshell#12&gt;"</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+    <span class="k">del</span> <span class="n">hello</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">9</span><span class="p">]</span>
+<span class="nb">TypeError</span><span class="p">:</span> <span class="s">'str'</span> <span class="nb">object</span> <span class="n">does</span> <span class="ow">not</span> <span class="n">support</span> <span class="n">item</span> <span class="n">deletion</span>
+
+</code></pre></div></div>
+
+                </div>
+            </section>
+
+            <!-- Email subscribe form at the bottom of the page -->
+            
+                <section class="subscribe-form">
+                    <h3 class="subscribe-form-title">Subscribe to My Coding Practice Gym</h3>
+                    <p>Get the latest posts delivered right to your inbox</p>
+                    <span id="searchform" method="post" action="/subscribe/" class="">
+    <input class="confirm" type="hidden" name="confirm"  />
+    <input class="location" type="hidden" name="location"  />
+    <input class="referrer" type="hidden" name="referrer"  />
+
+    <div class="form-group">
+        <input class="subscribe-email" onkeyup="myFunc()" 
+               id="searchtext" type="text" name="searchtext"  
+               placeholder="Search..." />
+    </div>
+    <script type="text/javascript">
+        function myFunc() {
+            if(event.keyCode == 13) {
+                var url = encodeURIComponent($("#searchtext").val());
+                location.href = "/search.html?query=" + url;
+            }
+        }
+    </script>
+</span>
+                </section>
+            
+
+            <footer class="post-full-footer">
+                <!-- Everything inside the #author tags pulls data from the author -->
+                <!-- #author-->
+                
+                    
+                        <section class="author-card">
+                            
+                                <img class="author-profile-image" src="/assets/built/images/author-logo.jpg" alt="AhnSang0915" />
+                            
+                            <section class="author-card-content">
+                                <h4 class="author-card-name"><a href="/author/AhnSang0915">AhnSang0915</a></h4>
+                                
+                                    <p><a href="https://github.com/AhnSang0915"> 개발 달려</p>
+                                
+                            </section>
+                        </section>
+                        <div class="post-full-footer-right">
+                            <a class="author-card-button" href="/author/AhnSang0915">Read More</a>
+                        </div>
+                    
+                
+                <!-- /author  -->
+            </footer>
+
+            <!-- If you use Disqus comments, just uncomment this block.
+            The only thing you need to change is "test-apkdzgmqhj" - which
+            should be replaced with your own Disqus site-id. -->
+            
+                <section class="post-full-comments">
+                    <div id="disqus_thread"></div>
+                    <script>
+                        var disqus_config = function () {
+                            var this_page_url = 'https://AhnSang0915.github.io/python-basic8';
+                            var this_page_identifier = '/python-basic8';
+                            var this_page_title = 'Python - Python 시퀀스 자료형 활용하기';
+                        };
+                        (function() {
+                            var d = document, s = d.createElement('script');
+                            s.src = 'https://xxxxxxxx.disqus.com/embed.js';
+                            s.setAttribute('data-timestamp', +new Date());
+                            (d.head || d.body).appendChild(s);
+                        })();
+                    </script>
+                </section>
+            
+
+        </article>
+
+    </div>
+</main>
+
+<!-- Links to Previous/Next posts -->
+<aside class="read-next outer">
+    <div class="inner">
+        <div class="read-next-feed">
+            
+                
+                
+                
+                
+                    <article class="read-next-card"
+                        
+                            style="background-image: url(/assets/built/images/blog-cover1.jpg)"
+                        
+                    >
+                        <header class="read-next-card-header">
+                            <small class="read-next-card-header-sitetitle">&mdash; My Coding Practice Gym &mdash;</small>
+                            
+                                <h3 class="read-next-card-header-title"><a href="/tag/python/">Python</a></h3>
+                            
+                        </header>
+                        <div class="read-next-divider"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 14.5s2 3 5 3 5.5-2.463 5.5-5.5S21 6.5 18 6.5c-5 0-7 11-12 11C2.962 17.5.5 15.037.5 12S3 6.5 6 6.5s4.5 3.5 4.5 3.5"/></svg>
+</div>
+                        <div class="read-next-card-content">
+                            <ul>
+                                
+                                
+                                  
+                                    
+                                        
+                                        
+                                            <li><a href="/practice-3">Python으로 웹 스크래퍼 만들기-2</a></li>
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                            <li><a href="/python-basic43">Python - Python 모듈과 패키지 만들기</a></li>
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                            <li><a href="/python-basic42">Python - Python 모듈과 패키지 사용하기</a></li>
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                            </ul>
+                        </div>
+                        <footer class="read-next-card-footer">
+                            <a href="/tag/python/">
+                                
+                                    See all 45 posts  →
+                                
+                            </a>
+                        </footer>
+                    </article>
+                
+            
+
+            <!-- If there's a next post, display it using the same markup included from - partials/post-card.hbs -->
+            
+                
+
+    <article class="post-card post-template">
+        
+            <a class="post-card-image-link" href="/python-basic9">
+                <div class="post-card-image" style="background-image: url(/assets/built/images/python-logo.png)"></div>
+            </a>
+        
+        <div class="post-card-content">
+            <a class="post-card-content-link" href="/python-basic9">
+                <header class="post-card-header">
+                    
+                        
+                            
+                                <span class="post-card-tags">Python</span>
+                            
+                        
+                    
+
+                    <h2 class="post-card-title">Python - Python 딕셔너리 사용하기</h2>
+                </header>
+                <section class="post-card-excerpt">
+                    
+                        <p>Python Python 기본 Python 숫자 계산하기 Python 변수 만들기 Python 출력 방법 Python 불과 비교, 논리 연산자 Python 문자열 사용하기 Python 리스트와 튜플 사용하기 Python 시퀀스 자료형 활용하기 Python 딕셔너리 사용하기 Python if</p>
+                    
+                </section>
+            </a>
+            <footer class="post-card-meta">
+                
+                    
+                        
+                        <img class="author-profile-image" src="/assets/built/images/author-logo.jpg" alt="AhnSang0915" />
+                        
+                        <span class="post-card-author">
+                            <a href="/author/AhnSang0915/">AhnSang0915</a>
+                        </span>
+                    
+                
+                <span class="reading-time">
+                    
+                    
+                      4 min read
+                    
+                </span>
+            </footer>
+        </div>
+    </article>
+
+            
+
+            <!-- If there's a previous post, display it using the same markup included from - partials/post-card.hbs -->
+            
+                
+
+    <article class="post-card post-template">
+        
+            <a class="post-card-image-link" href="/python-basic7">
+                <div class="post-card-image" style="background-image: url(/assets/built/images/python-logo.png)"></div>
+            </a>
+        
+        <div class="post-card-content">
+            <a class="post-card-content-link" href="/python-basic7">
+                <header class="post-card-header">
+                    
+                        
+                            
+                                <span class="post-card-tags">Python</span>
+                            
+                        
+                    
+
+                    <h2 class="post-card-title">Python - Python 리스트와 튜플 사용하기</h2>
+                </header>
+                <section class="post-card-excerpt">
+                    
+                        <p>Python Python 기본 Python 숫자 계산하기 Python 변수 만들기 Python 출력 방법 Python 불과 비교, 논리 연산자 Python 문자열 사용하기 Python 리스트와 튜플 사용하기 Python 시퀀스 자료형 활용하기 Python 딕셔너리 사용하기 Python if</p>
+                    
+                </section>
+            </a>
+            <footer class="post-card-meta">
+                
+                    
+                        
+                        <img class="author-profile-image" src="/assets/built/images/author-logo.jpg" alt="AhnSang0915" />
+                        
+                        <span class="post-card-author">
+                            <a href="/author/AhnSang0915/">AhnSang0915</a>
+                        </span>
+                    
+                
+                <span class="reading-time">
+                    
+                    
+                      4 min read
+                    
+                </span>
+            </footer>
+        </div>
+    </article>
+
+            
+
+        </div>
+    </div>
+</aside>
+
+<!-- Floating header which appears on-scroll, included from includes/floating-header.hbs -->
+<div class="floating-header">
+    <div class="floating-header-logo">
+        <a href="https://AhnSang0915.github.io/">
+            
+            <span>My Coding Practice Gym</span>
+        </a>
+    </div>
+    <span class="floating-header-divider">&mdash;</span>
+    <div class="floating-header-title">Python - Python 시퀀스 자료형 활용하기</div>
+    <div class="floating-header-share">
+        <div class="floating-header-share-label">Share this <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <path d="M7.5 15.5V4a1.5 1.5 0 1 1 3 0v4.5h2a1 1 0 0 1 1 1h2a1 1 0 0 1 1 1H18a1.5 1.5 0 0 1 1.5 1.5v3.099c0 .929-.13 1.854-.385 2.748L17.5 23.5h-9c-1.5-2-5.417-8.673-5.417-8.673a1.2 1.2 0 0 1 1.76-1.605L7.5 15.5zm6-6v2m-3-3.5v3.5m6-1v2"/>
+</svg>
+</div>
+        <a class="floating-header-share-tw" href="https://twitter.com/share?text=Python+-+Python+%EC%8B%9C%ED%80%80%EC%8A%A4+%EC%9E%90%EB%A3%8C%ED%98%95+%ED%99%9C%EC%9A%A9%ED%95%98%EA%B8%B0&amp;url=https://AhnSang0915.github.iopython-basic8"
+            onclick="window.open(this.href, 'share-twitter', 'width=550,height=235');return false;">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"/></svg>
+
+        </a>
+        <a class="floating-header-share-fb" href="https://www.facebook.com/sharer/sharer.php?u=https://AhnSang0915.github.iopython-basic8"
+            onclick="window.open(this.href, 'share-facebook','width=580,height=296');return false;">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M19 6h5V0h-5c-3.86 0-7 3.14-7 7v3H8v6h4v16h6V16h5l1-6h-6V7c0-.542.458-1 1-1z"/></svg>
+
+        </a>
+    </div>
+    <progress class="progress" value="0">
+        <div class="progress-container">
+            <span class="progress-bar"></span>
+        </div>
+    </progress>
+</div>
+
+
+<!-- /post -->
+
+<!-- The #contentFor helper here will send everything inside it up to the matching #block helper found in default.hbs -->
+
+
+        <!-- Previous/next page links - displayed on every page -->
+        
+
+        <!-- The footer at the very bottom of the screen -->
+        <footer class="site-footer outer">
+            <div class="site-footer-content inner">
+                <section class="copyright"><a href="https://AhnSang0915.github.io/">My Coding Practice Gym</a> &copy; 2022</section>
+                <section class="poweredby">Proudly published with <a href="https://jekyllrb.com/">Jekyll</a> &
+                    <a href="https://pages.github.com/" target="_blank" rel="noopener">GitHub Pages</a> using
+                    <a href="https://github.com/jekyllt/jasper2" target="_blank" rel="noopener">Jasper2</a></section>
+                <nav class="site-footer-nav">
+                    <a href="/">Latest Posts</a>
+                    
+                    
+                    <a href="https://ghost.org" target="_blank" rel="noopener">Ghost</a>
+                </nav>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- The big email subscribe modal content -->
+    
+    <div id="subscribe" class="subscribe-overlay">
+        <a class="subscribe-overlay-close" href="#"></a>
+            <div class="subscribe-overlay-content">
+                
+                <h1 class="subscribe-overlay-title">Search My Coding Practice Gym</h1>
+                <p class="subscribe-overlay-description">
+                블로그 포스팅 검색 </p>
+                <span id="searchform" method="post" action="/subscribe/" class="">
+    <input class="confirm" type="hidden" name="confirm"  />
+    <input class="location" type="hidden" name="location"  />
+    <input class="referrer" type="hidden" name="referrer"  />
+
+    <div class="form-group">
+        <input class="subscribe-email" onkeyup="myFunc()" 
+               id="searchtext" type="text" name="searchtext"  
+               placeholder="Search..." />
+    </div>
+    <script type="text/javascript">
+        function myFunc() {
+            if(event.keyCode == 13) {
+                var url = encodeURIComponent($("#searchtext").val());
+                location.href = "/search.html?query=" + url;
+            }
+        }
+    </script>
+</span>
+            </div>
+    </div>
+    
+
+    <!-- highlight.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.10.0/components/prism-abap.min.js"></script>
+    <script>$(document).ready(function() {
+      $('pre code').each(function(i, block) {
+        hljs.highlightBlock(block);
+      });
+    });</script>
+
+    <!-- jQuery + Fitvids, which makes all video embeds responsive -->
+    <script
+        src="https://code.jquery.com/jquery-3.2.1.min.js"
+        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous">
+    </script>
+    <script type="text/javascript" src="/assets/js/jquery.fitvids.js"></script>
+    <script type="text/javascript" src="https://demo.ghost.io/assets/js/jquery.fitvids.js?v=724281a32e"></script>
+
+
+    <!-- Paginator increased to "infinit" in _config.yml -->
+    <!-- if paginator.posts  -->
+    <!-- <script>
+        var maxPages = parseInt('');
+    </script>
+    <script src="/assets/js/infinitescroll.js"></script> -->
+    <!-- /endif -->
+
+    
+
+
+    <!-- Add Google Analytics  -->
+    <!-- Google Analytics Tracking code -->
+ <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-xxxxxxxx-x', 'auto');
+  ga('send', 'pageview');
+
+ </script>
+
+
+    <!-- The #block helper will pull in data from the #contentFor other template files. In this case, there's some JavaScript which we only want to use in post.hbs, but it needs to be included down here, after jQuery has already loaded. -->
+    
+        <script>
+
+// NOTE: Scroll performance is poor in Safari
+// - this appears to be due to the events firing much more slowly in Safari.
+//   Dropping the scroll event and using only a raf loop results in smoother
+//   scrolling but continuous processing even when not scrolling
+$(document).ready(function () {
+    // Start fitVids
+    var $postContent = $(".post-full-content");
+    $postContent.fitVids();
+    // End fitVids
+
+    var progressBar = document.querySelector('progress');
+    var header = document.querySelector('.floating-header');
+    var title = document.querySelector('.post-full-title');
+
+    var lastScrollY = window.scrollY;
+    var lastWindowHeight = window.innerHeight;
+    var lastDocumentHeight = $(document).height();
+    var ticking = false;
+
+    function onScroll() {
+        lastScrollY = window.scrollY;
+        requestTick();
+    }
+
+    function onResize() {
+        lastWindowHeight = window.innerHeight;
+        lastDocumentHeight = $(document).height();
+        requestTick();
+    }
+
+    function requestTick() {
+        if (!ticking) {
+            requestAnimationFrame(update);
+        }
+        ticking = true;
+    }
+
+    function update() {
+        var trigger = title.getBoundingClientRect().top + window.scrollY;
+        var triggerOffset = title.offsetHeight + 35;
+        var progressMax = lastDocumentHeight - lastWindowHeight;
+
+        // show/hide floating header
+        if (lastScrollY >= trigger + triggerOffset) {
+            header.classList.add('floating-active');
+        } else {
+            header.classList.remove('floating-active');
+        }
+
+        progressBar.setAttribute('max', progressMax);
+        progressBar.setAttribute('value', lastScrollY);
+
+        ticking = false;
+    }
+
+    window.addEventListener('scroll', onScroll, {passive: true});
+    window.addEventListener('resize', onResize, false);
+
+    update();
+});
+</script>
+
+    
+
+    <!-- Ghost outputs important scripts and data with this tag - it should always be the very last thing before the closing body tag -->
+    <!-- ghost_foot -->
+
+</body>
+</html>

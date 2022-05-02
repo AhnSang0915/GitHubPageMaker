@@ -1,0 +1,1119 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <!-- Document Settings -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <!-- Base Meta -->
+    <!-- dynamically fixing the title for tag/author pages -->
+
+
+
+    <title>Javascript - JavaScript 함수지향 - 유효범위</title>
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Styles'n'Scripts -->
+    <link rel="stylesheet" type="text/css" href="/assets/built/screen.css" />
+    <link rel="stylesheet" type="text/css" href="/assets/built/screen.edited.css" />
+    <link rel="stylesheet" type="text/css" href="/assets/built/syntax.css" />
+
+    <!--    costom.css-->
+    <link rel="stylesheet" type="text/css" href="/assets/built/custom.css" />
+
+    <!--    Font Awsome-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!--    웹폰트 추가-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/nanumgothic.css">
+
+    <!--    syntax.css-->
+    <link rel="stylesheet" type="text/css" href="/assets/built/syntax.css" />
+
+
+    <!-- highlight.js -->
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">
+    <style>.hljs { background: none; }</style>
+
+    <!--[if IE]>
+        <style>
+            p, ol, ul{
+                width: 100%;
+            }
+            blockquote{
+                width: 100%;
+            }
+        </style>
+    <![endif]-->
+    
+    <!-- This tag outputs SEO meta+structured data and other important settings -->
+    <meta name="description" content="Learn Coding" />
+    <link rel="shortcut icon" href="https://AhnSang0915.github.io/assets/built/images/favicon.png" type="image/png" />
+    <link rel="canonical" href="https://AhnSang0915.github.io/javascript-basic12" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
+
+     <!--title below is coming from _includes/dynamic_title-->
+    <meta property="og:site_name" content="My Coding Practice Gym" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Javascript - JavaScript 함수지향 - 유효범위" />
+    <meta property="og:description" content="Javascript JavaScript 기본 JavaScript 숫자와 문자 JavaScript 변수, 비교 JavaScript 조건문 JavaScript 반복문 JavaScript 함수 JavaScript 배열 JavaScript 객체(Object) JavaScript 모듈 JavaScript UI와 API JavaScript 정규표현식 JavaScript 함수지향 - 유효범위 JavaScript 함수지향 - 값으로서의 함수와 콜백 JavaScript 함수지향 - 클로저 JavaScript 함수지향 - arguments 함수지향 - 함수의 호출 객체지향 -" />
+    <meta property="og:url" content="https://AhnSang0915.github.io/javascript-basic12" />
+    <meta property="og:image" content="https://AhnSang0915.github.io/assets/built/images/javascript-logo.png" />
+    <meta property="article:publisher" content="https://www.facebook.com/" />
+    <meta property="article:author" content="https://www.facebook.com/" />
+    <meta property="article:published_time" content="2022-03-10T16:20:00+00:00" />
+    <meta property="article:modified_time" content="2022-03-10T16:20:00+00:00" />
+    <meta property="article:tag" content="Javascript" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Javascript - JavaScript 함수지향 - 유효범위" />
+    <meta name="twitter:description" content="Javascript JavaScript 기본 JavaScript 숫자와 문자 JavaScript 변수, 비교 JavaScript 조건문 JavaScript 반복문 JavaScript 함수 JavaScript 배열 JavaScript 객체(Object) JavaScript 모듈 JavaScript UI와 API JavaScript 정규표현식 JavaScript 함수지향 - 유효범위 JavaScript 함수지향 - 값으로서의 함수와 콜백 JavaScript 함수지향 - 클로저 JavaScript 함수지향 - arguments 함수지향 - 함수의 호출 객체지향 -" />
+    <meta name="twitter:url" content="https://AhnSang0915.github.io/" />
+    <meta name="twitter:image" content="https://AhnSang0915.github.io/assets/built/images/javascript-logo.png" />
+    <meta name="twitter:label1" content="Written by" />
+    <meta name="twitter:data1" content="My Coding Practice Gym" />
+    <meta name="twitter:label2" content="Filed under" />
+    <meta name="twitter:data2" content="Javascript" />
+    <meta name="twitter:site" content="@" />
+    <meta name="twitter:creator" content="@" />
+    <meta property="og:image:width" content="1400" />
+    <meta property="og:image:height" content="933" />
+
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Website",
+    "publisher": {
+        "@type": "Organization",
+        "name": "My Coding Practice Gym",
+        "logo": "https://AhnSang0915.github.io/"
+    },
+    "url": "https://AhnSang0915.github.io/javascript-basic12",
+    "image": {
+        "@type": "ImageObject",
+        "url": "https://AhnSang0915.github.io/assets/built/images/javascript-logo.png",
+        "width": 2000,
+        "height": 666
+    },
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://AhnSang0915.github.io/javascript-basic12"
+    },
+    "description": "Javascript JavaScript 기본 JavaScript 숫자와 문자 JavaScript 변수, 비교 JavaScript 조건문 JavaScript 반복문 JavaScript 함수 JavaScript 배열 JavaScript 객체(Object) JavaScript 모듈 JavaScript UI와 API JavaScript 정규표현식 JavaScript 함수지향 - 유효범위 JavaScript 함수지향 - 값으로서의 함수와 콜백 JavaScript 함수지향 - 클로저 JavaScript 함수지향 - arguments 함수지향 - 함수의 호출 객체지향 -"
+}
+    </script>
+
+    <!-- <script type="text/javascript" src="https://demo.ghost.io/public/ghost-sdk.min.js?v=724281a32e"></script>
+    <script type="text/javascript">
+    ghost.init({
+    	clientId: "ghost-frontend",
+    	clientSecret: "f84a07a72b17"
+    });
+    </script> -->
+
+    <meta name="generator" content="Jekyll 3.6.2" />
+    <link rel="alternate" type="application/rss+xml" title="Javascript - JavaScript 함수지향 - 유효범위" href="/feed.xml" />
+
+
+</head>
+<body class="post-template">
+
+    <div class="site-wrapper">
+        <!-- All the main content gets inserted here, index.hbs, post.hbs, etc -->
+        <!-- default -->
+
+<!-- The tag above means: insert everything in this file
+into the {body} of the default.hbs template -->
+
+<header class="site-header outer">
+    <div class="inner">
+        <nav class="site-nav">
+    <div class="site-nav-left">
+        
+            
+                <a class="site-nav-logo" href="https://AhnSang0915.github.io/">My Coding Practice Gym</a>
+            
+        
+        
+            <ul class="nav" role="menu">
+    <li class="nav-home" role="menuitem"><a href="/">Home</a></li>
+    <li class="nav-about" role="menuitem"><a href="/about/">About</a></li>
+    <li class="nav-javascript" role="menuitem"><a href="/tag/javascript/">Javascript</a></li>
+    <li class="nav-python" role="menuitem"><a href="/tag/python/">Python</a></li>
+    <li class="nav-archive" role="menuitem">
+        <a href="/archive.html">All Posts</a>
+    </li>
+    <li class="nav-archive" role="menuitem">
+        <a href="/author_archive.html">Tag별 Posts</a>
+    </li>
+</ul>
+        
+    </div>
+    <div class="site-nav-right">
+        <div class="social-links">
+            
+            
+        </div>
+        
+            <a class="subscribe-button" href="#subscribe">Search</a>
+        
+    </div>
+</nav>
+
+    </div>
+</header>
+
+<!-- Everything inside the #post tags pulls data from the post -->
+<!-- #post -->
+
+<main id="site-main" class="site-main outer" role="main">
+    <div class="inner">
+
+        <article class="post-full  tag-javascript post tag-javascript ">
+
+            <header class="post-full-header">
+                <section class="post-full-meta">
+                    <time class="post-full-meta-date" datetime="10 March 2022">10 March 2022</time>
+                    
+                        <span class="date-divider">/</span>
+                        
+                            
+                               <a href='/tag/javascript/'>JAVASCRIPT</a>
+                            
+                        
+                    
+                </section>
+                <h1 class="post-full-title">Javascript - JavaScript 함수지향 - 유효범위</h1>
+            </header>
+
+            
+            <figure class="post-full-image" style="background-image: url(/assets/built/images/javascript-logo.png)">
+            </figure>
+            
+
+            <section class="post-full-content">
+                <div class="kg-card-markdown">
+                    <p><span class="table-of-contents-list">Javascript</span></p>
+<ul class="table-of-contents-list">
+    <li><a href="./javascript-basic">JavaScript 기본 </a></li>
+    <li><a href="./javascript-basic2">JavaScript 숫자와 문자 </a></li>
+    <li><a href="./javascript-basic3">JavaScript 변수, 비교</a></li>
+    <li><a href="./javascript-basic4">JavaScript 조건문</a></li>
+    <li><a href="./javascript-basic5">JavaScript 반복문</a></li>
+    <li><a href="./javascript-basic6">JavaScript 함수</a></li>
+    <li><a href="./javascript-basic7">JavaScript 배열</a></li>
+    <li><a href="./javascript-basic8">JavaScript 객체(Object)</a></li>
+    <li><a href="./javascript-basic9">JavaScript 모듈</a></li>
+    <li><a href="./javascript-basic10">JavaScript UI와 API</a></li>
+    <li><a href="./javascript-basic11">JavaScript 정규표현식</a></li>
+    <li><a href="./javascript-basic12">JavaScript 함수지향 - 유효범위</a></li>
+    <li><a href="./javascript-basic13">JavaScript 함수지향 - 값으로서의 함수와 콜백</a></li>
+    <li><a href="./javascript-basic14">JavaScript 함수지향 - 클로저</a></li>
+    <li><a href="./javascript-basic15">JavaScript 함수지향 - arguments</a></li>
+    <li><a href="./javascript-basic16">함수지향 - 함수의 호출</a></li>
+    <li><a href="./javascript-basic17">객체지향 - 객체지향 프로그래밍 소개</a></li>
+    <li><a href="./javascript-basic18">객체지향 - 생성자와 new</a></li>
+    <li><a href="./javascript-basic19">객체지향 - 전역객체</a></li>
+    <li><a href="./javascript-basic20">객체지향 - this</a></li>
+    <li><a href="./javascript-basic21">객체지향 - 상속</a></li>
+    <li><a href="./javascript-basic22">객체지향-표준 내장객체의 확장</a></li>
+    <li><a href="./javascript-basic23">JavaScript 객체지향-Object</a></li>
+
+</ul>
+
+<h1 id="javascript-함수지향---유효범위">JavaScript 함수지향 - 유효범위</h1>
+
+<p><br />
+<br /></p>
+
+<hr />
+
+<h2 id="1-전역변수와-지역변수">1. 전역변수와 지역변수</h2>
+<p><br />
+<br />
+유효범위(Scope)는 변수의 수명을 의미한다. 아래의 예제를 보자. vscope라는 변수에 global이라는 데이터를 할당했다. fscope라는 함수는 함수 안에 선언되어 있지 않은, 함수 바깥쪽에 선언되어있는 vscope에 접근할 수 있다. 결과는 global이다.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="kd">var</span> <span class="nx">vscope</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">global</span><span class="dl">'</span><span class="p">;</span>
+<span class="kd">function</span> <span class="nx">fscope</span><span class="p">(){</span>
+    <span class="nx">alert</span><span class="p">(</span><span class="nx">vscope</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="nx">fscope</span><span class="p">();</span>
+
+</code></pre></div></div>
+
+<p>아래를 실행하게 되면 결과는 ‘함수안 local’과 ‘함수밖 global’이 출력된다. fscope 함수안에 vscope라는 변수가 할당되어 있기 때문에 vscope는 자기자신과 가까이에 있는 vscope를 가르키기 때문에 ‘local’이라는 값을 출력하게 된다. 함수안의 fscope 함수안에 정의 되어 있는 vscope는 지역변수(local variables) 이고, 함수밖에  정의되어 있는 vscope변수는 전역변수(global variables)라고 한다.즉 지역변수의 유효범위는 함수 안이고, 전역변수의 유효범위는 에플리케이션 전역인데, 같은 이름의 지역변수와 전역변수가 동시에 정의되어 있다면 지역변수가 우선한다는 것을 알 수 있다.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="kd">var</span> <span class="nx">vscope</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">global</span><span class="dl">'</span><span class="p">;</span>
+<span class="kd">function</span> <span class="nx">fscope</span><span class="p">(){</span>
+    <span class="kd">var</span> <span class="nx">vscope</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">local</span><span class="dl">'</span><span class="p">;</span>
+    <span class="nx">alert</span><span class="p">(</span><span class="dl">'</span><span class="s1">함수안 </span><span class="dl">'</span><span class="o">+</span><span class="nx">vscope</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="nx">fscope</span><span class="p">();</span>
+<span class="nx">alert</span><span class="p">(</span><span class="dl">'</span><span class="s1">함수밖 </span><span class="dl">'</span><span class="o">+</span><span class="nx">vscope</span><span class="p">);</span>
+
+</code></pre></div></div>
+
+<p>var을 쓴것과 쓰지않은것의 차이점을 알아보자. var을쓰면 전역변수를 호출하게되고 var을 쓰지않으면 vscope가 지역변수가 되어 global을 local로 변경하게된다. 즉,  var을 사용하지 않은 지역변수는 전역변수가 된다. fscope라는 함수에 var쓰고 변수를 지정하게 되면 fscope함수에 지역변수를 지정한것이다. 그렇기 때문에 전역 변수의 값이 local로 변경 된 것이다. 그렇기 때문에 출력은 local이 되게 된다.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="kd">var</span> <span class="nx">vscope</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">global</span><span class="dl">'</span><span class="p">;</span>
+<span class="kd">function</span> <span class="nx">fscope</span><span class="p">(){</span>
+    <span class="kd">var</span> <span class="nx">vscope</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">local</span><span class="dl">'</span><span class="p">;</span>
+   
+<span class="p">}</span>
+<span class="nx">fscope</span><span class="p">();</span>
+<span class="nx">alert</span><span class="p">(</span><span class="nx">vscope</span><span class="p">);</span>
+<span class="c1">// var을 쓸때 global</span>
+<span class="c1">// var을 쓰지 않을때 local</span>
+</code></pre></div></div>
+
+<p>아래 예제는 어떻게 될까? 마찬가지로 global을 출력하게 된다. 이유는 이미 var vscope으로 인해 지역변수가 생성이되었다. 그렇기 때문에 vscope를 사용해도 지역변수가 되는것이지 전역변수가 변경되지는 않는다.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="kd">var</span> <span class="nx">vscope</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">global</span><span class="dl">'</span><span class="p">;</span>
+<span class="kd">function</span> <span class="nx">fscope</span><span class="p">(){</span>
+    <span class="kd">var</span> <span class="nx">vscope</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">local</span><span class="dl">'</span><span class="p">;</span>
+    <span class="nx">vscope</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">local</span><span class="dl">'</span><span class="p">;</span>   
+<span class="p">}</span>
+<span class="nx">fscope</span><span class="p">();</span>
+<span class="nx">alert</span><span class="p">(</span><span class="nx">vscope</span><span class="p">);</span>
+<span class="c1">// global</span>
+
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="2-유효범위의-효용">2. 유효범위의 효용</h2>
+<p><br />
+<br />
+아래 두개의 예제는 변수 i를 지역변수로 사용했을 때와 전역변수로 사용했을 때의 차이점을 보여준다. 전역변수는 각기 다른 로직에서 사용하는 같은 이름의 변수값을 변경시켜서 의도하지 않은 문제를 발생시킨다.
+<br />
+<br />
+같은 이름을 사용했지만 var을 사용하는것과 사용하지 않는것의 차이가 있다. for문 안에들어있는 i의 값이 선언된것은 어떤 함수에 소속되지 않은 것이다. 그렇기 때문에 전역변수이고 함수 a를 호출하게 되면 변수 i의 값을 0으로 바꿔주고 있다. 그런데 var을 붙이지 않은것은 전역변수를 의미하게 된다. a함수와 for문이 가르키고 있는 i가 같기때문에 a가 실행될때마다 i의값이 매번 0으로 초기화된다. 따라서 무한반복하는 현상이 나타나고 같은이름의 변수를 중복해서 사용했지만 각각의 취지가 다를 때 이런현상이 일어난다.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="kd">function</span> <span class="nx">a</span> <span class="p">(){</span>
+    <span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">//결과 01234</span>
+    <span class="c1">// i=0; // 결과 무한반복</span>
+<span class="p">}</span>
+<span class="k">for</span><span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">){</span>
+    <span class="nx">a</span><span class="p">();</span>
+    <span class="nb">document</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="nx">i</span><span class="p">);</span>
+<span class="p">}</span>
+
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="3-전역변수를-사용하는-법">3. 전역변수를 사용하는 법</h2>
+<p><br />
+<br />
+불가피하게 전역변수를 사용해야 하는 경우는 하나의 객체를 전역변수로 만들고 객체의 속성으로 변수를 관리하는 방법을 사용한다.</p>
+
+<p><br />
+<br />
+아래의 예제는 MYAPP이라는 전역변수 하나를 만들어서 속성을 지정해 만들었다. 이처럼 전역변수 하나만을 만들고 나머지 다른 전역변수들은 바로 그 전역변수의 소속에 해당되게 만들면 변수의 이름이 충돌할 가능성이 낮아진다.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="kd">var</span> <span class="nx">MYAPP</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="nx">MYAPP</span><span class="p">.</span><span class="nx">calculator</span> <span class="o">=</span> <span class="p">{</span> <span class="c1">//calculator 속성</span>
+    <span class="dl">'</span><span class="s1">left</span><span class="dl">'</span> <span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="dl">'</span><span class="s1">right</span><span class="dl">'</span> <span class="p">:</span> <span class="kc">null</span>
+<span class="p">}</span>
+<span class="nx">MYAPP</span><span class="p">.</span><span class="nx">coordinate</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="dl">'</span><span class="s1">left</span><span class="dl">'</span> <span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="dl">'</span><span class="s1">right</span><span class="dl">'</span> <span class="p">:</span> <span class="kc">null</span>
+<span class="p">}</span>
+ 
+<span class="nx">MYAPP</span><span class="p">.</span><span class="nx">calculator</span><span class="p">.</span><span class="nx">left</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+<span class="nx">MYAPP</span><span class="p">.</span><span class="nx">calculator</span><span class="p">.</span><span class="nx">right</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span>
+<span class="kd">function</span> <span class="nx">sum</span><span class="p">(){</span>
+    <span class="k">return</span> <span class="nx">MYAPP</span><span class="p">.</span><span class="nx">calculator</span><span class="p">.</span><span class="nx">left</span> <span class="o">+</span> <span class="nx">MYAPP</span><span class="p">.</span><span class="nx">calculator</span><span class="p">.</span><span class="nx">right</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nb">document</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="nx">sum</span><span class="p">());</span>
+
+</code></pre></div></div>
+
+<p>아래의 예제는 함수안에 변수를 지정해 함수의 지역변수로 만들었다. 함수를 정의하고 바로 호출하는 기법을 익명함수라고 한다. 이러한 기법을 이용해 전역변수가 하나도 존재하지않는 방식을 사용할 수도있다.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+    <span class="kd">var</span> <span class="nx">MYAPP</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="nx">MYAPP</span><span class="p">.</span><span class="nx">calculator</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="dl">'</span><span class="s1">left</span><span class="dl">'</span> <span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+        <span class="dl">'</span><span class="s1">right</span><span class="dl">'</span> <span class="p">:</span> <span class="kc">null</span>
+    <span class="p">}</span>
+    <span class="nx">MYAPP</span><span class="p">.</span><span class="nx">coordinate</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="dl">'</span><span class="s1">left</span><span class="dl">'</span> <span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+        <span class="dl">'</span><span class="s1">right</span><span class="dl">'</span> <span class="p">:</span> <span class="kc">null</span>
+    <span class="p">}</span>
+    <span class="nx">MYAPP</span><span class="p">.</span><span class="nx">calculator</span><span class="p">.</span><span class="nx">left</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+    <span class="nx">MYAPP</span><span class="p">.</span><span class="nx">calculator</span><span class="p">.</span><span class="nx">right</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span>
+    <span class="kd">function</span> <span class="nx">sum</span><span class="p">(){</span>
+        <span class="k">return</span> <span class="nx">MYAPP</span><span class="p">.</span><span class="nx">calculator</span><span class="p">.</span><span class="nx">left</span> <span class="o">+</span> <span class="nx">MYAPP</span><span class="p">.</span><span class="nx">calculator</span><span class="p">.</span><span class="nx">right</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="nb">document</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="nx">sum</span><span class="p">());</span>
+<span class="p">}())</span>
+
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="4-유효범위의-대상">4. 유효범위의 대상</h2>
+<p><br />
+<br />
+Javascript는 함수에 대한 유효범위만을 제공한다. 다시말해 Javascript 에선 for문이나 if문에서 중괄호 안에서 선언된 변수는 지역변수로서의 의미를 갖지 않는다. 많은 언어들이 블록(대체로 {,})에 대한 유효범위를 제공하는 것과 다른 점이다. 아래 예제의 결과는 coding everybody이다.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="k">for</span><span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">){</span>
+    <span class="kd">var</span> <span class="nx">name</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">coding everybody</span><span class="dl">'</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nx">alert</span><span class="p">(</span><span class="nx">name</span><span class="p">);</span>
+
+</code></pre></div></div>
+
+<p>자바에서는 아래의 코드는 허용되지 않는다. name은 지역변수로 for 문 안에서 선언 되었는데 이를 for문 밖에서 호출하고 있기 때문이다.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="k">for</span><span class="p">(</span><span class="nx">int</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">){</span>
+    <span class="nb">String</span> <span class="nx">name</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">egoing</span><span class="dl">"</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nx">System</span><span class="p">.</span><span class="nx">out</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="nx">name</span><span class="p">);</span>
+
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="5-정적-유효범위">5. 정적 유효범위</h2>
+<p><br />
+<br />
+자바스크립트는 함수가 선언된 시점에서의 유효범위를 갖는다. 이러한 유효범위의 방식을 정적 유효범위(static scoping), 혹은 렉시컬(lexical scoping)이라고 한다. 이는 이후에 살펴볼 클로저와 연관되어 있다.
+<br />
+<br />
+전역변수 var i = 5가 정의되어 있고 a 함수는 var i = 10이라는 지역변수를 정의하고 있다. a라고 하는 함수를 호출했을 때 함수의 내부적으로 i의 값이 10이 된다. 그 상태에서 b를 호출하게 되면 i는 b 함수 안에 i라고 하는 지역변수가 존재하는지 찾게 된다. 없다면 전역변수를 찾게 되는데 b를 호출하고 있는 함수는 a이다.그렇다면 a 함수에 정의된 변수 a를 호출하게 될까? 아니다. 왜냐하면, 함수 b가 선언된 시점에서 i의 전역변수가 사용되는 것이지 b가 호출된 시점에서 b가 담겨있는 함수의 지역변수가 사용되는 것이 아니다. 즉, 사용될 때 가 아니고 정의 될 때의 전역변수가 사용되게 된다는 말이다. 이러한 것을 정적 유효범위 또는 렉시컬(lexical scoping)유효범위라고 한다.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span> <span class="c1">// 전역변수</span>
+ 
+<span class="kd">function</span> <span class="nx">a</span><span class="p">(){</span>
+    <span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span> <span class="c1">// 지역변수</span>
+    <span class="nx">b</span><span class="p">();</span>
+<span class="p">}</span>
+ 
+<span class="kd">function</span> <span class="nx">b</span><span class="p">(){</span>
+    <span class="nb">document</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="nx">i</span><span class="p">);</span>
+<span class="p">}</span>
+ 
+<span class="nx">a</span><span class="p">();</span>
+ <span class="c1">// 5</span>
+</code></pre></div></div>
+
+
+                </div>
+            </section>
+
+            <!-- Email subscribe form at the bottom of the page -->
+            
+                <section class="subscribe-form">
+                    <h3 class="subscribe-form-title">Subscribe to My Coding Practice Gym</h3>
+                    <p>Get the latest posts delivered right to your inbox</p>
+                    <span id="searchform" method="post" action="/subscribe/" class="">
+    <input class="confirm" type="hidden" name="confirm"  />
+    <input class="location" type="hidden" name="location"  />
+    <input class="referrer" type="hidden" name="referrer"  />
+
+    <div class="form-group">
+        <input class="subscribe-email" onkeyup="myFunc()" 
+               id="searchtext" type="text" name="searchtext"  
+               placeholder="Search..." />
+    </div>
+    <script type="text/javascript">
+        function myFunc() {
+            if(event.keyCode == 13) {
+                var url = encodeURIComponent($("#searchtext").val());
+                location.href = "/search.html?query=" + url;
+            }
+        }
+    </script>
+</span>
+                </section>
+            
+
+            <footer class="post-full-footer">
+                <!-- Everything inside the #author tags pulls data from the author -->
+                <!-- #author-->
+                
+                    
+                        <section class="author-card">
+                            
+                                <img class="author-profile-image" src="/assets/built/images/author-logo.jpg" alt="AhnSang0915" />
+                            
+                            <section class="author-card-content">
+                                <h4 class="author-card-name"><a href="/author/AhnSang0915">AhnSang0915</a></h4>
+                                
+                                    <p><a href="https://github.com/AhnSang0915"> 개발 달려</p>
+                                
+                            </section>
+                        </section>
+                        <div class="post-full-footer-right">
+                            <a class="author-card-button" href="/author/AhnSang0915">Read More</a>
+                        </div>
+                    
+                
+                <!-- /author  -->
+            </footer>
+
+            <!-- If you use Disqus comments, just uncomment this block.
+            The only thing you need to change is "test-apkdzgmqhj" - which
+            should be replaced with your own Disqus site-id. -->
+            
+                <section class="post-full-comments">
+                    <div id="disqus_thread"></div>
+                    <script>
+                        var disqus_config = function () {
+                            var this_page_url = 'https://AhnSang0915.github.io/javascript-basic12';
+                            var this_page_identifier = '/javascript-basic12';
+                            var this_page_title = 'Javascript - JavaScript 함수지향 - 유효범위';
+                        };
+                        (function() {
+                            var d = document, s = d.createElement('script');
+                            s.src = 'https://xxxxxxxx.disqus.com/embed.js';
+                            s.setAttribute('data-timestamp', +new Date());
+                            (d.head || d.body).appendChild(s);
+                        })();
+                    </script>
+                </section>
+            
+
+        </article>
+
+    </div>
+</main>
+
+<!-- Links to Previous/Next posts -->
+<aside class="read-next outer">
+    <div class="inner">
+        <div class="read-next-feed">
+            
+                
+                
+                
+                
+                    <article class="read-next-card"
+                        
+                            style="background-image: url(/assets/built/images/blog-cover1.jpg)"
+                        
+                    >
+                        <header class="read-next-card-header">
+                            <small class="read-next-card-header-sitetitle">&mdash; My Coding Practice Gym &mdash;</small>
+                            
+                                <h3 class="read-next-card-header-title"><a href="/tag/javascript/">Javascript</a></h3>
+                            
+                        </header>
+                        <div class="read-next-divider"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 14.5s2 3 5 3 5.5-2.463 5.5-5.5S21 6.5 18 6.5c-5 0-7 11-12 11C2.962 17.5.5 15.037.5 12S3 6.5 6 6.5s4.5 3.5 4.5 3.5"/></svg>
+</div>
+                        <div class="read-next-card-content">
+                            <ul>
+                                
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                            <li><a href="/javascript-basic25">Javascript - JavaScript 객체지향 - 참조</a></li>
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                            <li><a href="/javascript-basic24">Javascript - JavaScript 객체지향 - 데이터타입</a></li>
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                            <li><a href="/javascript-basic23">Javascript - JavaScript 객체지향-Object</a></li>
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                            </ul>
+                        </div>
+                        <footer class="read-next-card-footer">
+                            <a href="/tag/javascript/">
+                                
+                                    See all 24 posts  →
+                                
+                            </a>
+                        </footer>
+                    </article>
+                
+            
+
+            <!-- If there's a next post, display it using the same markup included from - partials/post-card.hbs -->
+            
+                
+
+    <article class="post-card post-template">
+        
+            <a class="post-card-image-link" href="/javascript-basic13">
+                <div class="post-card-image" style="background-image: url(/assets/built/images/javascript-logo.png)"></div>
+            </a>
+        
+        <div class="post-card-content">
+            <a class="post-card-content-link" href="/javascript-basic13">
+                <header class="post-card-header">
+                    
+                        
+                            
+                                <span class="post-card-tags">Javascript</span>
+                            
+                        
+                    
+
+                    <h2 class="post-card-title">Javascript - JavaScript 함수지향 - 값으로서의 함수와 콜백</h2>
+                </header>
+                <section class="post-card-excerpt">
+                    
+                        <p>Javascript JavaScript 기본 JavaScript 숫자와 문자 JavaScript 변수, 비교 JavaScript 조건문 JavaScript 반복문 JavaScript 함수 JavaScript 배열 JavaScript 객체(Object) JavaScript 모듈 JavaScript UI와 API JavaScript 정규표현식 JavaScript 함수지향 - 유효범위 JavaScript 함수지향 -</p>
+                    
+                </section>
+            </a>
+            <footer class="post-card-meta">
+                
+                    
+                        
+                        <img class="author-profile-image" src="/assets/built/images/author-logo.jpg" alt="AhnSang0915" />
+                        
+                        <span class="post-card-author">
+                            <a href="/author/AhnSang0915/">AhnSang0915</a>
+                        </span>
+                    
+                
+                <span class="reading-time">
+                    
+                    
+                      3 min read
+                    
+                </span>
+            </footer>
+        </div>
+    </article>
+
+            
+
+            <!-- If there's a previous post, display it using the same markup included from - partials/post-card.hbs -->
+            
+                
+
+    <article class="post-card post-template">
+        
+            <a class="post-card-image-link" href="/javascript-basic11">
+                <div class="post-card-image" style="background-image: url(/assets/built/images/javascript-logo.png)"></div>
+            </a>
+        
+        <div class="post-card-content">
+            <a class="post-card-content-link" href="/javascript-basic11">
+                <header class="post-card-header">
+                    
+                        
+                            
+                                <span class="post-card-tags">Javascript</span>
+                            
+                        
+                    
+
+                    <h2 class="post-card-title">Javascript - JavaScript 정규표현식</h2>
+                </header>
+                <section class="post-card-excerpt">
+                    
+                        <p>Javascript JavaScript 기본 JavaScript 숫자와 문자 JavaScript 변수, 비교 JavaScript 조건문 JavaScript 반복문 JavaScript 함수 JavaScript 배열 JavaScript 객체(Object) JavaScript 모듈 JavaScript UI와 API JavaScript 정규표현식 JavaScript 함수지향 - 유효범위 JavaScript 함수지향 -</p>
+                    
+                </section>
+            </a>
+            <footer class="post-card-meta">
+                
+                    
+                        
+                        <img class="author-profile-image" src="/assets/built/images/author-logo.jpg" alt="AhnSang0915" />
+                        
+                        <span class="post-card-author">
+                            <a href="/author/AhnSang0915/">AhnSang0915</a>
+                        </span>
+                    
+                
+                <span class="reading-time">
+                    
+                    
+                      3 min read
+                    
+                </span>
+            </footer>
+        </div>
+    </article>
+
+            
+
+        </div>
+    </div>
+</aside>
+
+<!-- Floating header which appears on-scroll, included from includes/floating-header.hbs -->
+<div class="floating-header">
+    <div class="floating-header-logo">
+        <a href="https://AhnSang0915.github.io/">
+            
+            <span>My Coding Practice Gym</span>
+        </a>
+    </div>
+    <span class="floating-header-divider">&mdash;</span>
+    <div class="floating-header-title">Javascript - JavaScript 함수지향 - 유효범위</div>
+    <div class="floating-header-share">
+        <div class="floating-header-share-label">Share this <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <path d="M7.5 15.5V4a1.5 1.5 0 1 1 3 0v4.5h2a1 1 0 0 1 1 1h2a1 1 0 0 1 1 1H18a1.5 1.5 0 0 1 1.5 1.5v3.099c0 .929-.13 1.854-.385 2.748L17.5 23.5h-9c-1.5-2-5.417-8.673-5.417-8.673a1.2 1.2 0 0 1 1.76-1.605L7.5 15.5zm6-6v2m-3-3.5v3.5m6-1v2"/>
+</svg>
+</div>
+        <a class="floating-header-share-tw" href="https://twitter.com/share?text=Javascript+-+JavaScript+%ED%95%A8%EC%88%98%EC%A7%80%ED%96%A5+-+%EC%9C%A0%ED%9A%A8%EB%B2%94%EC%9C%84&amp;url=https://AhnSang0915.github.iojavascript-basic12"
+            onclick="window.open(this.href, 'share-twitter', 'width=550,height=235');return false;">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"/></svg>
+
+        </a>
+        <a class="floating-header-share-fb" href="https://www.facebook.com/sharer/sharer.php?u=https://AhnSang0915.github.iojavascript-basic12"
+            onclick="window.open(this.href, 'share-facebook','width=580,height=296');return false;">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M19 6h5V0h-5c-3.86 0-7 3.14-7 7v3H8v6h4v16h6V16h5l1-6h-6V7c0-.542.458-1 1-1z"/></svg>
+
+        </a>
+    </div>
+    <progress class="progress" value="0">
+        <div class="progress-container">
+            <span class="progress-bar"></span>
+        </div>
+    </progress>
+</div>
+
+
+<!-- /post -->
+
+<!-- The #contentFor helper here will send everything inside it up to the matching #block helper found in default.hbs -->
+
+
+        <!-- Previous/next page links - displayed on every page -->
+        
+
+        <!-- The footer at the very bottom of the screen -->
+        <footer class="site-footer outer">
+            <div class="site-footer-content inner">
+                <section class="copyright"><a href="https://AhnSang0915.github.io/">My Coding Practice Gym</a> &copy; 2022</section>
+                <section class="poweredby">Proudly published with <a href="https://jekyllrb.com/">Jekyll</a> &
+                    <a href="https://pages.github.com/" target="_blank" rel="noopener">GitHub Pages</a> using
+                    <a href="https://github.com/jekyllt/jasper2" target="_blank" rel="noopener">Jasper2</a></section>
+                <nav class="site-footer-nav">
+                    <a href="/">Latest Posts</a>
+                    
+                    
+                    <a href="https://ghost.org" target="_blank" rel="noopener">Ghost</a>
+                </nav>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- The big email subscribe modal content -->
+    
+    <div id="subscribe" class="subscribe-overlay">
+        <a class="subscribe-overlay-close" href="#"></a>
+            <div class="subscribe-overlay-content">
+                
+                <h1 class="subscribe-overlay-title">Search My Coding Practice Gym</h1>
+                <p class="subscribe-overlay-description">
+                블로그 포스팅 검색 </p>
+                <span id="searchform" method="post" action="/subscribe/" class="">
+    <input class="confirm" type="hidden" name="confirm"  />
+    <input class="location" type="hidden" name="location"  />
+    <input class="referrer" type="hidden" name="referrer"  />
+
+    <div class="form-group">
+        <input class="subscribe-email" onkeyup="myFunc()" 
+               id="searchtext" type="text" name="searchtext"  
+               placeholder="Search..." />
+    </div>
+    <script type="text/javascript">
+        function myFunc() {
+            if(event.keyCode == 13) {
+                var url = encodeURIComponent($("#searchtext").val());
+                location.href = "/search.html?query=" + url;
+            }
+        }
+    </script>
+</span>
+            </div>
+    </div>
+    
+
+    <!-- highlight.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.10.0/components/prism-abap.min.js"></script>
+    <script>$(document).ready(function() {
+      $('pre code').each(function(i, block) {
+        hljs.highlightBlock(block);
+      });
+    });</script>
+
+    <!-- jQuery + Fitvids, which makes all video embeds responsive -->
+    <script
+        src="https://code.jquery.com/jquery-3.2.1.min.js"
+        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous">
+    </script>
+    <script type="text/javascript" src="/assets/js/jquery.fitvids.js"></script>
+    <script type="text/javascript" src="https://demo.ghost.io/assets/js/jquery.fitvids.js?v=724281a32e"></script>
+
+
+    <!-- Paginator increased to "infinit" in _config.yml -->
+    <!-- if paginator.posts  -->
+    <!-- <script>
+        var maxPages = parseInt('');
+    </script>
+    <script src="/assets/js/infinitescroll.js"></script> -->
+    <!-- /endif -->
+
+    
+
+
+    <!-- Add Google Analytics  -->
+    <!-- Google Analytics Tracking code -->
+ <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-xxxxxxxx-x', 'auto');
+  ga('send', 'pageview');
+
+ </script>
+
+
+    <!-- The #block helper will pull in data from the #contentFor other template files. In this case, there's some JavaScript which we only want to use in post.hbs, but it needs to be included down here, after jQuery has already loaded. -->
+    
+        <script>
+
+// NOTE: Scroll performance is poor in Safari
+// - this appears to be due to the events firing much more slowly in Safari.
+//   Dropping the scroll event and using only a raf loop results in smoother
+//   scrolling but continuous processing even when not scrolling
+$(document).ready(function () {
+    // Start fitVids
+    var $postContent = $(".post-full-content");
+    $postContent.fitVids();
+    // End fitVids
+
+    var progressBar = document.querySelector('progress');
+    var header = document.querySelector('.floating-header');
+    var title = document.querySelector('.post-full-title');
+
+    var lastScrollY = window.scrollY;
+    var lastWindowHeight = window.innerHeight;
+    var lastDocumentHeight = $(document).height();
+    var ticking = false;
+
+    function onScroll() {
+        lastScrollY = window.scrollY;
+        requestTick();
+    }
+
+    function onResize() {
+        lastWindowHeight = window.innerHeight;
+        lastDocumentHeight = $(document).height();
+        requestTick();
+    }
+
+    function requestTick() {
+        if (!ticking) {
+            requestAnimationFrame(update);
+        }
+        ticking = true;
+    }
+
+    function update() {
+        var trigger = title.getBoundingClientRect().top + window.scrollY;
+        var triggerOffset = title.offsetHeight + 35;
+        var progressMax = lastDocumentHeight - lastWindowHeight;
+
+        // show/hide floating header
+        if (lastScrollY >= trigger + triggerOffset) {
+            header.classList.add('floating-active');
+        } else {
+            header.classList.remove('floating-active');
+        }
+
+        progressBar.setAttribute('max', progressMax);
+        progressBar.setAttribute('value', lastScrollY);
+
+        ticking = false;
+    }
+
+    window.addEventListener('scroll', onScroll, {passive: true});
+    window.addEventListener('resize', onResize, false);
+
+    update();
+});
+</script>
+
+    
+
+    <!-- Ghost outputs important scripts and data with this tag - it should always be the very last thing before the closing body tag -->
+    <!-- ghost_foot -->
+
+</body>
+</html>

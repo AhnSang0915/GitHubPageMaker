@@ -1,0 +1,1703 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <!-- Document Settings -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <!-- Base Meta -->
+    <!-- dynamically fixing the title for tag/author pages -->
+
+
+
+    <title>Python - Python 딕셔너리 응용하기</title>
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Styles'n'Scripts -->
+    <link rel="stylesheet" type="text/css" href="/assets/built/screen.css" />
+    <link rel="stylesheet" type="text/css" href="/assets/built/screen.edited.css" />
+    <link rel="stylesheet" type="text/css" href="/assets/built/syntax.css" />
+
+    <!--    costom.css-->
+    <link rel="stylesheet" type="text/css" href="/assets/built/custom.css" />
+
+    <!--    Font Awsome-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!--    웹폰트 추가-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/nanumgothic.css">
+
+    <!--    syntax.css-->
+    <link rel="stylesheet" type="text/css" href="/assets/built/syntax.css" />
+
+
+    <!-- highlight.js -->
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">
+    <style>.hljs { background: none; }</style>
+
+    <!--[if IE]>
+        <style>
+            p, ol, ul{
+                width: 100%;
+            }
+            blockquote{
+                width: 100%;
+            }
+        </style>
+    <![endif]-->
+    
+    <!-- This tag outputs SEO meta+structured data and other important settings -->
+    <meta name="description" content="Learn Coding" />
+    <link rel="shortcut icon" href="https://AhnSang0915.github.io/assets/built/images/favicon.png" type="image/png" />
+    <link rel="canonical" href="https://AhnSang0915.github.io/python-basic23" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
+
+     <!--title below is coming from _includes/dynamic_title-->
+    <meta property="og:site_name" content="My Coding Practice Gym" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Python - Python 딕셔너리 응용하기" />
+    <meta property="og:description" content="Python Python 기본 Python 숫자 계산하기 Python 변수 만들기 Python 출력 방법 Python 불과 비교, 논리 연산자 Python 문자열 사용하기 Python 리스트와 튜플 사용하기 Python 시퀀스 자료형 활용하기 Python 딕셔너리 사용하기 Python if 조건문으로 특정 조건일 때 코드 실행하기 Python else를 사용하여 두 방향으로 분기하기 Python elif를 사용하여 두 방향으로" />
+    <meta property="og:url" content="https://AhnSang0915.github.io/python-basic23" />
+    <meta property="og:image" content="https://AhnSang0915.github.io/assets/built/images/python-logo.png" />
+    <meta property="article:publisher" content="https://www.facebook.com/" />
+    <meta property="article:author" content="https://www.facebook.com/" />
+    <meta property="article:published_time" content="2022-04-12T08:00:00+00:00" />
+    <meta property="article:modified_time" content="2022-04-12T08:00:00+00:00" />
+    <meta property="article:tag" content="Python" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Python - Python 딕셔너리 응용하기" />
+    <meta name="twitter:description" content="Python Python 기본 Python 숫자 계산하기 Python 변수 만들기 Python 출력 방법 Python 불과 비교, 논리 연산자 Python 문자열 사용하기 Python 리스트와 튜플 사용하기 Python 시퀀스 자료형 활용하기 Python 딕셔너리 사용하기 Python if 조건문으로 특정 조건일 때 코드 실행하기 Python else를 사용하여 두 방향으로 분기하기 Python elif를 사용하여 두 방향으로" />
+    <meta name="twitter:url" content="https://AhnSang0915.github.io/" />
+    <meta name="twitter:image" content="https://AhnSang0915.github.io/assets/built/images/python-logo.png" />
+    <meta name="twitter:label1" content="Written by" />
+    <meta name="twitter:data1" content="My Coding Practice Gym" />
+    <meta name="twitter:label2" content="Filed under" />
+    <meta name="twitter:data2" content="Python" />
+    <meta name="twitter:site" content="@" />
+    <meta name="twitter:creator" content="@" />
+    <meta property="og:image:width" content="1400" />
+    <meta property="og:image:height" content="933" />
+
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Website",
+    "publisher": {
+        "@type": "Organization",
+        "name": "My Coding Practice Gym",
+        "logo": "https://AhnSang0915.github.io/"
+    },
+    "url": "https://AhnSang0915.github.io/python-basic23",
+    "image": {
+        "@type": "ImageObject",
+        "url": "https://AhnSang0915.github.io/assets/built/images/python-logo.png",
+        "width": 2000,
+        "height": 666
+    },
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://AhnSang0915.github.io/python-basic23"
+    },
+    "description": "Python Python 기본 Python 숫자 계산하기 Python 변수 만들기 Python 출력 방법 Python 불과 비교, 논리 연산자 Python 문자열 사용하기 Python 리스트와 튜플 사용하기 Python 시퀀스 자료형 활용하기 Python 딕셔너리 사용하기 Python if 조건문으로 특정 조건일 때 코드 실행하기 Python else를 사용하여 두 방향으로 분기하기 Python elif를 사용하여 두 방향으로"
+}
+    </script>
+
+    <!-- <script type="text/javascript" src="https://demo.ghost.io/public/ghost-sdk.min.js?v=724281a32e"></script>
+    <script type="text/javascript">
+    ghost.init({
+    	clientId: "ghost-frontend",
+    	clientSecret: "f84a07a72b17"
+    });
+    </script> -->
+
+    <meta name="generator" content="Jekyll 3.6.2" />
+    <link rel="alternate" type="application/rss+xml" title="Python - Python 딕셔너리 응용하기" href="/feed.xml" />
+
+
+</head>
+<body class="post-template">
+
+    <div class="site-wrapper">
+        <!-- All the main content gets inserted here, index.hbs, post.hbs, etc -->
+        <!-- default -->
+
+<!-- The tag above means: insert everything in this file
+into the {body} of the default.hbs template -->
+
+<header class="site-header outer">
+    <div class="inner">
+        <nav class="site-nav">
+    <div class="site-nav-left">
+        
+            
+                <a class="site-nav-logo" href="https://AhnSang0915.github.io/">My Coding Practice Gym</a>
+            
+        
+        
+            <ul class="nav" role="menu">
+    <li class="nav-home" role="menuitem"><a href="/">Home</a></li>
+    <li class="nav-about" role="menuitem"><a href="/about/">About</a></li>
+    <li class="nav-javascript" role="menuitem"><a href="/tag/javascript/">Javascript</a></li>
+    <li class="nav-python" role="menuitem"><a href="/tag/python/">Python</a></li>
+    <li class="nav-archive" role="menuitem">
+        <a href="/archive.html">All Posts</a>
+    </li>
+    <li class="nav-archive" role="menuitem">
+        <a href="/author_archive.html">Tag별 Posts</a>
+    </li>
+</ul>
+        
+    </div>
+    <div class="site-nav-right">
+        <div class="social-links">
+            
+            
+        </div>
+        
+            <a class="subscribe-button" href="#subscribe">Search</a>
+        
+    </div>
+</nav>
+
+    </div>
+</header>
+
+<!-- Everything inside the #post tags pulls data from the post -->
+<!-- #post -->
+
+<main id="site-main" class="site-main outer" role="main">
+    <div class="inner">
+
+        <article class="post-full  tag-python post tag-python ">
+
+            <header class="post-full-header">
+                <section class="post-full-meta">
+                    <time class="post-full-meta-date" datetime="12 April 2022">12 April 2022</time>
+                    
+                        <span class="date-divider">/</span>
+                        
+                            
+                               <a href='/tag/python/'>PYTHON</a>
+                            
+                        
+                    
+                </section>
+                <h1 class="post-full-title">Python - Python 딕셔너리 응용하기</h1>
+            </header>
+
+            
+            <figure class="post-full-image" style="background-image: url(/assets/built/images/python-logo.png)">
+            </figure>
+            
+
+            <section class="post-full-content">
+                <div class="kg-card-markdown">
+                    <p><span class="table-of-contents-list">Python</span></p>
+<ul class="table-of-contents-list">
+    <li><a href="./python-basic">Python 기본</a></li>
+    <li><a href="./python-basic2">Python 숫자 계산하기</a></li>
+    <li><a href="./python-basic3">Python 변수 만들기</a></li>
+    <li><a href="./python-basic4">Python 출력 방법</a></li>
+    <li><a href="./python-basic5">Python 불과 비교, 논리 연산자</a></li>
+    <li><a href="./python-basic6">Python 문자열 사용하기</a></li>
+    <li><a href="./python-basic7">Python 리스트와 튜플 사용하기</a></li>
+    <li><a href="./python-basic8">Python 시퀀스 자료형 활용하기</a></li>
+    <li><a href="./python-basic9">Python 딕셔너리 사용하기</a></li>
+    <li><a href="./python-basic10">Python if 조건문으로 특정 조건일 때 코드 실행하기</a></li>
+    <li><a href="./python-basic11">Python else를 사용하여 두 방향으로 분기하기</a></li>
+    <li><a href="./python-basic12">Python elif를 사용하여 두 방향으로 분기하기</a></li>
+    <li><a href="./python-basic13">Python for 반복문</a></li>
+    <li><a href="./python-basic14">Python while 반복문</a></li>
+    <li><a href="./python-basic15">Python break, continue로 반복문 제어하기</a></li>
+    <li><a href="./python-basic16">Python 중첩루프</a></li>
+    <li><a href="./python-basic17">Python FizzBuzz 문제</a></li>
+    <li><a href="./python-basic18">Python 터틀 그래픽스로 그림 그리기</a></li>
+    <li><a href="./python-basic19">Python 리스트와 튜플 응용하기</a></li>
+    <li><a href="./python-basic20">Python 리스트와 튜플 응용하기 - 2</a></li>
+    <li><a href="./python-basic21">Python 2차원 리스트 사용하기</a></li>
+    <li><a href="./python-basic22">Python 문자열 응용하기</a></li>
+    <li><a href="./python-basic23">Python 딕셔너리 응용하기</a></li>
+    <li><a href="./python-basic24">Python 세트 사용하기</a></li>
+    <li><a href="./python-basic25">Python 파일 사용하기</a></li>
+    <li><a href="./python-basic26">Python 회문 판별과 N-gram 만들기</a></li>
+    <li><a href="./python-basic27">Python 함수 사용하기</a></li>
+    <li><a href="./python-basic28">Python 함수에서 위치 인수와 키워드 인수 사용하기</a></li>
+    <li><a href="./python-basic29">Python 함수에서 재귀호출 사용하기</a></li>
+    <li><a href="./python-basic30">Python 람다 표현식 사용하기</a></li>
+    <li><a href="./python-basic31">Python 클로저 사용하기</a></li>
+    <li><a href="./python-basic32">Python 클래스 사용하기</a></li>
+    <li><a href="./python-basic33">Python 클래스 속성과 정적, 클래스 메서드 사용하기</a></li>
+    <li><a href="./python-basic34">Python 클래스 상속 사용하기</a></li>
+    <li><a href="./python-basic35">Python 두 점 사이의 거리 구하기</a></li>
+    <li><a href="./python-basic36">Python 예외 처리 사용하기</a></li>
+    <li><a href="./python-basic37">Python 이터레이터 사용하기</a></li>
+    <li><a href="./python-basic38">Python 제너레이터 사용하기</a></li>
+    <li><a href="./python-basic39">Python 코루틴 사용하기</a></li>
+    <li><a href="./python-basic40">Python 데코레이터 사용하기</a></li>
+    <li><a href="./python-basic41">Python 정규표현식 사용하기</a></li>
+    <li><a href="./python-basic42">Python 모듈과 패키지 사용하기</a></li>
+    <li><a href="./python-basic43">Python 모듈과 패키지 만들기</a></li>
+
+
+</ul>
+
+<h1 id="딕셔너리-응용하기">딕셔너리 응용하기</h1>
+<p><br />
+<br />
+딕셔너리의 키-값 쌍을 조작하는 메서드 정보를 조회하는 메서드를 사용해보자. 그리고 for 반복문을 사용하여 키와 값에 접근하는 방법, 딕셔너리 표현식, 중첩 딕셔너리를 알아보자.</p>
+
+<hr />
+
+<h2 id="1-딕셔너리-조작하기">1. 딕셔너리 조작하기</h2>
+<p><br />
+<br />
+딕셔너리를 조작하는 메서드와 정보를 얻는 메서드를 알아보자.</p>
+
+<p><br />
+<br /></p>
+
+<h3 id="딕셔너리에-키-값-쌍-추가하기">딕셔너리에 키-값 쌍 추가하기</h3>
+<p><br />
+<br /></p>
+
+<p>딕셔너리의 중요한 기능중 하나는 키-값 쌍 추가이다. 두가지 메서드를 사용하는 방법으로 키-값 쌍을 추가할 수 있다.</p>
+
+<ul>
+  <li>setdefault: 키-값 쌍 추가</li>
+  <li>update: 키의 값 수정, 키가 없으면 키-값 쌍 추가</li>
+</ul>
+
+<h3 id="딕셔너리에-키와-기본값-저장하기">딕셔너리에 키와 기본값 저장하기</h3>
+<p><br />
+<br /></p>
+
+<p><strong>setdefault(키)</strong>는 딕셔너리에 키-값 쌍을 추가한다. setdefault에 키만 지정하면 값에 None을 저장한다. 키 ‘e’를 추가하고 값에 None을 저장하는 코드다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="n">x</span> <span class="o">=</span> <span class="p">{</span><span class="s">'a'</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="s">'b'</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span> <span class="s">'c'</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span> <span class="s">'d'</span><span class="p">:</span> <span class="mi">40</span><span class="p">}</span>
+<span class="n">x</span><span class="p">.</span><span class="n">setdefault</span><span class="p">(</span><span class="s">'e'</span><span class="p">)</span>
+<span class="n">x</span>
+<span class="p">{</span><span class="s">'a'</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="s">'b'</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span> <span class="s">'c'</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span> <span class="s">'d'</span><span class="p">:</span> <span class="mi">40</span><span class="p">,</span> <span class="s">'e'</span><span class="p">:</span> <span class="bp">None</span><span class="p">}</span>
+
+</code></pre></div></div>
+
+<p>키 ‘f’를 추가하고 값에 100을 저장한뒤 100을 반환한다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="n">x</span> <span class="o">=</span> <span class="p">{</span><span class="s">'a'</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="s">'b'</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span> <span class="s">'c'</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span> <span class="s">'d'</span><span class="p">:</span> <span class="mi">40</span><span class="p">}</span>
+<span class="n">x</span><span class="p">.</span><span class="n">setdefault</span><span class="p">(</span><span class="s">'f'</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+<span class="mi">100</span>
+<span class="n">x</span>
+<span class="p">{</span><span class="s">'a'</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="s">'b'</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span> <span class="s">'c'</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span> <span class="s">'d'</span><span class="p">:</span> <span class="mi">40</span><span class="p">,</span> <span class="s">'f'</span><span class="p">:</span> <span class="mi">100</span><span class="p">}</span>
+
+</code></pre></div></div>
+
+<h3 id="딕셔너리에서-키의-값-수정하기">딕셔너리에서 키의 값 수정하기</h3>
+<p><br />
+<br /></p>
+
+<p><strong>update(키=값)</strong>는 키-값 쌍을 수정하는 메서드이다. 예를 들어 x = {‘a’ : 10}이라면 x.update(a=90)과 같이 키에서 작은 따옴표 또는 큰따옴표를 빼고 키 이름과 값을 지정한다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="n">x</span> <span class="o">=</span> <span class="p">{</span><span class="s">'a'</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="s">'b'</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span> <span class="s">'c'</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span> <span class="s">'d'</span><span class="p">:</span> <span class="mi">40</span><span class="p">}</span>
+<span class="n">x</span><span class="p">.</span><span class="n">update</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="mi">90</span><span class="p">)</span>
+<span class="n">x</span>
+<span class="p">{</span><span class="s">'a'</span><span class="p">:</span> <span class="mi">90</span><span class="p">,</span> <span class="s">'b'</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span> <span class="s">'c'</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span> <span class="s">'d'</span><span class="p">:</span> <span class="mi">40</span><span class="p">}</span>
+
+</code></pre></div></div>
+
+<p>만약 딕셔너리에 키가 없으면 키-값 쌍을 추가한다. 딕셔너리 x에는 키 ‘e’가 없기떄문에 x.update(e=50)을 실행하면 ‘e’ : 50을 추가한다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="n">x</span> <span class="o">=</span> <span class="p">{</span><span class="s">'a'</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="s">'b'</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span> <span class="s">'c'</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span> <span class="s">'d'</span><span class="p">:</span> <span class="mi">40</span><span class="p">}</span>
+<span class="n">x</span><span class="p">.</span><span class="n">update</span><span class="p">(</span><span class="n">e</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+<span class="n">x</span>
+<span class="p">{</span><span class="s">'a'</span><span class="p">:</span> <span class="mi">90</span><span class="p">,</span> <span class="s">'b'</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span> <span class="s">'c'</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span> <span class="s">'d'</span><span class="p">:</span> <span class="mi">40</span><span class="p">,</span> <span class="s">'e'</span><span class="p">:</span> <span class="mi">50</span><span class="p">}</span>
+
+</code></pre></div></div>
+
+<p>키-값 쌍 여러 개를 콤마로 구분해서 넣어주면 값을 한꺼번에 수정할 수 있다. 이때도 키가 있으면 해당 키의 값을 수정하고 없으면 키-값 쌍을 추가한다. 다음은 키 ‘a’의 값을 900으로 수정하고 ‘f’:60을 추가한다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="n">x</span> <span class="o">=</span> <span class="p">{</span><span class="s">'a'</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="s">'b'</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span> <span class="s">'c'</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span> <span class="s">'d'</span><span class="p">:</span> <span class="mi">40</span><span class="p">}</span>
+<span class="n">x</span><span class="p">.</span><span class="n">update</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="mi">900</span><span class="p">,</span> <span class="n">f</span><span class="o">=</span><span class="mi">60</span><span class="p">)</span>
+<span class="n">x</span>
+<span class="p">{</span><span class="s">'a'</span><span class="p">:</span> <span class="mi">900</span><span class="p">,</span> <span class="s">'b'</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span> <span class="s">'c'</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span> <span class="s">'d'</span><span class="p">:</span> <span class="mi">40</span><span class="p">,</span> <span class="s">'e'</span><span class="p">:</span> <span class="mi">50</span><span class="p">,</span> <span class="s">'f'</span><span class="p">:</span> <span class="mi">60</span><span class="p">}</span>
+
+</code></pre></div></div>
+
+<p>update(키=값)은 키가 문자열일 때만 사용할 수 있다. 만약 키가 숫자일 경우에는 <strong>update(딕셔너리)</strong>처럼 딕셔너리를 넣어서 값을 수정할 수 있다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="n">y</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">:</span> <span class="s">'one'</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span> <span class="s">'two'</span><span class="p">}</span>
+<span class="n">y</span><span class="p">.</span><span class="n">update</span><span class="p">({</span><span class="mi">1</span><span class="p">:</span> <span class="s">'ONE'</span><span class="p">,</span> <span class="mi">3</span><span class="p">:</span> <span class="s">'THREE'</span><span class="p">})</span>
+<span class="n">y</span>
+<span class="p">{</span><span class="mi">1</span><span class="p">:</span> <span class="s">'ONE'</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span> <span class="s">'two'</span><span class="p">,</span> <span class="mi">3</span><span class="p">:</span> <span class="s">'THREE'</span><span class="p">}</span>
+
+</code></pre></div></div>
+
+<p>다른 방법으로는 리슽트와 튜플을 이용하는 방법도 있다. update(리스트), update(튜플)은 리스트와 튜플로 값을 수정한다. 여기서 리스트는 [[키1, 값1]], [[키2, 값2]] 형식으로 키와 값을 리스트로 만들고 이 리스트를 다시 리스트 안에 넣어서 키-값 쌍을 나열해준다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="n">y</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">:</span> <span class="s">'ONE'</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span> <span class="s">'two'</span><span class="p">,</span> <span class="mi">3</span><span class="p">:</span> <span class="s">'THREE'</span><span class="p">}</span>
+<span class="n">y</span><span class="p">.</span><span class="n">update</span><span class="p">([[</span><span class="mi">2</span><span class="p">,</span> <span class="s">'TWO'</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="s">'FOUR'</span><span class="p">]])</span>
+<span class="n">y</span>
+<span class="p">{</span><span class="mi">1</span><span class="p">:</span> <span class="s">'ONE'</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span> <span class="s">'TWO'</span><span class="p">,</span> <span class="mi">3</span><span class="p">:</span> <span class="s">'THREE'</span><span class="p">,</span> <span class="mi">4</span><span class="p">:</span> <span class="s">'FOUR'</span><span class="p">}</span>
+
+</code></pre></div></div>
+
+<p>특히 <strong>update(반복가능한객체)</strong>는 키-값 쌍으로 된 반복 가능한 객체로 값을 수정한다. 즉, 다음과 같이 키 리스트와 값 리스트를 묶은 zip 객체로 값을 수정할 수 있다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="n">y</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">:</span> <span class="s">'ONE'</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span> <span class="s">'TWO'</span><span class="p">,</span> <span class="mi">3</span><span class="p">:</span> <span class="s">'THREE'</span><span class="p">,</span> <span class="mi">4</span><span class="p">:</span> <span class="s">'FOUR'</span><span class="p">}</span>
+<span class="n">y</span><span class="p">.</span><span class="n">update</span><span class="p">(</span><span class="nb">zip</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="s">'one'</span><span class="p">,</span> <span class="s">'two'</span><span class="p">]))</span>
+<span class="n">y</span>
+<span class="p">{</span><span class="mi">1</span><span class="p">:</span> <span class="s">'one'</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span> <span class="s">'two'</span><span class="p">,</span> <span class="mi">3</span><span class="p">:</span> <span class="s">'THREE'</span><span class="p">,</span> <span class="mi">4</span><span class="p">:</span> <span class="s">'FOUR'</span><span class="p">}</span>
+
+</code></pre></div></div>
+
+<h3 id="setdefault와-update의-차이">setdefault와 update의 차이</h3>
+<p><br />
+<br />
+setdefault는 키-값 쌍 추가만 할 수 있고, 이미 들어있는 키의 값은 수정할 수 없다. 하지만 update는 키-값 쌍 추가와 값 수정이 모두 가능하다. 다음과 같이 setdefault로 이미 들어있는 키’a’를 90으로 저장해도 ‘a’의 값은 바뀌지 않는다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="n">x</span> <span class="o">=</span> <span class="p">{</span><span class="s">'a'</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="s">'b'</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span> <span class="s">'c'</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span> <span class="s">'d'</span><span class="p">:</span> <span class="mi">40</span><span class="p">}</span>
+<span class="n">x</span><span class="p">.</span><span class="n">setdefault</span><span class="p">(</span><span class="s">'a'</span><span class="p">,</span> <span class="mi">90</span><span class="p">)</span>
+<span class="mi">10</span>
+<span class="n">x</span>
+<span class="p">{</span><span class="s">'a'</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="s">'b'</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span> <span class="s">'c'</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span> <span class="s">'d'</span><span class="p">:</span> <span class="mi">40</span><span class="p">}</span> <span class="c1"># a의 값이 바뀌지 않음
+</span>
+</code></pre></div></div>
+
+<h3 id="딕셔너리에서-키-값-쌍-삭제하기">딕셔너리에서 키-값 쌍 삭제하기</h3>
+<p><br />
+<br /></p>
+
+<p><strong>pop(키)</strong>는 딕셔너리에서 특정 키-값 쌍을 삭제한 뒤 삭제한 값을 반환한다. 다음은 딕셔러니 x에서 키’a’를 삭제한 뒤 10을 반환한다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="n">x</span> <span class="o">=</span> <span class="p">{</span><span class="s">'a'</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="s">'b'</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span> <span class="s">'c'</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span> <span class="s">'d'</span><span class="p">:</span> <span class="mi">40</span><span class="p">}</span>
+<span class="n">x</span><span class="p">.</span><span class="n">pop</span><span class="p">(</span><span class="s">'a'</span><span class="p">)</span>
+<span class="mi">10</span>
+<span class="n">x</span>
+<span class="p">{</span><span class="s">'b'</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span> <span class="s">'c'</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span> <span class="s">'d'</span><span class="p">:</span> <span class="mi">40</span><span class="p">}</span>
+
+</code></pre></div></div>
+
+<p><strong>pop(키, 기본값)</strong>처럼 기본값을 지정하면 딕셔너리에 키가 있을 때는 해당 키-값 쌍을 삭제한뒤 삭제한 값을 반환하지만 키가 없을 때는 기본값만 반환한다. 딕셔러니 x에는 키’z’가 없으므로 기본값으로 지정한 0을 반환한다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="n">x</span><span class="p">.</span><span class="n">pop</span><span class="p">(</span><span class="s">'z'</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="mi">0</span>
+
+</code></pre></div></div>
+
+<p>pop 대신 del로 특정 키-값 쌍을 삭제할 수도 있다. 이때는 [ ]에 키를 지정하여 del을 사용한다. 다음은 딕셔너리 x의 키 ‘a’를 삭제한다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="n">x</span> <span class="o">=</span> <span class="p">{</span><span class="s">'a'</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="s">'b'</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span> <span class="s">'c'</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span> <span class="s">'d'</span><span class="p">:</span> <span class="mi">40</span><span class="p">}</span>
+<span class="k">del</span> <span class="n">x</span><span class="p">[</span><span class="s">'a'</span><span class="p">]</span>
+<span class="n">x</span>
+<span class="p">{</span><span class="s">'b'</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span> <span class="s">'c'</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span> <span class="s">'d'</span><span class="p">:</span> <span class="mi">40</span><span class="p">}</span>
+
+</code></pre></div></div>
+
+<h3 id="딕셔너리에서-임의의-키-값-쌍-삭제하기">딕셔너리에서 임의의 키-값 쌍 삭제하기</h3>
+<p><br />
+<br /></p>
+
+<p><strong>popitem()</strong>은 딕셔너리에서 &lt;임의의 키-값 쌍을 삭제한 뒤 삭제한 키-값 쌍을 튜플로 반환한다. 이 메서드는 파이썬 버전에 따라 동작이 달라지는데, 파이썬 3.6 이상에서는 마지막 키-값 쌍을 삭제하며 3.5 이하에서는 임의의 키-값 쌍을 삭제한다. 아래 코드는 3.6이상 기준이다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="n">x</span> <span class="o">=</span> <span class="p">{</span><span class="s">'a'</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="s">'b'</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span> <span class="s">'c'</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span> <span class="s">'d'</span><span class="p">:</span> <span class="mi">40</span><span class="p">}</span>
+<span class="n">x</span><span class="p">.</span><span class="n">popitem</span><span class="p">()</span>
+<span class="p">(</span><span class="s">'d'</span><span class="p">,</span> <span class="mi">40</span><span class="p">)</span>
+<span class="n">x</span>
+<span class="p">{</span><span class="s">'a'</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="s">'b'</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span> <span class="s">'c'</span><span class="p">:</span> <span class="mi">30</span><span class="p">}</span>
+
+</code></pre></div></div>
+
+<h3 id="딕셔너리의-모든-키-값-쌍을-삭제하기">딕셔너리의 모든 키-값 쌍을 삭제하기</h3>
+<p><br />
+<br /></p>
+
+<p><strong>clear()</strong>는 딕셔너리의 모든 키-값 쌍을 삭제한다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="n">x</span> <span class="o">=</span> <span class="p">{</span><span class="s">'a'</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="s">'b'</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span> <span class="s">'c'</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span> <span class="s">'d'</span><span class="p">:</span> <span class="mi">40</span><span class="p">}</span>
+<span class="n">x</span><span class="p">.</span><span class="n">clear</span><span class="p">()</span> <span class="c1">#모두 삭제
+</span><span class="n">x</span>
+<span class="p">{}</span>
+
+</code></pre></div></div>
+
+<h3 id="딕셔너리에서-키의-값을-가져오기">딕셔너리에서 키의 값을 가져오기</h3>
+<p><br />
+<br /></p>
+
+<p><strong>get(키)</strong>는 딕셔너리의 특정 키 값을 가져온다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="n">x</span> <span class="o">=</span> <span class="p">{</span><span class="s">'a'</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="s">'b'</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span> <span class="s">'c'</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span> <span class="s">'d'</span><span class="p">:</span> <span class="mi">40</span><span class="p">}</span>
+<span class="n">x</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="s">'a'</span><span class="p">)</span> <span class="c1"># 키 'a'의 값을 가져온다. 
+</span><span class="mi">10</span>
+
+</code></pre></div></div>
+
+<p><strong>get(키, 기본값)</strong>처럼 기본값을 지정하면 딕셔너리에 키가 있을 때는 해당 키의 값을 반환하지만 키가 없을때는 기본값을 반환한다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="n">x</span> <span class="o">=</span> <span class="p">{</span><span class="s">'a'</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="s">'b'</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span> <span class="s">'c'</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span> <span class="s">'d'</span><span class="p">:</span> <span class="mi">40</span><span class="p">}</span>
+<span class="n">x</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="s">'z'</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="c1"># x딕셔너리에 없는 키'z'와 기본값 0을 지정
+</span><span class="mi">0</span> <span class="c1"># 기본값 반환.
+</span>
+</code></pre></div></div>
+
+<h3 id="딕셔너리에서-키-값-쌍을-모두-가져오기">딕셔너리에서 키-값 쌍을 모두 가져오기</h3>
+<p><br />
+<br />
+딕셔너리는 기와 값을 가져오는 다양한 메서드를 제공한다.</p>
+
+<ul>
+  <li>items: 키-값 쌍을 모두 가져옴</li>
+  <li>keys: 키를 모두 가져옴</li>
+  <li>values: 값을 모두 가져옴</li>
+</ul>
+
+<p><strong>items()</strong>는 딕셔너리의 키-값 쌍을 모두 가져온다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="n">x</span> <span class="o">=</span> <span class="p">{</span><span class="s">'a'</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="s">'b'</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span> <span class="s">'c'</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span> <span class="s">'d'</span><span class="p">:</span> <span class="mi">40</span><span class="p">}</span>
+<span class="n">x</span><span class="p">.</span><span class="n">items</span><span class="p">()</span>
+<span class="n">dict_items</span><span class="p">([(</span><span class="s">'a'</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="p">(</span><span class="s">'b'</span><span class="p">,</span> <span class="mi">20</span><span class="p">),</span> <span class="p">(</span><span class="s">'c'</span><span class="p">,</span> <span class="mi">30</span><span class="p">),</span> <span class="p">(</span><span class="s">'d'</span><span class="p">,</span> <span class="mi">40</span><span class="p">)])</span>
+
+</code></pre></div></div>
+
+<p><strong>keys()</strong>는 키를 모두 가져옵니다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="n">x</span> <span class="o">=</span> <span class="p">{</span><span class="s">'a'</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="s">'b'</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span> <span class="s">'c'</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span> <span class="s">'d'</span><span class="p">:</span> <span class="mi">40</span><span class="p">}</span>
+<span class="n">x</span><span class="p">.</span><span class="n">keys</span><span class="p">()</span>
+<span class="n">dict_keys</span><span class="p">([</span><span class="s">'a'</span><span class="p">,</span> <span class="s">'b'</span><span class="p">,</span> <span class="s">'c'</span><span class="p">,</span> <span class="s">'d'</span><span class="p">])</span> <span class="c1"># 모든 키
+</span>
+
+</code></pre></div></div>
+
+<p><strong>values()</strong>는 값을 모두 가져옵니다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="n">x</span> <span class="o">=</span> <span class="p">{</span><span class="s">'a'</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="s">'b'</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span> <span class="s">'c'</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span> <span class="s">'d'</span><span class="p">:</span> <span class="mi">40</span><span class="p">}</span>
+<span class="n">x</span><span class="p">.</span><span class="n">values</span><span class="p">()</span>
+<span class="n">dict_values</span><span class="p">([</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">])</span> <span class="c1"># 모든 값
+</span>
+</code></pre></div></div>
+
+<h3 id="리스트와-튜플로-딕셔너리-만들기">리스트와 튜플로 딕셔너리 만들기</h3>
+<p><br />
+<br />
+이번에는 리스트(튜플)로 딕셔너리를 만들어 보자.<br />
+keys = [‘a’, ‘b’, ‘c’, ‘d’]처럼 키가 들어있는 리스트를 준비한다(튜플도 가능). 그리고 dict.fromkeys에 키가 들어있는 리스트를 넣으면 딕셔너리를 생성한다.<br /></p>
+
+<p><strong>dict.fromkeys(키리스트)</strong>는 키 리스트로 딕셔너리를 생성하며 값은 모두 None으로 저장한다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="n">keys</span> <span class="o">=</span> <span class="p">[</span><span class="s">'a'</span><span class="p">,</span> <span class="s">'b'</span><span class="p">,</span> <span class="s">'c'</span><span class="p">,</span> <span class="s">'d'</span><span class="p">]</span>
+<span class="n">x</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">.</span><span class="n">fromkeys</span><span class="p">(</span><span class="n">keys</span><span class="p">)</span>
+<span class="n">x</span>
+<span class="p">{</span><span class="s">'a'</span><span class="p">:</span> <span class="bp">None</span><span class="p">,</span> <span class="s">'b'</span><span class="p">:</span> <span class="bp">None</span><span class="p">,</span> <span class="s">'c'</span><span class="p">:</span> <span class="bp">None</span><span class="p">,</span> <span class="s">'d'</span><span class="p">:</span> <span class="bp">None</span><span class="p">}</span> <span class="c1"># 키 리스트로 딕셔너리 생성후 값을 모두 None으로 저장.
+</span>
+</code></pre></div></div>
+
+<p><strong>dict.fromkeys(키리스트, 값)</strong>처럼 키 리스트와 값을 지정하면 해당 값이 키의 값으로 저장된다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="n">keys</span> <span class="o">=</span> <span class="p">[</span><span class="s">'a'</span><span class="p">,</span> <span class="s">'b'</span><span class="p">,</span> <span class="s">'c'</span><span class="p">,</span> <span class="s">'d'</span><span class="p">]</span>
+<span class="n">x</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">.</span><span class="n">fromkeys</span><span class="p">(</span><span class="n">keys</span><span class="p">)</span>
+<span class="n">x</span>
+<span class="p">{</span><span class="s">'a'</span><span class="p">:</span> <span class="bp">None</span><span class="p">,</span> <span class="s">'b'</span><span class="p">:</span> <span class="bp">None</span><span class="p">,</span> <span class="s">'c'</span><span class="p">:</span> <span class="bp">None</span><span class="p">,</span> <span class="s">'d'</span><span class="p">:</span> <span class="bp">None</span><span class="p">}</span>
+<span class="n">y</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">.</span><span class="n">fromkeys</span><span class="p">(</span><span class="n">keys</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span> <span class="c1"># 키리스트에 값 100을 지정
+</span><span class="n">y</span>
+<span class="p">{</span><span class="s">'a'</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span> <span class="s">'b'</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span> <span class="s">'c'</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span> <span class="s">'d'</span><span class="p">:</span> <span class="mi">100</span><span class="p">}</span>
+
+</code></pre></div></div>
+
+<h3 id="defaultdict-사용하기">defaultdict 사용하기</h3>
+<p><br />
+<br />
+딕셔너리(dict)는 없는 키에 접근했을 경우 에러가 발생한다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="n">x</span> <span class="o">=</span> <span class="p">{</span><span class="s">'a'</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s">'b'</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s">'c'</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s">'d'</span><span class="p">:</span> <span class="mi">0</span><span class="p">}</span>
+<span class="n">x</span><span class="p">[</span><span class="s">'z'</span><span class="p">]</span>    <span class="c1"># 키 'z'는 없음
+</span><span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
+  <span class="n">File</span> <span class="s">"&lt;pyshell#5&gt;"</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+    <span class="n">x</span><span class="p">[</span><span class="s">'z'</span><span class="p">]</span>
+<span class="nb">KeyError</span><span class="p">:</span> <span class="s">'z'</span>
+
+</code></pre></div></div>
+
+<p><strong>defaultdict(기본값생성함수)</strong>를 사용하면 없는 키에 접근하더라도 에러가 발생하지 않고 기본값을 반환한다. defaultdict는 collections 모듈에 들어있으며 기본값 생성 함수를 넣는다. 아래와 같이 기본 값에 int를 지정하게 되면 0이 나오는데 int()를 하고 호출하면 0이 나오기 때문이다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">defaultdict</span>
+<span class="n">y</span> <span class="o">=</span> <span class="p">{</span><span class="s">'a'</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s">'b'</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s">'c'</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s">'d'</span><span class="p">:</span> <span class="mi">0</span><span class="p">}</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+
+<span class="nb">int</span><span class="p">()</span> <span class="c1">#int()호출
+</span><span class="mi">0</span>
+
+<span class="n">y</span><span class="p">[</span><span class="s">'z'</span><span class="p">]</span> <span class="c1"># 없는 키를 에 접근했지만 기본값을 int로 지정해놨다.
+</span><span class="mi">0</span>
+
+</code></pre></div></div>
+
+<p>0이 아닌 다른 값을 기본 값으로 설정할 수도 있다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">defaultdict</span>
+<span class="n">z</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="k">lambda</span><span class="p">:</span> <span class="s">'python'</span><span class="p">)</span>
+<span class="n">z</span><span class="p">[</span><span class="s">'a'</span><span class="p">]</span>
+<span class="s">'python'</span>
+<span class="n">z</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="s">'python'</span>
+
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="2-반복문으로-딕셔너리의-키-값-쌍을-모두-출력하기">2. 반복문으로 딕셔너리의 키-값 쌍을 모두 출력하기</h2>
+<p><br />
+<br />
+딕셔너리와 for반복문을 사용해 간단하게 모든 키-값 쌍을 출력해 보자. for i in x 처럼 for 반복문에 딕셔너리를 지정한 뒤에 print로 변수 i를 출력해보면 값을 출력되지 않고 키만 출력된다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="n">x</span> <span class="o">=</span> <span class="p">{</span><span class="s">'a'</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="s">'b'</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span> <span class="s">'c'</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span> <span class="s">'d'</span><span class="p">:</span> <span class="mi">40</span><span class="p">}</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">x</span><span class="p">:</span>
+     <span class="k">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s">' '</span><span class="p">)</span>
+
+<span class="n">a</span> <span class="n">b</span> <span class="n">c</span> <span class="n">d</span>
+
+</code></pre></div></div>
+
+<p>키와 값을 모두 출력하려면 for in 뒤에 딕셔너리를 지정하고 items(키-값 쌍을 모두 가져옴)를 사용해야 한다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="k">for</span> <span class="n">키</span><span class="p">,</span> <span class="n">값</span> <span class="ow">in</span> <span class="n">딕셔너리</span><span class="p">.</span><span class="n">items</span><span class="p">():</span>
+     <span class="n">반복할</span> <span class="n">코드</span>
+
+</code></pre></div></div>
+
+<p>다음은 for로 리스트 a의 모든 키와 값을 출력한다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="n">x</span> <span class="o">=</span> <span class="p">{</span><span class="s">'a'</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="s">'b'</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span> <span class="s">'c'</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span> <span class="s">'d'</span><span class="p">:</span> <span class="mi">40</span><span class="p">}</span>
+<span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">x</span><span class="p">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+
+    
+<span class="n">a</span> <span class="mi">10</span>
+<span class="n">b</span> <span class="mi">20</span>
+<span class="n">c</span> <span class="mi">30</span>
+<span class="n">d</span> <span class="mi">40</span>
+
+</code></pre></div></div>
+
+<h3 id="딕셔너리의-키만-출력하기">딕셔너리의 키만 출력하기</h3>
+<p><br />
+<br />
+for 반복문에서 keys로 키를 가져오면서 반복해보자.</p>
+
+<ul>
+  <li>items: 키-값 쌍을 모두 가져옴</li>
+  <li>keys: 키를 모두 가져옴</li>
+  <li>values: 값을 모두 가져옴</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="n">x</span> <span class="o">=</span> <span class="p">{</span><span class="s">'a'</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="s">'b'</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span> <span class="s">'c'</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span> <span class="s">'d'</span><span class="p">:</span> <span class="mi">40</span><span class="p">}</span>
+<span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">x</span><span class="p">.</span><span class="n">keys</span><span class="p">():</span> <span class="c1">#딕셔너리 x에 있는 key를 모두 가져와 key에 대입한다.
+</span>    <span class="k">print</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">end</span> <span class="o">=</span> <span class="s">' '</span><span class="p">)</span>
+
+    
+<span class="n">a</span> <span class="n">b</span> <span class="n">c</span> <span class="n">d</span> 
+
+</code></pre></div></div>
+
+<h3 id="딕셔너리의-값만-출력하기">딕셔너리의 값만 출력하기</h3>
+<p><br />
+<br />
+for 반복문에서 values를 사용해 값만 가져오며 반복한다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="n">x</span> <span class="o">=</span> <span class="p">{</span><span class="s">'a'</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="s">'b'</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span> <span class="s">'c'</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span> <span class="s">'d'</span><span class="p">:</span> <span class="mi">40</span><span class="p">}</span>
+<span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">x</span><span class="p">.</span><span class="n">values</span><span class="p">():</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">end</span> <span class="o">=</span> <span class="s">' '</span><span class="p">)</span>
+
+    
+<span class="mi">10</span> <span class="mi">20</span> <span class="mi">30</span> <span class="mi">40</span> 
+
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="3딕셔너리-표현식-사용하기">3.딕셔너리 표현식 사용하기</h2>
+<p><br />
+<br />
+리스트와 마찬가지로 딕셔너리도 for 반복문과 if 조건문을 사용해 딕셔너리를 생성할 수 있다. 다음과 같이 딕셔너리 안에 키와 값, for 반복문을 지정하면 된다.</p>
+
+<ul>
+  <li>{키: 값 for 키, 값 in 딕셔너리}</li>
+  <li>dict({키: 값 for 키, 값 in 딕셔너리})</li>
+</ul>
+
+<p>딕셔너리 표현식을 사용할 때는 for in 다음에 딕셔너리를 지정하고 items를 사용한다. 그리고 키, 값을 가져온뒤에는 키 : 값 형식으로 변수나 값을 배치하여 딕셔너리를 생성한다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="n">keys</span> <span class="o">=</span> <span class="p">[</span><span class="s">'a'</span><span class="p">,</span> <span class="s">'b'</span><span class="p">,</span> <span class="s">'c'</span><span class="p">,</span> <span class="s">'d'</span><span class="p">]</span>
+<span class="n">x</span> <span class="o">=</span> <span class="p">{</span><span class="n">key</span> <span class="p">:</span> <span class="n">value</span> <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="nb">dict</span><span class="p">.</span><span class="n">fromkeys</span><span class="p">(</span><span class="n">keys</span><span class="p">).</span><span class="n">items</span><span class="p">()}</span> <span class="c1"># 키리스트로 딕셔너리를 생성하고 값은 모두 None으로 저장한 키와 값모두를 가져와 변수 key, value에 지정하고 그걸 다시 key : value 에 대입해 딕셔너리로 만든다.
+</span><span class="n">x</span>
+<span class="p">{</span><span class="s">'a'</span><span class="p">:</span> <span class="bp">None</span><span class="p">,</span> <span class="s">'b'</span><span class="p">:</span> <span class="bp">None</span><span class="p">,</span> <span class="s">'c'</span><span class="p">:</span> <span class="bp">None</span><span class="p">,</span> <span class="s">'d'</span><span class="p">:</span> <span class="bp">None</span><span class="p">}</span>
+
+</code></pre></div></div>
+
+<p>다음과 같이 keys로 킴만 가져온 뒤 특정 값을 넣거나, values로 값을 가져온뒤 값을 키로 사용할 수도 있다. 또는, 키와 값의 자리를 바꾸는 등 여러 가지로 응용할 수 있다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="n">keys</span> <span class="o">=</span> <span class="p">[</span><span class="s">'a'</span><span class="p">,</span> <span class="s">'b'</span><span class="p">,</span> <span class="s">'c'</span><span class="p">,</span> <span class="s">'d'</span><span class="p">]</span>
+<span class="n">y</span> <span class="o">=</span> <span class="p">{</span><span class="n">key</span><span class="p">:</span> <span class="mi">0</span> <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="nb">dict</span><span class="p">.</span><span class="n">fromkeys</span><span class="p">([</span><span class="s">'a'</span><span class="p">,</span> <span class="s">'b'</span><span class="p">,</span> <span class="s">'c'</span><span class="p">,</span> <span class="s">'d'</span><span class="p">]).</span><span class="n">keys</span><span class="p">()}</span> <span class="c1"># 키리스트로 딕셔너리를 생성하고 키만 가져온후 변수key에 대입후 key: 0 에 키를 대입해 딕셔너리로 만든다. 값을 0으로 지정했다.
+</span><span class="n">y</span>
+<span class="p">{</span><span class="s">'a'</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s">'b'</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s">'c'</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s">'d'</span><span class="p">:</span> <span class="mi">0</span><span class="p">}</span>
+
+
+<span class="n">keys</span> <span class="o">=</span> <span class="p">[</span><span class="s">'a'</span><span class="p">,</span> <span class="s">'b'</span><span class="p">,</span> <span class="s">'c'</span><span class="p">,</span> <span class="s">'d'</span><span class="p">]</span>
+<span class="n">z</span> <span class="o">=</span> <span class="p">{</span><span class="n">value</span><span class="p">:</span> <span class="mi">0</span> <span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="p">{</span><span class="s">'a'</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="s">'b'</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span> <span class="s">'c'</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span> <span class="s">'d'</span><span class="p">:</span> <span class="mi">40</span><span class="p">}.</span><span class="n">values</span><span class="p">()}</span> <span class="c1"># 딕셔너리의 값만 추출해 value에 대입후 value: 0를 값을 키로 만들고 값을 0으로 지정한다.
+</span><span class="n">z</span>
+<span class="p">{</span><span class="mi">10</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">20</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">30</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">40</span><span class="p">:</span> <span class="mi">0</span><span class="p">}</span>
+
+<span class="n">keys</span> <span class="o">=</span> <span class="p">[</span><span class="s">'a'</span><span class="p">,</span> <span class="s">'b'</span><span class="p">,</span> <span class="s">'c'</span><span class="p">,</span> <span class="s">'d'</span><span class="p">]</span>
+<span class="n">t</span> <span class="o">=</span> <span class="p">{</span><span class="n">value</span><span class="p">:</span> <span class="n">key</span> <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="p">{</span><span class="s">'a'</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="s">'b'</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span> <span class="s">'c'</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span> <span class="s">'d'</span><span class="p">:</span> <span class="mi">40</span><span class="p">}.</span><span class="n">items</span><span class="p">()}</span> 
+<span class="n">t</span>
+<span class="p">{</span><span class="mi">10</span><span class="p">:</span> <span class="s">'a'</span><span class="p">,</span> <span class="mi">20</span><span class="p">:</span> <span class="s">'b'</span><span class="p">,</span> <span class="mi">30</span><span class="p">:</span> <span class="s">'c'</span><span class="p">,</span> <span class="mi">40</span><span class="p">:</span> <span class="s">'d'</span><span class="p">}</span>
+
+</code></pre></div></div>
+
+<h3 id="딕셔너리-표현식에서-if-조건문-사용하기">딕셔너리 표현식에서 if 조건문 사용하기</h3>
+<p><br />
+<br />
+표현식이 복잡하고 dict.fromkeys함수만 사용한 결과와 큰차이점이 없어 보이지만 딕셔너리에서 특정값을 찾아 삭제할때 유용하다. 딕셔너리는 특정키를 삭제하는 pop 메서드만 제공할 뿐 특정 값을 삭제하는 메서드는 제공하지 않는다. for 반복문으로 반복하면서 del로 삭제하는 방식은 딕셔너리의 크기가 바뀌어 에러가 발생한다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="n">x</span> <span class="o">=</span> <span class="p">{</span><span class="s">'a'</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="s">'b'</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span> <span class="s">'c'</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span> <span class="s">'d'</span><span class="p">:</span> <span class="mi">40</span><span class="p">}</span>
+ 
+<span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">x</span><span class="p">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="k">if</span> <span class="n">value</span> <span class="o">==</span> <span class="mi">20</span><span class="p">:</span>    <span class="c1"># 값이 20이면
+</span>        <span class="k">del</span> <span class="n">x</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>     <span class="c1"># 키-값 쌍 삭제
+</span> 
+<span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="c1">#결과
+</span>
+<span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
+  <span class="n">File</span> <span class="s">"C:\project\dict_del_by_value_error.py"</span><span class="p">,</span> <span class="n">line</span> <span class="mi">3</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+    <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">x</span><span class="p">.</span><span class="n">items</span><span class="p">():</span>
+<span class="nb">RuntimeError</span><span class="p">:</span> <span class="n">dictionary</span> <span class="n">changed</span> <span class="n">size</span> <span class="n">during</span> <span class="n">iteration</span> 
+
+</code></pre></div></div>
+
+<p>특정 값을 삭제하려면 딕셔너리 표현식에 if조건문을 사용해 삭제할 값을 제외해야한다. 표현식에 if value != 20과 같이 if 조건문을 지정하면 값이 20이 아닌 키-값 쌍으로 다시 딕셔너리를 만든다. 직접 키-값 쌍을 삭제하는 방식이 아니라 삭제할 키-값 쌍을 제외하고 남은 키-값 쌍으로 딕셔너리를 새로 만드는 것이다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="n">x</span> <span class="o">=</span> <span class="p">{</span><span class="s">'a'</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="s">'b'</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span> <span class="s">'c'</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span> <span class="s">'d'</span><span class="p">:</span> <span class="mi">40</span><span class="p">}</span>
+<span class="n">x</span> <span class="o">=</span> <span class="p">{</span><span class="n">key</span><span class="p">:</span> <span class="n">value</span> <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">x</span><span class="p">.</span><span class="n">items</span><span class="p">()</span> <span class="k">if</span> <span class="n">value</span> <span class="o">!=</span> <span class="mi">20</span><span class="p">}</span>
+<span class="n">x</span>
+<span class="p">{</span><span class="s">'a'</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="s">'c'</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span> <span class="s">'d'</span><span class="p">:</span> <span class="mi">40</span><span class="p">}</span>
+
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="4딕셔너리-안에서-딕셔너리-사용하기">4.딕셔너리 안에서 딕셔너리 사용하기</h2>
+<p><br />
+<br />
+이번에는 딕셔너리 안에서 딕셔너리를 사용하는 중첩 딕셔너리를 알아보자. 다음과 같이 딕셔너리는 값 부분에 다시 딕셔너리가 계속 들어갈 수 있다.</p>
+
+<ul>
+  <li>딕셔너리 = {키1: {키A: 값A}, 키2: {키B: 값B}}</li>
+</ul>
+
+<p>아래는 지구형 행성의 반지름, 질량, 공전주기를 딕셔너리로 표현한 것이다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="n">terrestrial_planet</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s">'Mercury'</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s">'mean_radius'</span><span class="p">:</span> <span class="mf">2439.7</span><span class="p">,</span>
+        <span class="s">'mass'</span><span class="p">:</span> <span class="mf">3.3022E+23</span><span class="p">,</span>
+        <span class="s">'orbital_period'</span><span class="p">:</span> <span class="mf">87.969</span>
+    <span class="p">},</span>
+    <span class="s">'Venus'</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s">'mean_radius'</span><span class="p">:</span> <span class="mf">6051.8</span><span class="p">,</span>
+        <span class="s">'mass'</span><span class="p">:</span> <span class="mf">4.8676E+24</span><span class="p">,</span>
+        <span class="s">'orbital_period'</span><span class="p">:</span> <span class="mf">224.70069</span><span class="p">,</span>
+    <span class="p">},</span>
+    <span class="s">'Earth'</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s">'mean_radius'</span><span class="p">:</span> <span class="mf">6371.0</span><span class="p">,</span>
+        <span class="s">'mass'</span><span class="p">:</span> <span class="mf">5.97219E+24</span><span class="p">,</span>
+        <span class="s">'orbital_period'</span><span class="p">:</span> <span class="mf">365.25641</span><span class="p">,</span>
+    <span class="p">},</span>
+    <span class="s">'Mars'</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s">'mean_radius'</span><span class="p">:</span> <span class="mf">3389.5</span><span class="p">,</span>
+        <span class="s">'mass'</span><span class="p">:</span> <span class="mf">6.4185E+23</span><span class="p">,</span>
+        <span class="s">'orbital_period'</span><span class="p">:</span> <span class="mf">686.9600</span><span class="p">,</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+ 
+<span class="k">print</span><span class="p">(</span><span class="n">terrestrial_planet</span><span class="p">[</span><span class="s">'Venus'</span><span class="p">][</span><span class="s">'mean_radius'</span><span class="p">])</span>    <span class="c1"># 6051.8
+</span>
+</code></pre></div></div>
+
+<p>딕셔너리 terrestrial_planet에 키 ‘Mercury’, ‘Venus’, ‘Earth’, ‘Mars’가 들어있고, 이 키들은 다시 값 부분에 딕셔너리를 가지고 있다. 즉, 중첩 딕셔너리는 계층형 데이터를 지정할 때 유용하다.
+<br />
+딕셔너리 안에 들어있는 딕셔너리에 접근하려면 딕셔너리 뒤에 []를 단계만큼 붙이고 키를 지정해주면 된다.</p>
+
+<ul>
+  <li>딕셔너리[키][키]</li>
+  <li>딕셔너리[키][키] = 값</li>
+</ul>
+
+<p>딕셔너리 terrestrial_planet는 딕셔너리가 두 단계로 구성되어 있으므로 대괄호를 두 번 사용한다. 금성(Venus)의 반지름(mean radius)를 출력하려면 다음과 같이 먼저 ‘Venus’를 찾아가고 다시 ‘mean_radius’의 값을 가져오면 된다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="k">print</span><span class="p">(</span><span class="n">terrestrial_planet</span><span class="p">[</span><span class="s">'Venus'</span><span class="p">][</span><span class="s">'mean_radius'</span><span class="p">])</span>    <span class="c1"># 6051.8
+</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="5딕셔너리의-할당과-복사">5.딕셔너리의 할당과 복사</h2>
+<p><br />
+<br />
+리스트와 마찬가지로 딕셔너리도 할당과 복사는 큰차이점이 있다. 먼저 딕셔너리를 만든 뒤 변수에 할당한다. y = x와 같이 딕셔너리를 다른 변수에 할당하면 딕셔너리는 두 개가 될 것 같지만 실제로는 딕셔너리가 한개이다. x와 y를 is연산자로 비교하면 True가 나온다. 즉, 변수 이름만 다를 뿐 딕셔너리 x와 y는 같은 객체이다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="n">x</span> <span class="ow">is</span> <span class="n">y</span>
+<span class="bp">True</span>
+
+</code></pre></div></div>
+
+<p>x와 y는 같으므로 y[‘a’]=99와 같이 키’a’의 값을 변경하면 딕셔너리 x와 y모두 반영된다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="n">y</span><span class="p">[</span><span class="s">'a'</span><span class="p">]</span> <span class="o">=</span> <span class="mi">99</span>
+<span class="n">x</span>
+<span class="p">{</span><span class="s">'a'</span><span class="p">:</span> <span class="mi">99</span><span class="p">,</span> <span class="s">'b'</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s">'c'</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s">'d'</span><span class="p">:</span> <span class="mi">0</span><span class="p">}</span>
+<span class="n">y</span>
+<span class="p">{</span><span class="s">'a'</span><span class="p">:</span> <span class="mi">99</span><span class="p">,</span> <span class="s">'b'</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s">'c'</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s">'d'</span><span class="p">:</span> <span class="mi">0</span><span class="p">}</span>
+
+</code></pre></div></div>
+
+<p>딕셔너리 x와 y를 완전이 분리한 두개의 딕셔너리로 만드려면 copy메서드로 모든 키-값 쌍을 복사해야한다. 복사후 x와 y를 is 연산자로 비교해보면 False가 나온다. 즉, 두 딕셔너리는 이제 다른 객체이다. 그러나 복사한 키-값 쌍은 같음으로 ==로 비교하면 True가 나온다. 딕셔너리 x와 y는 별개 이므로 한쪽의 값을 변경해도 다른 딕셔너리에 영향을 미치지 않는다. 다음과 같이 딕셔너리 y에서 키 ‘a’의 값을 변경하면 딕셔너리 x는 그대로이고 딕셔너리 y만 바뀐다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="n">x</span> <span class="o">=</span> <span class="p">{</span><span class="s">'a'</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s">'b'</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s">'c'</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s">'d'</span><span class="p">:</span> <span class="mi">0</span><span class="p">}</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">x</span><span class="p">.</span><span class="n">copy</span><span class="p">()</span>
+
+<span class="n">x</span> <span class="ow">is</span> <span class="n">y</span>
+<span class="bp">False</span>
+<span class="n">x</span> <span class="o">==</span> <span class="n">y</span>
+<span class="bp">True</span>
+
+<span class="n">y</span><span class="p">[</span><span class="s">'a'</span><span class="p">]</span> <span class="o">=</span> <span class="mi">99</span>
+<span class="n">x</span>
+<span class="p">{</span><span class="s">'a'</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s">'b'</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s">'c'</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s">'d'</span><span class="p">:</span> <span class="mi">0</span><span class="p">}</span>
+<span class="n">y</span>
+<span class="p">{</span><span class="s">'a'</span><span class="p">:</span> <span class="mi">99</span><span class="p">,</span> <span class="s">'b'</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s">'c'</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s">'d'</span><span class="p">:</span> <span class="mi">0</span><span class="p">}</span>
+
+</code></pre></div></div>
+
+<h3 id="중첩-딕셔너리의-할당과-복사-알아보기">중첩 딕셔너리의 할당과 복사 알아보기</h3>
+<p><br />
+<br />
+딕셔너리 안에 딕셔너리가 들어있는 중첩 딕셔너리는 copy메서드를 사용할 경우 값을 복사하면 두 딕셔너리의 값이 모두 바뀌게된다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="n">x</span> <span class="o">=</span> <span class="p">{</span><span class="s">'a'</span><span class="p">:</span> <span class="p">{</span><span class="s">'python'</span><span class="p">:</span> <span class="s">'2.7'</span><span class="p">},</span> <span class="s">'b'</span><span class="p">:</span> <span class="p">{</span><span class="s">'python'</span><span class="p">:</span> <span class="s">'3.6'</span><span class="p">}}</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">x</span><span class="p">.</span><span class="n">copy</span><span class="p">()</span> <span class="c1"># 중첩 딕셔너리를 copy메서드로 복사
+</span>
+<span class="n">y</span><span class="p">[</span><span class="s">'a'</span><span class="p">][</span><span class="s">'python'</span><span class="p">]</span> <span class="o">=</span> <span class="s">'2.7.15'</span> <span class="c1"># 딕셔너리 y의 a키의 값 python키 의 값 변경
+</span><span class="n">x</span>
+<span class="p">{</span><span class="s">'a'</span><span class="p">:</span> <span class="p">{</span><span class="s">'python'</span><span class="p">:</span> <span class="s">'2.7.15'</span><span class="p">},</span> <span class="s">'b'</span><span class="p">:</span> <span class="p">{</span><span class="s">'python'</span><span class="p">:</span> <span class="s">'3.6'</span><span class="p">}}</span>
+<span class="n">y</span>
+<span class="p">{</span><span class="s">'a'</span><span class="p">:</span> <span class="p">{</span><span class="s">'python'</span><span class="p">:</span> <span class="s">'2.7.15'</span><span class="p">},</span> <span class="s">'b'</span><span class="p">:</span> <span class="p">{</span><span class="s">'python'</span><span class="p">:</span> <span class="s">'3.6'</span><span class="p">}}</span> 
+<span class="c1"># 두 딕셔너리 모두 값이 변경됨.
+</span>
+</code></pre></div></div>
+
+<p>중첩 딕셔너리를 완전히 복사하려면 copy메서드 대신 deepcopy 함수를 사용해야한다. 이제 딕셔너리y의 값을 변경해도 딕셔너리 x에 영향을 미치지 않는다. copy.deepcopy 함수는 중첩된 딕셔너리에 들어있는 모든 딕셔너리를 복사하는 깊은 복사(deep copy)를 해준다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="n">x</span> <span class="o">=</span> <span class="p">{</span><span class="s">'a'</span><span class="p">:</span> <span class="p">{</span><span class="s">'python'</span><span class="p">:</span> <span class="s">'2.7'</span><span class="p">},</span> <span class="s">'b'</span><span class="p">:</span> <span class="p">{</span><span class="s">'python'</span><span class="p">:</span> <span class="s">'3.6'</span><span class="p">}}</span>
+<span class="kn">import</span> <span class="nn">copy</span>             <span class="c1"># copy 모듈을 가져옴
+</span><span class="n">y</span> <span class="o">=</span> <span class="n">copy</span><span class="p">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>    <span class="c1"># copy.deepcopy 함수를 사용하여 깊은 복사
+</span><span class="n">y</span><span class="p">[</span><span class="s">'a'</span><span class="p">][</span><span class="s">'python'</span><span class="p">]</span> <span class="o">=</span> <span class="s">'2.7.15'</span>
+<span class="n">x</span>
+<span class="p">{</span><span class="s">'a'</span><span class="p">:</span> <span class="p">{</span><span class="s">'python'</span><span class="p">:</span> <span class="s">'2.7'</span><span class="p">},</span> <span class="s">'b'</span><span class="p">:</span> <span class="p">{</span><span class="s">'python'</span><span class="p">:</span> <span class="s">'3.6'</span><span class="p">}}</span>
+<span class="n">y</span>
+<span class="p">{</span><span class="s">'a'</span><span class="p">:</span> <span class="p">{</span><span class="s">'python'</span><span class="p">:</span> <span class="s">'2.7.15'</span><span class="p">},</span> <span class="s">'b'</span><span class="p">:</span> <span class="p">{</span><span class="s">'python'</span><span class="p">:</span> <span class="s">'3.6'</span><span class="p">}}</span>   <span class="s">'
+
+</span></code></pre></div></div>
+
+<hr />
+
+<h2 id="예제">예제</h2>
+<p><br />
+<br />
+표준 입력으로 문자열 여러 개와 숫자 여러 개가 두 줄로 입력되고, 첫 번째 줄은 키, 두 번째 줄은 값으로 하여 딕셔너리를 생성합니다. 다음 코드를 완성하여 딕셔너리에서 키가 ‘delta’인 키-값 쌍과 값이 30인 키-값 쌍을 삭제하도록 만드세요.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="n">keys</span> <span class="o">=</span> <span class="nb">input</span><span class="p">().</span><span class="n">split</span><span class="p">()</span>
+<span class="n">values</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">input</span><span class="p">().</span><span class="n">split</span><span class="p">())</span>
+ 
+<span class="n">x</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">keys</span><span class="p">,</span> <span class="n">values</span><span class="p">))</span>
+
+<span class="n">__________________________</span>
+<span class="n">__________________________</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+
+<span class="c1">#입력
+</span><span class="n">alpha</span> <span class="n">bravo</span> <span class="n">charlie</span> <span class="n">delta</span>
+<span class="mi">10</span> <span class="mi">20</span> <span class="mi">30</span> <span class="mi">40</span>
+
+<span class="c1">#결과
+</span><span class="p">{</span><span class="s">'alpha'</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="s">'bravo'</span><span class="p">:</span> <span class="mi">20</span><span class="p">}</span>
+
+<span class="c1">#입력
+</span><span class="n">alpha</span> <span class="n">bravo</span> <span class="n">charlie</span> <span class="n">delta</span> <span class="n">echo</span> <span class="n">foxtrot</span> <span class="n">golf</span>
+<span class="mi">30</span> <span class="mi">40</span> <span class="mi">50</span> <span class="mi">60</span> <span class="mi">70</span> <span class="mi">80</span> <span class="mi">90</span>
+
+<span class="c1">#결과
+</span><span class="p">{</span><span class="s">'bravo'</span><span class="p">:</span> <span class="mi">40</span><span class="p">,</span> <span class="s">'charlie'</span><span class="p">:</span> <span class="mi">50</span><span class="p">,</span> <span class="s">'echo'</span><span class="p">:</span> <span class="mi">70</span><span class="p">,</span> <span class="s">'foxtrot'</span><span class="p">:</span> <span class="mi">80</span><span class="p">,</span> <span class="s">'golf'</span><span class="p">:</span> <span class="mi">90</span><span class="p">}</span>
+
+</code></pre></div></div>
+
+<p>답</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="n">x</span> <span class="o">=</span> <span class="p">{</span><span class="n">key</span><span class="p">:</span> <span class="n">value</span> <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">x</span><span class="p">.</span><span class="n">items</span><span class="p">()</span> <span class="k">if</span> <span class="n">value</span> <span class="o">!=</span> <span class="mi">30</span> <span class="ow">and</span> <span class="n">key</span> <span class="o">!=</span> <span class="s">'delta'</span><span class="p">}</span>
+
+</code></pre></div></div>
+
+                </div>
+            </section>
+
+            <!-- Email subscribe form at the bottom of the page -->
+            
+                <section class="subscribe-form">
+                    <h3 class="subscribe-form-title">Subscribe to My Coding Practice Gym</h3>
+                    <p>Get the latest posts delivered right to your inbox</p>
+                    <span id="searchform" method="post" action="/subscribe/" class="">
+    <input class="confirm" type="hidden" name="confirm"  />
+    <input class="location" type="hidden" name="location"  />
+    <input class="referrer" type="hidden" name="referrer"  />
+
+    <div class="form-group">
+        <input class="subscribe-email" onkeyup="myFunc()" 
+               id="searchtext" type="text" name="searchtext"  
+               placeholder="Search..." />
+    </div>
+    <script type="text/javascript">
+        function myFunc() {
+            if(event.keyCode == 13) {
+                var url = encodeURIComponent($("#searchtext").val());
+                location.href = "/search.html?query=" + url;
+            }
+        }
+    </script>
+</span>
+                </section>
+            
+
+            <footer class="post-full-footer">
+                <!-- Everything inside the #author tags pulls data from the author -->
+                <!-- #author-->
+                
+                    
+                        <section class="author-card">
+                            
+                                <img class="author-profile-image" src="/assets/built/images/author-logo.jpg" alt="AhnSang0915" />
+                            
+                            <section class="author-card-content">
+                                <h4 class="author-card-name"><a href="/author/AhnSang0915">AhnSang0915</a></h4>
+                                
+                                    <p><a href="https://github.com/AhnSang0915"> 개발 달려</p>
+                                
+                            </section>
+                        </section>
+                        <div class="post-full-footer-right">
+                            <a class="author-card-button" href="/author/AhnSang0915">Read More</a>
+                        </div>
+                    
+                
+                <!-- /author  -->
+            </footer>
+
+            <!-- If you use Disqus comments, just uncomment this block.
+            The only thing you need to change is "test-apkdzgmqhj" - which
+            should be replaced with your own Disqus site-id. -->
+            
+                <section class="post-full-comments">
+                    <div id="disqus_thread"></div>
+                    <script>
+                        var disqus_config = function () {
+                            var this_page_url = 'https://AhnSang0915.github.io/python-basic23';
+                            var this_page_identifier = '/python-basic23';
+                            var this_page_title = 'Python - Python 딕셔너리 응용하기';
+                        };
+                        (function() {
+                            var d = document, s = d.createElement('script');
+                            s.src = 'https://xxxxxxxx.disqus.com/embed.js';
+                            s.setAttribute('data-timestamp', +new Date());
+                            (d.head || d.body).appendChild(s);
+                        })();
+                    </script>
+                </section>
+            
+
+        </article>
+
+    </div>
+</main>
+
+<!-- Links to Previous/Next posts -->
+<aside class="read-next outer">
+    <div class="inner">
+        <div class="read-next-feed">
+            
+                
+                
+                
+                
+                    <article class="read-next-card"
+                        
+                            style="background-image: url(/assets/built/images/blog-cover1.jpg)"
+                        
+                    >
+                        <header class="read-next-card-header">
+                            <small class="read-next-card-header-sitetitle">&mdash; My Coding Practice Gym &mdash;</small>
+                            
+                                <h3 class="read-next-card-header-title"><a href="/tag/python/">Python</a></h3>
+                            
+                        </header>
+                        <div class="read-next-divider"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 14.5s2 3 5 3 5.5-2.463 5.5-5.5S21 6.5 18 6.5c-5 0-7 11-12 11C2.962 17.5.5 15.037.5 12S3 6.5 6 6.5s4.5 3.5 4.5 3.5"/></svg>
+</div>
+                        <div class="read-next-card-content">
+                            <ul>
+                                
+                                
+                                  
+                                    
+                                        
+                                        
+                                            <li><a href="/practice-3">Python으로 웹 스크래퍼 만들기-2</a></li>
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                            <li><a href="/python-basic43">Python - Python 모듈과 패키지 만들기</a></li>
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                            <li><a href="/python-basic42">Python - Python 모듈과 패키지 사용하기</a></li>
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                            </ul>
+                        </div>
+                        <footer class="read-next-card-footer">
+                            <a href="/tag/python/">
+                                
+                                    See all 45 posts  →
+                                
+                            </a>
+                        </footer>
+                    </article>
+                
+            
+
+            <!-- If there's a next post, display it using the same markup included from - partials/post-card.hbs -->
+            
+                
+
+    <article class="post-card post-template">
+        
+            <a class="post-card-image-link" href="/python-basic24">
+                <div class="post-card-image" style="background-image: url(/assets/built/images/python-logo.png)"></div>
+            </a>
+        
+        <div class="post-card-content">
+            <a class="post-card-content-link" href="/python-basic24">
+                <header class="post-card-header">
+                    
+                        
+                            
+                                <span class="post-card-tags">Python</span>
+                            
+                        
+                    
+
+                    <h2 class="post-card-title">Python - Python 세트 사용하기</h2>
+                </header>
+                <section class="post-card-excerpt">
+                    
+                        <p>Python Python 기본 Python 숫자 계산하기 Python 변수 만들기 Python 출력 방법 Python 불과 비교, 논리 연산자 Python 문자열 사용하기 Python 리스트와 튜플 사용하기 Python 시퀀스 자료형 활용하기 Python 딕셔너리 사용하기 Python if</p>
+                    
+                </section>
+            </a>
+            <footer class="post-card-meta">
+                
+                    
+                        
+                        <img class="author-profile-image" src="/assets/built/images/author-logo.jpg" alt="AhnSang0915" />
+                        
+                        <span class="post-card-author">
+                            <a href="/author/AhnSang0915/">AhnSang0915</a>
+                        </span>
+                    
+                
+                <span class="reading-time">
+                    
+                    
+                      10 min read
+                    
+                </span>
+            </footer>
+        </div>
+    </article>
+
+            
+
+            <!-- If there's a previous post, display it using the same markup included from - partials/post-card.hbs -->
+            
+                
+
+    <article class="post-card post-template">
+        
+            <a class="post-card-image-link" href="/python-basic22">
+                <div class="post-card-image" style="background-image: url(/assets/built/images/python-logo.png)"></div>
+            </a>
+        
+        <div class="post-card-content">
+            <a class="post-card-content-link" href="/python-basic22">
+                <header class="post-card-header">
+                    
+                        
+                            
+                                <span class="post-card-tags">Python</span>
+                            
+                        
+                    
+
+                    <h2 class="post-card-title">Python - Python 문자열 응용하기</h2>
+                </header>
+                <section class="post-card-excerpt">
+                    
+                        <p>Python Python 기본 Python 숫자 계산하기 Python 변수 만들기 Python 출력 방법 Python 불과 비교, 논리 연산자 Python 문자열 사용하기 Python 리스트와 튜플 사용하기 Python 시퀀스 자료형 활용하기 Python 딕셔너리 사용하기 Python if</p>
+                    
+                </section>
+            </a>
+            <footer class="post-card-meta">
+                
+                    
+                        
+                        <img class="author-profile-image" src="/assets/built/images/author-logo.jpg" alt="AhnSang0915" />
+                        
+                        <span class="post-card-author">
+                            <a href="/author/AhnSang0915/">AhnSang0915</a>
+                        </span>
+                    
+                
+                <span class="reading-time">
+                    
+                    
+                      10 min read
+                    
+                </span>
+            </footer>
+        </div>
+    </article>
+
+            
+
+        </div>
+    </div>
+</aside>
+
+<!-- Floating header which appears on-scroll, included from includes/floating-header.hbs -->
+<div class="floating-header">
+    <div class="floating-header-logo">
+        <a href="https://AhnSang0915.github.io/">
+            
+            <span>My Coding Practice Gym</span>
+        </a>
+    </div>
+    <span class="floating-header-divider">&mdash;</span>
+    <div class="floating-header-title">Python - Python 딕셔너리 응용하기</div>
+    <div class="floating-header-share">
+        <div class="floating-header-share-label">Share this <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <path d="M7.5 15.5V4a1.5 1.5 0 1 1 3 0v4.5h2a1 1 0 0 1 1 1h2a1 1 0 0 1 1 1H18a1.5 1.5 0 0 1 1.5 1.5v3.099c0 .929-.13 1.854-.385 2.748L17.5 23.5h-9c-1.5-2-5.417-8.673-5.417-8.673a1.2 1.2 0 0 1 1.76-1.605L7.5 15.5zm6-6v2m-3-3.5v3.5m6-1v2"/>
+</svg>
+</div>
+        <a class="floating-header-share-tw" href="https://twitter.com/share?text=Python+-+Python+%EB%94%95%EC%85%94%EB%84%88%EB%A6%AC+%EC%9D%91%EC%9A%A9%ED%95%98%EA%B8%B0&amp;url=https://AhnSang0915.github.iopython-basic23"
+            onclick="window.open(this.href, 'share-twitter', 'width=550,height=235');return false;">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"/></svg>
+
+        </a>
+        <a class="floating-header-share-fb" href="https://www.facebook.com/sharer/sharer.php?u=https://AhnSang0915.github.iopython-basic23"
+            onclick="window.open(this.href, 'share-facebook','width=580,height=296');return false;">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M19 6h5V0h-5c-3.86 0-7 3.14-7 7v3H8v6h4v16h6V16h5l1-6h-6V7c0-.542.458-1 1-1z"/></svg>
+
+        </a>
+    </div>
+    <progress class="progress" value="0">
+        <div class="progress-container">
+            <span class="progress-bar"></span>
+        </div>
+    </progress>
+</div>
+
+
+<!-- /post -->
+
+<!-- The #contentFor helper here will send everything inside it up to the matching #block helper found in default.hbs -->
+
+
+        <!-- Previous/next page links - displayed on every page -->
+        
+
+        <!-- The footer at the very bottom of the screen -->
+        <footer class="site-footer outer">
+            <div class="site-footer-content inner">
+                <section class="copyright"><a href="https://AhnSang0915.github.io/">My Coding Practice Gym</a> &copy; 2022</section>
+                <section class="poweredby">Proudly published with <a href="https://jekyllrb.com/">Jekyll</a> &
+                    <a href="https://pages.github.com/" target="_blank" rel="noopener">GitHub Pages</a> using
+                    <a href="https://github.com/jekyllt/jasper2" target="_blank" rel="noopener">Jasper2</a></section>
+                <nav class="site-footer-nav">
+                    <a href="/">Latest Posts</a>
+                    
+                    
+                    <a href="https://ghost.org" target="_blank" rel="noopener">Ghost</a>
+                </nav>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- The big email subscribe modal content -->
+    
+    <div id="subscribe" class="subscribe-overlay">
+        <a class="subscribe-overlay-close" href="#"></a>
+            <div class="subscribe-overlay-content">
+                
+                <h1 class="subscribe-overlay-title">Search My Coding Practice Gym</h1>
+                <p class="subscribe-overlay-description">
+                블로그 포스팅 검색 </p>
+                <span id="searchform" method="post" action="/subscribe/" class="">
+    <input class="confirm" type="hidden" name="confirm"  />
+    <input class="location" type="hidden" name="location"  />
+    <input class="referrer" type="hidden" name="referrer"  />
+
+    <div class="form-group">
+        <input class="subscribe-email" onkeyup="myFunc()" 
+               id="searchtext" type="text" name="searchtext"  
+               placeholder="Search..." />
+    </div>
+    <script type="text/javascript">
+        function myFunc() {
+            if(event.keyCode == 13) {
+                var url = encodeURIComponent($("#searchtext").val());
+                location.href = "/search.html?query=" + url;
+            }
+        }
+    </script>
+</span>
+            </div>
+    </div>
+    
+
+    <!-- highlight.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.10.0/components/prism-abap.min.js"></script>
+    <script>$(document).ready(function() {
+      $('pre code').each(function(i, block) {
+        hljs.highlightBlock(block);
+      });
+    });</script>
+
+    <!-- jQuery + Fitvids, which makes all video embeds responsive -->
+    <script
+        src="https://code.jquery.com/jquery-3.2.1.min.js"
+        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous">
+    </script>
+    <script type="text/javascript" src="/assets/js/jquery.fitvids.js"></script>
+    <script type="text/javascript" src="https://demo.ghost.io/assets/js/jquery.fitvids.js?v=724281a32e"></script>
+
+
+    <!-- Paginator increased to "infinit" in _config.yml -->
+    <!-- if paginator.posts  -->
+    <!-- <script>
+        var maxPages = parseInt('');
+    </script>
+    <script src="/assets/js/infinitescroll.js"></script> -->
+    <!-- /endif -->
+
+    
+
+
+    <!-- Add Google Analytics  -->
+    <!-- Google Analytics Tracking code -->
+ <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-xxxxxxxx-x', 'auto');
+  ga('send', 'pageview');
+
+ </script>
+
+
+    <!-- The #block helper will pull in data from the #contentFor other template files. In this case, there's some JavaScript which we only want to use in post.hbs, but it needs to be included down here, after jQuery has already loaded. -->
+    
+        <script>
+
+// NOTE: Scroll performance is poor in Safari
+// - this appears to be due to the events firing much more slowly in Safari.
+//   Dropping the scroll event and using only a raf loop results in smoother
+//   scrolling but continuous processing even when not scrolling
+$(document).ready(function () {
+    // Start fitVids
+    var $postContent = $(".post-full-content");
+    $postContent.fitVids();
+    // End fitVids
+
+    var progressBar = document.querySelector('progress');
+    var header = document.querySelector('.floating-header');
+    var title = document.querySelector('.post-full-title');
+
+    var lastScrollY = window.scrollY;
+    var lastWindowHeight = window.innerHeight;
+    var lastDocumentHeight = $(document).height();
+    var ticking = false;
+
+    function onScroll() {
+        lastScrollY = window.scrollY;
+        requestTick();
+    }
+
+    function onResize() {
+        lastWindowHeight = window.innerHeight;
+        lastDocumentHeight = $(document).height();
+        requestTick();
+    }
+
+    function requestTick() {
+        if (!ticking) {
+            requestAnimationFrame(update);
+        }
+        ticking = true;
+    }
+
+    function update() {
+        var trigger = title.getBoundingClientRect().top + window.scrollY;
+        var triggerOffset = title.offsetHeight + 35;
+        var progressMax = lastDocumentHeight - lastWindowHeight;
+
+        // show/hide floating header
+        if (lastScrollY >= trigger + triggerOffset) {
+            header.classList.add('floating-active');
+        } else {
+            header.classList.remove('floating-active');
+        }
+
+        progressBar.setAttribute('max', progressMax);
+        progressBar.setAttribute('value', lastScrollY);
+
+        ticking = false;
+    }
+
+    window.addEventListener('scroll', onScroll, {passive: true});
+    window.addEventListener('resize', onResize, false);
+
+    update();
+});
+</script>
+
+    
+
+    <!-- Ghost outputs important scripts and data with this tag - it should always be the very last thing before the closing body tag -->
+    <!-- ghost_foot -->
+
+</body>
+</html>

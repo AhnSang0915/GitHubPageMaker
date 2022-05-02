@@ -1,0 +1,1579 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <!-- Document Settings -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <!-- Base Meta -->
+    <!-- dynamically fixing the title for tag/author pages -->
+
+
+
+    <title>Python - Python 함수에서 위치 인수와 키워드 인수 사용하기</title>
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Styles'n'Scripts -->
+    <link rel="stylesheet" type="text/css" href="/assets/built/screen.css" />
+    <link rel="stylesheet" type="text/css" href="/assets/built/screen.edited.css" />
+    <link rel="stylesheet" type="text/css" href="/assets/built/syntax.css" />
+
+    <!--    costom.css-->
+    <link rel="stylesheet" type="text/css" href="/assets/built/custom.css" />
+
+    <!--    Font Awsome-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!--    웹폰트 추가-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/nanumgothic.css">
+
+    <!--    syntax.css-->
+    <link rel="stylesheet" type="text/css" href="/assets/built/syntax.css" />
+
+
+    <!-- highlight.js -->
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">
+    <style>.hljs { background: none; }</style>
+
+    <!--[if IE]>
+        <style>
+            p, ol, ul{
+                width: 100%;
+            }
+            blockquote{
+                width: 100%;
+            }
+        </style>
+    <![endif]-->
+    
+    <!-- This tag outputs SEO meta+structured data and other important settings -->
+    <meta name="description" content="Learn Coding" />
+    <link rel="shortcut icon" href="https://AhnSang0915.github.io/assets/built/images/favicon.png" type="image/png" />
+    <link rel="canonical" href="https://AhnSang0915.github.io/python-basic28" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
+
+     <!--title below is coming from _includes/dynamic_title-->
+    <meta property="og:site_name" content="My Coding Practice Gym" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Python - Python 함수에서 위치 인수와 키워드 인수 사용하기" />
+    <meta property="og:description" content="Python Python 기본 Python 숫자 계산하기 Python 변수 만들기 Python 출력 방법 Python 불과 비교, 논리 연산자 Python 문자열 사용하기 Python 리스트와 튜플 사용하기 Python 시퀀스 자료형 활용하기 Python 딕셔너리 사용하기 Python if 조건문으로 특정 조건일 때 코드 실행하기 Python else를 사용하여 두 방향으로 분기하기 Python elif를 사용하여 두 방향으로" />
+    <meta property="og:url" content="https://AhnSang0915.github.io/python-basic28" />
+    <meta property="og:image" content="https://AhnSang0915.github.io/assets/built/images/python-logo.png" />
+    <meta property="article:publisher" content="https://www.facebook.com/" />
+    <meta property="article:author" content="https://www.facebook.com/" />
+    <meta property="article:published_time" content="2022-04-14T06:50:00+00:00" />
+    <meta property="article:modified_time" content="2022-04-14T06:50:00+00:00" />
+    <meta property="article:tag" content="Python" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Python - Python 함수에서 위치 인수와 키워드 인수 사용하기" />
+    <meta name="twitter:description" content="Python Python 기본 Python 숫자 계산하기 Python 변수 만들기 Python 출력 방법 Python 불과 비교, 논리 연산자 Python 문자열 사용하기 Python 리스트와 튜플 사용하기 Python 시퀀스 자료형 활용하기 Python 딕셔너리 사용하기 Python if 조건문으로 특정 조건일 때 코드 실행하기 Python else를 사용하여 두 방향으로 분기하기 Python elif를 사용하여 두 방향으로" />
+    <meta name="twitter:url" content="https://AhnSang0915.github.io/" />
+    <meta name="twitter:image" content="https://AhnSang0915.github.io/assets/built/images/python-logo.png" />
+    <meta name="twitter:label1" content="Written by" />
+    <meta name="twitter:data1" content="My Coding Practice Gym" />
+    <meta name="twitter:label2" content="Filed under" />
+    <meta name="twitter:data2" content="Python" />
+    <meta name="twitter:site" content="@" />
+    <meta name="twitter:creator" content="@" />
+    <meta property="og:image:width" content="1400" />
+    <meta property="og:image:height" content="933" />
+
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Website",
+    "publisher": {
+        "@type": "Organization",
+        "name": "My Coding Practice Gym",
+        "logo": "https://AhnSang0915.github.io/"
+    },
+    "url": "https://AhnSang0915.github.io/python-basic28",
+    "image": {
+        "@type": "ImageObject",
+        "url": "https://AhnSang0915.github.io/assets/built/images/python-logo.png",
+        "width": 2000,
+        "height": 666
+    },
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://AhnSang0915.github.io/python-basic28"
+    },
+    "description": "Python Python 기본 Python 숫자 계산하기 Python 변수 만들기 Python 출력 방법 Python 불과 비교, 논리 연산자 Python 문자열 사용하기 Python 리스트와 튜플 사용하기 Python 시퀀스 자료형 활용하기 Python 딕셔너리 사용하기 Python if 조건문으로 특정 조건일 때 코드 실행하기 Python else를 사용하여 두 방향으로 분기하기 Python elif를 사용하여 두 방향으로"
+}
+    </script>
+
+    <!-- <script type="text/javascript" src="https://demo.ghost.io/public/ghost-sdk.min.js?v=724281a32e"></script>
+    <script type="text/javascript">
+    ghost.init({
+    	clientId: "ghost-frontend",
+    	clientSecret: "f84a07a72b17"
+    });
+    </script> -->
+
+    <meta name="generator" content="Jekyll 3.6.2" />
+    <link rel="alternate" type="application/rss+xml" title="Python - Python 함수에서 위치 인수와 키워드 인수 사용하기" href="/feed.xml" />
+
+
+</head>
+<body class="post-template">
+
+    <div class="site-wrapper">
+        <!-- All the main content gets inserted here, index.hbs, post.hbs, etc -->
+        <!-- default -->
+
+<!-- The tag above means: insert everything in this file
+into the {body} of the default.hbs template -->
+
+<header class="site-header outer">
+    <div class="inner">
+        <nav class="site-nav">
+    <div class="site-nav-left">
+        
+            
+                <a class="site-nav-logo" href="https://AhnSang0915.github.io/">My Coding Practice Gym</a>
+            
+        
+        
+            <ul class="nav" role="menu">
+    <li class="nav-home" role="menuitem"><a href="/">Home</a></li>
+    <li class="nav-about" role="menuitem"><a href="/about/">About</a></li>
+    <li class="nav-javascript" role="menuitem"><a href="/tag/javascript/">Javascript</a></li>
+    <li class="nav-python" role="menuitem"><a href="/tag/python/">Python</a></li>
+    <li class="nav-archive" role="menuitem">
+        <a href="/archive.html">All Posts</a>
+    </li>
+    <li class="nav-archive" role="menuitem">
+        <a href="/author_archive.html">Tag별 Posts</a>
+    </li>
+</ul>
+        
+    </div>
+    <div class="site-nav-right">
+        <div class="social-links">
+            
+            
+        </div>
+        
+            <a class="subscribe-button" href="#subscribe">Search</a>
+        
+    </div>
+</nav>
+
+    </div>
+</header>
+
+<!-- Everything inside the #post tags pulls data from the post -->
+<!-- #post -->
+
+<main id="site-main" class="site-main outer" role="main">
+    <div class="inner">
+
+        <article class="post-full  tag-python post tag-python ">
+
+            <header class="post-full-header">
+                <section class="post-full-meta">
+                    <time class="post-full-meta-date" datetime="14 April 2022">14 April 2022</time>
+                    
+                        <span class="date-divider">/</span>
+                        
+                            
+                               <a href='/tag/python/'>PYTHON</a>
+                            
+                        
+                    
+                </section>
+                <h1 class="post-full-title">Python - Python 함수에서 위치 인수와 키워드 인수 사용하기</h1>
+            </header>
+
+            
+            <figure class="post-full-image" style="background-image: url(/assets/built/images/python-logo.png)">
+            </figure>
+            
+
+            <section class="post-full-content">
+                <div class="kg-card-markdown">
+                    <p><span class="table-of-contents-list">Python</span></p>
+<ul class="table-of-contents-list">
+    <li><a href="./python-basic">Python 기본</a></li>
+    <li><a href="./python-basic2">Python 숫자 계산하기</a></li>
+    <li><a href="./python-basic3">Python 변수 만들기</a></li>
+    <li><a href="./python-basic4">Python 출력 방법</a></li>
+    <li><a href="./python-basic5">Python 불과 비교, 논리 연산자</a></li>
+    <li><a href="./python-basic6">Python 문자열 사용하기</a></li>
+    <li><a href="./python-basic7">Python 리스트와 튜플 사용하기</a></li>
+    <li><a href="./python-basic8">Python 시퀀스 자료형 활용하기</a></li>
+    <li><a href="./python-basic9">Python 딕셔너리 사용하기</a></li>
+    <li><a href="./python-basic10">Python if 조건문으로 특정 조건일 때 코드 실행하기</a></li>
+    <li><a href="./python-basic11">Python else를 사용하여 두 방향으로 분기하기</a></li>
+    <li><a href="./python-basic12">Python elif를 사용하여 두 방향으로 분기하기</a></li>
+    <li><a href="./python-basic13">Python for 반복문</a></li>
+    <li><a href="./python-basic14">Python while 반복문</a></li>
+    <li><a href="./python-basic15">Python break, continue로 반복문 제어하기</a></li>
+    <li><a href="./python-basic16">Python 중첩루프</a></li>
+    <li><a href="./python-basic17">Python FizzBuzz 문제</a></li>
+    <li><a href="./python-basic18">Python 터틀 그래픽스로 그림 그리기</a></li>
+    <li><a href="./python-basic19">Python 리스트와 튜플 응용하기</a></li>
+    <li><a href="./python-basic20">Python 리스트와 튜플 응용하기 - 2</a></li>
+    <li><a href="./python-basic21">Python 2차원 리스트 사용하기</a></li>
+    <li><a href="./python-basic22">Python 문자열 응용하기</a></li>
+    <li><a href="./python-basic23">Python 딕셔너리 응용하기</a></li>
+    <li><a href="./python-basic24">Python 세트 사용하기</a></li>
+    <li><a href="./python-basic25">Python 파일 사용하기</a></li>
+    <li><a href="./python-basic26">Python 회문 판별과 N-gram 만들기</a></li>
+    <li><a href="./python-basic27">Python 함수 사용하기</a></li>
+    <li><a href="./python-basic28">Python 함수에서 위치 인수와 키워드 인수 사용하기</a></li>
+    <li><a href="./python-basic29">Python 함수에서 재귀호출 사용하기</a></li>
+    <li><a href="./python-basic30">Python 람다 표현식 사용하기</a></li>
+    <li><a href="./python-basic31">Python 클로저 사용하기</a></li>
+    <li><a href="./python-basic32">Python 클래스 사용하기</a></li>
+    <li><a href="./python-basic33">Python 클래스 속성과 정적, 클래스 메서드 사용하기</a></li>
+    <li><a href="./python-basic34">Python 클래스 상속 사용하기</a></li>
+    <li><a href="./python-basic35">Python 두 점 사이의 거리 구하기</a></li>
+    <li><a href="./python-basic36">Python 예외 처리 사용하기</a></li>
+    <li><a href="./python-basic37">Python 이터레이터 사용하기</a></li>
+    <li><a href="./python-basic38">Python 제너레이터 사용하기</a></li>
+    <li><a href="./python-basic39">Python 코루틴 사용하기</a></li>
+    <li><a href="./python-basic40">Python 데코레이터 사용하기</a></li>
+    <li><a href="./python-basic41">Python 정규표현식 사용하기</a></li>
+    <li><a href="./python-basic42">Python 모듈과 패키지 사용하기</a></li>
+    <li><a href="./python-basic43">Python 모듈과 패키지 만들기</a></li>
+
+
+</ul>
+
+<h1 id="함수에서-위치-인수와-키워드-인수-사용하기">함수에서 위치 인수와 키워드 인수 사용하기</h1>
+
+<p><br />
+<br />
+파이썬에서는 함수를 좀 더 편리하게 사용할 수 있도록 다양한 기능을 제공한다. 이번에는 함수에서 위치 인수, 키워드 인수를 사용하는 방법과 리스트, 딕셔너리 언패킹(unpacking)을 활용하는 방법을 알아보자.</p>
+
+<hr />
+
+<h2 id="1-위치-인수와-리스트-언패킹-사용하기">1. 위치 인수와 리스트 언패킹 사용하기</h2>
+<p><br />
+<br />
+다음과 같이 함수에 인수를 순서대로 넣는 방식을 위치 인수(positional argument)라고 한다. 즉, 인수의 위치가 정해져 있다. print에 10, 20, 30 순으로 넣었으므로 출력될 때도 10 20 30으로 출력된다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="k">print</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">)</span>
+<span class="mi">10</span> <span class="mi">20</span> <span class="mi">30</span>
+
+</code></pre></div></div>
+
+<h3 id="위치-인수를-사용하는-함수를-만들고-호출하기">위치 인수를 사용하는 함수를 만들고 호출하기</h3>
+<p><br />
+<br />
+숫자 세 개를 각 줄에 출력하는 함수를 만들어보자. print_numbers에 숫자 세개를 넣으면 각 줄에 숫자가 출력된다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="k">def</span> <span class="nf">print_numbers</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">):</span>
+     <span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+     <span class="k">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+     <span class="k">print</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+
+<span class="n">print_numbers</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">)</span>
+<span class="c1">#출력
+</span><span class="mi">10</span>
+<span class="mi">20</span>
+<span class="mi">30</span>
+
+</code></pre></div></div>
+
+<h3 id="언패킹-사용하기">언패킹 사용하기</h3>
+<p><br />
+<br />
+이렇게 인수를 순서대로 넣을 때는 리스트나 튜플을 사용할 수도 있다. 다음과 같이 리스트 또는 튜플 앞에 *를 붙여서 함수에 넣어주면 된다. print_numbers에 10, 20, 30이 들어있는 리스트 x를 넣고 *만 붙였는데도 숫자가 각 줄에 출력되었다. 즉, 리스트(튜플) 앞에 *를 붙이면 언패킹(unpacking)이 되어서 print_numbers(10, 20, 30)과 똑같은 동작이다. 말 그대로 리스트의 포장을 푼다는 뜻이다.</p>
+
+<ul>
+  <li>함수(*리스트)</li>
+  <li>함수(*튜플)</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">]</span>
+<span class="n">print_numbers</span><span class="p">(</span><span class="o">*</span><span class="n">x</span><span class="p">)</span>
+<span class="mi">10</span>
+<span class="mi">20</span>
+<span class="mi">30</span>
+
+</code></pre></div></div>
+
+<p>리스트 변수 대신 리스트 앞에 바로 *를 붙여도 동작은 같다. 단, 이때 함수의 매개변수 개수와 리스트의 요소 개수는 같아야 한다. 만약 개수가 다르면 함수를 호출할 수 없다. 단 이때 함수의 매개변수 개수와 리스트의 요소 개수는 같아야 한다. 여기서는 함수를 def print_numbers(a, b, c):로 만들었으므로 리스트에는 요소를 3개 넣어야 한다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="n">print_numbers</span><span class="p">(</span><span class="o">*</span><span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">])</span>
+<span class="c1"># 출력
+</span><span class="mi">10</span>
+<span class="mi">20</span>
+<span class="mi">30</span>
+
+<span class="c1"># 매개변수를 2개 넣었을때
+</span><span class="n">print_numbers</span><span class="p">(</span><span class="o">*</span><span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">])</span>
+<span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
+  <span class="n">File</span> <span class="s">"&lt;pyshell#16&gt;"</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+    <span class="n">print_numbers</span><span class="p">(</span><span class="o">*</span><span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">])</span>
+<span class="nb">TypeError</span><span class="p">:</span> <span class="n">print_numbers</span><span class="p">()</span> <span class="n">missing</span> <span class="mi">1</span> <span class="n">required</span> <span class="n">positional</span> <span class="n">argument</span><span class="p">:</span> <span class="s">'c'</span>
+</code></pre></div></div>
+
+<h3 id="가변-인수-함수-만들기">가변 인수 함수 만들기</h3>
+<p><br />
+<br />
+가변인수와 리스트 언패킹은 인수의 개수가 정해지지 않은 가변 인수(variable argument)에 사용한다. 즉, 같은 함수에 인수 한개를 넣을 수도 있고, 열 개를 넣을 수도 있다. 또는 인수를 넣지 않을 수도 있다. 다음과 같이 가변 인수 함수는 매개변수 앞에 *를 붙여서 만든다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="k">def</span> <span class="nf">함수이름</span><span class="p">(</span><span class="o">*</span><span class="n">매개변수</span><span class="p">):</span>
+    <span class="n">코드</span>
+
+</code></pre></div></div>
+
+<p>이제 숫자 여러 개를 받고, 숫자를 각 줄에 출력하는 함수를 만들어보자. 다음과 같이 함수를 만들 때 괄호 안에 *args와 같이 매개변수 앞에 *를 붙인다. 그리고 함수 안에서는 for로 args를 반복하면서 print로 값을 출력한다. 매개변수 이름은 원하는 대로 지어도 되지만 관례적으로 arguments를 줄여서 args로 사용힌다. 특히 이 args는 튜플이라서 for로 반복할 수 있다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="k">def</span> <span class="nf">print_numbers</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
+     <span class="k">for</span> <span class="n">arg</span> <span class="ow">in</span> <span class="n">args</span><span class="p">:</span>
+         <span class="k">print</span><span class="p">(</span><span class="n">arg</span><span class="p">)</span>
+
+</code></pre></div></div>
+
+<p>그럼 print_numbers 함수에 숫자를 넣어서 호출해보자. 숫자를 한 개 넣으면 한 개 출력되고, 네 개 넣으면 네 개가 출력된다. 즉, 넣은 숫자 개수만큼 출력한다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="n">print_numbers</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="mi">10</span>
+<span class="n">print_numbers</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">)</span>
+<span class="mi">10</span>
+<span class="mi">20</span>
+<span class="mi">30</span>
+<span class="mi">40</span>
+
+</code></pre></div></div>
+
+<p>리스트(튜플)언패킹을 사용해도 된다. 다음과 같이 숫자가 들어있는 리스트를 만들고 앞에 *를 붙여서 넣어보면 리스트에 들어있는 값이 그대로 출력된다. 즉, 리스트 x는 [10]이므로 print_numbers(*x)로 호출하면 print_numbers(10)과 같고 리스트 y는 [10, 20, 30, 40]이므로 print_numbers(10, 20, 30, 40)과 같다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">]</span>
+<span class="n">print_numbers</span><span class="p">(</span><span class="o">*</span><span class="n">x</span><span class="p">)</span>
+<span class="mi">10</span>
+<span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">]</span>
+<span class="n">print_numbers</span><span class="p">(</span><span class="o">*</span><span class="n">y</span><span class="p">)</span>
+<span class="mi">10</span>
+<span class="mi">20</span>
+<span class="mi">30</span>
+<span class="mi">40</span>
+
+</code></pre></div></div>
+
+<h3 id="고정-인수와-가변-인수를-함께-사용하기">고정 인수와 가변 인수를 함께 사용하기</h3>
+<p><br />
+<br />
+고정 인수와 가변 인수를 함께 사용할 때는 다음과 같이 고정 매개변수를 먼저 지정하고, 그 다음 매개변수에 <em>를 붙여주면 된다. 단, 이때 def print_numbers(</em>args, a):처럼 *args가 고정 매개변수보다 앞쪽에 오면 안된다. 매개변수 순서에서 *args는 반드시 가장 뒤쪽에 와야 한다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="k">def</span> <span class="nf">print_numbers</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
+     <span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+     <span class="k">print</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>
+
+<span class="n">print_numbers</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="mi">1</span>
+<span class="p">()</span>
+<span class="n">print_numbers</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+<span class="mi">1</span>
+<span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+<span class="n">print_numbers</span><span class="p">(</span><span class="o">*</span><span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">])</span>
+<span class="mi">10</span>
+<span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">)</span>
+
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="2-키워드-인수-사용하기">2. 키워드 인수 사용하기</h2>
+<p><br />
+<br />
+지금까지 함수에 인수를 넣을 때 값이나 변수를 그대로 넣었다. 그러다 보니 각각의 인수가 무슨 용도인지 알기 어려웠다. 보통은 함수의 사용 방법을 익힐 때 인수의 순서와 용도를 함께 외운다. 예를 들어 개인정보를 출력하는 함수를 만들어 보자. 이 함수를 사용할 때는 첫 번째 인수에 이름(name), 두 번째 인수에 나이( age), 세 번째 인수에 주소(address)를 넣어야 한다. 만약 인수의 순서가 달라지면 잘못된 결과가 출력될것이다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="k">def</span> <span class="nf">personal_info</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">,</span> <span class="n">address</span><span class="p">):</span>
+     <span class="k">print</span><span class="p">(</span><span class="s">'이름: '</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+     <span class="k">print</span><span class="p">(</span><span class="s">'나이: '</span><span class="p">,</span> <span class="n">age</span><span class="p">)</span>
+     <span class="k">print</span><span class="p">(</span><span class="s">'주소: '</span><span class="p">,</span> <span class="n">address</span><span class="p">)</span>
+
+<span class="n">personal_info</span><span class="p">(</span><span class="s">'홍길동'</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="s">'서울시 용산구 이촌동'</span><span class="p">)</span>
+<span class="n">이름</span><span class="p">:</span>  <span class="n">홍길동</span>
+<span class="n">나이</span><span class="p">:</span>  <span class="mi">30</span>
+<span class="n">주소</span><span class="p">:</span>  <span class="n">서울시</span> <span class="n">용산구</span> <span class="n">이촌동</span>
+
+</code></pre></div></div>
+
+<p>이처럼 인수의 순서와 용도를 모두 기억해야 해서 불편하다. 그래서 파이썬에서는 인수의 순서와 용도를 매번 기억하지 않도록 키워드 인수(keyword argument)라는 기능을 제공한다. 키워드 인수는 말 그대로 인수에 이름(키워드)을 붙이는 기능인데 키워드 = 값 형식으로 사용한다.</p>
+
+<ul>
+  <li>함수(키워드=값)</li>
+</ul>
+
+<p>그럼 personal_info 함수를 키워드 인수 방식으로 호출해보자.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="n">personal_info</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s">'홍길동'</span><span class="p">,</span> <span class="n">age</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">address</span><span class="o">=</span><span class="s">'서울시 용산구 이촌동'</span><span class="p">)</span>
+<span class="n">이름</span><span class="p">:</span>  <span class="n">홍길동</span>
+<span class="n">나이</span><span class="p">:</span>  <span class="mi">30</span>
+<span class="n">주소</span><span class="p">:</span>  <span class="n">서울시</span> <span class="n">용산구</span> <span class="n">이촌동</span>
+
+</code></pre></div></div>
+
+<p>위에처럼 키워드 인수를 사용하니 함수를 호출할 때 인수의 용도가 명확하게 보인다. 특히 키워드 인수를 사용하면 인수의 순서를 맞추지 않아도 키워드에 해당하는 값이 들어간다. personal_info 함수는 이름, 나이, 주소 순으로 인수를 넣어야 하지만, 키워드 인수를 사용해서 순서를 지키지 않고 값을 넣었다. 참고로 print 함수에서 사용했던 sep, end도 키워드 인수이다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="n">personal_info</span><span class="p">(</span><span class="n">age</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">address</span><span class="o">=</span><span class="s">'서울시 용산구 이촌동'</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s">'홍길동'</span><span class="p">)</span>
+<span class="n">이름</span><span class="p">:</span>  <span class="n">홍길동</span>
+<span class="n">나이</span><span class="p">:</span>  <span class="mi">30</span>
+<span class="n">주소</span><span class="p">:</span>  <span class="n">서울시</span> <span class="n">용산구</span> <span class="n">이촌동</span>
+
+<span class="k">print</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s">':'</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s">''</span><span class="p">)</span>
+
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="3-키워드-인수와-딕셔너리-언패킹-사용하기">3. 키워드 인수와 딕셔너리 언패킹 사용하기</h2>
+<p><br />
+<br />
+딕셔너리를 사용해서 키워드 인수로 값을 넣는 딕셔너리 언패킹을 사용해보자. 다음과 같이 딕셔너리 앞에 **를 붙여서 함수에 넣어준다.</p>
+
+<ul>
+  <li>함수(**딕셔너리)</li>
+</ul>
+
+<p>먼저 personal_info 함수를 만든다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="k">def</span> <span class="nf">personal_info</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">,</span> <span class="n">address</span><span class="p">):</span>
+     <span class="k">print</span><span class="p">(</span><span class="s">'이름: '</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+     <span class="k">print</span><span class="p">(</span><span class="s">'나이: '</span><span class="p">,</span> <span class="n">age</span><span class="p">)</span>
+     <span class="k">print</span><span class="p">(</span><span class="s">'주소: '</span><span class="p">,</span> <span class="n">address</span><span class="p">)</span>
+
+</code></pre></div></div>
+
+<p>딕셔너리에 ‘키워드 : 값’ 형식으로 인수를 저장하고, 앞에 **를 붙여서 함수에 넣어준다. 이때 딕셔너리의 키워드(키)는 반드시 문자열 형태여야 한다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="n">x</span> <span class="o">=</span> <span class="p">{</span><span class="s">'name'</span><span class="p">:</span> <span class="s">'홍길동'</span><span class="p">,</span> <span class="s">'age'</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span> <span class="s">'address'</span><span class="p">:</span> <span class="s">'서울시 용산구 이촌동'</span><span class="p">}</span>
+<span class="n">personal_info</span><span class="p">(</span><span class="o">**</span><span class="n">x</span><span class="p">)</span>
+<span class="n">이름</span><span class="p">:</span>  <span class="n">홍길동</span>
+<span class="n">나이</span><span class="p">:</span>  <span class="mi">30</span>
+<span class="n">주소</span><span class="p">:</span>  <span class="n">서울시</span> <span class="n">용산구</span> <span class="n">이촌동</span>
+
+</code></pre></div></div>
+
+<p>**x처럼 딕셔너리를 언패킹하면 딕셔너리의 값들이 함수의 인수로 들어간다. 즉, personal_info(name=’홍길동’, age=30, address=’서울시 용산구 이촌동’) 또는 personal_info(‘홍길동’, 30, ‘서울시 용산구 이촌동’)과 똑같은 동작이 된다.
+<br />
+딕셔너리 변수 대신 딕셔너리 바로 앞에 **를 붙여도 동작은 같다. 딕셔너리 언패킹을 사용할 때는 함수의 매개변수 이름과 딕셔너리의 키 이름이 같아야 한다. 또한, 매개변수 개수와 딕셔너리 키의 개수도 같아야 한다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="n">personal_info</span><span class="p">(</span><span class="o">**</span><span class="p">{</span><span class="s">'name'</span><span class="p">:</span> <span class="s">'홍길동'</span><span class="p">,</span> <span class="s">'age'</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span> <span class="s">'address'</span><span class="p">:</span> <span class="s">'서울시 용산구 이촌동'</span><span class="p">})</span>
+<span class="n">이름</span><span class="p">:</span>  <span class="n">홍길동</span>
+<span class="n">나이</span><span class="p">:</span>  <span class="mi">30</span>
+<span class="n">주소</span><span class="p">:</span>  <span class="n">서울시</span> <span class="n">용산구</span> <span class="n">이촌동</span>
+
+</code></pre></div></div>
+
+<p>만약 이름과 개수가 다르면 함수를 호출할 수 없다.  함수를 def personal_info(name, age, address):로 만들었으므로 딕셔너리도 똑같이 맞춰주어야한다. 다음과 같이 매개변수 이름, 개수가 다른 딕셔너리를 넣으면 에러가 발생한다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="n">personal_info</span><span class="p">(</span><span class="o">**</span><span class="p">{</span><span class="s">'name'</span><span class="p">:</span> <span class="s">'홍길동'</span><span class="p">,</span> <span class="s">'old'</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span> <span class="s">'address'</span><span class="p">:</span><span class="s">'서울시 용산구 이촌동'</span><span class="p">})</span>
+<span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
+  <span class="n">File</span> <span class="s">"&lt;stdin&gt;"</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="nb">TypeError</span><span class="p">:</span> <span class="n">personal_info</span><span class="p">()</span> <span class="n">got</span> <span class="n">an</span> <span class="n">unexpected</span> <span class="n">keyword</span> <span class="n">argument</span> <span class="s">'old'</span>
+<span class="n">personal_info</span><span class="p">(</span><span class="o">**</span><span class="p">{</span><span class="s">'name'</span><span class="p">:</span> <span class="s">'홍길동'</span><span class="p">,</span> <span class="s">'age'</span><span class="p">:</span> <span class="mi">30</span><span class="p">})</span>
+<span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
+  <span class="n">File</span> <span class="s">"&lt;stdin&gt;"</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="nb">TypeError</span><span class="p">:</span> <span class="n">personal_info</span><span class="p">()</span> <span class="n">missing</span> <span class="mi">1</span> <span class="n">required</span> <span class="n">positional</span> <span class="n">argument</span><span class="p">:</span> <span class="s">'address'</span>
+
+</code></pre></div></div>
+
+<h3 id="를-두-번-사용하는-이유">**를 두 번 사용하는 이유</h3>
+<p><br />
+<br />
+딕셔너리는 키-값 쌍형태로 값이 저장되어 있기때문에 **를 두번 사용한다. *를 한번만 사용해서 함수를 호출하면 아래와 같은 결과가 나온다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="k">def</span> <span class="nf">personal_info</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">,</span> <span class="n">address</span><span class="p">):</span>
+     <span class="k">print</span><span class="p">(</span><span class="s">'이름: '</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+     <span class="k">print</span><span class="p">(</span><span class="s">'나이: '</span><span class="p">,</span> <span class="n">age</span><span class="p">)</span>
+     <span class="k">print</span><span class="p">(</span><span class="s">'주소: '</span><span class="p">,</span> <span class="n">address</span><span class="p">)</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="p">{</span><span class="s">'name'</span><span class="p">:</span> <span class="s">'홍길동'</span><span class="p">,</span> <span class="s">'age'</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span> <span class="s">'address'</span><span class="p">:</span> <span class="s">'서울시 용산구 이촌동'</span><span class="p">}</span>
+<span class="n">personal_info</span><span class="p">(</span><span class="o">*</span><span class="n">x</span><span class="p">)</span>
+<span class="n">이름</span><span class="p">:</span>  <span class="n">name</span>
+<span class="n">나이</span><span class="p">:</span>  <span class="n">age</span>
+<span class="n">주소</span><span class="p">:</span>  <span class="n">address</span>
+
+</code></pre></div></div>
+
+<p>personal_info에 *x를 넣으면 x의 키가 출력됩니다. 즉, 딕셔너리를 한 번 언패킹하면 키를 사용한다는 뜻이 된다. 따라서 **처럼 딕셔너리를 두 번 언패킹하여 값을 사용하도록 만들어야 한다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="n">x</span> <span class="o">=</span> <span class="p">{</span><span class="s">'name'</span><span class="p">:</span> <span class="s">'홍길동'</span><span class="p">,</span> <span class="s">'age'</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span> <span class="s">'address'</span><span class="p">:</span> <span class="s">'서울시 용산구 이촌동'</span><span class="p">}</span>
+<span class="n">personal_info</span><span class="p">(</span><span class="o">**</span><span class="n">x</span><span class="p">)</span>
+<span class="n">이름</span><span class="p">:</span>  <span class="n">홍길동</span>
+<span class="n">나이</span><span class="p">:</span>  <span class="mi">30</span>
+<span class="n">주소</span><span class="p">:</span>  <span class="n">서울시</span> <span class="n">용산구</span> <span class="n">이촌동</span>
+
+</code></pre></div></div>
+
+<h3 id="키워드-인수를-사용하는-가변-인수-함수-만들기">키워드 인수를 사용하는 가변 인수 함수 만들기</h3>
+<p><br />
+<br />
+이번에는 키워드 인수를 사용하는 가변 인수 함수를 만들어보자. 다음과 같이 키워드 인수를 사용하는 가변 인수 함수는 매개변수 앞에 **를 붙여서 만든다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="k">def</span> <span class="nf">함수이름</span><span class="p">(</span><span class="o">**</span><span class="n">매개변수</span><span class="p">):</span>
+    <span class="n">코드</span>
+
+</code></pre></div></div>
+
+<p>이제 값 여러 개를 받아서 매개 변수 이름과 값을 각 줄에 출력하는 함수를 만들어보자.
+함수를 만들 때 괄호 안에 **kwargs와 같이 매개변수 앞에 **를 붙인다. 함수 안에서는 for로 kwargs.items()를 반복하면서 print로 값을 출력한다. 매개변수 이름은 원하는 대로 지어도 되지만 관례적으로 keyword arguments를 줄여서 kwargs로 사용한다. 특히 이 kwargs는 딕셔너리라서 for로 반복할 수 있다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="k">def</span> <span class="nf">personal_info</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+     <span class="k">for</span> <span class="n">kw</span><span class="p">,</span> <span class="n">arg</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">.</span><span class="n">items</span><span class="p">():</span>
+         <span class="k">print</span><span class="p">(</span><span class="n">kw</span><span class="p">,</span> <span class="s">': '</span><span class="p">,</span> <span class="n">arg</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s">''</span><span class="p">)</span>
+
+</code></pre></div></div>
+
+<p>personal_info 함수에 키워드와 값을 넣어서 실행해보자. 값을 한 개 넣어도 되고, 세 개 넣어도 된다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="n">personal_info</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s">'홍길동'</span><span class="p">)</span>
+<span class="n">name</span><span class="p">:</span> <span class="n">홍길동</span>
+<span class="n">personal_info</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s">'홍길동'</span><span class="p">,</span> <span class="n">age</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">address</span><span class="o">=</span><span class="s">'서울시 용산구 이촌동'</span><span class="p">)</span>
+<span class="n">name</span><span class="p">:</span> <span class="n">홍길동</span>
+<span class="n">age</span><span class="p">:</span> <span class="mi">30</span>
+<span class="n">address</span><span class="p">:</span> <span class="n">서울시</span> <span class="n">용산구</span> <span class="n">이촌동</span><span class="p">)</span>
+
+</code></pre></div></div>
+
+<p>위에처럼 인수를 직접 넣어도 되고, 딕셔너리 언패킹을 사용해도 된다. 다음과 같이 딕셔너리를 만들고 앞에 **를 붙여서 넣어보면 딕셔너리에 있는 값들이 그대로 출력된다. 즉, 딕셔너리 x는 {‘name’: ‘홍길동’}이므로 personal_info(**x)로 호출하면 personal_info(name=’홍길동’)과 같고, 딕셔너리 y는 {‘name’: ‘홍길동’, ‘age’: 30, ‘address’: ‘서울시 용산구 이촌동’}이므로 personal_info(name=’홍길동’, age=30, address=’서울시 용산구 이촌동’)과 같다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="n">x</span> <span class="o">=</span> <span class="p">{</span><span class="s">'name'</span><span class="p">:</span> <span class="s">'홍길동'</span><span class="p">}</span>
+<span class="n">personal_info</span><span class="p">(</span><span class="o">**</span><span class="n">x</span><span class="p">)</span>
+<span class="n">name</span><span class="p">:</span> <span class="n">홍길동</span>
+<span class="n">y</span> <span class="o">=</span> <span class="p">{</span><span class="s">'name'</span><span class="p">:</span> <span class="s">'홍길동'</span><span class="p">,</span> <span class="s">'age'</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span> <span class="s">'address'</span><span class="p">:</span> <span class="s">'서울시 용산구 이촌동'</span><span class="p">}</span>
+<span class="n">personal_info</span><span class="p">(</span><span class="o">**</span><span class="n">y</span><span class="p">)</span>
+<span class="n">name</span><span class="p">:</span> <span class="n">홍길동</span>
+<span class="n">age</span><span class="p">:</span> <span class="mi">30</span>
+<span class="n">address</span><span class="p">:</span> <span class="n">서울시</span> <span class="n">용산구</span> <span class="n">이촌동</span>
+
+</code></pre></div></div>
+
+<p>이처럼 함수를 만들 때 def personal_info(**kwargs):와 같이 매개변수에 **를 붙여주면 키워드 인수를 사용하는 가변 인수 함수를 만들 수 있다. 그리고 이런 함수를 호출할 때는 키워드와 인수를 각각 넣거나 딕셔너리 언패킹을 사용하면 된다. 보통 **kwargs를 사용한 가변 인수 함수는 다음과 같이 함수 안에서 특정 키가 있는지 확인한 뒤 해당 기능을 만든다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="k">def</span> <span class="nf">personal_info</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">if</span> <span class="s">'name'</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>    <span class="c1"># in으로 딕셔너리 안에 특정 키가 있는지 확인
+</span>        <span class="k">print</span><span class="p">(</span><span class="s">'이름: '</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">[</span><span class="s">'name'</span><span class="p">])</span>
+    <span class="k">if</span> <span class="s">'age'</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">'나이: '</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">[</span><span class="s">'age'</span><span class="p">])</span>
+    <span class="k">if</span> <span class="s">'address'</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">'주소: '</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">[</span><span class="s">'address'</span><span class="p">])</span>
+
+</code></pre></div></div>
+
+<h3 id="고정-인수와-가변-인수키워드-인수를-함께-사용하기">고정 인수와 가변 인수(키워드 인수)를 함께 사용하기</h3>
+<p><br />
+<br />
+고정인수와 가변인수를 함께 사용 하려면 다음과 같이 고정 매개변수를 먼저 지정하고, 그 다음 매개변수에 <strong>를 붙여주면 된다. 단, 이때 def personal_info(</strong>kwargs, name):처럼 **kwargs가 고정 매개변수보다 앞쪽에 오면 안된다. 매개변수 순서에서 **kwargs는 반드시 가장 뒤쪽에 와야 한다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="k">def</span> <span class="nf">personal_info</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+     <span class="k">print</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+     <span class="k">print</span><span class="p">(</span><span class="n">kwargs</span><span class="p">)</span>
+
+<span class="n">personal_info</span><span class="p">(</span><span class="s">'홍길동'</span><span class="p">)</span>
+<span class="n">홍길동</span>
+<span class="p">{}</span>
+<span class="n">personal_info</span><span class="p">(</span><span class="s">'홍길동'</span><span class="p">,</span> <span class="n">age</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">address</span><span class="o">=</span><span class="s">'서울시 용산구 이촌동'</span><span class="p">)</span>
+<span class="n">홍길동</span>
+<span class="p">{</span><span class="s">'age'</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span> <span class="s">'address'</span><span class="p">:</span> <span class="s">'서울시 용산구 이촌동'</span><span class="p">}</span>
+<span class="n">personal_info</span><span class="p">(</span><span class="o">**</span><span class="p">{</span><span class="s">'name'</span><span class="p">:</span> <span class="s">'홍길동'</span><span class="p">,</span> <span class="s">'age'</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span> <span class="s">'address'</span><span class="p">:</span> <span class="s">'서울시 용산구 이촌동'</span><span class="p">})</span>
+<span class="n">홍길동</span>
+<span class="p">{</span><span class="s">'age'</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span> <span class="s">'address'</span><span class="p">:</span> <span class="s">'서울시 용산구 이촌동'</span><span class="p">}</span>
+
+</code></pre></div></div>
+
+<h3 id="위치-인수와-키워드-인수를-함께-사용하기">위치 인수와 키워드 인수를 함께 사용하기</h3>
+<p><br />
+<br />
+함수에서 위치인수를 받는 *args와 키워드 인수를 받는 <strong>kwargs를 함께 사용하려면 다음과 같이 함수의 매개변수를 *args, **kwargs로 지정하여 위치 인수와 키워드 인수를 함께 사용할수 있다.
+대표적인 함수가 print인데 print는 출력할 값을 위치 인수로 넣고 sep, end 등을 키워드 인수로 넣는다. 고정인수와 마찬가지로  def custom_print(</strong>kwargs, *args):처럼 **kwargs가 *args보다 앞쪽에 오면 안된다. 매개변수 순서에서 **kwargs는 반드시 가장 뒤쪽에 와야 한다. 특히 고정 매개변수와 *args, **kwargs를 함께 사용한다면 def custom_print(a, b, *args, **kwargs):처럼 매개변수는 고정 매개변수, *args, **kwargs 순으로 지정해야 한다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">def</span> <span class="nf">custom_print</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+     <span class="k">print</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">custom_print</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s">':'</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s">''</span><span class="p">)</span>
+<span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="p">:</span><span class="mi">3</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="4-매개변수에-초깃값-지정하기">4. 매개변수에 초깃값 지정하기</h2>
+<p><br />
+<br /></p>
+
+<p>지금까지 함수를 호출할때 인수를 넣어 값을 전달했다. 그러면 인수를 생략할 수는 없을까? 이때는 함수의 매개변수에 초깃값을 지정하면 된다. 초깃값은 다음과 같이 함수를 만들때 <strong>매개변수=값</strong> 형식으로 지정한다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="k">def</span> <span class="nf">함수이름</span><span class="p">(</span><span class="n">매개변수</span><span class="o">=</span><span class="n">값</span><span class="p">):</span>
+    <span class="n">코드</span>
+
+</code></pre></div></div>
+
+<p>매개변수의 초깃값은 주로 사용하는 값이 있으면서 가끔 다른 값을 사용해야 할 떄 활용한다. 대표적 예가 print 함수인데, print함수의 sep는 초깃값이 ‘ ‘(공백)으로 지정되어 있어서 대부분 그대로 사용하고 가끔 sep에 다른 값을 넣어서 사용한다.
+<br />
+이제 personal_info 함수에서 매개변수 address의 초깃값을 ‘비공개’로 지정해보자.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="k">def</span> <span class="nf">personal_info</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">if</span> <span class="s">'name'</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>    <span class="c1"># in으로 딕셔너리 안에 특정 키가 있는지 확인
+</span>        <span class="k">print</span><span class="p">(</span><span class="s">'이름: '</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">[</span><span class="s">'name'</span><span class="p">])</span>
+    <span class="k">if</span> <span class="s">'age'</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">'나이: '</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">[</span><span class="s">'age'</span><span class="p">])</span>
+    <span class="k">if</span> <span class="s">'address'</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">'주소: '</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">[</span><span class="s">'address'</span><span class="p">])</span>
+
+<span class="k">def</span> <span class="nf">personal_info</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">,</span> <span class="n">address</span><span class="o">=</span><span class="s">'비공개'</span><span class="p">):</span>
+     <span class="k">print</span><span class="p">(</span><span class="s">'이름: '</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+     <span class="k">print</span><span class="p">(</span><span class="s">'나이: '</span><span class="p">,</span> <span class="n">age</span><span class="p">)</span>
+     <span class="k">print</span><span class="p">(</span><span class="s">'주소: '</span><span class="p">,</span> <span class="n">address</span><span class="p">)</span>
+
+   
+</code></pre></div></div>
+
+<p>address는 초깃값이 있으므로 personal_info는 다음과 같이 address부분을 비워 두고 호출할 수 있다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="n">personal_info</span><span class="p">(</span><span class="s">'홍길동'</span><span class="p">,</span> <span class="mi">30</span><span class="p">)</span>
+<span class="n">이름</span><span class="p">:</span>  <span class="n">홍길동</span>
+<span class="n">나이</span><span class="p">:</span>  <span class="mi">30</span>
+<span class="n">주소</span><span class="p">:</span>  <span class="n">비공개</span>
+
+</code></pre></div></div>
+
+<p>매개변수에 초깃값이 있더라도 값을 넣으면 해당 값이 전달된다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="n">personal_info</span><span class="p">(</span><span class="s">'홍길동'</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="s">'서울시 용산구 이촌동'</span><span class="p">)</span>
+<span class="n">이름</span><span class="p">:</span>  <span class="n">홍길동</span>
+<span class="n">나이</span><span class="p">:</span>  <span class="mi">30</span>
+<span class="n">주소</span><span class="p">:</span>  <span class="n">서울시</span> <span class="n">용산구</span> <span class="n">이촌동</span>
+
+</code></pre></div></div>
+
+<h3 id="초깃값이-지정된-매개변수의-위치">초깃값이 지정된 매개변수의 위치</h3>
+<p><br />
+<br />
+매개변수의 초깃값을 지정할때는 초깃값이 지정된 매개변수 다음에는 초깃값이 없는 매개변수가 올 수 없다. ersonal_info 함수에서 address가 가장 마지막 매개변수였는데 이번에는 address를 두 번째 매개변수로 만들고, 그 다음에 초깃값을 지정하지 않은 age가 오도록 만들면 에러가 발생한다. 그이유는 personal_info(‘홍길동’, 30)으로 함수를 호출했을 때 30이 어디로 들어가야 할지 알 수가 없기 떄문이다. address에 들어가려니 age부분이 비어 버린다. 잘못된 문법이므로 이렇게 만들면 안된다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="k">def</span> <span class="nf">personal_info</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">address</span><span class="o">=</span><span class="s">'비공개'</span><span class="p">,</span> <span class="n">age</span><span class="p">):</span>
+     <span class="k">print</span><span class="p">(</span><span class="s">'이름: '</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+     <span class="k">print</span><span class="p">(</span><span class="s">'나이: '</span><span class="p">,</span> <span class="n">age</span><span class="p">)</span>
+     <span class="k">print</span><span class="p">(</span><span class="s">'주소: '</span><span class="p">,</span> <span class="n">address</span><span class="p">)</span>
+
+  <span class="n">File</span> <span class="s">"&lt;stdin&gt;"</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="nb">SyntaxError</span><span class="p">:</span> <span class="n">non</span><span class="o">-</span><span class="n">default</span> <span class="n">argument</span> <span class="n">follows</span> <span class="n">default</span> <span class="n">argument</span>
+
+</code></pre></div></div>
+
+<p>즉, 다음과 같이 초깃값이 지정된 매개변수는 뒤쪽에 몰아주면 된다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="k">def</span> <span class="nf">personal_info</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">,</span> <span class="n">address</span><span class="o">=</span><span class="s">'비공개'</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">personal_info</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">address</span><span class="o">=</span><span class="s">'비공개'</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">personal_info</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s">'비공개'</span><span class="p">,</span> <span class="n">age</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">address</span><span class="o">=</span><span class="s">'비공개'</span><span class="p">):</span>
+
+</code></pre></div></div>
+
+<p>따라서 return 1, 2는 return (1, 2)와 의미가 같다. def personal_info(name=’비공개’, age=0, address=’비공개’):와 같이 모든 매개변수에 초깃값을 지정하면 personal_info()처럼 인수를 넣지 않고 호출할 수 있습니다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="k">def</span> <span class="nf">one_two</span><span class="p">():</span>
+    <span class="k">return</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span>    <span class="c1"># return (1, 2)와 같음
+</span>
+</code></pre></div></div>
+
+<hr />
+
+<h3 id="예제">예제</h3>
+<p><br />
+<br />
+표준 입력으로 국어, 영어, 수학, 과학 점수가 입력됩니다. 다음 소스 코드를 완성하여 가장 높은 점수, 가장 낮은 점수, 평균 점수가 출력되게 만드세요. 평균 점수는 실수로 출력되어야 합니다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="n">korean</span><span class="p">,</span> <span class="n">english</span><span class="p">,</span> <span class="n">mathematics</span><span class="p">,</span> <span class="n">science</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">input</span><span class="p">().</span><span class="n">split</span><span class="p">())</span>
+
+<span class="n">________________</span>
+<span class="n">________________</span>
+<span class="n">________________</span>
+<span class="n">________________</span>
+
+<span class="n">min_score</span><span class="p">,</span> <span class="n">max_score</span> <span class="o">=</span> <span class="n">get_min_max_score</span><span class="p">(</span><span class="n">korean</span><span class="p">,</span> <span class="n">english</span><span class="p">,</span> <span class="n">mathematics</span><span class="p">,</span> <span class="n">science</span><span class="p">)</span>
+<span class="n">average_score</span> <span class="o">=</span> <span class="n">get_average</span><span class="p">(</span><span class="n">korean</span><span class="o">=</span><span class="n">korean</span><span class="p">,</span> <span class="n">english</span><span class="o">=</span><span class="n">english</span><span class="p">,</span>
+                            <span class="n">mathematics</span><span class="o">=</span><span class="n">mathematics</span><span class="p">,</span> <span class="n">science</span><span class="o">=</span><span class="n">science</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">'낮은 점수: {0:.2f}, 높은 점수: {1:.2f}, 평균 점수: {2:.2f}'</span>
+      <span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">min_score</span><span class="p">,</span> <span class="n">max_score</span><span class="p">,</span> <span class="n">average_score</span><span class="p">))</span>
+ 
+<span class="n">min_score</span><span class="p">,</span> <span class="n">max_score</span> <span class="o">=</span> <span class="n">get_min_max_score</span><span class="p">(</span><span class="n">english</span><span class="p">,</span> <span class="n">science</span><span class="p">)</span>
+<span class="n">average_score</span> <span class="o">=</span> <span class="n">get_average</span><span class="p">(</span><span class="n">english</span><span class="o">=</span><span class="n">english</span><span class="p">,</span> <span class="n">science</span><span class="o">=</span><span class="n">science</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">'낮은 점수: {0:.2f}, 높은 점수: {1:.2f}, 평균 점수: {2:.2f}'</span>
+      <span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">min_score</span><span class="p">,</span> <span class="n">max_score</span><span class="p">,</span> <span class="n">average_score</span><span class="p">))</span>
+
+
+
+<span class="c1">#입력
+</span>
+<span class="mi">76</span> <span class="mi">82</span> <span class="mi">89</span> <span class="mi">84</span>
+
+<span class="c1">#결과
+</span>
+<span class="n">낮은</span> <span class="n">점수</span><span class="p">:</span> <span class="mf">76.00</span><span class="p">,</span> <span class="n">높은</span> <span class="n">점수</span><span class="p">:</span> <span class="mf">89.00</span><span class="p">,</span> <span class="n">평균</span> <span class="n">점수</span><span class="p">:</span> <span class="mf">82.75</span>
+<span class="n">낮은</span> <span class="n">점수</span><span class="p">:</span> <span class="mf">82.00</span><span class="p">,</span> <span class="n">높은</span> <span class="n">점수</span><span class="p">:</span> <span class="mf">84.00</span><span class="p">,</span> <span class="n">평균</span> <span class="n">점수</span><span class="p">:</span> <span class="mf">83.0</span>
+
+<span class="c1">#입력
+</span>
+<span class="mi">89</span> <span class="mi">92</span> <span class="mi">73</span> <span class="mi">83</span>
+
+<span class="c1">#결과
+</span>
+<span class="n">낮은</span> <span class="n">점수</span><span class="p">:</span> <span class="mf">73.00</span><span class="p">,</span> <span class="n">높은</span> <span class="n">점수</span><span class="p">:</span> <span class="mf">92.00</span><span class="p">,</span> <span class="n">평균</span> <span class="n">점수</span><span class="p">:</span> <span class="mf">84.25</span>
+<span class="n">낮은</span> <span class="n">점수</span><span class="p">:</span> <span class="mf">83.00</span><span class="p">,</span> <span class="n">높은</span> <span class="n">점수</span><span class="p">:</span> <span class="mf">92.00</span><span class="p">,</span> <span class="n">평균</span> <span class="n">점수</span><span class="p">:</span> <span class="mf">87.50</span>
+
+</code></pre></div></div>
+
+<p>답</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="k">def</span> <span class="nf">get_min_max_score</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
+    <span class="k">return</span> <span class="nb">min</span><span class="p">(</span><span class="n">args</span><span class="p">),</span> <span class="nb">max</span><span class="p">(</span><span class="n">args</span><span class="p">)</span> 
+    
+<span class="k">def</span> <span class="nf">get_average</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="n">average</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">kwargs</span><span class="p">.</span><span class="n">values</span><span class="p">())</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">kwargs</span><span class="p">)</span> <span class="c1">#dict.values() 딕셔너리의 모든 값을 가져온다.
+</span>    <span class="k">return</span> <span class="n">average</span>
+
+</code></pre></div></div>
+
+                </div>
+            </section>
+
+            <!-- Email subscribe form at the bottom of the page -->
+            
+                <section class="subscribe-form">
+                    <h3 class="subscribe-form-title">Subscribe to My Coding Practice Gym</h3>
+                    <p>Get the latest posts delivered right to your inbox</p>
+                    <span id="searchform" method="post" action="/subscribe/" class="">
+    <input class="confirm" type="hidden" name="confirm"  />
+    <input class="location" type="hidden" name="location"  />
+    <input class="referrer" type="hidden" name="referrer"  />
+
+    <div class="form-group">
+        <input class="subscribe-email" onkeyup="myFunc()" 
+               id="searchtext" type="text" name="searchtext"  
+               placeholder="Search..." />
+    </div>
+    <script type="text/javascript">
+        function myFunc() {
+            if(event.keyCode == 13) {
+                var url = encodeURIComponent($("#searchtext").val());
+                location.href = "/search.html?query=" + url;
+            }
+        }
+    </script>
+</span>
+                </section>
+            
+
+            <footer class="post-full-footer">
+                <!-- Everything inside the #author tags pulls data from the author -->
+                <!-- #author-->
+                
+                    
+                        <section class="author-card">
+                            
+                                <img class="author-profile-image" src="/assets/built/images/author-logo.jpg" alt="AhnSang0915" />
+                            
+                            <section class="author-card-content">
+                                <h4 class="author-card-name"><a href="/author/AhnSang0915">AhnSang0915</a></h4>
+                                
+                                    <p><a href="https://github.com/AhnSang0915"> 개발 달려</p>
+                                
+                            </section>
+                        </section>
+                        <div class="post-full-footer-right">
+                            <a class="author-card-button" href="/author/AhnSang0915">Read More</a>
+                        </div>
+                    
+                
+                <!-- /author  -->
+            </footer>
+
+            <!-- If you use Disqus comments, just uncomment this block.
+            The only thing you need to change is "test-apkdzgmqhj" - which
+            should be replaced with your own Disqus site-id. -->
+            
+                <section class="post-full-comments">
+                    <div id="disqus_thread"></div>
+                    <script>
+                        var disqus_config = function () {
+                            var this_page_url = 'https://AhnSang0915.github.io/python-basic28';
+                            var this_page_identifier = '/python-basic28';
+                            var this_page_title = 'Python - Python 함수에서 위치 인수와 키워드 인수 사용하기';
+                        };
+                        (function() {
+                            var d = document, s = d.createElement('script');
+                            s.src = 'https://xxxxxxxx.disqus.com/embed.js';
+                            s.setAttribute('data-timestamp', +new Date());
+                            (d.head || d.body).appendChild(s);
+                        })();
+                    </script>
+                </section>
+            
+
+        </article>
+
+    </div>
+</main>
+
+<!-- Links to Previous/Next posts -->
+<aside class="read-next outer">
+    <div class="inner">
+        <div class="read-next-feed">
+            
+                
+                
+                
+                
+                    <article class="read-next-card"
+                        
+                            style="background-image: url(/assets/built/images/blog-cover1.jpg)"
+                        
+                    >
+                        <header class="read-next-card-header">
+                            <small class="read-next-card-header-sitetitle">&mdash; My Coding Practice Gym &mdash;</small>
+                            
+                                <h3 class="read-next-card-header-title"><a href="/tag/python/">Python</a></h3>
+                            
+                        </header>
+                        <div class="read-next-divider"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 14.5s2 3 5 3 5.5-2.463 5.5-5.5S21 6.5 18 6.5c-5 0-7 11-12 11C2.962 17.5.5 15.037.5 12S3 6.5 6 6.5s4.5 3.5 4.5 3.5"/></svg>
+</div>
+                        <div class="read-next-card-content">
+                            <ul>
+                                
+                                
+                                  
+                                    
+                                        
+                                        
+                                            <li><a href="/practice-3">Python으로 웹 스크래퍼 만들기-2</a></li>
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                            <li><a href="/python-basic43">Python - Python 모듈과 패키지 만들기</a></li>
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                            <li><a href="/python-basic42">Python - Python 모듈과 패키지 사용하기</a></li>
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                            </ul>
+                        </div>
+                        <footer class="read-next-card-footer">
+                            <a href="/tag/python/">
+                                
+                                    See all 45 posts  →
+                                
+                            </a>
+                        </footer>
+                    </article>
+                
+            
+
+            <!-- If there's a next post, display it using the same markup included from - partials/post-card.hbs -->
+            
+                
+
+    <article class="post-card post-template">
+        
+            <a class="post-card-image-link" href="/python-basic29">
+                <div class="post-card-image" style="background-image: url(/assets/built/images/python-logo.png)"></div>
+            </a>
+        
+        <div class="post-card-content">
+            <a class="post-card-content-link" href="/python-basic29">
+                <header class="post-card-header">
+                    
+                        
+                            
+                                <span class="post-card-tags">Python</span>
+                            
+                        
+                    
+
+                    <h2 class="post-card-title">Python - Python 함수에서 재귀호출 사용하기</h2>
+                </header>
+                <section class="post-card-excerpt">
+                    
+                        <p>Python Python 기본 Python 숫자 계산하기 Python 변수 만들기 Python 출력 방법 Python 불과 비교, 논리 연산자 Python 문자열 사용하기 Python 리스트와 튜플 사용하기 Python 시퀀스 자료형 활용하기 Python 딕셔너리 사용하기 Python if</p>
+                    
+                </section>
+            </a>
+            <footer class="post-card-meta">
+                
+                    
+                        
+                        <img class="author-profile-image" src="/assets/built/images/author-logo.jpg" alt="AhnSang0915" />
+                        
+                        <span class="post-card-author">
+                            <a href="/author/AhnSang0915/">AhnSang0915</a>
+                        </span>
+                    
+                
+                <span class="reading-time">
+                    
+                    
+                      4 min read
+                    
+                </span>
+            </footer>
+        </div>
+    </article>
+
+            
+
+            <!-- If there's a previous post, display it using the same markup included from - partials/post-card.hbs -->
+            
+                
+
+    <article class="post-card post-template">
+        
+            <a class="post-card-image-link" href="/python-basic27">
+                <div class="post-card-image" style="background-image: url(/assets/built/images/python-logo.png)"></div>
+            </a>
+        
+        <div class="post-card-content">
+            <a class="post-card-content-link" href="/python-basic27">
+                <header class="post-card-header">
+                    
+                        
+                            
+                                <span class="post-card-tags">Python</span>
+                            
+                        
+                    
+
+                    <h2 class="post-card-title">Python - Python 함수 사용하기</h2>
+                </header>
+                <section class="post-card-excerpt">
+                    
+                        <p>Python Python 기본 Python 숫자 계산하기 Python 변수 만들기 Python 출력 방법 Python 불과 비교, 논리 연산자 Python 문자열 사용하기 Python 리스트와 튜플 사용하기 Python 시퀀스 자료형 활용하기 Python 딕셔너리 사용하기 Python if</p>
+                    
+                </section>
+            </a>
+            <footer class="post-card-meta">
+                
+                    
+                        
+                        <img class="author-profile-image" src="/assets/built/images/author-logo.jpg" alt="AhnSang0915" />
+                        
+                        <span class="post-card-author">
+                            <a href="/author/AhnSang0915/">AhnSang0915</a>
+                        </span>
+                    
+                
+                <span class="reading-time">
+                    
+                    
+                      8 min read
+                    
+                </span>
+            </footer>
+        </div>
+    </article>
+
+            
+
+        </div>
+    </div>
+</aside>
+
+<!-- Floating header which appears on-scroll, included from includes/floating-header.hbs -->
+<div class="floating-header">
+    <div class="floating-header-logo">
+        <a href="https://AhnSang0915.github.io/">
+            
+            <span>My Coding Practice Gym</span>
+        </a>
+    </div>
+    <span class="floating-header-divider">&mdash;</span>
+    <div class="floating-header-title">Python - Python 함수에서 위치 인수와 키워드 인수 사용하기</div>
+    <div class="floating-header-share">
+        <div class="floating-header-share-label">Share this <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <path d="M7.5 15.5V4a1.5 1.5 0 1 1 3 0v4.5h2a1 1 0 0 1 1 1h2a1 1 0 0 1 1 1H18a1.5 1.5 0 0 1 1.5 1.5v3.099c0 .929-.13 1.854-.385 2.748L17.5 23.5h-9c-1.5-2-5.417-8.673-5.417-8.673a1.2 1.2 0 0 1 1.76-1.605L7.5 15.5zm6-6v2m-3-3.5v3.5m6-1v2"/>
+</svg>
+</div>
+        <a class="floating-header-share-tw" href="https://twitter.com/share?text=Python+-+Python+%ED%95%A8%EC%88%98%EC%97%90%EC%84%9C+%EC%9C%84%EC%B9%98+%EC%9D%B8%EC%88%98%EC%99%80+%ED%82%A4%EC%9B%8C%EB%93%9C+%EC%9D%B8%EC%88%98+%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0&amp;url=https://AhnSang0915.github.iopython-basic28"
+            onclick="window.open(this.href, 'share-twitter', 'width=550,height=235');return false;">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"/></svg>
+
+        </a>
+        <a class="floating-header-share-fb" href="https://www.facebook.com/sharer/sharer.php?u=https://AhnSang0915.github.iopython-basic28"
+            onclick="window.open(this.href, 'share-facebook','width=580,height=296');return false;">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M19 6h5V0h-5c-3.86 0-7 3.14-7 7v3H8v6h4v16h6V16h5l1-6h-6V7c0-.542.458-1 1-1z"/></svg>
+
+        </a>
+    </div>
+    <progress class="progress" value="0">
+        <div class="progress-container">
+            <span class="progress-bar"></span>
+        </div>
+    </progress>
+</div>
+
+
+<!-- /post -->
+
+<!-- The #contentFor helper here will send everything inside it up to the matching #block helper found in default.hbs -->
+
+
+        <!-- Previous/next page links - displayed on every page -->
+        
+
+        <!-- The footer at the very bottom of the screen -->
+        <footer class="site-footer outer">
+            <div class="site-footer-content inner">
+                <section class="copyright"><a href="https://AhnSang0915.github.io/">My Coding Practice Gym</a> &copy; 2022</section>
+                <section class="poweredby">Proudly published with <a href="https://jekyllrb.com/">Jekyll</a> &
+                    <a href="https://pages.github.com/" target="_blank" rel="noopener">GitHub Pages</a> using
+                    <a href="https://github.com/jekyllt/jasper2" target="_blank" rel="noopener">Jasper2</a></section>
+                <nav class="site-footer-nav">
+                    <a href="/">Latest Posts</a>
+                    
+                    
+                    <a href="https://ghost.org" target="_blank" rel="noopener">Ghost</a>
+                </nav>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- The big email subscribe modal content -->
+    
+    <div id="subscribe" class="subscribe-overlay">
+        <a class="subscribe-overlay-close" href="#"></a>
+            <div class="subscribe-overlay-content">
+                
+                <h1 class="subscribe-overlay-title">Search My Coding Practice Gym</h1>
+                <p class="subscribe-overlay-description">
+                블로그 포스팅 검색 </p>
+                <span id="searchform" method="post" action="/subscribe/" class="">
+    <input class="confirm" type="hidden" name="confirm"  />
+    <input class="location" type="hidden" name="location"  />
+    <input class="referrer" type="hidden" name="referrer"  />
+
+    <div class="form-group">
+        <input class="subscribe-email" onkeyup="myFunc()" 
+               id="searchtext" type="text" name="searchtext"  
+               placeholder="Search..." />
+    </div>
+    <script type="text/javascript">
+        function myFunc() {
+            if(event.keyCode == 13) {
+                var url = encodeURIComponent($("#searchtext").val());
+                location.href = "/search.html?query=" + url;
+            }
+        }
+    </script>
+</span>
+            </div>
+    </div>
+    
+
+    <!-- highlight.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.10.0/components/prism-abap.min.js"></script>
+    <script>$(document).ready(function() {
+      $('pre code').each(function(i, block) {
+        hljs.highlightBlock(block);
+      });
+    });</script>
+
+    <!-- jQuery + Fitvids, which makes all video embeds responsive -->
+    <script
+        src="https://code.jquery.com/jquery-3.2.1.min.js"
+        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous">
+    </script>
+    <script type="text/javascript" src="/assets/js/jquery.fitvids.js"></script>
+    <script type="text/javascript" src="https://demo.ghost.io/assets/js/jquery.fitvids.js?v=724281a32e"></script>
+
+
+    <!-- Paginator increased to "infinit" in _config.yml -->
+    <!-- if paginator.posts  -->
+    <!-- <script>
+        var maxPages = parseInt('');
+    </script>
+    <script src="/assets/js/infinitescroll.js"></script> -->
+    <!-- /endif -->
+
+    
+
+
+    <!-- Add Google Analytics  -->
+    <!-- Google Analytics Tracking code -->
+ <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-xxxxxxxx-x', 'auto');
+  ga('send', 'pageview');
+
+ </script>
+
+
+    <!-- The #block helper will pull in data from the #contentFor other template files. In this case, there's some JavaScript which we only want to use in post.hbs, but it needs to be included down here, after jQuery has already loaded. -->
+    
+        <script>
+
+// NOTE: Scroll performance is poor in Safari
+// - this appears to be due to the events firing much more slowly in Safari.
+//   Dropping the scroll event and using only a raf loop results in smoother
+//   scrolling but continuous processing even when not scrolling
+$(document).ready(function () {
+    // Start fitVids
+    var $postContent = $(".post-full-content");
+    $postContent.fitVids();
+    // End fitVids
+
+    var progressBar = document.querySelector('progress');
+    var header = document.querySelector('.floating-header');
+    var title = document.querySelector('.post-full-title');
+
+    var lastScrollY = window.scrollY;
+    var lastWindowHeight = window.innerHeight;
+    var lastDocumentHeight = $(document).height();
+    var ticking = false;
+
+    function onScroll() {
+        lastScrollY = window.scrollY;
+        requestTick();
+    }
+
+    function onResize() {
+        lastWindowHeight = window.innerHeight;
+        lastDocumentHeight = $(document).height();
+        requestTick();
+    }
+
+    function requestTick() {
+        if (!ticking) {
+            requestAnimationFrame(update);
+        }
+        ticking = true;
+    }
+
+    function update() {
+        var trigger = title.getBoundingClientRect().top + window.scrollY;
+        var triggerOffset = title.offsetHeight + 35;
+        var progressMax = lastDocumentHeight - lastWindowHeight;
+
+        // show/hide floating header
+        if (lastScrollY >= trigger + triggerOffset) {
+            header.classList.add('floating-active');
+        } else {
+            header.classList.remove('floating-active');
+        }
+
+        progressBar.setAttribute('max', progressMax);
+        progressBar.setAttribute('value', lastScrollY);
+
+        ticking = false;
+    }
+
+    window.addEventListener('scroll', onScroll, {passive: true});
+    window.addEventListener('resize', onResize, false);
+
+    update();
+});
+</script>
+
+    
+
+    <!-- Ghost outputs important scripts and data with this tag - it should always be the very last thing before the closing body tag -->
+    <!-- ghost_foot -->
+
+</body>
+</html>

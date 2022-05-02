@@ -1,0 +1,1330 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <!-- Document Settings -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <!-- Base Meta -->
+    <!-- dynamically fixing the title for tag/author pages -->
+
+
+
+    <title>Python - Python 회문 판별과 N-gram 만들기</title>
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Styles'n'Scripts -->
+    <link rel="stylesheet" type="text/css" href="/assets/built/screen.css" />
+    <link rel="stylesheet" type="text/css" href="/assets/built/screen.edited.css" />
+    <link rel="stylesheet" type="text/css" href="/assets/built/syntax.css" />
+
+    <!--    costom.css-->
+    <link rel="stylesheet" type="text/css" href="/assets/built/custom.css" />
+
+    <!--    Font Awsome-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!--    웹폰트 추가-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/nanumgothic.css">
+
+    <!--    syntax.css-->
+    <link rel="stylesheet" type="text/css" href="/assets/built/syntax.css" />
+
+
+    <!-- highlight.js -->
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">
+    <style>.hljs { background: none; }</style>
+
+    <!--[if IE]>
+        <style>
+            p, ol, ul{
+                width: 100%;
+            }
+            blockquote{
+                width: 100%;
+            }
+        </style>
+    <![endif]-->
+    
+    <!-- This tag outputs SEO meta+structured data and other important settings -->
+    <meta name="description" content="Learn Coding" />
+    <link rel="shortcut icon" href="https://AhnSang0915.github.io/assets/built/images/favicon.png" type="image/png" />
+    <link rel="canonical" href="https://AhnSang0915.github.io/python-basic26" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
+
+     <!--title below is coming from _includes/dynamic_title-->
+    <meta property="og:site_name" content="My Coding Practice Gym" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Python - Python 회문 판별과 N-gram 만들기" />
+    <meta property="og:description" content="Python Python 기본 Python 숫자 계산하기 Python 변수 만들기 Python 출력 방법 Python 불과 비교, 논리 연산자 Python 문자열 사용하기 Python 리스트와 튜플 사용하기 Python 시퀀스 자료형 활용하기 Python 딕셔너리 사용하기 Python if 조건문으로 특정 조건일 때 코드 실행하기 Python else를 사용하여 두 방향으로 분기하기 Python elif를 사용하여 두 방향으로" />
+    <meta property="og:url" content="https://AhnSang0915.github.io/python-basic26" />
+    <meta property="og:image" content="https://AhnSang0915.github.io/assets/built/images/python-logo.png" />
+    <meta property="article:publisher" content="https://www.facebook.com/" />
+    <meta property="article:author" content="https://www.facebook.com/" />
+    <meta property="article:published_time" content="2022-04-13T10:00:00+00:00" />
+    <meta property="article:modified_time" content="2022-04-13T10:00:00+00:00" />
+    <meta property="article:tag" content="Python" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Python - Python 회문 판별과 N-gram 만들기" />
+    <meta name="twitter:description" content="Python Python 기본 Python 숫자 계산하기 Python 변수 만들기 Python 출력 방법 Python 불과 비교, 논리 연산자 Python 문자열 사용하기 Python 리스트와 튜플 사용하기 Python 시퀀스 자료형 활용하기 Python 딕셔너리 사용하기 Python if 조건문으로 특정 조건일 때 코드 실행하기 Python else를 사용하여 두 방향으로 분기하기 Python elif를 사용하여 두 방향으로" />
+    <meta name="twitter:url" content="https://AhnSang0915.github.io/" />
+    <meta name="twitter:image" content="https://AhnSang0915.github.io/assets/built/images/python-logo.png" />
+    <meta name="twitter:label1" content="Written by" />
+    <meta name="twitter:data1" content="My Coding Practice Gym" />
+    <meta name="twitter:label2" content="Filed under" />
+    <meta name="twitter:data2" content="Python" />
+    <meta name="twitter:site" content="@" />
+    <meta name="twitter:creator" content="@" />
+    <meta property="og:image:width" content="1400" />
+    <meta property="og:image:height" content="933" />
+
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Website",
+    "publisher": {
+        "@type": "Organization",
+        "name": "My Coding Practice Gym",
+        "logo": "https://AhnSang0915.github.io/"
+    },
+    "url": "https://AhnSang0915.github.io/python-basic26",
+    "image": {
+        "@type": "ImageObject",
+        "url": "https://AhnSang0915.github.io/assets/built/images/python-logo.png",
+        "width": 2000,
+        "height": 666
+    },
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://AhnSang0915.github.io/python-basic26"
+    },
+    "description": "Python Python 기본 Python 숫자 계산하기 Python 변수 만들기 Python 출력 방법 Python 불과 비교, 논리 연산자 Python 문자열 사용하기 Python 리스트와 튜플 사용하기 Python 시퀀스 자료형 활용하기 Python 딕셔너리 사용하기 Python if 조건문으로 특정 조건일 때 코드 실행하기 Python else를 사용하여 두 방향으로 분기하기 Python elif를 사용하여 두 방향으로"
+}
+    </script>
+
+    <!-- <script type="text/javascript" src="https://demo.ghost.io/public/ghost-sdk.min.js?v=724281a32e"></script>
+    <script type="text/javascript">
+    ghost.init({
+    	clientId: "ghost-frontend",
+    	clientSecret: "f84a07a72b17"
+    });
+    </script> -->
+
+    <meta name="generator" content="Jekyll 3.6.2" />
+    <link rel="alternate" type="application/rss+xml" title="Python - Python 회문 판별과 N-gram 만들기" href="/feed.xml" />
+
+
+</head>
+<body class="post-template">
+
+    <div class="site-wrapper">
+        <!-- All the main content gets inserted here, index.hbs, post.hbs, etc -->
+        <!-- default -->
+
+<!-- The tag above means: insert everything in this file
+into the {body} of the default.hbs template -->
+
+<header class="site-header outer">
+    <div class="inner">
+        <nav class="site-nav">
+    <div class="site-nav-left">
+        
+            
+                <a class="site-nav-logo" href="https://AhnSang0915.github.io/">My Coding Practice Gym</a>
+            
+        
+        
+            <ul class="nav" role="menu">
+    <li class="nav-home" role="menuitem"><a href="/">Home</a></li>
+    <li class="nav-about" role="menuitem"><a href="/about/">About</a></li>
+    <li class="nav-javascript" role="menuitem"><a href="/tag/javascript/">Javascript</a></li>
+    <li class="nav-python" role="menuitem"><a href="/tag/python/">Python</a></li>
+    <li class="nav-archive" role="menuitem">
+        <a href="/archive.html">All Posts</a>
+    </li>
+    <li class="nav-archive" role="menuitem">
+        <a href="/author_archive.html">Tag별 Posts</a>
+    </li>
+</ul>
+        
+    </div>
+    <div class="site-nav-right">
+        <div class="social-links">
+            
+            
+        </div>
+        
+            <a class="subscribe-button" href="#subscribe">Search</a>
+        
+    </div>
+</nav>
+
+    </div>
+</header>
+
+<!-- Everything inside the #post tags pulls data from the post -->
+<!-- #post -->
+
+<main id="site-main" class="site-main outer" role="main">
+    <div class="inner">
+
+        <article class="post-full  tag-python post tag-python ">
+
+            <header class="post-full-header">
+                <section class="post-full-meta">
+                    <time class="post-full-meta-date" datetime="13 April 2022">13 April 2022</time>
+                    
+                        <span class="date-divider">/</span>
+                        
+                            
+                               <a href='/tag/python/'>PYTHON</a>
+                            
+                        
+                    
+                </section>
+                <h1 class="post-full-title">Python - Python 회문 판별과 N-gram 만들기</h1>
+            </header>
+
+            
+            <figure class="post-full-image" style="background-image: url(/assets/built/images/python-logo.png)">
+            </figure>
+            
+
+            <section class="post-full-content">
+                <div class="kg-card-markdown">
+                    <p><span class="table-of-contents-list">Python</span></p>
+<ul class="table-of-contents-list">
+    <li><a href="./python-basic">Python 기본</a></li>
+    <li><a href="./python-basic2">Python 숫자 계산하기</a></li>
+    <li><a href="./python-basic3">Python 변수 만들기</a></li>
+    <li><a href="./python-basic4">Python 출력 방법</a></li>
+    <li><a href="./python-basic5">Python 불과 비교, 논리 연산자</a></li>
+    <li><a href="./python-basic6">Python 문자열 사용하기</a></li>
+    <li><a href="./python-basic7">Python 리스트와 튜플 사용하기</a></li>
+    <li><a href="./python-basic8">Python 시퀀스 자료형 활용하기</a></li>
+    <li><a href="./python-basic9">Python 딕셔너리 사용하기</a></li>
+    <li><a href="./python-basic10">Python if 조건문으로 특정 조건일 때 코드 실행하기</a></li>
+    <li><a href="./python-basic11">Python else를 사용하여 두 방향으로 분기하기</a></li>
+    <li><a href="./python-basic12">Python elif를 사용하여 두 방향으로 분기하기</a></li>
+    <li><a href="./python-basic13">Python for 반복문</a></li>
+    <li><a href="./python-basic14">Python while 반복문</a></li>
+    <li><a href="./python-basic15">Python break, continue로 반복문 제어하기</a></li>
+    <li><a href="./python-basic16">Python 중첩루프</a></li>
+    <li><a href="./python-basic17">Python FizzBuzz 문제</a></li>
+    <li><a href="./python-basic18">Python 터틀 그래픽스로 그림 그리기</a></li>
+    <li><a href="./python-basic19">Python 리스트와 튜플 응용하기</a></li>
+    <li><a href="./python-basic20">Python 리스트와 튜플 응용하기 - 2</a></li>
+    <li><a href="./python-basic21">Python 2차원 리스트 사용하기</a></li>
+    <li><a href="./python-basic22">Python 문자열 응용하기</a></li>
+    <li><a href="./python-basic23">Python 딕셔너리 응용하기</a></li>
+    <li><a href="./python-basic24">Python 세트 사용하기</a></li>
+    <li><a href="./python-basic25">Python 파일 사용하기</a></li>
+    <li><a href="./python-basic26">Python 회문 판별과 N-gram 만들기</a></li>
+    <li><a href="./python-basic27">Python 함수 사용하기</a></li>
+    <li><a href="./python-basic28">Python 함수에서 위치 인수와 키워드 인수 사용하기</a></li>
+    <li><a href="./python-basic29">Python 함수에서 재귀호출 사용하기</a></li>
+    <li><a href="./python-basic30">Python 람다 표현식 사용하기</a></li>
+    <li><a href="./python-basic31">Python 클로저 사용하기</a></li>
+    <li><a href="./python-basic32">Python 클래스 사용하기</a></li>
+    <li><a href="./python-basic33">Python 클래스 속성과 정적, 클래스 메서드 사용하기</a></li>
+    <li><a href="./python-basic34">Python 클래스 상속 사용하기</a></li>
+    <li><a href="./python-basic35">Python 두 점 사이의 거리 구하기</a></li>
+    <li><a href="./python-basic36">Python 예외 처리 사용하기</a></li>
+    <li><a href="./python-basic37">Python 이터레이터 사용하기</a></li>
+    <li><a href="./python-basic38">Python 제너레이터 사용하기</a></li>
+    <li><a href="./python-basic39">Python 코루틴 사용하기</a></li>
+    <li><a href="./python-basic40">Python 데코레이터 사용하기</a></li>
+    <li><a href="./python-basic41">Python 정규표현식 사용하기</a></li>
+    <li><a href="./python-basic42">Python 모듈과 패키지 사용하기</a></li>
+    <li><a href="./python-basic43">Python 모듈과 패키지 만들기</a></li>
+
+
+</ul>
+
+<h1 id="회문-판별과-n-gram-만들기">회문 판별과 N-gram 만들기</h1>
+
+<p><br />
+<br />
+문자열을 응용해 회문을 판별하는 방법과 N-gram을 만드는 방법을 알아보자.<br />
+회문은 유전자 염기서열 분석에서 많이 쓰고, N-gram은 빅 데이터 분석, 검색 엔진에서 많이 쓰인다. 특히 구글은 책들을 스캔해서 N-gram viewer를 만들었는데 사람들의 언어 패턴을 시대별로 분석하기도 했다.</p>
+
+<hr />
+
+<h2 id="1-파일에-문자열-쓰기-읽기">1. 파일에 문자열 쓰기, 읽기</h2>
+<p><br />
+<br /></p>
+
+<h3 id="회문-판별하기">회문 판별하기</h3>
+<p><br />
+<br />
+회문(palindrome)은 순서를 거꾸로 읽어도 제대로 읽은 것과 같은 단어와 문장을 말한다. 예를 들면 “level”, “SOS”, “rotator”, “nurses run”과 같은 단어와 문장이 있다.</p>
+
+<h3 id="반복문으로-문자-검사하기">반복문으로 문자 검사하기</h3>
+<p><br />
+<br />
+이제 반복문으로 문자열의 각 문자를 검사해보자. 여기서 가장 중요한 부분은 문자열(단어)의 길이이다. 회문 판별은 문자열의 길이를 기준으로 하기 때문에 문자열을 절반으로 나누어서 왼쪽 문자와 오른쪽 문자가 같은지 판별해야한다. 그리고 if 판별문에서 첫번쨰 글자와 마지막 글자를 비교해준다. 마지막 글자는 -1을 넣어 인덱스 0일때 마지막의 첫번째 글자인 인덱스 -1의 글자를 비교하게 만들었다. word[-(1 + i)]와 같이 숫자를 i만큼 증가시킨 뒤 음수로 바꾸는 방식으로도 표현할 수 있다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="n">word</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s">'단어를 입력하세요: '</span><span class="p">)</span>
+ 
+<span class="n">is_palindrome</span> <span class="o">=</span> <span class="bp">True</span>                 <span class="c1"># 회문 판별값을 저장할 변수, 초깃값은 True
+</span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">word</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span><span class="p">):</span>      <span class="c1"># 0부터 문자열 길이의 절반만큼 반복
+</span>    <span class="k">if</span> <span class="n">word</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">!=</span> <span class="n">word</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span> <span class="o">-</span> <span class="n">i</span><span class="p">]:</span>      <span class="c1"># 왼쪽 문자와 오른쪽 문자를 비교하여 문자가 다르면
+</span>        <span class="n">is_palindrome</span> <span class="o">=</span> <span class="bp">False</span>        <span class="c1"># 회문이 아님
+</span>        <span class="k">break</span>
+ 
+<span class="k">print</span><span class="p">(</span><span class="n">is_palindrome</span><span class="p">)</span>                 <span class="c1"># 회문 판별값 출력
+</span>
+<span class="c1"># 실행결과
+</span><span class="n">단어를</span> <span class="n">입력하세요</span><span class="p">:</span> <span class="n">level</span> <span class="p">(</span><span class="n">입력</span><span class="p">)</span>
+<span class="bp">True</span>
+
+<span class="c1"># 실행결과
+</span><span class="n">단어를</span> <span class="n">입력하세요</span><span class="p">:</span> <span class="n">hello</span> <span class="p">(</span><span class="n">입력</span><span class="p">)</span>
+<span class="bp">False</span>
+
+</code></pre></div></div>
+
+<h3 id="시퀀스-뒤집기로-문자-검사하기">시퀀스 뒤집기로 문자 검사하기</h3>
+<p><br />
+<br />
+문자열을 반대로 뒤집어 판별할 수 있다. 객체 슬라이스를 활용해 간단하게 판별해 보자. word[::-1]은 문자열 전체에서 인덱스를 1씩 감소시키면서 요소를 가져오므로 문자열을 반대로 뒤집는다. 회문은 순서를 거꾸로 읽어도 제대로 읽은 것과 같은 문자열이므로 원래 문자열 word와 뒤집은 문자열 word[::-1]이 같으면 회문이다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="n">word</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s">'단어를 입력하세요: '</span><span class="p">)</span>
+ 
+<span class="k">print</span><span class="p">(</span><span class="n">word</span> <span class="o">==</span> <span class="n">word</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>    <span class="c1"># 원래 문자열과 반대로 뒤집은 문자열을 비교
+</span>
+<span class="c1">#실행결과
+</span><span class="n">단어를</span> <span class="n">입력하세요</span><span class="p">:</span> <span class="n">level</span> <span class="p">(</span><span class="n">입력</span><span class="p">)</span>
+<span class="bp">True</span>
+<span class="n">단어를</span> <span class="n">입력하세요</span><span class="p">:</span> <span class="n">hello</span> <span class="p">(</span><span class="n">입력</span><span class="p">)</span>
+<span class="bp">False</span>
+
+</code></pre></div></div>
+
+<h3 id="리스트와-reversed-사용하기">리스트와 reversed 사용하기</h3>
+<p><br />
+<br />
+다음과 같이 반복 가능한 객체의 요소 순서를 반대로 뒤집는 reversed를 사용해도 된다. list에 문자열을 넣으면 문자 하나 하나가 리스트의 요소로 들어간다. 여기서 reversed로 문자열을 반대로 뒤집어서 list에 넣어 두 리스트를 ==로 비교하면 회문판별이 가능하다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="n">word</span> <span class="o">=</span> <span class="s">'level'</span>
+<span class="nb">list</span><span class="p">(</span><span class="n">word</span><span class="p">)</span> <span class="o">==</span> <span class="nb">list</span><span class="p">(</span><span class="nb">reversed</span><span class="p">(</span><span class="n">word</span><span class="p">))</span> <span class="c1">#reversed는 새로운 객체를 만들어 반환한다.
+</span><span class="bp">True</span>
+
+<span class="nb">list</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
+<span class="p">[</span><span class="s">'l'</span><span class="p">,</span> <span class="s">'e'</span><span class="p">,</span> <span class="s">'v'</span><span class="p">,</span> <span class="s">'e'</span><span class="p">,</span> <span class="s">'l'</span><span class="p">]</span>
+<span class="nb">list</span><span class="p">(</span><span class="nb">reversed</span><span class="p">(</span><span class="n">word</span><span class="p">))</span>
+<span class="p">[</span><span class="s">'l'</span><span class="p">,</span> <span class="s">'e'</span><span class="p">,</span> <span class="s">'v'</span><span class="p">,</span> <span class="s">'e'</span><span class="p">,</span> <span class="s">'l'</span><span class="p">]</span>
+
+</code></pre></div></div>
+
+<h3 id="문자열의-join-메서드와-reversed-사용하기">문자열의 join 메서드와 reversed 사용하기</h3>
+<p><br />
+<br />
+문자열의 join메서드를 사용해서 회문을 판별할 수 있다. join은 구분자 문자열과 문자열 리스트의 요소를 연결한다. 여기서는 빈 문자열’‘에 reversed(word)의 요소를 연결했으므로 문자 순서가 반대로 된 문자열을 얻을 수 있다. 즉,  join은 요소 사이에 구분자를 넣지만 빈문자열 ‘‘을 활용하여 각문자를 그대로 연결하는 방식이다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">word</span> <span class="o">=</span> <span class="s">'level'</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">word</span> <span class="o">==</span> <span class="s">''</span><span class="p">.</span><span class="n">join</span><span class="p">(</span><span class="nb">reversed</span><span class="p">(</span><span class="n">word</span><span class="p">))</span>
+<span class="bp">True</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">word</span>
+<span class="s">'level'</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="s">''</span><span class="p">.</span><span class="n">join</span><span class="p">(</span><span class="nb">reversed</span><span class="p">(</span><span class="n">word</span><span class="p">))</span>
+<span class="s">'level'</span>
+
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="2-n-gram-만들기">2. N-gram 만들기</h2>
+<p><br />
+<br />
+N-gram은 문자열에서 N개의 연속된 요소를 추출하는 방법이다. 만약 ‘Hello’라는 문자열을 문자(글자) 단위 2-gram으로 추출하면 다음과 같이 된다. 즉, 문자열의 처음부터 문자열 끝까지 한 글자씩 이동하면서 2글자를 추출한다. 3-gram은 3글자, 4-gram은 4글자를 추출하게 된다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="n">He</span>
+<span class="n">el</span>
+<span class="n">ll</span>
+<span class="n">lo</span>
+
+</code></pre></div></div>
+
+<h3 id="반복문으로-n-gram-출력하기">반복문으로 N-gram 출력하기</h3>
+<p><br />
+<br />
+이제 반복문으로 문자 단위 2-gram을 출력해보자. 만약 3-gram이라면 반복 횟수는 range(len(text) - 2))와 같이 되고, 문자열 끝에서 두 글자 앞까지 반복하면 된다. 문자열을 출력할 때는 print(text[i], text[i + 1], text[i + 2], sep=’‘)가 된다. 여기서 문자열의 끝까지 반복하면 text[i + 1], text[i + 2]는 문자열의 범위를 벗어난 접근을 하게 되므로 주의해야 한다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="n">text</span> <span class="o">=</span> <span class="s">'Hello'</span>
+ 
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">text</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>             <span class="c1"># 2-gram이므로 문자열의 끝에서 한 글자 앞까지만 반복함 range(4)
+</span>    <span class="k">print</span><span class="p">(</span><span class="n">text</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">text</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">],</span> <span class="n">sep</span><span class="o">=</span><span class="s">''</span><span class="p">)</span>    <span class="c1"># 현재 문자와 그다음 문자 출력 
+</span>    <span class="c1">#인덱스 01,12,23,34를 반복
+</span>
+</code></pre></div></div>
+
+<p>글자 단위 N-gram이 있다면 단어 단위 N-gram도 있다. 다음은 문자열을 공백으로 구분하여 단어 단위 2-gram을 출력한다. 예를 들어 ‘this is python script’는 ‘this is’, ‘is python’, ‘python script’가 된다. 단어 단위 2-gram도 간단하다. split을 사용하여 공백을 기준으로 문자열을 분리하여 리스트로 만든다. 그리고 2-gram이므로 words 리스트의 마지막에서 요소 한 개 앞까지만 반복하면서 현재 문자열과 그다음 문자열을 출력하면 된다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="n">text</span> <span class="o">=</span> <span class="s">'this is python script'</span>
+<span class="n">words</span> <span class="o">=</span> <span class="n">text</span><span class="p">.</span><span class="n">split</span><span class="p">()</span>                 <span class="c1"># 공백을 기준으로 문자열을 분리하여 리스트로 만듦
+</span> 
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">words</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>      <span class="c1"># 2-gram이므로 리스트의 마지막에서 요소 한 개 앞까지만 반복함
+</span>    <span class="k">print</span><span class="p">(</span><span class="n">words</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">words</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">])</span>    <span class="c1"># 현재 문자열과 그다음 문자열 출력
+</span>
+<span class="c1">#실행 결과
+</span>
+<span class="n">this</span> <span class="ow">is</span>
+<span class="ow">is</span> <span class="n">python</span>
+<span class="n">python</span> <span class="n">script</span>
+
+</code></pre></div></div>
+
+<h3 id="zip으로-2-gram-만들기">zip으로 2-gram 만들기</h3>
+<p><br />
+<br />
+zip함수로 2-gram을 만들수 있다. 지금까지 zip함수는 리스트 두 개를 딕셔너리로 만들 때 사용했는데, zip함수는 반복 가능한 객체의 각 요소를 튜플로 묶어준다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="n">text</span> <span class="o">=</span> <span class="s">'hello'</span>
+ 
+<span class="n">two_gram</span> <span class="o">=</span> <span class="nb">zip</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">text</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">two_gram</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">i</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">i</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">sep</span><span class="o">=</span><span class="s">''</span><span class="p">)</span>
+
+<span class="c1"># 실행결과
+</span>
+<span class="n">He</span>
+<span class="n">el</span>
+<span class="n">ll</span>
+<span class="n">lo</span>
+
+</code></pre></div></div>
+
+<p>zip(text, text[1:])은 문자열 text와 text[1:]의 각 요소를 묶어서 튜플로 만든다. text[1:]은 인덱스 1(두 번째 문자)부터 마지막 문자까지 가져온다. 따라서  text와 text[1:]을 zip으로 묶으면 문자 하나가 밀린 상태로 각 문자를 묶게 된다. zip()함수는 반복 가능한 객체의 길이가 다를경우 뒤에 부분은 생략되어 출력된다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="n">text</span> <span class="o">=</span> <span class="s">'hello'</span>
+<span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">text</span><span class="p">[</span><span class="mi">1</span><span class="p">:]))</span>
+<span class="p">[(</span><span class="s">'h'</span><span class="p">,</span> <span class="s">'e'</span><span class="p">),</span> <span class="p">(</span><span class="s">'e'</span><span class="p">,</span> <span class="s">'l'</span><span class="p">),</span> <span class="p">(</span><span class="s">'l'</span><span class="p">,</span> <span class="s">'l'</span><span class="p">),</span> <span class="p">(</span><span class="s">'l'</span><span class="p">,</span> <span class="s">'o'</span><span class="p">)]</span>
+
+<span class="c1"># 이 리스트를 출력할 때는 for i in two_gram:와 같이 for로 반복하면서 print(i[0], i[1], sep='')로 튜플의 요소를 출력해주면 된다.
+</span>
+</code></pre></div></div>
+
+<p>단어 단위 2-gram도 같은 방법으로 만들면 된다. 문자열을 공백으로 분리하여 리스트로 만드는 것 말고는 앞과 같다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="n">text</span> <span class="o">=</span> <span class="s">'this is python script'</span>
+<span class="n">words</span> <span class="o">=</span> <span class="n">text</span><span class="p">.</span><span class="n">split</span><span class="p">()</span>
+<span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">words</span><span class="p">,</span> <span class="n">words</span><span class="p">[</span><span class="mi">1</span><span class="p">:]))</span>
+<span class="p">[(</span><span class="s">'this'</span><span class="p">,</span> <span class="s">'is'</span><span class="p">),</span> <span class="p">(</span><span class="s">'is'</span><span class="p">,</span> <span class="s">'python'</span><span class="p">),</span> <span class="p">(</span><span class="s">'python'</span><span class="p">,</span> <span class="s">'script'</span><span class="p">)]</span>
+
+</code></pre></div></div>
+
+<h3 id="zip과-리스트-표현식으로-n-gram-만들기">zip과 리스트 표현식으로 N-gram 만들기</h3>
+<p><br />
+<br />
+N-gram을 만들때 일일이 슬라이스를 넣지않고 리스트 표현식을 사용해 만들어 보자. [text[i:] for i in range(3)]처럼 for로 3번 반복하면서 text[i:]로 리스트를 생성했다. 여기서 for i in range(3)은 0, 1, 2까지 반복하므로 text[i:]는 text[0:], text[1:], text[2:]가 된다. 3-gram에 필요한 슬라이스다. text[0:]은 text와 같으므로 지금까지 zip에 넣었던 모양이다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="n">text</span> <span class="o">=</span> <span class="s">'hello'</span>
+<span class="p">[</span><span class="n">text</span><span class="p">[</span><span class="n">i</span><span class="p">:]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">)]</span>
+<span class="p">[</span><span class="s">'hello'</span><span class="p">,</span> <span class="s">'ello'</span><span class="p">,</span> <span class="s">'llo'</span><span class="p">]</span>
+
+</code></pre></div></div>
+
+<p>리스트[‘hello’, ‘ello’, ‘llo’]를 zip에 넣어보자. 결과를 보면 원하는 3-gram이 아니다. zip은 반복 가능한 객체 여러 개를 콤마고 구분해서 넣어줘야 한다. 하지만 [‘hello’, ‘ello’, ‘llo’]는 요소가 3개 들어있는 리스트 1개이기 때문이다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">([</span><span class="s">'hello'</span><span class="p">,</span> <span class="s">'ello'</span><span class="p">,</span> <span class="s">'llo'</span><span class="p">]))</span>
+<span class="p">[(</span><span class="s">'hello'</span><span class="p">,),</span> <span class="p">(</span><span class="s">'ello'</span><span class="p">,),</span> <span class="p">(</span><span class="s">'llo'</span><span class="p">,)]</span>
+
+</code></pre></div></div>
+
+<p>zip에 리스트의 각 요소를 콤마로 구분해서 넣어주려면 리스트 앞에 *를 붙여야 한다. 이제 3-gram 리스트가 만들어졌다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="o">*</span><span class="p">[</span><span class="s">'hello'</span><span class="p">,</span> <span class="s">'ello'</span><span class="p">,</span> <span class="s">'llo'</span><span class="p">]))</span>
+<span class="p">[(</span><span class="s">'h'</span><span class="p">,</span> <span class="s">'e'</span><span class="p">,</span> <span class="s">'l'</span><span class="p">),</span> <span class="p">(</span><span class="s">'e'</span><span class="p">,</span> <span class="s">'l'</span><span class="p">,</span> <span class="s">'l'</span><span class="p">),</span> <span class="p">(</span><span class="s">'l'</span><span class="p">,</span> <span class="s">'l'</span><span class="p">,</span> <span class="s">'o'</span><span class="p">)]</span>
+
+</code></pre></div></div>
+
+<p>물론 리스트 표현식을 바로 zip에 넣어주려면 리스트 표현식 앞에 *를 붙이면 된다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="o">*</span><span class="p">[</span><span class="n">text</span><span class="p">[</span><span class="n">i</span><span class="p">:]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">)]))</span>
+<span class="p">[(</span><span class="s">'h'</span><span class="p">,</span> <span class="s">'e'</span><span class="p">,</span> <span class="s">'l'</span><span class="p">),</span> <span class="p">(</span><span class="s">'e'</span><span class="p">,</span> <span class="s">'l'</span><span class="p">,</span> <span class="s">'l'</span><span class="p">),</span> <span class="p">(</span><span class="s">'l'</span><span class="p">,</span> <span class="s">'l'</span><span class="p">,</span> <span class="s">'o'</span><span class="p">)]</span>
+
+</code></pre></div></div>
+
+<hr />
+
+<h3 id="예제">예제</h3>
+<p><br />
+<br />
+단어가 줄 단위로 저장된 words.txt 파일이 주어집니다. words.txt 파일에서 회문인 단어를 각 줄에 출력하는 프로그램을 만드세요. 단어를 출력할 때는 등장한 순서대로 출력해야 합니다. 그리고 파일에서 읽은 단어는 \n이 붙어있으므로 \n을 제외한 뒤 회문인지 판단해야 하며 단어를 출력할 때도 \n이 출력되면 안 됩니다(단어 사이에 줄바꿈이 두 번 일어나면 안 됨).</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="n">________________</span>
+<span class="n">________________</span>
+<span class="n">________________</span>
+<span class="n">________________</span>
+<span class="n">________________</span>
+<span class="n">________________</span>
+
+<span class="c1">#words.txt
+</span>
+<span class="n">apache</span>
+<span class="n">decal</span>
+<span class="n">did</span>
+<span class="n">neep</span>
+<span class="n">noon</span>
+<span class="n">refer</span>
+<span class="n">river</span>
+
+<span class="c1">#표준출력
+</span><span class="n">did</span>
+<span class="n">noon</span>
+<span class="n">refer</span>
+
+</code></pre></div></div>
+
+<p>내가 쓴 답</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">'words.txt'</span><span class="p">,</span> <span class="s">'r'</span><span class="p">)</span><span class="k">as</span> <span class="nb">file</span><span class="p">:</span>
+    <span class="n">words</span> <span class="o">=</span> <span class="nb">file</span><span class="p">.</span><span class="n">readlines</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">words</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nb">list</span><span class="p">(</span><span class="n">word</span><span class="p">.</span><span class="n">strip</span><span class="p">(</span><span class="s">'</span><span class="se">\n</span><span class="s">'</span><span class="p">))</span> <span class="o">==</span> <span class="nb">list</span><span class="p">(</span><span class="nb">reversed</span><span class="p">(</span><span class="n">word</span><span class="p">.</span><span class="n">strip</span><span class="p">(</span><span class="s">'</span><span class="se">\n</span><span class="s">'</span><span class="p">)))</span> <span class="p">:</span>
+            <span class="k">print</span><span class="p">(</span><span class="n">word</span><span class="p">.</span><span class="n">strip</span><span class="p">(</span><span class="s">'</span><span class="se">\n</span><span class="s">'</span><span class="p">))</span>
+
+</code></pre></div></div>
+
+<p>더 좋은 답</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">'words.txt'</span><span class="p">,</span> <span class="s">'r'</span><span class="p">)</span><span class="k">as</span> <span class="nb">file</span><span class="p">:</span>
+    <span class="n">words</span> <span class="o">=</span> <span class="nb">file</span><span class="p">.</span><span class="n">readlines</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">words</span><span class="p">:</span>
+        <span class="n">word</span> <span class="o">=</span> <span class="n">word</span><span class="p">.</span><span class="n">strip</span><span class="p">(</span><span class="s">'</span><span class="se">\n</span><span class="s">'</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">word</span> <span class="o">==</span> <span class="n">word</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="p">:</span>
+            <span class="k">print</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
+
+</code></pre></div></div>
+
+                </div>
+            </section>
+
+            <!-- Email subscribe form at the bottom of the page -->
+            
+                <section class="subscribe-form">
+                    <h3 class="subscribe-form-title">Subscribe to My Coding Practice Gym</h3>
+                    <p>Get the latest posts delivered right to your inbox</p>
+                    <span id="searchform" method="post" action="/subscribe/" class="">
+    <input class="confirm" type="hidden" name="confirm"  />
+    <input class="location" type="hidden" name="location"  />
+    <input class="referrer" type="hidden" name="referrer"  />
+
+    <div class="form-group">
+        <input class="subscribe-email" onkeyup="myFunc()" 
+               id="searchtext" type="text" name="searchtext"  
+               placeholder="Search..." />
+    </div>
+    <script type="text/javascript">
+        function myFunc() {
+            if(event.keyCode == 13) {
+                var url = encodeURIComponent($("#searchtext").val());
+                location.href = "/search.html?query=" + url;
+            }
+        }
+    </script>
+</span>
+                </section>
+            
+
+            <footer class="post-full-footer">
+                <!-- Everything inside the #author tags pulls data from the author -->
+                <!-- #author-->
+                
+                    
+                        <section class="author-card">
+                            
+                                <img class="author-profile-image" src="/assets/built/images/author-logo.jpg" alt="AhnSang0915" />
+                            
+                            <section class="author-card-content">
+                                <h4 class="author-card-name"><a href="/author/AhnSang0915">AhnSang0915</a></h4>
+                                
+                                    <p><a href="https://github.com/AhnSang0915"> 개발 달려</p>
+                                
+                            </section>
+                        </section>
+                        <div class="post-full-footer-right">
+                            <a class="author-card-button" href="/author/AhnSang0915">Read More</a>
+                        </div>
+                    
+                
+                <!-- /author  -->
+            </footer>
+
+            <!-- If you use Disqus comments, just uncomment this block.
+            The only thing you need to change is "test-apkdzgmqhj" - which
+            should be replaced with your own Disqus site-id. -->
+            
+                <section class="post-full-comments">
+                    <div id="disqus_thread"></div>
+                    <script>
+                        var disqus_config = function () {
+                            var this_page_url = 'https://AhnSang0915.github.io/python-basic26';
+                            var this_page_identifier = '/python-basic26';
+                            var this_page_title = 'Python - Python 회문 판별과 N-gram 만들기';
+                        };
+                        (function() {
+                            var d = document, s = d.createElement('script');
+                            s.src = 'https://xxxxxxxx.disqus.com/embed.js';
+                            s.setAttribute('data-timestamp', +new Date());
+                            (d.head || d.body).appendChild(s);
+                        })();
+                    </script>
+                </section>
+            
+
+        </article>
+
+    </div>
+</main>
+
+<!-- Links to Previous/Next posts -->
+<aside class="read-next outer">
+    <div class="inner">
+        <div class="read-next-feed">
+            
+                
+                
+                
+                
+                    <article class="read-next-card"
+                        
+                            style="background-image: url(/assets/built/images/blog-cover1.jpg)"
+                        
+                    >
+                        <header class="read-next-card-header">
+                            <small class="read-next-card-header-sitetitle">&mdash; My Coding Practice Gym &mdash;</small>
+                            
+                                <h3 class="read-next-card-header-title"><a href="/tag/python/">Python</a></h3>
+                            
+                        </header>
+                        <div class="read-next-divider"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 14.5s2 3 5 3 5.5-2.463 5.5-5.5S21 6.5 18 6.5c-5 0-7 11-12 11C2.962 17.5.5 15.037.5 12S3 6.5 6 6.5s4.5 3.5 4.5 3.5"/></svg>
+</div>
+                        <div class="read-next-card-content">
+                            <ul>
+                                
+                                
+                                  
+                                    
+                                        
+                                        
+                                            <li><a href="/practice-3">Python으로 웹 스크래퍼 만들기-2</a></li>
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                            <li><a href="/python-basic43">Python - Python 모듈과 패키지 만들기</a></li>
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                            <li><a href="/python-basic42">Python - Python 모듈과 패키지 사용하기</a></li>
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                            </ul>
+                        </div>
+                        <footer class="read-next-card-footer">
+                            <a href="/tag/python/">
+                                
+                                    See all 45 posts  →
+                                
+                            </a>
+                        </footer>
+                    </article>
+                
+            
+
+            <!-- If there's a next post, display it using the same markup included from - partials/post-card.hbs -->
+            
+                
+
+    <article class="post-card post-template">
+        
+            <a class="post-card-image-link" href="/python-basic27">
+                <div class="post-card-image" style="background-image: url(/assets/built/images/python-logo.png)"></div>
+            </a>
+        
+        <div class="post-card-content">
+            <a class="post-card-content-link" href="/python-basic27">
+                <header class="post-card-header">
+                    
+                        
+                            
+                                <span class="post-card-tags">Python</span>
+                            
+                        
+                    
+
+                    <h2 class="post-card-title">Python - Python 함수 사용하기</h2>
+                </header>
+                <section class="post-card-excerpt">
+                    
+                        <p>Python Python 기본 Python 숫자 계산하기 Python 변수 만들기 Python 출력 방법 Python 불과 비교, 논리 연산자 Python 문자열 사용하기 Python 리스트와 튜플 사용하기 Python 시퀀스 자료형 활용하기 Python 딕셔너리 사용하기 Python if</p>
+                    
+                </section>
+            </a>
+            <footer class="post-card-meta">
+                
+                    
+                        
+                        <img class="author-profile-image" src="/assets/built/images/author-logo.jpg" alt="AhnSang0915" />
+                        
+                        <span class="post-card-author">
+                            <a href="/author/AhnSang0915/">AhnSang0915</a>
+                        </span>
+                    
+                
+                <span class="reading-time">
+                    
+                    
+                      8 min read
+                    
+                </span>
+            </footer>
+        </div>
+    </article>
+
+            
+
+            <!-- If there's a previous post, display it using the same markup included from - partials/post-card.hbs -->
+            
+                
+
+    <article class="post-card post-template">
+        
+            <a class="post-card-image-link" href="/python-basic25">
+                <div class="post-card-image" style="background-image: url(/assets/built/images/python-logo.png)"></div>
+            </a>
+        
+        <div class="post-card-content">
+            <a class="post-card-content-link" href="/python-basic25">
+                <header class="post-card-header">
+                    
+                        
+                            
+                                <span class="post-card-tags">Python</span>
+                            
+                        
+                    
+
+                    <h2 class="post-card-title">Python - Python 파일 사용하기</h2>
+                </header>
+                <section class="post-card-excerpt">
+                    
+                        <p>Python Python 기본 Python 숫자 계산하기 Python 변수 만들기 Python 출력 방법 Python 불과 비교, 논리 연산자 Python 문자열 사용하기 Python 리스트와 튜플 사용하기 Python 시퀀스 자료형 활용하기 Python 딕셔너리 사용하기 Python if</p>
+                    
+                </section>
+            </a>
+            <footer class="post-card-meta">
+                
+                    
+                        
+                        <img class="author-profile-image" src="/assets/built/images/author-logo.jpg" alt="AhnSang0915" />
+                        
+                        <span class="post-card-author">
+                            <a href="/author/AhnSang0915/">AhnSang0915</a>
+                        </span>
+                    
+                
+                <span class="reading-time">
+                    
+                    
+                      7 min read
+                    
+                </span>
+            </footer>
+        </div>
+    </article>
+
+            
+
+        </div>
+    </div>
+</aside>
+
+<!-- Floating header which appears on-scroll, included from includes/floating-header.hbs -->
+<div class="floating-header">
+    <div class="floating-header-logo">
+        <a href="https://AhnSang0915.github.io/">
+            
+            <span>My Coding Practice Gym</span>
+        </a>
+    </div>
+    <span class="floating-header-divider">&mdash;</span>
+    <div class="floating-header-title">Python - Python 회문 판별과 N-gram 만들기</div>
+    <div class="floating-header-share">
+        <div class="floating-header-share-label">Share this <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <path d="M7.5 15.5V4a1.5 1.5 0 1 1 3 0v4.5h2a1 1 0 0 1 1 1h2a1 1 0 0 1 1 1H18a1.5 1.5 0 0 1 1.5 1.5v3.099c0 .929-.13 1.854-.385 2.748L17.5 23.5h-9c-1.5-2-5.417-8.673-5.417-8.673a1.2 1.2 0 0 1 1.76-1.605L7.5 15.5zm6-6v2m-3-3.5v3.5m6-1v2"/>
+</svg>
+</div>
+        <a class="floating-header-share-tw" href="https://twitter.com/share?text=Python+-+Python+%ED%9A%8C%EB%AC%B8+%ED%8C%90%EB%B3%84%EA%B3%BC+N-gram+%EB%A7%8C%EB%93%A4%EA%B8%B0&amp;url=https://AhnSang0915.github.iopython-basic26"
+            onclick="window.open(this.href, 'share-twitter', 'width=550,height=235');return false;">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"/></svg>
+
+        </a>
+        <a class="floating-header-share-fb" href="https://www.facebook.com/sharer/sharer.php?u=https://AhnSang0915.github.iopython-basic26"
+            onclick="window.open(this.href, 'share-facebook','width=580,height=296');return false;">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M19 6h5V0h-5c-3.86 0-7 3.14-7 7v3H8v6h4v16h6V16h5l1-6h-6V7c0-.542.458-1 1-1z"/></svg>
+
+        </a>
+    </div>
+    <progress class="progress" value="0">
+        <div class="progress-container">
+            <span class="progress-bar"></span>
+        </div>
+    </progress>
+</div>
+
+
+<!-- /post -->
+
+<!-- The #contentFor helper here will send everything inside it up to the matching #block helper found in default.hbs -->
+
+
+        <!-- Previous/next page links - displayed on every page -->
+        
+
+        <!-- The footer at the very bottom of the screen -->
+        <footer class="site-footer outer">
+            <div class="site-footer-content inner">
+                <section class="copyright"><a href="https://AhnSang0915.github.io/">My Coding Practice Gym</a> &copy; 2022</section>
+                <section class="poweredby">Proudly published with <a href="https://jekyllrb.com/">Jekyll</a> &
+                    <a href="https://pages.github.com/" target="_blank" rel="noopener">GitHub Pages</a> using
+                    <a href="https://github.com/jekyllt/jasper2" target="_blank" rel="noopener">Jasper2</a></section>
+                <nav class="site-footer-nav">
+                    <a href="/">Latest Posts</a>
+                    
+                    
+                    <a href="https://ghost.org" target="_blank" rel="noopener">Ghost</a>
+                </nav>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- The big email subscribe modal content -->
+    
+    <div id="subscribe" class="subscribe-overlay">
+        <a class="subscribe-overlay-close" href="#"></a>
+            <div class="subscribe-overlay-content">
+                
+                <h1 class="subscribe-overlay-title">Search My Coding Practice Gym</h1>
+                <p class="subscribe-overlay-description">
+                블로그 포스팅 검색 </p>
+                <span id="searchform" method="post" action="/subscribe/" class="">
+    <input class="confirm" type="hidden" name="confirm"  />
+    <input class="location" type="hidden" name="location"  />
+    <input class="referrer" type="hidden" name="referrer"  />
+
+    <div class="form-group">
+        <input class="subscribe-email" onkeyup="myFunc()" 
+               id="searchtext" type="text" name="searchtext"  
+               placeholder="Search..." />
+    </div>
+    <script type="text/javascript">
+        function myFunc() {
+            if(event.keyCode == 13) {
+                var url = encodeURIComponent($("#searchtext").val());
+                location.href = "/search.html?query=" + url;
+            }
+        }
+    </script>
+</span>
+            </div>
+    </div>
+    
+
+    <!-- highlight.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.10.0/components/prism-abap.min.js"></script>
+    <script>$(document).ready(function() {
+      $('pre code').each(function(i, block) {
+        hljs.highlightBlock(block);
+      });
+    });</script>
+
+    <!-- jQuery + Fitvids, which makes all video embeds responsive -->
+    <script
+        src="https://code.jquery.com/jquery-3.2.1.min.js"
+        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous">
+    </script>
+    <script type="text/javascript" src="/assets/js/jquery.fitvids.js"></script>
+    <script type="text/javascript" src="https://demo.ghost.io/assets/js/jquery.fitvids.js?v=724281a32e"></script>
+
+
+    <!-- Paginator increased to "infinit" in _config.yml -->
+    <!-- if paginator.posts  -->
+    <!-- <script>
+        var maxPages = parseInt('');
+    </script>
+    <script src="/assets/js/infinitescroll.js"></script> -->
+    <!-- /endif -->
+
+    
+
+
+    <!-- Add Google Analytics  -->
+    <!-- Google Analytics Tracking code -->
+ <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-xxxxxxxx-x', 'auto');
+  ga('send', 'pageview');
+
+ </script>
+
+
+    <!-- The #block helper will pull in data from the #contentFor other template files. In this case, there's some JavaScript which we only want to use in post.hbs, but it needs to be included down here, after jQuery has already loaded. -->
+    
+        <script>
+
+// NOTE: Scroll performance is poor in Safari
+// - this appears to be due to the events firing much more slowly in Safari.
+//   Dropping the scroll event and using only a raf loop results in smoother
+//   scrolling but continuous processing even when not scrolling
+$(document).ready(function () {
+    // Start fitVids
+    var $postContent = $(".post-full-content");
+    $postContent.fitVids();
+    // End fitVids
+
+    var progressBar = document.querySelector('progress');
+    var header = document.querySelector('.floating-header');
+    var title = document.querySelector('.post-full-title');
+
+    var lastScrollY = window.scrollY;
+    var lastWindowHeight = window.innerHeight;
+    var lastDocumentHeight = $(document).height();
+    var ticking = false;
+
+    function onScroll() {
+        lastScrollY = window.scrollY;
+        requestTick();
+    }
+
+    function onResize() {
+        lastWindowHeight = window.innerHeight;
+        lastDocumentHeight = $(document).height();
+        requestTick();
+    }
+
+    function requestTick() {
+        if (!ticking) {
+            requestAnimationFrame(update);
+        }
+        ticking = true;
+    }
+
+    function update() {
+        var trigger = title.getBoundingClientRect().top + window.scrollY;
+        var triggerOffset = title.offsetHeight + 35;
+        var progressMax = lastDocumentHeight - lastWindowHeight;
+
+        // show/hide floating header
+        if (lastScrollY >= trigger + triggerOffset) {
+            header.classList.add('floating-active');
+        } else {
+            header.classList.remove('floating-active');
+        }
+
+        progressBar.setAttribute('max', progressMax);
+        progressBar.setAttribute('value', lastScrollY);
+
+        ticking = false;
+    }
+
+    window.addEventListener('scroll', onScroll, {passive: true});
+    window.addEventListener('resize', onResize, false);
+
+    update();
+});
+</script>
+
+    
+
+    <!-- Ghost outputs important scripts and data with this tag - it should always be the very last thing before the closing body tag -->
+    <!-- ghost_foot -->
+
+</body>
+</html>

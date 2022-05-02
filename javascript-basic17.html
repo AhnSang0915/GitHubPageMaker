@@ -1,0 +1,1003 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <!-- Document Settings -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <!-- Base Meta -->
+    <!-- dynamically fixing the title for tag/author pages -->
+
+
+
+    <title>Javascript - JavaScript 객체지향 - 객체지향 프로그래밍 소개</title>
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Styles'n'Scripts -->
+    <link rel="stylesheet" type="text/css" href="/assets/built/screen.css" />
+    <link rel="stylesheet" type="text/css" href="/assets/built/screen.edited.css" />
+    <link rel="stylesheet" type="text/css" href="/assets/built/syntax.css" />
+
+    <!--    costom.css-->
+    <link rel="stylesheet" type="text/css" href="/assets/built/custom.css" />
+
+    <!--    Font Awsome-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!--    웹폰트 추가-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/nanumgothic.css">
+
+    <!--    syntax.css-->
+    <link rel="stylesheet" type="text/css" href="/assets/built/syntax.css" />
+
+
+    <!-- highlight.js -->
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">
+    <style>.hljs { background: none; }</style>
+
+    <!--[if IE]>
+        <style>
+            p, ol, ul{
+                width: 100%;
+            }
+            blockquote{
+                width: 100%;
+            }
+        </style>
+    <![endif]-->
+    
+    <!-- This tag outputs SEO meta+structured data and other important settings -->
+    <meta name="description" content="Learn Coding" />
+    <link rel="shortcut icon" href="https://AhnSang0915.github.io/assets/built/images/favicon.png" type="image/png" />
+    <link rel="canonical" href="https://AhnSang0915.github.io/javascript-basic17" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
+
+     <!--title below is coming from _includes/dynamic_title-->
+    <meta property="og:site_name" content="My Coding Practice Gym" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Javascript - JavaScript 객체지향 - 객체지향 프로그래밍 소개" />
+    <meta property="og:description" content="Javascript JavaScript 기본 JavaScript 숫자와 문자 JavaScript 변수, 비교 JavaScript 조건문 JavaScript 반복문 JavaScript 함수 JavaScript 배열 JavaScript 객체(Object) JavaScript 모듈 JavaScript UI와 API JavaScript 정규표현식 JavaScript 함수지향 - 유효범위 JavaScript 함수지향 - 값으로서의 함수와 콜백 JavaScript 함수지향 - 클로저 JavaScript 함수지향 - arguments 함수지향 - 함수의 호출 객체지향 -" />
+    <meta property="og:url" content="https://AhnSang0915.github.io/javascript-basic17" />
+    <meta property="og:image" content="https://AhnSang0915.github.io/assets/built/images/javascript-logo.png" />
+    <meta property="article:publisher" content="https://www.facebook.com/" />
+    <meta property="article:author" content="https://www.facebook.com/" />
+    <meta property="article:published_time" content="2022-03-16T08:17:00+00:00" />
+    <meta property="article:modified_time" content="2022-03-16T08:17:00+00:00" />
+    <meta property="article:tag" content="Javascript" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Javascript - JavaScript 객체지향 - 객체지향 프로그래밍 소개" />
+    <meta name="twitter:description" content="Javascript JavaScript 기본 JavaScript 숫자와 문자 JavaScript 변수, 비교 JavaScript 조건문 JavaScript 반복문 JavaScript 함수 JavaScript 배열 JavaScript 객체(Object) JavaScript 모듈 JavaScript UI와 API JavaScript 정규표현식 JavaScript 함수지향 - 유효범위 JavaScript 함수지향 - 값으로서의 함수와 콜백 JavaScript 함수지향 - 클로저 JavaScript 함수지향 - arguments 함수지향 - 함수의 호출 객체지향 -" />
+    <meta name="twitter:url" content="https://AhnSang0915.github.io/" />
+    <meta name="twitter:image" content="https://AhnSang0915.github.io/assets/built/images/javascript-logo.png" />
+    <meta name="twitter:label1" content="Written by" />
+    <meta name="twitter:data1" content="My Coding Practice Gym" />
+    <meta name="twitter:label2" content="Filed under" />
+    <meta name="twitter:data2" content="Javascript" />
+    <meta name="twitter:site" content="@" />
+    <meta name="twitter:creator" content="@" />
+    <meta property="og:image:width" content="1400" />
+    <meta property="og:image:height" content="933" />
+
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Website",
+    "publisher": {
+        "@type": "Organization",
+        "name": "My Coding Practice Gym",
+        "logo": "https://AhnSang0915.github.io/"
+    },
+    "url": "https://AhnSang0915.github.io/javascript-basic17",
+    "image": {
+        "@type": "ImageObject",
+        "url": "https://AhnSang0915.github.io/assets/built/images/javascript-logo.png",
+        "width": 2000,
+        "height": 666
+    },
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://AhnSang0915.github.io/javascript-basic17"
+    },
+    "description": "Javascript JavaScript 기본 JavaScript 숫자와 문자 JavaScript 변수, 비교 JavaScript 조건문 JavaScript 반복문 JavaScript 함수 JavaScript 배열 JavaScript 객체(Object) JavaScript 모듈 JavaScript UI와 API JavaScript 정규표현식 JavaScript 함수지향 - 유효범위 JavaScript 함수지향 - 값으로서의 함수와 콜백 JavaScript 함수지향 - 클로저 JavaScript 함수지향 - arguments 함수지향 - 함수의 호출 객체지향 -"
+}
+    </script>
+
+    <!-- <script type="text/javascript" src="https://demo.ghost.io/public/ghost-sdk.min.js?v=724281a32e"></script>
+    <script type="text/javascript">
+    ghost.init({
+    	clientId: "ghost-frontend",
+    	clientSecret: "f84a07a72b17"
+    });
+    </script> -->
+
+    <meta name="generator" content="Jekyll 3.6.2" />
+    <link rel="alternate" type="application/rss+xml" title="Javascript - JavaScript 객체지향 - 객체지향 프로그래밍 소개" href="/feed.xml" />
+
+
+</head>
+<body class="post-template">
+
+    <div class="site-wrapper">
+        <!-- All the main content gets inserted here, index.hbs, post.hbs, etc -->
+        <!-- default -->
+
+<!-- The tag above means: insert everything in this file
+into the {body} of the default.hbs template -->
+
+<header class="site-header outer">
+    <div class="inner">
+        <nav class="site-nav">
+    <div class="site-nav-left">
+        
+            
+                <a class="site-nav-logo" href="https://AhnSang0915.github.io/">My Coding Practice Gym</a>
+            
+        
+        
+            <ul class="nav" role="menu">
+    <li class="nav-home" role="menuitem"><a href="/">Home</a></li>
+    <li class="nav-about" role="menuitem"><a href="/about/">About</a></li>
+    <li class="nav-javascript" role="menuitem"><a href="/tag/javascript/">Javascript</a></li>
+    <li class="nav-python" role="menuitem"><a href="/tag/python/">Python</a></li>
+    <li class="nav-archive" role="menuitem">
+        <a href="/archive.html">All Posts</a>
+    </li>
+    <li class="nav-archive" role="menuitem">
+        <a href="/author_archive.html">Tag별 Posts</a>
+    </li>
+</ul>
+        
+    </div>
+    <div class="site-nav-right">
+        <div class="social-links">
+            
+            
+        </div>
+        
+            <a class="subscribe-button" href="#subscribe">Search</a>
+        
+    </div>
+</nav>
+
+    </div>
+</header>
+
+<!-- Everything inside the #post tags pulls data from the post -->
+<!-- #post -->
+
+<main id="site-main" class="site-main outer" role="main">
+    <div class="inner">
+
+        <article class="post-full  tag-javascript post tag-javascript ">
+
+            <header class="post-full-header">
+                <section class="post-full-meta">
+                    <time class="post-full-meta-date" datetime="16 March 2022">16 March 2022</time>
+                    
+                        <span class="date-divider">/</span>
+                        
+                            
+                               <a href='/tag/javascript/'>JAVASCRIPT</a>
+                            
+                        
+                    
+                </section>
+                <h1 class="post-full-title">Javascript - JavaScript 객체지향 - 객체지향 프로그래밍 소개</h1>
+            </header>
+
+            
+            <figure class="post-full-image" style="background-image: url(/assets/built/images/javascript-logo.png)">
+            </figure>
+            
+
+            <section class="post-full-content">
+                <div class="kg-card-markdown">
+                    <p><span class="table-of-contents-list">Javascript</span></p>
+<ul class="table-of-contents-list">
+    <li><a href="./javascript-basic">JavaScript 기본 </a></li>
+    <li><a href="./javascript-basic2">JavaScript 숫자와 문자 </a></li>
+    <li><a href="./javascript-basic3">JavaScript 변수, 비교</a></li>
+    <li><a href="./javascript-basic4">JavaScript 조건문</a></li>
+    <li><a href="./javascript-basic5">JavaScript 반복문</a></li>
+    <li><a href="./javascript-basic6">JavaScript 함수</a></li>
+    <li><a href="./javascript-basic7">JavaScript 배열</a></li>
+    <li><a href="./javascript-basic8">JavaScript 객체(Object)</a></li>
+    <li><a href="./javascript-basic9">JavaScript 모듈</a></li>
+    <li><a href="./javascript-basic10">JavaScript UI와 API</a></li>
+    <li><a href="./javascript-basic11">JavaScript 정규표현식</a></li>
+    <li><a href="./javascript-basic12">JavaScript 함수지향 - 유효범위</a></li>
+    <li><a href="./javascript-basic13">JavaScript 함수지향 - 값으로서의 함수와 콜백</a></li>
+    <li><a href="./javascript-basic14">JavaScript 함수지향 - 클로저</a></li>
+    <li><a href="./javascript-basic15">JavaScript 함수지향 - arguments</a></li>
+    <li><a href="./javascript-basic16">함수지향 - 함수의 호출</a></li>
+    <li><a href="./javascript-basic17">객체지향 - 객체지향 프로그래밍 소개</a></li>
+    <li><a href="./javascript-basic18">객체지향 - 생성자와 new</a></li>
+    <li><a href="./javascript-basic19">객체지향 - 전역객체</a></li>
+    <li><a href="./javascript-basic20">객체지향 - this</a></li>
+    <li><a href="./javascript-basic21">객체지향 - 상속</a></li>
+    <li><a href="./javascript-basic22">객체지향-표준 내장객체의 확장</a></li>
+    <li><a href="./javascript-basic23">JavaScript 객체지향-Object</a></li>
+
+</ul>
+
+<h1 id="javascript-객체지향-프로그래밍-소개">JavaScript 객체지향 프로그래밍 소개</h1>
+
+<p><br />
+<br /></p>
+
+<hr />
+
+<h2 id="객체지향-프로그래밍">객체지향 프로그래밍</h2>
+<p><br />
+<br />
+객체지향 프로그래밍이(Object-Oriented Programming)란 OOP라고도 하고 핵심키워드는 객체이다. 객체지향 프로그래밍에서의 객체를 추상적으로 말하면 상태와 행위로 구분해 서로연관되어있는 상태와 행위를 그룹화 해놓은 것을 객체라고 할수 있다. 이 객체들을 마치 레고 블럭처럼 조립해서 하나의 프로그램을 만드는 것이 객체지향 프로그래밍이라고 할 수 있다. 다시 말해서 객체지향 프로그래밍은 객체를 만드는 것이다. 따라서 객체지향 프로그래밍의 시작은 객체란 무엇인가를 이해하는 것이라고 할 수 있다. 
+<br />
+<br /></p>
+
+<h3 id="문법과-설계">문법과 설계</h3>
+
+<p><br />
+객체지향 프로그래밍 교육은 크게 두 가지로 구분된다.
+<br /></p>
+
+<h4 id="문법">문법</h4>
+<p><br />
+<br />
+하나는 객체지향을 편하게 할 수 있도록 언어가 제공하는 기능을 익히는 것이다. 이러한 기능들은 if, for문처럼 문법적인 구성을 가지고 있다. 이 문법을 이해하고, 숙지해야 객체를 만들 수 있다. 객체를 만드는 법에 대한 학습이라고 할 수 있다. 우리 수업은 여기에 초점이 맞춰져 있다.</p>
+
+<h4 id="설계">설계</h4>
+<p><br />
+<br />
+두번째는 좋은 객체를 만드는 법이다. 현실에서 우리가 관심이있는 어떤 특성, 어떤관점을 소프트웨어화 시켜서 문제를 해결하는것이 프로그램, 프로그래밍이다.</p>
+
+<p><img src="https://s3.ap-northeast-2.amazonaws.com/opentutorials-user-file/module/516/1854.gif" alt="예시1" /></p>
+
+<p>위의 그림은 런던의 지도이다. 이미지중 어떤것이 가장 보기 편할까. 마지막의 이미지가 보기 제일 편하지 않을까? 역과 역사이이의 환승역이라던지 노선들을 간단하게 <u>추상화(abstract)</u>시켜 보여주고 있다. 복잡함을 제외하고 사용자의 유일한 관심사에 초점을 맞춰 편의성을 높였다. 
+<br />
+지하철 노선도가 디자인의 추상화라고 한다면 프로그램을 만든다는 것은 소프트웨어의 추상화라고 할 수 있다. 객체 지향 프로그래밍은 좀 더 현실을 잘 반영하기 위한 노력의 산물이다. 이것은 단순히 객체 지향의 문법을 이용해서 객체를 만든다고 달성되는 것이 아니다. 고도의 추상화 능력이 필요하다. 좋은 설계는 문법을 배우는 것보다 훨씬 어려운 일이다. 심지어 이것은 지식을 넘어서 지혜의 영역이다. 좋은 설계를 위한 조언들은 많지만 이러한 조언들은 조언자의 입을 떠나는 순간 생명력을 잃어버린다. 지식은 전수되지만 지혜는 전수되지 않기 때문이다. 스스로 경험하고 깨우쳐서 자기화시켜야 한다. 필자도 그 긴 여정을 따라가고 있는 견습생에 불과하다.
+<br />
+객체지향의 설계 원칙이나 객체 지향의 철학적인 의미는 대단히 중요하다. 하지만 이러한 것들을 지금 언급한다면 미궁 속에 빠지게 될 것이다. 그래서 우리가 할 것은 일단은 지식부터 익히자는 것이다. 언어가 지원하는 객체지향 문법을 배우고, 이것들이 어떻게 동작하는지를 충분히 이해한 다음에 비로소 설계 원칙도 이야기할 수 있고, 객체와 사물의 비유도 시도해 볼 수 있을 것이다. 여기서는 몇 가지 객체지향이 추구하는 지향점을 가볍게 이야기하고 다음 토픽부터 구체적인 문법을 알아볼 것이다.</p>
+
+<hr />
+
+<h2 id="부품화">부품화</h2>
+<p><br />
+<br />
+객체지향 프로그래밍을 구성하고 있는 컨셉들은 상당히 많다. 하나의 프로그램이 여러개의 로직으로 이루어져 있다. 그 로직을 그룹화 시켜놓고 로직과 관련된 변수와 메소드들을 그룹화 해놓은게 객체이다. 이렇게 함으로서 재활용성을 높일수 있다. 그럼 이 객체를 다른곳에 사용한다는 것은 이객체가 다른 곳, 여러곳에서 일종의 부품으로서 사용된다는 것이다.
+<br />
+아래는 초창기의 컴퓨터이다.</p>
+
+<p><img src="https://s3.ap-northeast-2.amazonaws.com/opentutorials-user-file/module/516/1857.gif" alt="옛날컴퓨터" />
+본체와 모니터, 키보드가 하나로 단일화되어 있다. 어딘가 고장나면 컴퓨터를 바꿔야할수도 있다.
+<img src="https://s3.ap-northeast-2.amazonaws.com/opentutorials-user-file/module/516/1856.gif" alt="요즘컴퓨터" />
+하지만 위의 이미지처럼 부품을 나누어 놓는다면 고장난 부품만 고치면 될것이다. (이미지 생활코딩 참조)
+<br />
+객체 지향은 부품화의 정점이라고 할 수 있다. 하지만 우리는 아직 객체 지향을 배우지 않았다. 그래서 우리가 배운 것 중에서 부품화의 특성을 보여줄 수 있는 기능을 생각해보면 좋을 것 같다. 메소드는 부품화의 예라고 할 수 있다. 메소드를 사용하는 기본 취지는 연관되어 있는 로직들을 결합해서 메소드라는 완제품을 만드는 것이다. 그리고 이 메소드들을 부품으로 해서 하나의 완제품인 독립된 프로그램을 만드는 것이다. 메소드를 사용하면 코드의 양을 극적으로 줄일 수 있고, 메소드 별로 기능이 분류되어 있기 때문에 필요한 코드를 찾기도 쉽고 문제의 진단도 빨라진다.
+<br />
+그런데 프로그램이 커지면 엄청나게 많은 메소드들이 생겨나게 된다. 메소드와 변수를 관리하는 것은 점점 어려운 일이 되기 시작한다. 급기야는 메소드가 없을 때와 같은 상황에 봉착하게 된다. 메소드는 프로그래밍의 역사에서 중요한 도약이었지만, 이 도약이 성숙하면서 새로운 도약지점이 보이기 시작한 것이다.
+<br />
+그 도약 중의 하나가 객체 지향 프로그래밍이다. 이것의 핵심은 연관된 메소드와 그 메소드가 사용하는 변수들을 분류하고 그룹핑하는 것이다. 바로 그렇게 그룹핑 한 대상이 객체(Object)다. 비유하자면 파일과 디렉토리가 있을 때 메소드나 변수가 파일이라면 이 파일을 그룹핑하는 디렉토리가 객체라고 할 수 있다. 이를 통해서 더 큰 단위의 부품을 만들 수 있게 되었다. 객체를 만드는 법에 대해서 호기심이 생기지 않는가? 이런 호기심을 유발시키는 것이 이번 토픽의 목적이다. 객체를 만드는 법은 다음 토픽에서 알아보고 지금은 부품화에 대해서 조금 더 생각해보자.
+<br />
+<br /></p>
+
+<h2 id="은닉화-캡슐화">은닉화, 캡슐화</h2>
+<p><br />
+<br />
+제대로된 부품이라면 그것이 어떻게 만들어졌는지 모르는 사람도 그 부품을 사용하는 방법만 알면 쓸 수 있어야한다. 모니터가 어떻게 동작하는지는 몰라도 컴퓨터와 모니터를 연결하는 방법을 알면 모니터를 설치해 사용할 수 있는것과 같다. 즉 내부동작 방법을 단단한 케이스(객체)안으로 숨기고 사용자에게 그 부품의 사용방법(메소드)만을 노풀하고 있는 것이다. 이러한 컨셉을 정보의 은닉화(Information Hiding), 또는 캡슐화(Encapsulation)라고 부른다. 자연스럽게 사용자에게는 그 부품을 사용하는 방법이 중요한 것이 된다.</p>
+
+<h2 id="인터페이스">인터페이스</h2>
+<p><br />
+<br />
+좋은부품의 또다른 특징은 인터페이스이다. 잘만든 부품은 서로 교환할 수 있어야 한다. 모니터를 바꾼다고 가정해보자 서로다른 회사의 모니터를 교환하려고 하면 회사가 다르더라도 모니터를 연결할 수 있어야 한다. 이것은 컴퓨터와 모니터를 연결해주는 케이블이 표준화 되어있기 때문에 가능한 것이다.
+<br />
+컴퓨터와 모니터를 만드는 업체들은 HDMI케이블 규격을 공유한다. 각각의 부품은 미리 정해진 약속에 따라 신호의 입출력을 가능하게 해주는 연결점의 모양을 표준에 맞게 만들면 된다. 이러한 연결점을 인터페이스Interface)라고 한다. 즉 인터페이스는 부품들 간의 약속이다. 프로그래밍에서도 인터페이스에 해당하는것을 소프트웨어 적으로 제공하고 있다.  이러한 약속을 프로그램밍 적으로는 어떻게 구현하는가도 알아보자.
+<br />
+지금까지 객체를 부품으로 비유해서 설명 했다. 그런데 비유는 비유일 뿐이다. 비유는 의도한 유사점 뿐만 아니라 의도하지 않은 차이점까지도 전달될 가능성이 있기 때문이다. 비유의 함정이라고 할 수 있다. 소프트웨어는 하드웨어가 아니다. 하드웨어가 할 수 없는 것을 소프트웨어는 할 수 있다. 그 중의 하나가 복제와 상속이다. 이러한 개념을 구체적인 문법 없이 설명하는 것은 효용이 크지 않을 뿐만 아니라 자칫 흥미를 저해할 위험이 있기 때문에 여기서는 설명하지 않았다. 소프트웨어가 있기 이전부터 하드웨어가 이룩한 성취를 잘 수용하면서 동시에 소프트웨어 다운 소프트웨어를 만드는 것은 우리게게 주워진 숙제라고 할 수 있다</p>
+
+                </div>
+            </section>
+
+            <!-- Email subscribe form at the bottom of the page -->
+            
+                <section class="subscribe-form">
+                    <h3 class="subscribe-form-title">Subscribe to My Coding Practice Gym</h3>
+                    <p>Get the latest posts delivered right to your inbox</p>
+                    <span id="searchform" method="post" action="/subscribe/" class="">
+    <input class="confirm" type="hidden" name="confirm"  />
+    <input class="location" type="hidden" name="location"  />
+    <input class="referrer" type="hidden" name="referrer"  />
+
+    <div class="form-group">
+        <input class="subscribe-email" onkeyup="myFunc()" 
+               id="searchtext" type="text" name="searchtext"  
+               placeholder="Search..." />
+    </div>
+    <script type="text/javascript">
+        function myFunc() {
+            if(event.keyCode == 13) {
+                var url = encodeURIComponent($("#searchtext").val());
+                location.href = "/search.html?query=" + url;
+            }
+        }
+    </script>
+</span>
+                </section>
+            
+
+            <footer class="post-full-footer">
+                <!-- Everything inside the #author tags pulls data from the author -->
+                <!-- #author-->
+                
+                    
+                        <section class="author-card">
+                            
+                                <img class="author-profile-image" src="/assets/built/images/author-logo.jpg" alt="AhnSang0915" />
+                            
+                            <section class="author-card-content">
+                                <h4 class="author-card-name"><a href="/author/AhnSang0915">AhnSang0915</a></h4>
+                                
+                                    <p><a href="https://github.com/AhnSang0915"> 개발 달려</p>
+                                
+                            </section>
+                        </section>
+                        <div class="post-full-footer-right">
+                            <a class="author-card-button" href="/author/AhnSang0915">Read More</a>
+                        </div>
+                    
+                
+                <!-- /author  -->
+            </footer>
+
+            <!-- If you use Disqus comments, just uncomment this block.
+            The only thing you need to change is "test-apkdzgmqhj" - which
+            should be replaced with your own Disqus site-id. -->
+            
+                <section class="post-full-comments">
+                    <div id="disqus_thread"></div>
+                    <script>
+                        var disqus_config = function () {
+                            var this_page_url = 'https://AhnSang0915.github.io/javascript-basic17';
+                            var this_page_identifier = '/javascript-basic17';
+                            var this_page_title = 'Javascript - JavaScript 객체지향 - 객체지향 프로그래밍 소개';
+                        };
+                        (function() {
+                            var d = document, s = d.createElement('script');
+                            s.src = 'https://xxxxxxxx.disqus.com/embed.js';
+                            s.setAttribute('data-timestamp', +new Date());
+                            (d.head || d.body).appendChild(s);
+                        })();
+                    </script>
+                </section>
+            
+
+        </article>
+
+    </div>
+</main>
+
+<!-- Links to Previous/Next posts -->
+<aside class="read-next outer">
+    <div class="inner">
+        <div class="read-next-feed">
+            
+                
+                
+                
+                
+                    <article class="read-next-card"
+                        
+                            style="background-image: url(/assets/built/images/blog-cover1.jpg)"
+                        
+                    >
+                        <header class="read-next-card-header">
+                            <small class="read-next-card-header-sitetitle">&mdash; My Coding Practice Gym &mdash;</small>
+                            
+                                <h3 class="read-next-card-header-title"><a href="/tag/javascript/">Javascript</a></h3>
+                            
+                        </header>
+                        <div class="read-next-divider"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 14.5s2 3 5 3 5.5-2.463 5.5-5.5S21 6.5 18 6.5c-5 0-7 11-12 11C2.962 17.5.5 15.037.5 12S3 6.5 6 6.5s4.5 3.5 4.5 3.5"/></svg>
+</div>
+                        <div class="read-next-card-content">
+                            <ul>
+                                
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                            <li><a href="/javascript-basic25">Javascript - JavaScript 객체지향 - 참조</a></li>
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                            <li><a href="/javascript-basic24">Javascript - JavaScript 객체지향 - 데이터타입</a></li>
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                            <li><a href="/javascript-basic23">Javascript - JavaScript 객체지향-Object</a></li>
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                            </ul>
+                        </div>
+                        <footer class="read-next-card-footer">
+                            <a href="/tag/javascript/">
+                                
+                                    See all 24 posts  →
+                                
+                            </a>
+                        </footer>
+                    </article>
+                
+            
+
+            <!-- If there's a next post, display it using the same markup included from - partials/post-card.hbs -->
+            
+                
+
+    <article class="post-card post-template">
+        
+            <a class="post-card-image-link" href="/javascript-basic18">
+                <div class="post-card-image" style="background-image: url(/assets/built/images/javascript-logo.png)"></div>
+            </a>
+        
+        <div class="post-card-content">
+            <a class="post-card-content-link" href="/javascript-basic18">
+                <header class="post-card-header">
+                    
+                        
+                            
+                                <span class="post-card-tags">Javascript</span>
+                            
+                        
+                    
+
+                    <h2 class="post-card-title">Javascript - JavaScript 객체지향 - 생성자와 new</h2>
+                </header>
+                <section class="post-card-excerpt">
+                    
+                        <p>Javascript JavaScript 기본 JavaScript 숫자와 문자 JavaScript 변수, 비교 JavaScript 조건문 JavaScript 반복문 JavaScript 함수 JavaScript 배열 JavaScript 객체(Object) JavaScript 모듈 JavaScript UI와 API JavaScript 정규표현식 JavaScript 함수지향 - 유효범위 JavaScript 함수지향 -</p>
+                    
+                </section>
+            </a>
+            <footer class="post-card-meta">
+                
+                    
+                        
+                        <img class="author-profile-image" src="/assets/built/images/author-logo.jpg" alt="AhnSang0915" />
+                        
+                        <span class="post-card-author">
+                            <a href="/author/AhnSang0915/">AhnSang0915</a>
+                        </span>
+                    
+                
+                <span class="reading-time">
+                    
+                    
+                      3 min read
+                    
+                </span>
+            </footer>
+        </div>
+    </article>
+
+            
+
+            <!-- If there's a previous post, display it using the same markup included from - partials/post-card.hbs -->
+            
+                
+
+    <article class="post-card post-template">
+        
+            <a class="post-card-image-link" href="/javascript-basic16">
+                <div class="post-card-image" style="background-image: url(/assets/built/images/javascript-logo.png)"></div>
+            </a>
+        
+        <div class="post-card-content">
+            <a class="post-card-content-link" href="/javascript-basic16">
+                <header class="post-card-header">
+                    
+                        
+                            
+                                <span class="post-card-tags">Javascript</span>
+                            
+                        
+                    
+
+                    <h2 class="post-card-title">Javascript - JavaScript 함수지향 - 함수의 호출</h2>
+                </header>
+                <section class="post-card-excerpt">
+                    
+                        <p>Javascript JavaScript 기본 JavaScript 숫자와 문자 JavaScript 변수, 비교 JavaScript 조건문 JavaScript 반복문 JavaScript 함수 JavaScript 배열 JavaScript 객체(Object) JavaScript 모듈 JavaScript UI와 API JavaScript 정규표현식 JavaScript 함수지향 - 유효범위 JavaScript 함수지향 -</p>
+                    
+                </section>
+            </a>
+            <footer class="post-card-meta">
+                
+                    
+                        
+                        <img class="author-profile-image" src="/assets/built/images/author-logo.jpg" alt="AhnSang0915" />
+                        
+                        <span class="post-card-author">
+                            <a href="/author/AhnSang0915/">AhnSang0915</a>
+                        </span>
+                    
+                
+                <span class="reading-time">
+                    
+                    
+                      2 min read
+                    
+                </span>
+            </footer>
+        </div>
+    </article>
+
+            
+
+        </div>
+    </div>
+</aside>
+
+<!-- Floating header which appears on-scroll, included from includes/floating-header.hbs -->
+<div class="floating-header">
+    <div class="floating-header-logo">
+        <a href="https://AhnSang0915.github.io/">
+            
+            <span>My Coding Practice Gym</span>
+        </a>
+    </div>
+    <span class="floating-header-divider">&mdash;</span>
+    <div class="floating-header-title">Javascript - JavaScript 객체지향 - 객체지향 프로그래밍 소개</div>
+    <div class="floating-header-share">
+        <div class="floating-header-share-label">Share this <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <path d="M7.5 15.5V4a1.5 1.5 0 1 1 3 0v4.5h2a1 1 0 0 1 1 1h2a1 1 0 0 1 1 1H18a1.5 1.5 0 0 1 1.5 1.5v3.099c0 .929-.13 1.854-.385 2.748L17.5 23.5h-9c-1.5-2-5.417-8.673-5.417-8.673a1.2 1.2 0 0 1 1.76-1.605L7.5 15.5zm6-6v2m-3-3.5v3.5m6-1v2"/>
+</svg>
+</div>
+        <a class="floating-header-share-tw" href="https://twitter.com/share?text=Javascript+-+JavaScript+%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5+-+%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5+%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D+%EC%86%8C%EA%B0%9C&amp;url=https://AhnSang0915.github.iojavascript-basic17"
+            onclick="window.open(this.href, 'share-twitter', 'width=550,height=235');return false;">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"/></svg>
+
+        </a>
+        <a class="floating-header-share-fb" href="https://www.facebook.com/sharer/sharer.php?u=https://AhnSang0915.github.iojavascript-basic17"
+            onclick="window.open(this.href, 'share-facebook','width=580,height=296');return false;">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M19 6h5V0h-5c-3.86 0-7 3.14-7 7v3H8v6h4v16h6V16h5l1-6h-6V7c0-.542.458-1 1-1z"/></svg>
+
+        </a>
+    </div>
+    <progress class="progress" value="0">
+        <div class="progress-container">
+            <span class="progress-bar"></span>
+        </div>
+    </progress>
+</div>
+
+
+<!-- /post -->
+
+<!-- The #contentFor helper here will send everything inside it up to the matching #block helper found in default.hbs -->
+
+
+        <!-- Previous/next page links - displayed on every page -->
+        
+
+        <!-- The footer at the very bottom of the screen -->
+        <footer class="site-footer outer">
+            <div class="site-footer-content inner">
+                <section class="copyright"><a href="https://AhnSang0915.github.io/">My Coding Practice Gym</a> &copy; 2022</section>
+                <section class="poweredby">Proudly published with <a href="https://jekyllrb.com/">Jekyll</a> &
+                    <a href="https://pages.github.com/" target="_blank" rel="noopener">GitHub Pages</a> using
+                    <a href="https://github.com/jekyllt/jasper2" target="_blank" rel="noopener">Jasper2</a></section>
+                <nav class="site-footer-nav">
+                    <a href="/">Latest Posts</a>
+                    
+                    
+                    <a href="https://ghost.org" target="_blank" rel="noopener">Ghost</a>
+                </nav>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- The big email subscribe modal content -->
+    
+    <div id="subscribe" class="subscribe-overlay">
+        <a class="subscribe-overlay-close" href="#"></a>
+            <div class="subscribe-overlay-content">
+                
+                <h1 class="subscribe-overlay-title">Search My Coding Practice Gym</h1>
+                <p class="subscribe-overlay-description">
+                블로그 포스팅 검색 </p>
+                <span id="searchform" method="post" action="/subscribe/" class="">
+    <input class="confirm" type="hidden" name="confirm"  />
+    <input class="location" type="hidden" name="location"  />
+    <input class="referrer" type="hidden" name="referrer"  />
+
+    <div class="form-group">
+        <input class="subscribe-email" onkeyup="myFunc()" 
+               id="searchtext" type="text" name="searchtext"  
+               placeholder="Search..." />
+    </div>
+    <script type="text/javascript">
+        function myFunc() {
+            if(event.keyCode == 13) {
+                var url = encodeURIComponent($("#searchtext").val());
+                location.href = "/search.html?query=" + url;
+            }
+        }
+    </script>
+</span>
+            </div>
+    </div>
+    
+
+    <!-- highlight.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.10.0/components/prism-abap.min.js"></script>
+    <script>$(document).ready(function() {
+      $('pre code').each(function(i, block) {
+        hljs.highlightBlock(block);
+      });
+    });</script>
+
+    <!-- jQuery + Fitvids, which makes all video embeds responsive -->
+    <script
+        src="https://code.jquery.com/jquery-3.2.1.min.js"
+        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous">
+    </script>
+    <script type="text/javascript" src="/assets/js/jquery.fitvids.js"></script>
+    <script type="text/javascript" src="https://demo.ghost.io/assets/js/jquery.fitvids.js?v=724281a32e"></script>
+
+
+    <!-- Paginator increased to "infinit" in _config.yml -->
+    <!-- if paginator.posts  -->
+    <!-- <script>
+        var maxPages = parseInt('');
+    </script>
+    <script src="/assets/js/infinitescroll.js"></script> -->
+    <!-- /endif -->
+
+    
+
+
+    <!-- Add Google Analytics  -->
+    <!-- Google Analytics Tracking code -->
+ <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-xxxxxxxx-x', 'auto');
+  ga('send', 'pageview');
+
+ </script>
+
+
+    <!-- The #block helper will pull in data from the #contentFor other template files. In this case, there's some JavaScript which we only want to use in post.hbs, but it needs to be included down here, after jQuery has already loaded. -->
+    
+        <script>
+
+// NOTE: Scroll performance is poor in Safari
+// - this appears to be due to the events firing much more slowly in Safari.
+//   Dropping the scroll event and using only a raf loop results in smoother
+//   scrolling but continuous processing even when not scrolling
+$(document).ready(function () {
+    // Start fitVids
+    var $postContent = $(".post-full-content");
+    $postContent.fitVids();
+    // End fitVids
+
+    var progressBar = document.querySelector('progress');
+    var header = document.querySelector('.floating-header');
+    var title = document.querySelector('.post-full-title');
+
+    var lastScrollY = window.scrollY;
+    var lastWindowHeight = window.innerHeight;
+    var lastDocumentHeight = $(document).height();
+    var ticking = false;
+
+    function onScroll() {
+        lastScrollY = window.scrollY;
+        requestTick();
+    }
+
+    function onResize() {
+        lastWindowHeight = window.innerHeight;
+        lastDocumentHeight = $(document).height();
+        requestTick();
+    }
+
+    function requestTick() {
+        if (!ticking) {
+            requestAnimationFrame(update);
+        }
+        ticking = true;
+    }
+
+    function update() {
+        var trigger = title.getBoundingClientRect().top + window.scrollY;
+        var triggerOffset = title.offsetHeight + 35;
+        var progressMax = lastDocumentHeight - lastWindowHeight;
+
+        // show/hide floating header
+        if (lastScrollY >= trigger + triggerOffset) {
+            header.classList.add('floating-active');
+        } else {
+            header.classList.remove('floating-active');
+        }
+
+        progressBar.setAttribute('max', progressMax);
+        progressBar.setAttribute('value', lastScrollY);
+
+        ticking = false;
+    }
+
+    window.addEventListener('scroll', onScroll, {passive: true});
+    window.addEventListener('resize', onResize, false);
+
+    update();
+});
+</script>
+
+    
+
+    <!-- Ghost outputs important scripts and data with this tag - it should always be the very last thing before the closing body tag -->
+    <!-- ghost_foot -->
+
+</body>
+</html>

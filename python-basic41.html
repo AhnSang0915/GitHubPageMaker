@@ -1,0 +1,1721 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <!-- Document Settings -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <!-- Base Meta -->
+    <!-- dynamically fixing the title for tag/author pages -->
+
+
+
+    <title>Python - Python 정규표현식 사용하기</title>
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Styles'n'Scripts -->
+    <link rel="stylesheet" type="text/css" href="/assets/built/screen.css" />
+    <link rel="stylesheet" type="text/css" href="/assets/built/screen.edited.css" />
+    <link rel="stylesheet" type="text/css" href="/assets/built/syntax.css" />
+
+    <!--    costom.css-->
+    <link rel="stylesheet" type="text/css" href="/assets/built/custom.css" />
+
+    <!--    Font Awsome-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!--    웹폰트 추가-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/nanumgothic.css">
+
+    <!--    syntax.css-->
+    <link rel="stylesheet" type="text/css" href="/assets/built/syntax.css" />
+
+
+    <!-- highlight.js -->
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">
+    <style>.hljs { background: none; }</style>
+
+    <!--[if IE]>
+        <style>
+            p, ol, ul{
+                width: 100%;
+            }
+            blockquote{
+                width: 100%;
+            }
+        </style>
+    <![endif]-->
+    
+    <!-- This tag outputs SEO meta+structured data and other important settings -->
+    <meta name="description" content="Learn Coding" />
+    <link rel="shortcut icon" href="https://AhnSang0915.github.io/assets/built/images/favicon.png" type="image/png" />
+    <link rel="canonical" href="https://AhnSang0915.github.io/python-basic41" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
+
+     <!--title below is coming from _includes/dynamic_title-->
+    <meta property="og:site_name" content="My Coding Practice Gym" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Python - Python 정규표현식 사용하기" />
+    <meta property="og:description" content="Python Python 기본 Python 숫자 계산하기 Python 변수 만들기 Python 출력 방법 Python 불과 비교, 논리 연산자 Python 문자열 사용하기 Python 리스트와 튜플 사용하기 Python 시퀀스 자료형 활용하기 Python 딕셔너리 사용하기 Python if 조건문으로 특정 조건일 때 코드 실행하기 Python else를 사용하여 두 방향으로 분기하기 Python elif를 사용하여 두 방향으로" />
+    <meta property="og:url" content="https://AhnSang0915.github.io/python-basic41" />
+    <meta property="og:image" content="https://AhnSang0915.github.io/assets/built/images/python-logo.png" />
+    <meta property="article:publisher" content="https://www.facebook.com/" />
+    <meta property="article:author" content="https://www.facebook.com/" />
+    <meta property="article:published_time" content="2022-04-24T06:00:00+00:00" />
+    <meta property="article:modified_time" content="2022-04-24T06:00:00+00:00" />
+    <meta property="article:tag" content="Python" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Python - Python 정규표현식 사용하기" />
+    <meta name="twitter:description" content="Python Python 기본 Python 숫자 계산하기 Python 변수 만들기 Python 출력 방법 Python 불과 비교, 논리 연산자 Python 문자열 사용하기 Python 리스트와 튜플 사용하기 Python 시퀀스 자료형 활용하기 Python 딕셔너리 사용하기 Python if 조건문으로 특정 조건일 때 코드 실행하기 Python else를 사용하여 두 방향으로 분기하기 Python elif를 사용하여 두 방향으로" />
+    <meta name="twitter:url" content="https://AhnSang0915.github.io/" />
+    <meta name="twitter:image" content="https://AhnSang0915.github.io/assets/built/images/python-logo.png" />
+    <meta name="twitter:label1" content="Written by" />
+    <meta name="twitter:data1" content="My Coding Practice Gym" />
+    <meta name="twitter:label2" content="Filed under" />
+    <meta name="twitter:data2" content="Python" />
+    <meta name="twitter:site" content="@" />
+    <meta name="twitter:creator" content="@" />
+    <meta property="og:image:width" content="1400" />
+    <meta property="og:image:height" content="933" />
+
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Website",
+    "publisher": {
+        "@type": "Organization",
+        "name": "My Coding Practice Gym",
+        "logo": "https://AhnSang0915.github.io/"
+    },
+    "url": "https://AhnSang0915.github.io/python-basic41",
+    "image": {
+        "@type": "ImageObject",
+        "url": "https://AhnSang0915.github.io/assets/built/images/python-logo.png",
+        "width": 2000,
+        "height": 666
+    },
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://AhnSang0915.github.io/python-basic41"
+    },
+    "description": "Python Python 기본 Python 숫자 계산하기 Python 변수 만들기 Python 출력 방법 Python 불과 비교, 논리 연산자 Python 문자열 사용하기 Python 리스트와 튜플 사용하기 Python 시퀀스 자료형 활용하기 Python 딕셔너리 사용하기 Python if 조건문으로 특정 조건일 때 코드 실행하기 Python else를 사용하여 두 방향으로 분기하기 Python elif를 사용하여 두 방향으로"
+}
+    </script>
+
+    <!-- <script type="text/javascript" src="https://demo.ghost.io/public/ghost-sdk.min.js?v=724281a32e"></script>
+    <script type="text/javascript">
+    ghost.init({
+    	clientId: "ghost-frontend",
+    	clientSecret: "f84a07a72b17"
+    });
+    </script> -->
+
+    <meta name="generator" content="Jekyll 3.6.2" />
+    <link rel="alternate" type="application/rss+xml" title="Python - Python 정규표현식 사용하기" href="/feed.xml" />
+
+
+</head>
+<body class="post-template">
+
+    <div class="site-wrapper">
+        <!-- All the main content gets inserted here, index.hbs, post.hbs, etc -->
+        <!-- default -->
+
+<!-- The tag above means: insert everything in this file
+into the {body} of the default.hbs template -->
+
+<header class="site-header outer">
+    <div class="inner">
+        <nav class="site-nav">
+    <div class="site-nav-left">
+        
+            
+                <a class="site-nav-logo" href="https://AhnSang0915.github.io/">My Coding Practice Gym</a>
+            
+        
+        
+            <ul class="nav" role="menu">
+    <li class="nav-home" role="menuitem"><a href="/">Home</a></li>
+    <li class="nav-about" role="menuitem"><a href="/about/">About</a></li>
+    <li class="nav-javascript" role="menuitem"><a href="/tag/javascript/">Javascript</a></li>
+    <li class="nav-python" role="menuitem"><a href="/tag/python/">Python</a></li>
+    <li class="nav-archive" role="menuitem">
+        <a href="/archive.html">All Posts</a>
+    </li>
+    <li class="nav-archive" role="menuitem">
+        <a href="/author_archive.html">Tag별 Posts</a>
+    </li>
+</ul>
+        
+    </div>
+    <div class="site-nav-right">
+        <div class="social-links">
+            
+            
+        </div>
+        
+            <a class="subscribe-button" href="#subscribe">Search</a>
+        
+    </div>
+</nav>
+
+    </div>
+</header>
+
+<!-- Everything inside the #post tags pulls data from the post -->
+<!-- #post -->
+
+<main id="site-main" class="site-main outer" role="main">
+    <div class="inner">
+
+        <article class="post-full  tag-python post tag-python ">
+
+            <header class="post-full-header">
+                <section class="post-full-meta">
+                    <time class="post-full-meta-date" datetime="24 April 2022">24 April 2022</time>
+                    
+                        <span class="date-divider">/</span>
+                        
+                            
+                               <a href='/tag/python/'>PYTHON</a>
+                            
+                        
+                    
+                </section>
+                <h1 class="post-full-title">Python - Python 정규표현식 사용하기</h1>
+            </header>
+
+            
+            <figure class="post-full-image" style="background-image: url(/assets/built/images/python-logo.png)">
+            </figure>
+            
+
+            <section class="post-full-content">
+                <div class="kg-card-markdown">
+                    <p><span class="table-of-contents-list">Python</span></p>
+<ul class="table-of-contents-list">
+    <li><a href="./python-basic">Python 기본</a></li>
+    <li><a href="./python-basic2">Python 숫자 계산하기</a></li>
+    <li><a href="./python-basic3">Python 변수 만들기</a></li>
+    <li><a href="./python-basic4">Python 출력 방법</a></li>
+    <li><a href="./python-basic5">Python 불과 비교, 논리 연산자</a></li>
+    <li><a href="./python-basic6">Python 문자열 사용하기</a></li>
+    <li><a href="./python-basic7">Python 리스트와 튜플 사용하기</a></li>
+    <li><a href="./python-basic8">Python 시퀀스 자료형 활용하기</a></li>
+    <li><a href="./python-basic9">Python 딕셔너리 사용하기</a></li>
+    <li><a href="./python-basic10">Python if 조건문으로 특정 조건일 때 코드 실행하기</a></li>
+    <li><a href="./python-basic11">Python else를 사용하여 두 방향으로 분기하기</a></li>
+    <li><a href="./python-basic12">Python elif를 사용하여 두 방향으로 분기하기</a></li>
+    <li><a href="./python-basic13">Python for 반복문</a></li>
+    <li><a href="./python-basic14">Python while 반복문</a></li>
+    <li><a href="./python-basic15">Python break, continue로 반복문 제어하기</a></li>
+    <li><a href="./python-basic16">Python 중첩루프</a></li>
+    <li><a href="./python-basic17">Python FizzBuzz 문제</a></li>
+    <li><a href="./python-basic18">Python 터틀 그래픽스로 그림 그리기</a></li>
+    <li><a href="./python-basic19">Python 리스트와 튜플 응용하기</a></li>
+    <li><a href="./python-basic20">Python 리스트와 튜플 응용하기 - 2</a></li>
+    <li><a href="./python-basic21">Python 2차원 리스트 사용하기</a></li>
+    <li><a href="./python-basic22">Python 문자열 응용하기</a></li>
+    <li><a href="./python-basic23">Python 딕셔너리 응용하기</a></li>
+    <li><a href="./python-basic24">Python 세트 사용하기</a></li>
+    <li><a href="./python-basic25">Python 파일 사용하기</a></li>
+    <li><a href="./python-basic26">Python 회문 판별과 N-gram 만들기</a></li>
+    <li><a href="./python-basic27">Python 함수 사용하기</a></li>
+    <li><a href="./python-basic28">Python 함수에서 위치 인수와 키워드 인수 사용하기</a></li>
+    <li><a href="./python-basic29">Python 함수에서 재귀호출 사용하기</a></li>
+    <li><a href="./python-basic30">Python 람다 표현식 사용하기</a></li>
+    <li><a href="./python-basic31">Python 클로저 사용하기</a></li>
+    <li><a href="./python-basic32">Python 클래스 사용하기</a></li>
+    <li><a href="./python-basic33">Python 클래스 속성과 정적, 클래스 메서드 사용하기</a></li>
+    <li><a href="./python-basic34">Python 클래스 상속 사용하기</a></li>
+    <li><a href="./python-basic35">Python 두 점 사이의 거리 구하기</a></li>
+    <li><a href="./python-basic36">Python 예외 처리 사용하기</a></li>
+    <li><a href="./python-basic37">Python 이터레이터 사용하기</a></li>
+    <li><a href="./python-basic38">Python 제너레이터 사용하기</a></li>
+    <li><a href="./python-basic39">Python 코루틴 사용하기</a></li>
+    <li><a href="./python-basic40">Python 데코레이터 사용하기</a></li>
+    <li><a href="./python-basic41">Python 정규표현식 사용하기</a></li>
+    <li><a href="./python-basic42">Python 모듈과 패키지 사용하기</a></li>
+    <li><a href="./python-basic43">Python 모듈과 패키지 만들기</a></li>
+
+
+</ul>
+
+<h1 id="정규표현식-사용하기">정규표현식 사용하기</h1>
+
+<p><br />
+<br />
+정규표현식(regular expression)은 일정한 규칙(패턴)을 가진 문자열을 표현하는 방법이다. 복잡한 문자열 속에서 특정한 규칙으로 된 문자열을 검색한 뒤 추출하거나 바꿀 때 사용한다. 또는, 문자열이 정해진 규칙에 맞는지 판단할 때도 사용한다.</p>
+
+<hr />
+
+<h2 id="1문자열-판단하기">1.문자열 판단하기</h2>
+<p><br />
+<br />
+간단하게 문자열에 특정 문자열이 포함되어 있는지 판단해보자. 정규표현식은 re모튤을 가져와서 사용하며 match함수에 정규표현식 패턴과 판단할 문자열을 넣는다.(re는 regular expression의 약자).</p>
+
+<ul>
+  <li>re.match(‘패턴’, ‘문자열’)</li>
+</ul>
+
+<p>다음은 ‘Hello, world!’ 문자열에 ‘Hello’와 ‘Python’이 있는지 판단한다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="kn">import</span> <span class="nn">re</span>
+<span class="n">re</span><span class="p">.</span><span class="n">match</span><span class="p">(</span><span class="s">'Hello'</span><span class="p">,</span> <span class="s">'Hello, world!'</span><span class="p">)</span>     <span class="c1"># 문자열이 있으므로 정규표현식 매치 객체가 반환됨
+</span><span class="o">&lt;</span><span class="n">_sre</span><span class="p">.</span><span class="n">SRE_Match</span> <span class="nb">object</span><span class="p">;</span> <span class="n">span</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="n">match</span><span class="o">=</span><span class="s">'Hello'</span><span class="o">&gt;</span>
+<span class="n">re</span><span class="p">.</span><span class="n">match</span><span class="p">(</span><span class="s">'Python'</span><span class="p">,</span> <span class="s">'Hello, world!'</span><span class="p">)</span>    <span class="c1"># 문자열이 없으므로 아무것도 반환되지 않음
+</span>
+</code></pre></div></div>
+
+<h3 id="문자열이-맨-앞에-오는지-맨-뒤에-오는지-판단하기">문자열이 맨 앞에 오는지 맨 뒤에 오는지 판단하기</h3>
+<p><br />
+<br />
+정규표현식은 특정 문자열이 맨 앞에 오는지 맨 뒤에 오는지 판단할 수 있다.
+문자열 앞에 ^를 붙이면 문자열이 맨 앞에 오는지 판단하고, 문자열 뒤에 $를 붙이면 문자열이 맨 뒤에 오는지 판단힌다(특정 문자열로 끝나는지).</p>
+
+<ul>
+  <li>^문자열</li>
+  <li>문자열$</li>
+</ul>
+
+<p>‘^Hello’는 ‘Hello, world!’가 ‘Hello’로 시작하는지 판단하고, ‘world!$’는 ‘Hello, world!’가 ‘world!’로 끝나는지 판단한다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="n">re</span><span class="p">.</span><span class="n">search</span><span class="p">(</span><span class="s">'^Hello'</span><span class="p">,</span> <span class="s">'Hello, world!'</span><span class="p">)</span>     <span class="c1"># Hello로 시작하므로 패턴에 매칭됨
+</span><span class="o">&lt;</span><span class="n">_sre</span><span class="p">.</span><span class="n">SRE_Match</span> <span class="nb">object</span><span class="p">;</span> <span class="n">span</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="n">match</span><span class="o">=</span><span class="s">'Hello'</span><span class="o">&gt;</span>
+<span class="n">re</span><span class="p">.</span><span class="n">search</span><span class="p">(</span><span class="s">'world!$'</span><span class="p">,</span> <span class="s">'Hello, world!'</span><span class="p">)</span>    <span class="c1"># world!로 끝나므로 패턴에 매칭됨
+</span><span class="o">&lt;</span><span class="n">_sre</span><span class="p">.</span><span class="n">SRE_Match</span> <span class="nb">object</span><span class="p">;</span> <span class="n">span</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">13</span><span class="p">),</span> <span class="n">match</span><span class="o">=</span><span class="s">'world!'</span><span class="o">&gt;</span>
+
+</code></pre></div></div>
+
+<h3 id="지정된-문자열이-하나라도-포함되는지-판단하기">지정된 문자열이 하나라도 포함되는지 판단하기</h3>
+<p><br />
+<br />
+|는 특정 문자열에서 지정된 문자열(문자)이 하나라도 포함되는지 판단한다. 기본 개념은 OR 연산자와 같다.</p>
+
+<ul>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td>문자열</td>
+          <td>문자열, 대상문자열</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td>문자열</td>
+          <td>문자열</td>
+          <td>문자열</td>
+          <td>문자열, 대상문자열</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+</ul>
+
+<table>
+  <tbody>
+    <tr>
+      <td>‘hello</td>
+      <td>world’는 문자열에서 ‘hello’ 또는 ‘world’가 포함되는지 판단한다.</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="n">re</span><span class="p">.</span><span class="n">match</span><span class="p">(</span><span class="s">'hello|world'</span><span class="p">,</span> <span class="s">'hello'</span><span class="p">)</span>    <span class="c1"># hello 또는 world가 있으므로 패턴에 매칭됨
+</span><span class="o">&lt;</span><span class="n">_sre</span><span class="p">.</span><span class="n">SRE_Match</span> <span class="nb">object</span><span class="p">;</span> <span class="n">span</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="n">match</span><span class="o">=</span><span class="s">'hello'</span><span class="o">&gt;</span>
+
+</code></pre></div></div>
+
+<p>–</p>
+
+<h2 id="2범위-판단하기">2.범위 판단하기</h2>
+<p><br />
+<br />
+이번에는 문자열이 숫자로 되어있는지 판한해보자. 다음과 같이 [] 대괄호 안에 숫자 범위를 넣으며 * 또는 +를 붙인다. 숫자 범위는 0-9처럼 표현하며 *는 문자(숫자)가 0개 이상 있는지, +는 1개 이상 있는지 판단한다.</p>
+
+<ul>
+  <li>[0-9]*</li>
+  <li>[0-9]+</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="n">re</span><span class="p">.</span><span class="n">match</span><span class="p">(</span><span class="s">'[0-9]*'</span><span class="p">,</span> <span class="s">'1234'</span><span class="p">)</span>    <span class="c1"># 1234는 0부터 9까지 숫자가 0개 이상 있으므로 패턴에 매칭됨
+</span><span class="o">&lt;</span><span class="n">_sre</span><span class="p">.</span><span class="n">SRE_Match</span> <span class="nb">object</span><span class="p">;</span> <span class="n">span</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">match</span><span class="o">=</span><span class="s">'1234'</span><span class="o">&gt;</span>
+<span class="n">re</span><span class="p">.</span><span class="n">match</span><span class="p">(</span><span class="s">'[0-9]+'</span><span class="p">,</span> <span class="s">'1234'</span><span class="p">)</span>    <span class="c1"># 1234는 0부터 9까지 숫자가 1개 이상 있으므로 패턴에 매칭됨
+</span><span class="o">&lt;</span><span class="n">_sre</span><span class="p">.</span><span class="n">SRE_Match</span> <span class="nb">object</span><span class="p">;</span> <span class="n">span</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">match</span><span class="o">=</span><span class="s">'1234'</span><span class="o">&gt;</span>
+<span class="n">re</span><span class="p">.</span><span class="n">match</span><span class="p">(</span><span class="s">'[0-9]+'</span><span class="p">,</span> <span class="s">'abcd'</span><span class="p">)</span>    <span class="c1"># abcd는 0부터 9까지 숫자가 1개 이상 없으므로 패턴에 매칭되지 않음
+</span>
+</code></pre></div></div>
+
+<p>그럼 *와 +의 사용은 다음과 같이 a*b와 a+b를 확인해보면 쉽게 알 수 있다.</p>
+
+<p>a*b, a+b에서 b는 무조건 있어야 하는 문자고, a*는 a가 0개 이상 있어야 하므로 b는 매칭이 된다. 하지만 a+는 a가 1개 이상 있어야 하므로 b는 매칭되지 않는다. 그리고 ‘ab’, ‘aab’, ‘aaab’처럼 a가 0개 이상 또는 1개 이상 있을 때는 a*b와 a+b를 모두 만족한다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="n">re</span><span class="p">.</span><span class="n">match</span><span class="p">(</span><span class="s">'a*b'</span><span class="p">,</span> <span class="s">'b'</span><span class="p">)</span>      <span class="c1"># b에는 a가 0개 이상 있으므로 패턴에 매칭됨
+</span><span class="o">&lt;</span><span class="n">_sre</span><span class="p">.</span><span class="n">SRE_Match</span> <span class="nb">object</span><span class="p">;</span> <span class="n">span</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">match</span><span class="o">=</span><span class="s">'b'</span><span class="o">&gt;</span>
+<span class="n">re</span><span class="p">.</span><span class="n">match</span><span class="p">(</span><span class="s">'a+b'</span><span class="p">,</span> <span class="s">'b'</span><span class="p">)</span>      <span class="c1"># b에는 a가 1개 이상 없으므로 패턴에 매칭되지 않음
+</span><span class="n">re</span><span class="p">.</span><span class="n">match</span><span class="p">(</span><span class="s">'a*b'</span><span class="p">,</span> <span class="s">'aab'</span><span class="p">)</span>    <span class="c1"># aab에는 a가 0개 이상 있으므로 패턴에 매칭됨
+</span><span class="o">&lt;</span><span class="n">_sre</span><span class="p">.</span><span class="n">SRE_Match</span> <span class="nb">object</span><span class="p">;</span> <span class="n">span</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">match</span><span class="o">=</span><span class="s">'aab'</span><span class="o">&gt;</span>
+<span class="n">re</span><span class="p">.</span><span class="n">match</span><span class="p">(</span><span class="s">'a+b'</span><span class="p">,</span> <span class="s">'aab'</span><span class="p">)</span>    <span class="c1"># aab에는 a가 1개 이상 있으므로 패턴에 매칭됨
+</span><span class="o">&lt;</span><span class="n">_sre</span><span class="p">.</span><span class="n">SRE_Match</span> <span class="nb">object</span><span class="p">;</span> <span class="n">span</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">match</span><span class="o">=</span><span class="s">'aab'</span><span class="o">&gt;</span>
+
+</code></pre></div></div>
+
+<h3 id="문자가-한-개만-있는지-판단하기">문자가 한 개만 있는지 판단하기</h3>
+<p><br />
+<br />
+문자가 여러 개 있는지 판단할 때는 *과 +를 사용했지만, 문자가 한 개만 있는지 판단할 때는 ?와 .을 사용한다. ?는 ? 앞의 문자(범위)가 0개 또는 1개인지 판단하고, .은 .이 있는 위치에 아무 문자(숫자)가 1개 있는지 판단한다.</p>
+
+<ul>
+  <li>문자?</li>
+  <li>[0-9]?</li>
+  <li>.</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="n">re</span><span class="p">.</span><span class="n">match</span><span class="p">(</span><span class="s">'abc?d'</span><span class="p">,</span> <span class="s">'abd'</span><span class="p">)</span>         <span class="c1"># abd에서 c 위치에 c가 0개 있으므로 패턴에 매칭됨
+</span><span class="o">&lt;</span><span class="n">_sre</span><span class="p">.</span><span class="n">SRE_Match</span> <span class="nb">object</span><span class="p">;</span> <span class="n">span</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">match</span><span class="o">=</span><span class="s">'abd'</span><span class="o">&gt;</span>
+<span class="n">re</span><span class="p">.</span><span class="n">match</span><span class="p">(</span><span class="s">'ab[0-9]?c'</span><span class="p">,</span> <span class="s">'ab3c'</span><span class="p">)</span>    <span class="c1"># [0-9] 위치에 숫자가 1개 있으므로 패턴에 매칭됨
+</span><span class="o">&lt;</span><span class="n">_sre</span><span class="p">.</span><span class="n">SRE_Match</span> <span class="nb">object</span><span class="p">;</span> <span class="n">span</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">match</span><span class="o">=</span><span class="s">'ab3c'</span><span class="o">&gt;</span>
+<span class="n">re</span><span class="p">.</span><span class="n">match</span><span class="p">(</span><span class="s">'ab.d'</span><span class="p">,</span> <span class="s">'abxd'</span><span class="p">)</span>         <span class="c1"># .이 있는 위치에 문자가 1개 있으므로 패턴에 매칭됨
+</span><span class="o">&lt;</span><span class="n">_sre</span><span class="p">.</span><span class="n">SRE_Match</span> <span class="nb">object</span><span class="p">;</span> <span class="n">span</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">match</span><span class="o">=</span><span class="s">'abxd'</span><span class="o">&gt;</span>
+
+</code></pre></div></div>
+
+<h3 id="문자-개수-판단하기">문자 개수 판단하기</h3>
+<p><br />
+<br />
+문자(숫자)가 정확히 몇 개 있는지 판단하고 싶을 때는 문자 뒤에 {개수} 형식을 지정한다. 문자열의 경우에는 문자열을 괄호로 묶고 뒤에 {개수} 형식을 지정한다.</p>
+
+<ul>
+  <li>문자{개수}</li>
+  <li>(문자열){개수}</li>
+</ul>
+
+<p>h{3}은 h가 3개 있는지 판단하고, (hello){3}은 hello가 3개 있는지 판단한다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="n">re</span><span class="p">.</span><span class="n">match</span><span class="p">(</span><span class="s">'h{3}'</span><span class="p">,</span> <span class="s">'hhhello'</span><span class="p">)</span>
+<span class="o">&lt;</span><span class="n">_sre</span><span class="p">.</span><span class="n">SRE_Match</span> <span class="nb">object</span><span class="p">;</span> <span class="n">span</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">match</span><span class="o">=</span><span class="s">'hhh'</span><span class="o">&gt;</span>
+<span class="n">re</span><span class="p">.</span><span class="n">match</span><span class="p">(</span><span class="s">'(hello){3}'</span><span class="p">,</span> <span class="s">'hellohellohelloworld'</span><span class="p">)</span>
+<span class="o">&lt;</span><span class="n">_sre</span><span class="p">.</span><span class="n">SRE_Match</span> <span class="nb">object</span><span class="p">;</span> <span class="n">span</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">15</span><span class="p">),</span> <span class="n">match</span><span class="o">=</span><span class="s">'hellohellohello'</span><span class="o">&gt;</span>
+
+</code></pre></div></div>
+
+<p>특정 범위의 문자(숫자)가 몇 개 있는지 판단할 수도 있다. 이때는 범위 [ ] 뒤에 {개수} 형식을 지정한다.</p>
+
+<ul>
+  <li>[0-9]{개수}
+다음은 휴대전화의 번호 형식에 맞는지 판단한다.</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="n">re</span><span class="p">.</span><span class="n">match</span><span class="p">(</span><span class="s">'[0-9]{3}-[0-9]{4}-[0-9]{4}'</span><span class="p">,</span> <span class="s">'010-1000-1000'</span><span class="p">)</span>    <span class="c1"># 숫자 3개-4개-4개 패턴에 매칭됨
+</span><span class="o">&lt;</span><span class="n">_sre</span><span class="p">.</span><span class="n">SRE_Match</span> <span class="nb">object</span><span class="p">;</span> <span class="n">span</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">13</span><span class="p">),</span> <span class="n">match</span><span class="o">=</span><span class="s">'010-1000-1000'</span><span class="o">&gt;</span>
+<span class="n">re</span><span class="p">.</span><span class="n">match</span><span class="p">(</span><span class="s">'[0-9]{3}-[0-9]{4}-[0-9]{4}'</span><span class="p">,</span> <span class="s">'010-1000-100'</span><span class="p">)</span>   <span class="c1"># 숫자 3개-4개-4개 패턴에 매칭되지 않음
+</span>
+</code></pre></div></div>
+
+<p>이 기능은 문자(숫자)의 개수 범위도 지정할 수 있다. {시작개수,끝개수} 형식으로 시작 개수와 끝 개수를 지정해주면 특정 개수 사이에 들어가는지 판단한다.</p>
+
+<ul>
+  <li>(문자){시작개수,끝개수}</li>
+  <li>(문자열){시작개수,끝개수}</li>
+  <li>[0-9]{시작개수,끝개수}</li>
+</ul>
+
+<p>다음은 일반전화의 번호 형식에 맞는지 판단한다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="n">re</span><span class="p">.</span><span class="n">match</span><span class="p">(</span><span class="s">'[0-9]{2,3}-[0-9]{3,4}-[0-9]{4}'</span><span class="p">,</span> <span class="s">'02-100-1000'</span><span class="p">)</span>    <span class="c1"># 2~3개-3~4개-4개 패턴에 매칭됨
+</span><span class="o">&lt;</span><span class="n">_sre</span><span class="p">.</span><span class="n">SRE_Match</span> <span class="nb">object</span><span class="p">;</span> <span class="n">span</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">11</span><span class="p">),</span> <span class="n">match</span><span class="o">=</span><span class="s">'02-100-1000'</span><span class="o">&gt;</span>
+<span class="n">re</span><span class="p">.</span><span class="n">match</span><span class="p">(</span><span class="s">'[0-9]{2,3}-[0-9]{3,4}-[0-9]{4}'</span><span class="p">,</span> <span class="s">'02-10-1000'</span><span class="p">)</span>  <span class="c1"># 2~3개-3~4개-4개 패턴에 매칭되지 않음
+</span>
+</code></pre></div></div>
+
+<h3 id="숫자와-영문-문자를-조합해서-판단하기">숫자와 영문 문자를 조합해서 판단하기</h3>
+<p><br />
+<br />
+지금까지 숫자 범위만 판단해보았으니 이제 숫자와 영문 문자를 조합해서 판단해보자. 영문 문자 범위는 a-z, A-Z와 같이 표현한다.</p>
+
+<ul>
+  <li>a-z</li>
+  <li>A-Z</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="n">re</span><span class="p">.</span><span class="n">match</span><span class="p">(</span><span class="s">'[a-zA-Z0-9]+'</span><span class="p">,</span> <span class="s">'Hello1234'</span><span class="p">)</span>    <span class="c1"># a부터 z, A부터 Z, 0부터 9까지 1개 이상 있으므로
+</span><span class="o">&lt;</span><span class="n">_sre</span><span class="p">.</span><span class="n">SRE_Match</span> <span class="nb">object</span><span class="p">;</span> <span class="n">span</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">9</span><span class="p">),</span> <span class="n">match</span><span class="o">=</span><span class="s">'Hello1234'</span><span class="o">&gt;</span>                        <span class="c1"># 패턴에 매칭됨
+</span><span class="n">re</span><span class="p">.</span><span class="n">match</span><span class="p">(</span><span class="s">'[A-Z0-9]+'</span><span class="p">,</span> <span class="s">'hello'</span><span class="p">)</span>    <span class="c1"># 대문자, 숫자는 없고 소문자만 있으므로 패턴에 매칭되지 않음
+</span>
+</code></pre></div></div>
+
+<p>이처럼 숫자, 영문 문자 범위는 a-zA-Z0-9 또는 A-Z0-9와 같이 붙여 쓰면 된다.</p>
+
+<p>그럼 한글은 영문 문자와 방법이 같다. 가-힣처럼 나올 수 있는 한글 조합을 정해주면 된다.</p>
+
+<ul>
+  <li>가-힣</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="n">re</span><span class="p">.</span><span class="n">match</span><span class="p">(</span><span class="s">'[가-힣]+'</span><span class="p">,</span> <span class="s">'홍길동'</span><span class="p">)</span>    <span class="c1"># 가부터 힣까지 1개 이상 있으므로 패턴에 매칭됨
+</span><span class="o">&lt;</span><span class="n">_sre</span><span class="p">.</span><span class="n">SRE_Match</span> <span class="nb">object</span><span class="p">;</span> <span class="n">span</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">match</span><span class="o">=</span><span class="s">'홍길동'</span><span class="o">&gt;</span>
+
+</code></pre></div></div>
+
+<h3 id="특정-문자-범위에-포함되지-않는지-판단하기">특정 문자 범위에 포함되지 않는지 판단하기</h3>
+<p><br />
+<br /></p>
+
+<p>지금까지 정규표현식으로 특정 문자 범위에 포함되는지 살펴보았다. 그럼 특정 문자 범위에 포함되지 않는지 판단하려면 어떻게 해야 할까? 다음과 같이 문자(숫자) 범위 앞에 ^를 붙이면 해당 범위를 제외한다.</p>
+
+<ul>
+  <li>[^범위]*</li>
+  <li>[^범위]+</li>
+</ul>
+
+<p>즉, ‘[^A-Z]+’는 대문자를 제외한 모든 문자(숫자)가 1개 이상 있는지 판단한다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="n">re</span><span class="p">.</span><span class="n">match</span><span class="p">(</span><span class="s">'[^A-Z]+'</span><span class="p">,</span> <span class="s">'Hello'</span><span class="p">)</span>    <span class="c1"># 대문자를 제외. 대문자가 있으므로 패턴에 매칭되지 않음
+</span><span class="n">re</span><span class="p">.</span><span class="n">match</span><span class="p">(</span><span class="s">'[^A-Z]+'</span><span class="p">,</span> <span class="s">'hello'</span><span class="p">)</span>    <span class="c1"># 대문자를 제외. 대문자가 없으므로 패턴에 매칭됨
+</span><span class="o">&lt;</span><span class="n">_sre</span><span class="p">.</span><span class="n">SRE_Match</span> <span class="nb">object</span><span class="p">;</span> <span class="n">span</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="n">match</span><span class="o">=</span><span class="s">'hello'</span><span class="o">&gt;</span>
+
+</code></pre></div></div>
+
+<p>앞에서 특정 문자열로 시작하는지 판단할 때도 ^를 사용했었는데 문법이 비슷해서 이 부분은 헷갈리기 쉽다. 범위를 제외할 때는 ‘[^A-Z]+’와 같이 [ ] 안에 넣어주고, 특정 문자 범위로 시작할 때는 ‘^[A-Z]+’와 같이 [ ] 앞에 붙여준다. 그래서 다음과 같이 ‘^[A-Z]+’는 영문 대문자로 시작하는지 판단한다.</p>
+
+<ul>
+  <li>^[범위]*</li>
+  <li>^[범위]+</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="n">re</span><span class="p">.</span><span class="n">search</span><span class="p">(</span><span class="s">'^[A-Z]+'</span><span class="p">,</span> <span class="s">'Hello'</span><span class="p">)</span>        <span class="c1"># 대문자로 시작하므로 패턴에 매칭됨
+</span><span class="o">&lt;</span><span class="n">_sre</span><span class="p">.</span><span class="n">SRE_Match</span> <span class="nb">object</span><span class="p">;</span> <span class="n">span</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">match</span><span class="o">=</span><span class="s">'H'</span><span class="o">&gt;</span>
+
+</code></pre></div></div>
+
+<p>특정 문자(숫자) 범위로 끝나는지 확인할 때는 정규표현식 뒤에 $를 붙이면 된다.</p>
+
+<ul>
+  <li>[범위]*$</li>
+  <li>[범위]+$</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="n">re</span><span class="p">.</span><span class="n">search</span><span class="p">(</span><span class="s">'[0-9]+$'</span><span class="p">,</span> <span class="s">'Hello1234'</span><span class="p">)</span>    <span class="c1"># 숫자로 끝나므로 패턴에 매칭됨
+</span><span class="o">&lt;</span><span class="n">_sre</span><span class="p">.</span><span class="n">SRE_Match</span> <span class="nb">object</span><span class="p">;</span> <span class="n">span</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">9</span><span class="p">),</span> <span class="n">match</span><span class="o">=</span><span class="s">'1234'</span><span class="o">&gt;</span>
+
+</code></pre></div></div>
+
+<h3 id="특수-문자-판단하기">특수 문자 판단하기</h3>
+<p><br />
+<br />
+특수 문자 *, +, ?, ., ^, $, (, ) [, ], - 등을 판단하려면 특수 문자 앞에 \를 붙이면 된다. 단, [ ] 안에서는 \를 붙이지 않아도 되지만 에러가 발생하는 경우에는 \를 붙인다.</p>
+
+<ul>
+  <li>\특수문자</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="n">re</span><span class="p">.</span><span class="n">search</span><span class="p">(</span><span class="s">'\*+'</span><span class="p">,</span> <span class="s">'1 ** 2'</span><span class="p">)</span>                    <span class="c1"># *이 들어있는지 판단
+</span><span class="o">&lt;</span><span class="n">_sre</span><span class="p">.</span><span class="n">SRE_Match</span> <span class="nb">object</span><span class="p">;</span> <span class="n">span</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">match</span><span class="o">=</span><span class="s">'**'</span><span class="o">&gt;</span>
+<span class="n">re</span><span class="p">.</span><span class="n">match</span><span class="p">(</span><span class="s">'[$()a-zA-Z0-9]+'</span><span class="p">,</span> <span class="s">'$(document)'</span><span class="p">)</span>    <span class="c1"># $, (, )와 문자, 숫자가 들어있는지 판단
+</span><span class="o">&lt;</span><span class="n">_sre</span><span class="p">.</span><span class="n">SRE_Match</span> <span class="nb">object</span><span class="p">;</span> <span class="n">span</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">11</span><span class="p">),</span> <span class="n">match</span><span class="o">=</span><span class="s">'$(document)'</span><span class="o">&gt;</span>
+
+</code></pre></div></div>
+
+<p>지금까지 범위를 지정하면서 a-zA-Z0-9처럼 대소문자와 숫자를 모두 나열했다. 이런 방식으로 범위를 정하면 정규표현식이 길어지고 복잡해진다. 단순히 숫자인지 문자인지 판단할 때는 \d, \D, \w, \W를 사용하면 편리하다.</p>
+
+<ul>
+  <li>\d: [0-9]와 같음. 모든 숫자</li>
+  <li>\D: [^0-9]와 같음. 숫자를 제외한 모든 문자</li>
+  <li>\w: [a-zA-Z0-9_]와 같음. 영문 대소문자, 숫자, 밑줄 문자</li>
+  <li>\W: [^a-zA-Z0-9_]와 같음. 영문 대소문자, 숫자, 밑줄 문자를 제외한 모든 문자</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="n">re</span><span class="p">.</span><span class="n">match</span><span class="p">(</span><span class="s">'\d+'</span><span class="p">,</span> <span class="s">'1234'</span><span class="p">)</span>          <span class="c1"># 모든 숫자이므로 패턴에 매칭됨
+</span><span class="o">&lt;</span><span class="n">_sre</span><span class="p">.</span><span class="n">SRE_Match</span> <span class="nb">object</span><span class="p">;</span> <span class="n">span</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">match</span><span class="o">=</span><span class="s">'1234'</span><span class="o">&gt;</span>
+<span class="n">re</span><span class="p">.</span><span class="n">match</span><span class="p">(</span><span class="s">'\D+'</span><span class="p">,</span> <span class="s">'Hello'</span><span class="p">)</span>         <span class="c1"># 숫자를 제외한 모든 문자이므로 패턴에 매칭됨
+</span><span class="o">&lt;</span><span class="n">_sre</span><span class="p">.</span><span class="n">SRE_Match</span> <span class="nb">object</span><span class="p">;</span> <span class="n">span</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="n">match</span><span class="o">=</span><span class="s">'Hello'</span><span class="o">&gt;</span>
+<span class="n">re</span><span class="p">.</span><span class="n">match</span><span class="p">(</span><span class="s">'\w+'</span><span class="p">,</span> <span class="s">'Hello_1234'</span><span class="p">)</span>    <span class="c1"># 영문 대소문자, 숫자, 밑줄 문자이므로 패턴에 매칭됨
+</span><span class="o">&lt;</span><span class="n">_sre</span><span class="p">.</span><span class="n">SRE_Match</span> <span class="nb">object</span><span class="p">;</span> <span class="n">span</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="n">match</span><span class="o">=</span><span class="s">'Hello_1234'</span><span class="o">&gt;</span>
+<span class="n">re</span><span class="p">.</span><span class="n">match</span><span class="p">(</span><span class="s">'\W+'</span><span class="p">,</span> <span class="s">'(:)'</span><span class="p">)</span>    <span class="c1"># 영문 대소문자, 숫자, 밑줄문자를 제외한 모든 문자이므로 패턴에 매칭됨
+</span><span class="o">&lt;</span><span class="n">_sre</span><span class="p">.</span><span class="n">SRE_Match</span> <span class="nb">object</span><span class="p">;</span> <span class="n">span</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">match</span><span class="o">=</span><span class="s">'(:)'</span><span class="o">&gt;</span>
+
+</code></pre></div></div>
+
+<h3 id="공백-처리하기">공백 처리하기</h3>
+<p><br />
+<br />
+이번에는 공백을 처리해보겠다. 공백은 ‘ ‘처럼 공백 문자를 넣어도 되고, \s 또는 \S로 표현할 수도 있다.</p>
+
+<ul>
+  <li>\s: [ \t\n\r\f\v]와 같음. 공백(스페이스), \t(탭) \n(새 줄, 라인 피드), \r(캐리지 리턴), \f(폼피드), \v(수직 탭)을 포함</li>
+  <li>\S: [^ \t\n\r\f\v]와 같음. 공백을 제외하고 \t, \n, \r, \f, \v만 포함</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="n">re</span><span class="p">.</span><span class="n">match</span><span class="p">(</span><span class="s">'[a-zA-Z0-9 ]+'</span><span class="p">,</span> <span class="s">'Hello 1234'</span><span class="p">)</span>     <span class="c1"># ' '로 공백 표현
+</span><span class="o">&lt;</span><span class="n">_sre</span><span class="p">.</span><span class="n">SRE_Match</span> <span class="nb">object</span><span class="p">;</span> <span class="n">span</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="n">match</span><span class="o">=</span><span class="s">'Hello 1234'</span><span class="o">&gt;</span>
+<span class="n">re</span><span class="p">.</span><span class="n">match</span><span class="p">(</span><span class="s">'[a-zA-Z0-9\s]+'</span><span class="p">,</span> <span class="s">'Hello 1234'</span><span class="p">)</span>    <span class="c1"># \s로 공백 표현
+</span><span class="o">&lt;</span><span class="n">_sre</span><span class="p">.</span><span class="n">SRE_Match</span> <span class="nb">object</span><span class="p">;</span> <span class="n">span</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="n">match</span><span class="o">=</span><span class="s">'Hello 1234'</span><span class="o">&gt;</span>
+
+</code></pre></div></div>
+
+<h3 id="같은-정규표현식-패턴을-자주-사용할-때">같은 정규표현식 패턴을 자주 사용할 때</h3>
+<p><br />
+<br />
+매번 match나 search 함수에 정규표현식 패턴을 지정하는 방법은 비효율적이다. 같은 패턴을 자주 사용할 때는 compile 함수를 사용하여 정규표현식 패턴을 객체로 만든 뒤 match 또는 search 메서드를 호출하면 된다.</p>
+
+<ul>
+  <li>
+    <p>객체 = re.compile(‘패턴’)</p>
+  </li>
+  <li>
+    <p>객체.match(‘문자열’)</p>
+  </li>
+  <li>
+    <p>객체.search(‘문자열’)</p>
+  </li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="n">p</span> <span class="o">=</span> <span class="n">re</span><span class="p">.</span><span class="nb">compile</span><span class="p">(</span><span class="s">'[0-9]+'</span><span class="p">)</span>    <span class="c1"># 정규표현식 패턴을 객체로 만듦
+</span><span class="n">p</span><span class="p">.</span><span class="n">match</span><span class="p">(</span><span class="s">'1234'</span><span class="p">)</span>             <span class="c1"># 정규표현식 패턴 객체에서 match 메서드 사용
+</span><span class="o">&lt;</span><span class="n">_sre</span><span class="p">.</span><span class="n">SRE_Match</span> <span class="nb">object</span><span class="p">;</span> <span class="n">span</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">match</span><span class="o">=</span><span class="s">'1234'</span><span class="o">&gt;</span>
+<span class="n">p</span><span class="p">.</span><span class="n">search</span><span class="p">(</span><span class="s">'hello'</span><span class="p">)</span>           <span class="c1"># 정규표현식 패턴 객체에서 search 메서드 사용
+</span></code></pre></div></div>
+
+<hr />
+
+<h2 id="3-그룹-사용하기">3. 그룹 사용하기</h2>
+<p><br />
+<br />
+규표현식을 그룹으로 묶는 방법을 알아보겠다. 정규표현식 그룹은 해당 그룹과 일치하는 문자열을 얻어올 때 사용한다.</p>
+
+<p>패턴 안에서 정규표현식을 ( )(괄호)로 묶으면 그룹이 된다.</p>
+
+<ul>
+  <li>(정규표현식) (정규표현식)</li>
+</ul>
+
+<p>다음은 공백으로 구분된 숫자를 두 그룹으로 나누어서 찾은 뒤 각 그룹에 해당하는 문자열(숫자)을 가져온다.</p>
+
+<ul>
+  <li>매치객체.group(그룹숫자)</li>
+</ul>
+
+<p>매치 객체의 group 메서드에 숫자를 지정하면 해당 그룹에 매칭된 문자열을 반환한다. 숫자를 지정하지 않거나 0을 지정하면 매칭된 문자열을 한꺼번에 반환한다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="n">m</span> <span class="o">=</span> <span class="n">re</span><span class="p">.</span><span class="n">match</span><span class="p">(</span><span class="s">'([0-9]+) ([0-9]+)'</span><span class="p">,</span> <span class="s">'10 295'</span><span class="p">)</span>
+<span class="n">m</span><span class="p">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>    <span class="c1"># 첫 번째 그룹(그룹 1)에 매칭된 문자열을 반환
+</span><span class="s">'10'</span>
+<span class="n">m</span><span class="p">.</span><span class="n">group</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>    <span class="c1"># 두 번째 그룹(그룹 2)에 매칭된 문자열을 반환
+</span><span class="s">'295'</span>
+<span class="n">m</span><span class="p">.</span><span class="n">group</span><span class="p">()</span>     <span class="c1"># 매칭된 문자열을 한꺼번에 반환
+</span><span class="s">'10 295'</span>
+<span class="n">m</span><span class="p">.</span><span class="n">group</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>    <span class="c1"># 매칭된 문자열을 한꺼번에 반환
+</span><span class="s">'10 295'</span>
+
+</code></pre></div></div>
+
+<p>그리고 groups 메서드는 각 그룹에 해당하는 문자열을 튜플로 반환한다.</p>
+
+<ul>
+  <li>매치객체.groups()</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="n">m</span><span class="p">.</span><span class="n">groups</span><span class="p">()</span>    <span class="c1"># 각 그룹에 해당하는 문자열을 튜플 형태로 반환
+</span><span class="p">(</span><span class="s">'10'</span><span class="p">,</span> <span class="s">'295'</span><span class="p">)</span>
+
+</code></pre></div></div>
+
+<p>그룹 개수가 많아지면 숫자로 그룹을 구분하기가 힘들어진다. 이때는 그룹에 이름을 지으면 편리하다. 그룹의 이름은 ( )(괄호) 안에 ?P<이름> 형식으로 지정한다.</이름></p>
+
+<ul>
+  <li>(?P<이름>정규표현식)</이름></li>
+</ul>
+
+<p>다음은 함수를 호출하는 코드 print(1234)에서 함수의 이름 print와 인수 1234를 추출한다.</p>
+
+<ul>
+  <li>매치객체.group(‘그룹이름’)</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="n">m</span> <span class="o">=</span> <span class="n">re</span><span class="p">.</span><span class="n">match</span><span class="p">(</span><span class="s">'(?P&lt;func&gt;[a-zA-Z_][a-zA-Z0-9_]+)\((?P&lt;arg&gt;\w+)\)'</span><span class="p">,</span> <span class="s">'print(1234)'</span><span class="p">)</span>
+<span class="n">m</span><span class="p">.</span><span class="n">group</span><span class="p">(</span><span class="s">'func'</span><span class="p">)</span>    <span class="c1"># 그룹 이름으로 매칭된 문자열 출력
+</span><span class="s">'print'</span>
+<span class="n">m</span><span class="p">.</span><span class="n">group</span><span class="p">(</span><span class="s">'arg'</span><span class="p">)</span>     <span class="c1"># 그룹 이름으로 매칭된 문자열 출력
+</span><span class="s">'1234'</span>
+
+</code></pre></div></div>
+
+<p>(?P<func>)와 (?P<arg>)처럼 각 그룹에 이름을 짓고 m.group('func'), m.group('arg')로 매칭된 문자열을 출력했다. 참고로 함수 이름은 문자로만 시작해야 하므로 첫글자는 [a-zA-Z_]로 판단해준다. 또한, print 뒤에 붙은 (, )는 정규표현식에 사용하는 특수 문자이므로 앞에 \를 붙여준다.</arg></func></p>
+
+<h3 id="패턴에-매칭되는-모든-문자열-가져오기">패턴에 매칭되는 모든 문자열 가져오기</h3>
+<p><br />
+<br />
+지금까지 그룹에 해당하는 문자열을 가져왔다. 그러면 그룹 지정 없이 패턴에 매칭되는 모든 문자열을 가져오려면 findall 함수를 사용하며 매칭된 문자열을 리스트로 반환한다.</p>
+
+<ul>
+  <li>re.findall(‘패턴’, ‘문자열’)</li>
+</ul>
+
+<p>다음은 문자열에서 숫자만 가져온다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="n">re</span><span class="p">.</span><span class="n">findall</span><span class="p">(</span><span class="s">'[0-9]+'</span><span class="p">,</span> <span class="s">'1 2 Fizz 4 Buzz Fizz 7 8'</span><span class="p">)</span>
+<span class="p">[</span><span class="s">'1'</span><span class="p">,</span> <span class="s">'2'</span><span class="p">,</span> <span class="s">'4'</span><span class="p">,</span> <span class="s">'7'</span><span class="p">,</span> <span class="s">'8'</span><span class="p">]</span>
+
+</code></pre></div></div>
+
+<h3 id="-와-그룹-활용하기">*, +와 그룹 활용하기</h3>
+<p><br />
+<br />
+정규표현식에서 +과 <em>을 조합하여 사용할 때는 그룹으로 묶어서 사용합니다. (.[a-z]+)</em>는 점과 영문 소문자가 1개 이상 있는지 판단하고, 이것 자체가 0개 이상인지 판단합니다. 즉, 규칙은 반드시 지켜야 하지만 있어도 되고 없어도 되는 상황에 사용합니다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="n">re</span><span class="p">.</span><span class="n">match</span><span class="p">(</span><span class="s">'[a-z]+(.[a-z]+)*$'</span><span class="p">,</span> <span class="s">'hello.world'</span><span class="p">)</span>    <span class="c1"># .world는 문자열이므로 패턴에 매칭됨
+</span><span class="o">&lt;</span><span class="n">_sre</span><span class="p">.</span><span class="n">SRE_Match</span> <span class="nb">object</span><span class="p">;</span> <span class="n">span</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">11</span><span class="p">),</span> <span class="n">match</span><span class="o">=</span><span class="s">'hello.world'</span><span class="o">&gt;</span>
+<span class="n">re</span><span class="p">.</span><span class="n">match</span><span class="p">(</span><span class="s">'[a-z]+(.[a-z]+)*$'</span><span class="p">,</span> <span class="s">'hello.1234'</span><span class="p">)</span>     <span class="c1"># .1234는 숫자이므로 패턴에 매칭되지 않음
+</span><span class="n">re</span><span class="p">.</span><span class="n">match</span><span class="p">(</span><span class="s">'[a-z]+(.[a-z]+)*$'</span><span class="p">,</span> <span class="s">'hello'</span><span class="p">)</span>          <span class="c1"># .뒤에 문자열이 없어도 패턴에 매칭됨
+</span><span class="o">&lt;</span><span class="n">_sre</span><span class="p">.</span><span class="n">SRE_Match</span> <span class="nb">object</span><span class="p">;</span> <span class="n">span</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="n">match</span><span class="o">=</span><span class="s">'hello'</span><span class="o">&gt;</span>
+
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="4-문자열-바꾸기">4. 문자열 바꾸기</h2>
+<p><br />
+<br /></p>
+
+<p>문자열을 바꿀 때는 sub 함수를 사용하며 패턴, 바꿀 문자열, 문자열, 바꿀 횟수를 넣어준다. 여기서 바꿀 횟수를 넣으면 지정된 횟수만큼 바꾸며 바꿀 횟수를 생략하면 찾은 문자열을 모두 바꿔준다.</p>
+
+<ul>
+  <li>re.sub(‘패턴’, ‘바꿀문자열’, ‘문자열’, 바꿀횟수)</li>
+</ul>
+
+<p>다음은 문자열에서 ‘apple’ 또는 ‘orange’를 찾아서 ‘fruit’로 바꾼다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="n">re</span><span class="p">.</span><span class="n">sub</span><span class="p">(</span><span class="s">'apple|orange'</span><span class="p">,</span> <span class="s">'fruit'</span><span class="p">,</span> <span class="s">'apple box orange tree'</span><span class="p">)</span>    <span class="c1"># apple 또는 orange를 fruit로 바꿈
+</span><span class="s">'fruit box fruit tree'</span>
+
+</code></pre></div></div>
+
+<p>문자열에서 숫자만 찾아서 다른 문자로 바꿀 수 있다. 다음은 숫자만 찾아서 ‘n’으로 바꾼다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="n">re</span><span class="p">.</span><span class="n">sub</span><span class="p">(</span><span class="s">'[0-9]+'</span><span class="p">,</span> <span class="s">'n'</span><span class="p">,</span> <span class="s">'1 2 Fizz 4 Buzz Fizz 7 8'</span><span class="p">)</span>    <span class="c1"># 숫자만 찾아서 n으로 바꿈
+</span><span class="s">'n n Fizz n Buzz Fizz n n'</span>
+
+</code></pre></div></div>
+
+<p>sub 함수는 바꿀 문자열 대신 교체 함수를 지정할 수도 있다. 교체 함수는 매개변수로 매치 객체를 받으며 바꿀 결과를 문자열로 반환하면 된다. 다음은 문자열에서 숫자를 찾은 뒤 숫자를 10배로 만든다.</p>
+
+<ul>
+  <li>교체함수(매치객체)</li>
+  <li>re.sub(‘패턴’, 교체함수, ‘문자열’, 바꿀횟수)</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="k">def</span> <span class="nf">multiple10</span><span class="p">(</span><span class="n">m</span><span class="p">):</span>        <span class="c1"># 매개변수로 매치 객체를 받음
+</span>     <span class="n">n</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">m</span><span class="p">.</span><span class="n">group</span><span class="p">())</span>    <span class="c1"># 매칭된 문자열을 가져와서 정수로 변환
+</span>     <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="n">n</span> <span class="o">*</span> <span class="mi">10</span><span class="p">)</span>    <span class="c1"># 숫자에 10을 곱한 뒤 문자열로 변환해서 반환
+</span>
+<span class="n">re</span><span class="p">.</span><span class="n">sub</span><span class="p">(</span><span class="s">'[0-9]+'</span><span class="p">,</span> <span class="n">multiple10</span><span class="p">,</span> <span class="s">'1 2 Fizz 4 Buzz Fizz 7 8'</span><span class="p">)</span>
+<span class="s">'10 20 Fizz 40 Buzz Fizz 70 80'</span>
+
+</code></pre></div></div>
+
+<p>mutiple10 함수에서 group 메서드로 매칭된 문자열을 가져와서 정수로 바꾼다. 그리고 숫자에 10을 곱한 뒤 문자열로 변환해서 반환했다.</p>
+
+<p>교체 함수의 내용이 간단하다면 다음과 같이 람다 표현식을 만들어서 넣어도 된다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="n">re</span><span class="p">.</span><span class="n">sub</span><span class="p">(</span><span class="s">'[0-9]+'</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">m</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">m</span><span class="p">.</span><span class="n">group</span><span class="p">())</span> <span class="o">*</span> <span class="mi">10</span><span class="p">),</span> <span class="s">'1 2 Fizz 4 Buzz Fizz 7 8'</span><span class="p">)</span>
+<span class="s">'10 20 Fizz 40 Buzz Fizz 70 80'</span>
+
+</code></pre></div></div>
+
+<h3 id="찾은-문자열을-결과에-다시-사용하기">찾은 문자열을 결과에 다시 사용하기</h3>
+<p><br />
+<br /></p>
+
+<p>이번에는 정규표현식으로 찾은 문자열을 가져와서 결과에 다시 사용해보자. 먼저 정규표현식을 그룹으로 묶는다. 그러고 나면 바꿀 문자열에서 \숫자 형식으로 매칭된 문자열을 가져와서 사용할 수 있다.</p>
+
+<ul>
+  <li>\숫자</li>
+</ul>
+
+<p>다음은 ‘hello 1234’에서 hello는 그룹 1, 1234는 그룹 2로 찾은 뒤 그룹 2, 1, 2, 1 순으로 문자열의 순서를 바꿔서 출력한다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="n">re</span><span class="p">.</span><span class="n">sub</span><span class="p">(</span><span class="s">'([a-z]+) ([0-9]+)'</span><span class="p">,</span> <span class="s">'</span><span class="se">\\</span><span class="s">2 </span><span class="se">\\</span><span class="s">1 </span><span class="se">\\</span><span class="s">2 </span><span class="se">\\</span><span class="s">1'</span><span class="p">,</span> <span class="s">'hello 1234'</span><span class="p">)</span>    <span class="c1"># 그룹 2, 1, 2, 1 순으로 바꿈
+</span><span class="s">'1234 hello 1234 hello'</span>
+
+</code></pre></div></div>
+
+<p>다음은 ‘{ “name”: “james” }’을 ‘<name>james</name>’ 형식으로 바꾼다.
+외계어처럼 보이지만 부분부분 나눠서 보면 어렵지 않다. 이 정규표현식에서 그룹은 4개다. 맨 처음 ({\s<em>)은 {와 공백을 찾으므로 ‘{ ‘을 찾습니다. 그리고 마지막 (\s</em>})은 공백과 }를 찾으므로 ‘ }’를 찾는다. 중간에 있는 “(\w+)”:\s*”(\w+)”은 :을 기준으로 양 옆의 name과 james를 찾습니다. 바꿀 문자열은 ‘&lt;\2&gt;’과 같이 그룹 2 name과 그룹 3 james만 사용하고 그룹 1 ‘{ ‘, 그룹 4 ‘} ‘는 버린다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="n">re</span><span class="p">.</span><span class="n">sub</span><span class="p">(</span><span class="s">'({\s*)"(\w+)":\s*"(\w+)"(\s*})'</span><span class="p">,</span> <span class="s">'&lt;</span><span class="se">\\</span><span class="s">2&gt;</span><span class="se">\\</span><span class="s">3&lt;/</span><span class="se">\\</span><span class="s">2&gt;'</span><span class="p">,</span> <span class="s">'{ "name": "james" }'</span><span class="p">)</span>
+<span class="s">'&lt;name&gt;james&lt;/name&gt;'</span>
+
+</code></pre></div></div>
+
+<p>만약 그룹에 이름을 지었다면 \g<이름> 형식으로 매칭된 문자열을 가져올 수 있다(\\g<숫자> 형식으로 숫자를 지정해도 된다).</숫자></이름></p>
+
+<ul>
+  <li>\g<이름></이름></li>
+  <li>\g<숫자></숫자></li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="n">re</span><span class="p">.</span><span class="n">sub</span><span class="p">(</span><span class="s">'({\s*)"(?P&lt;key&gt;\w+)":\s*"(?P&lt;value&gt;\w+)"(\s*})'</span><span class="p">,</span> <span class="s">'&lt;</span><span class="se">\\</span><span class="s">g&lt;key&gt;&gt;</span><span class="se">\\</span><span class="s">g&lt;value&gt;&lt;/</span><span class="se">\\</span><span class="s">g&lt;key&gt;&gt;'</span><span class="p">,</span> <span class="s">'{ "name": "james" }'</span><span class="p">)</span>
+<span class="s">'&lt;name&gt;james&lt;/name&gt;'</span>
+
+</code></pre></div></div>
+
+<h3 id="raw-문자열-사용하기">raw 문자열 사용하기</h3>
+<p><br />
+<br />
+정규표현식의 특수 문자를 판단하려면 \를 붙여야 한다. 여기서 문자열 앞에 r을 붙여주면 원시(raw) 문자열이 되어 \를 붙이지 않아도 특수 문자를 그대로 판단할 수 있게된다. 따라서 raw 문자열에서는 \숫자, \g<이름>, \\g<숫자>는 \숫자, \g<이름>, \g<숫자> 형식처럼 \를 하나만 붙여서 사용할 수 있다.</숫자></이름></숫자></이름></p>
+
+<ul>
+  <li>r’\숫자 \g<이름> \g<숫자>'</숫자></이름></li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="n">re</span><span class="p">.</span><span class="n">sub</span><span class="p">(</span><span class="s">'({\s*)"(\w+)":\s*"(\w+)"(\s*})'</span><span class="p">,</span> <span class="sa">r</span><span class="s">'&lt;\2&gt;\3&lt;/\2&gt;'</span><span class="p">,</span> <span class="s">'{ "name": "james" }'</span><span class="p">)</span>
+<span class="s">'&lt;name&gt;james&lt;/name&gt;'</span>
+
+</code></pre></div></div>
+
+<hr />
+
+<h3 id="예제1">예제1</h3>
+<p><br />
+<br />
+다음 소스 코드를 완성하여 주어진 이메일 주소가 올바른지 판단하도록 만드세요. emails 리스트에서 앞의 다섯 개는 올바른 형식이며 마지막 세 개는 잘못된 형식입니다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="kn">import</span> <span class="nn">re</span>
+ 
+<span class="n">p</span> <span class="o">=</span> <span class="n">re</span><span class="p">.</span><span class="nb">compile</span><span class="p">(</span>                                                  <span class="p">)</span>
+<span class="n">emails</span> <span class="o">=</span> <span class="p">[</span><span class="s">'python@mail.example.com'</span><span class="p">,</span> <span class="s">'python+kr@example.com'</span><span class="p">,</span>              <span class="c1"># 올바른 형식
+</span>          <span class="s">'python-dojang@example.co.kr'</span><span class="p">,</span> <span class="s">'python_10@example.info'</span><span class="p">,</span>         <span class="c1"># 올바른 형식
+</span>          <span class="s">'python.dojang@e-xample.com'</span><span class="p">,</span>                                    <span class="c1"># 올바른 형식
+</span>          <span class="s">'@example.com'</span><span class="p">,</span> <span class="s">'python@example'</span><span class="p">,</span> <span class="s">'python@example-com'</span><span class="p">]</span>          <span class="c1"># 잘못된 형식
+</span> 
+<span class="k">for</span> <span class="n">email</span> <span class="ow">in</span> <span class="n">emails</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">p</span><span class="p">.</span><span class="n">match</span><span class="p">(</span><span class="n">email</span><span class="p">)</span> <span class="o">!=</span> <span class="bp">None</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s">' '</span><span class="p">)</span>
+
+<span class="c1"># 실행 결과
+</span><span class="bp">True</span> <span class="bp">True</span> <span class="bp">True</span> <span class="bp">True</span> <span class="bp">True</span> <span class="bp">False</span> <span class="bp">False</span> <span class="bp">False</span>
+
+</code></pre></div></div>
+
+<p>답</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="s">'^[a-zA-Z0-9+-_.]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$'</span>
+
+</code></pre></div></div>
+
+<p>이메일은 계정@도메인.최상위도메인 형식이며 계정에 +, -, _, . 등의 문자를 붙이기도 합니다. 또한, 도메인에 - 문자를 사용할 수 있고, 최상위 도메인이 여러 단계일 수도 있습니다. 이러한 규칙에 맞추어서 정규표현식을 작성합니다.</p>
+
+<p>^[a-zA-Z0-9+-<em>.]+@는 이메일에서 @을 기준으로 계정을 나타내며 앞에 ^가 붙었으므로 계정이 맨 앞에 오는지 판단합니다. 또한, [a-zA-Z0-9+-</em>.]+와 같이 영문 대소문자, 숫자, +, -, _, .으로 되어 있어야 하고 문자 1개 이상인지 판단합니다.</p>
+
+<p>[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$는 도메인과 최상위 도메인(TLD)를 나타냅니다. 먼저 [a-zA-Z0-9-]+와 같이 영문 대소문자, 숫자, -이면서 문자 1개 이상인지 판단합니다. 그리고 중간에 .를 넣어서 도메인.최상위도메인 형식인지 판단합니다. 여기서 .은 정규표현식에 사용하는 특수 문자이므로 앞에 반드시 \를 붙여야 합니다. 특히 최상위 도메인은 여러 단계일 수도 있으므로 [a-zA-Z0-9-.]+$와 같이 범위에 .을 넣어줍니다. 또한, $를 붙여서 최상위 도메인이 마지막에 오는지 판단합니다.</p>
+
+<h3 id="예제2">예제2</h3>
+<p><br />
+<br />
+표준 입력으로 URL 문자열이 입력 입력됩니다. 입력된 URL이 올바르면 True, 잘못되었으면 False를 출력하는 프로그램을 만드세요. 이 심사문제에서 판단해야 할 URL의 규칙은 다음과 같습니다.</p>
+
+<ul>
+  <li>http:// 또는 https://로 시작</li>
+  <li>도메인은 도메인.최상위도메인 형식이며 영문 대소문자, 숫자, -로 되어 있어야 함</li>
+  <li>도메인 이하 경로는 /로 구분하고, 영문 대소문자, 숫자, -, _, ., ?, =을 사용함</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="n">________________</span>
+<span class="n">________________</span>
+<span class="n">________________</span>
+
+
+<span class="c1"># 입력
+</span><span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="p">.</span><span class="n">example</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="n">hello</span><span class="o">/</span><span class="n">world</span><span class="p">.</span><span class="n">do</span><span class="err">?</span><span class="n">key</span><span class="o">=</span><span class="n">python</span>
+<span class="c1"># 결과
+</span><span class="bp">True</span>
+<span class="c1"># 입력
+</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">example</span><span class="o">/</span><span class="n">hello</span><span class="o">/</span><span class="n">world</span><span class="p">.</span><span class="n">html</span>
+<span class="c1"># 결과
+</span><span class="bp">False</span>
+
+</code></pre></div></div>
+
+<p>내가 쓴 답</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="kn">import</span> <span class="nn">re</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span>
+
+<span class="n">p</span> <span class="o">=</span> <span class="n">re</span><span class="p">.</span><span class="nb">compile</span><span class="p">(</span><span class="s">'^[a-zA-Z0-9]+\:\/\/[a-zA-Z0-9.]+\.[a-zA-Z0-9.-_?=/]'</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">p</span><span class="p">.</span><span class="n">match</span><span class="p">(</span><span class="n">url</span><span class="p">)</span> <span class="o">!=</span> <span class="bp">None</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s">' '</span><span class="p">)</span>
+
+</code></pre></div></div>
+
+<p>답</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="kn">import</span> <span class="nn">re</span>
+
+<span class="n">p</span> <span class="o">=</span> <span class="n">re</span><span class="p">.</span><span class="nb">compile</span><span class="p">(</span><span class="s">'^(http?://)[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+/[a-zA-Z0-9-_/.?=]*'</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">p</span><span class="p">.</span><span class="n">match</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span> <span class="o">!=</span> <span class="bp">None</span><span class="p">)</span>
+
+
+</code></pre></div></div>
+
+<p>먼저 URL은 http:// 또는 https://로 시작한다고 했으므로 정규표현식은 ^https?://로 시작합니다. 여기서 맨 앞에 ^를 붙였으므로 http 또는 https로 시작하는지 판단합니다. 그리고 https?와 같이 만들면 s가 0개 또는 1개 있어야 합니다. 따라서 http와 https를 둘 다 판별할 수 있습니다.</p>
+
+<p>이제 도메인을 판단합니다. 도메인 부분은 [a-zA-Z0-9-]+.[a-zA-Z0-9-.]+/와 같이 만들어줍니다. 먼저 [a-zA-Z0-9-]+와 같이 영문 대소문자, 숫자, -이면서 문자 1개 이상인지 판단합니다. 그리고 중간에 .를 넣어서 도메인.최상위도메인 형식인지 판단합니다. 여기서 .은 정규표현식에 사용하는 특수 문자이므로 앞에 반드시 \를 붙여야 합니다. 특히 최상위 도메인은 여러 단계일 수도 있으므로 [a-zA-Z0-9-.]+/와 같이 범위에 .을 넣어줍니다. 그리고 도메인과 도메인 이하 경로를 구분할 수 있도록 /를 붙여줍니다.</p>
+
+<p>도메인 이하 경로는 영문 대소문자, 숫자, -, _, ., ?, =을 사용한다고 했으므로 [a-zA-Z0-9-_/.?=]*와 같이 만들어줍니다. 특히 하위 경로가 더 나올 수 있으므로 범위 안에 /를 넣어야 합니다.</p>
+
+<p>지금까지 만든 정규표현식을 차례대로 연결해서 re.match 함수로 url을 판단해주면 됩니다. 그리고 re.match 함수의 반환값이 있으면(None이 아니면) True를 출력하고, None이면 False를 출력하면 됩니다.</p>
+
+                </div>
+            </section>
+
+            <!-- Email subscribe form at the bottom of the page -->
+            
+                <section class="subscribe-form">
+                    <h3 class="subscribe-form-title">Subscribe to My Coding Practice Gym</h3>
+                    <p>Get the latest posts delivered right to your inbox</p>
+                    <span id="searchform" method="post" action="/subscribe/" class="">
+    <input class="confirm" type="hidden" name="confirm"  />
+    <input class="location" type="hidden" name="location"  />
+    <input class="referrer" type="hidden" name="referrer"  />
+
+    <div class="form-group">
+        <input class="subscribe-email" onkeyup="myFunc()" 
+               id="searchtext" type="text" name="searchtext"  
+               placeholder="Search..." />
+    </div>
+    <script type="text/javascript">
+        function myFunc() {
+            if(event.keyCode == 13) {
+                var url = encodeURIComponent($("#searchtext").val());
+                location.href = "/search.html?query=" + url;
+            }
+        }
+    </script>
+</span>
+                </section>
+            
+
+            <footer class="post-full-footer">
+                <!-- Everything inside the #author tags pulls data from the author -->
+                <!-- #author-->
+                
+                    
+                        <section class="author-card">
+                            
+                                <img class="author-profile-image" src="/assets/built/images/author-logo.jpg" alt="AhnSang0915" />
+                            
+                            <section class="author-card-content">
+                                <h4 class="author-card-name"><a href="/author/AhnSang0915">AhnSang0915</a></h4>
+                                
+                                    <p><a href="https://github.com/AhnSang0915"> 개발 달려</p>
+                                
+                            </section>
+                        </section>
+                        <div class="post-full-footer-right">
+                            <a class="author-card-button" href="/author/AhnSang0915">Read More</a>
+                        </div>
+                    
+                
+                <!-- /author  -->
+            </footer>
+
+            <!-- If you use Disqus comments, just uncomment this block.
+            The only thing you need to change is "test-apkdzgmqhj" - which
+            should be replaced with your own Disqus site-id. -->
+            
+                <section class="post-full-comments">
+                    <div id="disqus_thread"></div>
+                    <script>
+                        var disqus_config = function () {
+                            var this_page_url = 'https://AhnSang0915.github.io/python-basic41';
+                            var this_page_identifier = '/python-basic41';
+                            var this_page_title = 'Python - Python 정규표현식 사용하기';
+                        };
+                        (function() {
+                            var d = document, s = d.createElement('script');
+                            s.src = 'https://xxxxxxxx.disqus.com/embed.js';
+                            s.setAttribute('data-timestamp', +new Date());
+                            (d.head || d.body).appendChild(s);
+                        })();
+                    </script>
+                </section>
+            
+
+        </article>
+
+    </div>
+</main>
+
+<!-- Links to Previous/Next posts -->
+<aside class="read-next outer">
+    <div class="inner">
+        <div class="read-next-feed">
+            
+                
+                
+                
+                
+                    <article class="read-next-card"
+                        
+                            style="background-image: url(/assets/built/images/blog-cover1.jpg)"
+                        
+                    >
+                        <header class="read-next-card-header">
+                            <small class="read-next-card-header-sitetitle">&mdash; My Coding Practice Gym &mdash;</small>
+                            
+                                <h3 class="read-next-card-header-title"><a href="/tag/python/">Python</a></h3>
+                            
+                        </header>
+                        <div class="read-next-divider"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 14.5s2 3 5 3 5.5-2.463 5.5-5.5S21 6.5 18 6.5c-5 0-7 11-12 11C2.962 17.5.5 15.037.5 12S3 6.5 6 6.5s4.5 3.5 4.5 3.5"/></svg>
+</div>
+                        <div class="read-next-card-content">
+                            <ul>
+                                
+                                
+                                  
+                                    
+                                        
+                                        
+                                            <li><a href="/practice-3">Python으로 웹 스크래퍼 만들기-2</a></li>
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                            <li><a href="/python-basic43">Python - Python 모듈과 패키지 만들기</a></li>
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                            <li><a href="/python-basic42">Python - Python 모듈과 패키지 사용하기</a></li>
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                            </ul>
+                        </div>
+                        <footer class="read-next-card-footer">
+                            <a href="/tag/python/">
+                                
+                                    See all 45 posts  →
+                                
+                            </a>
+                        </footer>
+                    </article>
+                
+            
+
+            <!-- If there's a next post, display it using the same markup included from - partials/post-card.hbs -->
+            
+                
+
+    <article class="post-card post-template">
+        
+            <a class="post-card-image-link" href="/python-basic42">
+                <div class="post-card-image" style="background-image: url(/assets/built/images/python-logo.png)"></div>
+            </a>
+        
+        <div class="post-card-content">
+            <a class="post-card-content-link" href="/python-basic42">
+                <header class="post-card-header">
+                    
+                        
+                            
+                                <span class="post-card-tags">Python</span>
+                            
+                        
+                    
+
+                    <h2 class="post-card-title">Python - Python 모듈과 패키지 사용하기</h2>
+                </header>
+                <section class="post-card-excerpt">
+                    
+                        <p>Python Python 기본 Python 숫자 계산하기 Python 변수 만들기 Python 출력 방법 Python 불과 비교, 논리 연산자 Python 문자열 사용하기 Python 리스트와 튜플 사용하기 Python 시퀀스 자료형 활용하기 Python 딕셔너리 사용하기 Python if</p>
+                    
+                </section>
+            </a>
+            <footer class="post-card-meta">
+                
+                    
+                        
+                        <img class="author-profile-image" src="/assets/built/images/author-logo.jpg" alt="AhnSang0915" />
+                        
+                        <span class="post-card-author">
+                            <a href="/author/AhnSang0915/">AhnSang0915</a>
+                        </span>
+                    
+                
+                <span class="reading-time">
+                    
+                    
+                      8 min read
+                    
+                </span>
+            </footer>
+        </div>
+    </article>
+
+            
+
+            <!-- If there's a previous post, display it using the same markup included from - partials/post-card.hbs -->
+            
+                
+
+    <article class="post-card post-template">
+        
+            <a class="post-card-image-link" href="/python-basic40">
+                <div class="post-card-image" style="background-image: url(/assets/built/images/python-logo.png)"></div>
+            </a>
+        
+        <div class="post-card-content">
+            <a class="post-card-content-link" href="/python-basic40">
+                <header class="post-card-header">
+                    
+                        
+                            
+                                <span class="post-card-tags">Python</span>
+                            
+                        
+                    
+
+                    <h2 class="post-card-title">Python - Python 데코레이터 사용하기</h2>
+                </header>
+                <section class="post-card-excerpt">
+                    
+                        <p>Python Python 기본 Python 숫자 계산하기 Python 변수 만들기 Python 출력 방법 Python 불과 비교, 논리 연산자 Python 문자열 사용하기 Python 리스트와 튜플 사용하기 Python 시퀀스 자료형 활용하기 Python 딕셔너리 사용하기 Python if</p>
+                    
+                </section>
+            </a>
+            <footer class="post-card-meta">
+                
+                    
+                        
+                        <img class="author-profile-image" src="/assets/built/images/author-logo.jpg" alt="AhnSang0915" />
+                        
+                        <span class="post-card-author">
+                            <a href="/author/AhnSang0915/">AhnSang0915</a>
+                        </span>
+                    
+                
+                <span class="reading-time">
+                    
+                    
+                      14 min read
+                    
+                </span>
+            </footer>
+        </div>
+    </article>
+
+            
+
+        </div>
+    </div>
+</aside>
+
+<!-- Floating header which appears on-scroll, included from includes/floating-header.hbs -->
+<div class="floating-header">
+    <div class="floating-header-logo">
+        <a href="https://AhnSang0915.github.io/">
+            
+            <span>My Coding Practice Gym</span>
+        </a>
+    </div>
+    <span class="floating-header-divider">&mdash;</span>
+    <div class="floating-header-title">Python - Python 정규표현식 사용하기</div>
+    <div class="floating-header-share">
+        <div class="floating-header-share-label">Share this <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <path d="M7.5 15.5V4a1.5 1.5 0 1 1 3 0v4.5h2a1 1 0 0 1 1 1h2a1 1 0 0 1 1 1H18a1.5 1.5 0 0 1 1.5 1.5v3.099c0 .929-.13 1.854-.385 2.748L17.5 23.5h-9c-1.5-2-5.417-8.673-5.417-8.673a1.2 1.2 0 0 1 1.76-1.605L7.5 15.5zm6-6v2m-3-3.5v3.5m6-1v2"/>
+</svg>
+</div>
+        <a class="floating-header-share-tw" href="https://twitter.com/share?text=Python+-+Python+%EC%A0%95%EA%B7%9C%ED%91%9C%ED%98%84%EC%8B%9D+%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0&amp;url=https://AhnSang0915.github.iopython-basic41"
+            onclick="window.open(this.href, 'share-twitter', 'width=550,height=235');return false;">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"/></svg>
+
+        </a>
+        <a class="floating-header-share-fb" href="https://www.facebook.com/sharer/sharer.php?u=https://AhnSang0915.github.iopython-basic41"
+            onclick="window.open(this.href, 'share-facebook','width=580,height=296');return false;">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M19 6h5V0h-5c-3.86 0-7 3.14-7 7v3H8v6h4v16h6V16h5l1-6h-6V7c0-.542.458-1 1-1z"/></svg>
+
+        </a>
+    </div>
+    <progress class="progress" value="0">
+        <div class="progress-container">
+            <span class="progress-bar"></span>
+        </div>
+    </progress>
+</div>
+
+
+<!-- /post -->
+
+<!-- The #contentFor helper here will send everything inside it up to the matching #block helper found in default.hbs -->
+
+
+        <!-- Previous/next page links - displayed on every page -->
+        
+
+        <!-- The footer at the very bottom of the screen -->
+        <footer class="site-footer outer">
+            <div class="site-footer-content inner">
+                <section class="copyright"><a href="https://AhnSang0915.github.io/">My Coding Practice Gym</a> &copy; 2022</section>
+                <section class="poweredby">Proudly published with <a href="https://jekyllrb.com/">Jekyll</a> &
+                    <a href="https://pages.github.com/" target="_blank" rel="noopener">GitHub Pages</a> using
+                    <a href="https://github.com/jekyllt/jasper2" target="_blank" rel="noopener">Jasper2</a></section>
+                <nav class="site-footer-nav">
+                    <a href="/">Latest Posts</a>
+                    
+                    
+                    <a href="https://ghost.org" target="_blank" rel="noopener">Ghost</a>
+                </nav>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- The big email subscribe modal content -->
+    
+    <div id="subscribe" class="subscribe-overlay">
+        <a class="subscribe-overlay-close" href="#"></a>
+            <div class="subscribe-overlay-content">
+                
+                <h1 class="subscribe-overlay-title">Search My Coding Practice Gym</h1>
+                <p class="subscribe-overlay-description">
+                블로그 포스팅 검색 </p>
+                <span id="searchform" method="post" action="/subscribe/" class="">
+    <input class="confirm" type="hidden" name="confirm"  />
+    <input class="location" type="hidden" name="location"  />
+    <input class="referrer" type="hidden" name="referrer"  />
+
+    <div class="form-group">
+        <input class="subscribe-email" onkeyup="myFunc()" 
+               id="searchtext" type="text" name="searchtext"  
+               placeholder="Search..." />
+    </div>
+    <script type="text/javascript">
+        function myFunc() {
+            if(event.keyCode == 13) {
+                var url = encodeURIComponent($("#searchtext").val());
+                location.href = "/search.html?query=" + url;
+            }
+        }
+    </script>
+</span>
+            </div>
+    </div>
+    
+
+    <!-- highlight.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.10.0/components/prism-abap.min.js"></script>
+    <script>$(document).ready(function() {
+      $('pre code').each(function(i, block) {
+        hljs.highlightBlock(block);
+      });
+    });</script>
+
+    <!-- jQuery + Fitvids, which makes all video embeds responsive -->
+    <script
+        src="https://code.jquery.com/jquery-3.2.1.min.js"
+        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous">
+    </script>
+    <script type="text/javascript" src="/assets/js/jquery.fitvids.js"></script>
+    <script type="text/javascript" src="https://demo.ghost.io/assets/js/jquery.fitvids.js?v=724281a32e"></script>
+
+
+    <!-- Paginator increased to "infinit" in _config.yml -->
+    <!-- if paginator.posts  -->
+    <!-- <script>
+        var maxPages = parseInt('');
+    </script>
+    <script src="/assets/js/infinitescroll.js"></script> -->
+    <!-- /endif -->
+
+    
+
+
+    <!-- Add Google Analytics  -->
+    <!-- Google Analytics Tracking code -->
+ <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-xxxxxxxx-x', 'auto');
+  ga('send', 'pageview');
+
+ </script>
+
+
+    <!-- The #block helper will pull in data from the #contentFor other template files. In this case, there's some JavaScript which we only want to use in post.hbs, but it needs to be included down here, after jQuery has already loaded. -->
+    
+        <script>
+
+// NOTE: Scroll performance is poor in Safari
+// - this appears to be due to the events firing much more slowly in Safari.
+//   Dropping the scroll event and using only a raf loop results in smoother
+//   scrolling but continuous processing even when not scrolling
+$(document).ready(function () {
+    // Start fitVids
+    var $postContent = $(".post-full-content");
+    $postContent.fitVids();
+    // End fitVids
+
+    var progressBar = document.querySelector('progress');
+    var header = document.querySelector('.floating-header');
+    var title = document.querySelector('.post-full-title');
+
+    var lastScrollY = window.scrollY;
+    var lastWindowHeight = window.innerHeight;
+    var lastDocumentHeight = $(document).height();
+    var ticking = false;
+
+    function onScroll() {
+        lastScrollY = window.scrollY;
+        requestTick();
+    }
+
+    function onResize() {
+        lastWindowHeight = window.innerHeight;
+        lastDocumentHeight = $(document).height();
+        requestTick();
+    }
+
+    function requestTick() {
+        if (!ticking) {
+            requestAnimationFrame(update);
+        }
+        ticking = true;
+    }
+
+    function update() {
+        var trigger = title.getBoundingClientRect().top + window.scrollY;
+        var triggerOffset = title.offsetHeight + 35;
+        var progressMax = lastDocumentHeight - lastWindowHeight;
+
+        // show/hide floating header
+        if (lastScrollY >= trigger + triggerOffset) {
+            header.classList.add('floating-active');
+        } else {
+            header.classList.remove('floating-active');
+        }
+
+        progressBar.setAttribute('max', progressMax);
+        progressBar.setAttribute('value', lastScrollY);
+
+        ticking = false;
+    }
+
+    window.addEventListener('scroll', onScroll, {passive: true});
+    window.addEventListener('resize', onResize, false);
+
+    update();
+});
+</script>
+
+    
+
+    <!-- Ghost outputs important scripts and data with this tag - it should always be the very last thing before the closing body tag -->
+    <!-- ghost_foot -->
+
+</body>
+</html>

@@ -1,0 +1,1636 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <!-- Document Settings -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <!-- Base Meta -->
+    <!-- dynamically fixing the title for tag/author pages -->
+
+
+
+    <title>Python - Python 코루틴 사용하기</title>
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Styles'n'Scripts -->
+    <link rel="stylesheet" type="text/css" href="/assets/built/screen.css" />
+    <link rel="stylesheet" type="text/css" href="/assets/built/screen.edited.css" />
+    <link rel="stylesheet" type="text/css" href="/assets/built/syntax.css" />
+
+    <!--    costom.css-->
+    <link rel="stylesheet" type="text/css" href="/assets/built/custom.css" />
+
+    <!--    Font Awsome-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!--    웹폰트 추가-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/nanumgothic.css">
+
+    <!--    syntax.css-->
+    <link rel="stylesheet" type="text/css" href="/assets/built/syntax.css" />
+
+
+    <!-- highlight.js -->
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">
+    <style>.hljs { background: none; }</style>
+
+    <!--[if IE]>
+        <style>
+            p, ol, ul{
+                width: 100%;
+            }
+            blockquote{
+                width: 100%;
+            }
+        </style>
+    <![endif]-->
+    
+    <!-- This tag outputs SEO meta+structured data and other important settings -->
+    <meta name="description" content="Learn Coding" />
+    <link rel="shortcut icon" href="https://AhnSang0915.github.io/assets/built/images/favicon.png" type="image/png" />
+    <link rel="canonical" href="https://AhnSang0915.github.io/python-basic39" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
+
+     <!--title below is coming from _includes/dynamic_title-->
+    <meta property="og:site_name" content="My Coding Practice Gym" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Python - Python 코루틴 사용하기" />
+    <meta property="og:description" content="Python Python 기본 Python 숫자 계산하기 Python 변수 만들기 Python 출력 방법 Python 불과 비교, 논리 연산자 Python 문자열 사용하기 Python 리스트와 튜플 사용하기 Python 시퀀스 자료형 활용하기 Python 딕셔너리 사용하기 Python if 조건문으로 특정 조건일 때 코드 실행하기 Python else를 사용하여 두 방향으로 분기하기 Python elif를 사용하여 두 방향으로" />
+    <meta property="og:url" content="https://AhnSang0915.github.io/python-basic39" />
+    <meta property="og:image" content="https://AhnSang0915.github.io/assets/built/images/python-logo.png" />
+    <meta property="article:publisher" content="https://www.facebook.com/" />
+    <meta property="article:author" content="https://www.facebook.com/" />
+    <meta property="article:published_time" content="2022-04-22T07:00:00+00:00" />
+    <meta property="article:modified_time" content="2022-04-22T07:00:00+00:00" />
+    <meta property="article:tag" content="Python" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Python - Python 코루틴 사용하기" />
+    <meta name="twitter:description" content="Python Python 기본 Python 숫자 계산하기 Python 변수 만들기 Python 출력 방법 Python 불과 비교, 논리 연산자 Python 문자열 사용하기 Python 리스트와 튜플 사용하기 Python 시퀀스 자료형 활용하기 Python 딕셔너리 사용하기 Python if 조건문으로 특정 조건일 때 코드 실행하기 Python else를 사용하여 두 방향으로 분기하기 Python elif를 사용하여 두 방향으로" />
+    <meta name="twitter:url" content="https://AhnSang0915.github.io/" />
+    <meta name="twitter:image" content="https://AhnSang0915.github.io/assets/built/images/python-logo.png" />
+    <meta name="twitter:label1" content="Written by" />
+    <meta name="twitter:data1" content="My Coding Practice Gym" />
+    <meta name="twitter:label2" content="Filed under" />
+    <meta name="twitter:data2" content="Python" />
+    <meta name="twitter:site" content="@" />
+    <meta name="twitter:creator" content="@" />
+    <meta property="og:image:width" content="1400" />
+    <meta property="og:image:height" content="933" />
+
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Website",
+    "publisher": {
+        "@type": "Organization",
+        "name": "My Coding Practice Gym",
+        "logo": "https://AhnSang0915.github.io/"
+    },
+    "url": "https://AhnSang0915.github.io/python-basic39",
+    "image": {
+        "@type": "ImageObject",
+        "url": "https://AhnSang0915.github.io/assets/built/images/python-logo.png",
+        "width": 2000,
+        "height": 666
+    },
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://AhnSang0915.github.io/python-basic39"
+    },
+    "description": "Python Python 기본 Python 숫자 계산하기 Python 변수 만들기 Python 출력 방법 Python 불과 비교, 논리 연산자 Python 문자열 사용하기 Python 리스트와 튜플 사용하기 Python 시퀀스 자료형 활용하기 Python 딕셔너리 사용하기 Python if 조건문으로 특정 조건일 때 코드 실행하기 Python else를 사용하여 두 방향으로 분기하기 Python elif를 사용하여 두 방향으로"
+}
+    </script>
+
+    <!-- <script type="text/javascript" src="https://demo.ghost.io/public/ghost-sdk.min.js?v=724281a32e"></script>
+    <script type="text/javascript">
+    ghost.init({
+    	clientId: "ghost-frontend",
+    	clientSecret: "f84a07a72b17"
+    });
+    </script> -->
+
+    <meta name="generator" content="Jekyll 3.6.2" />
+    <link rel="alternate" type="application/rss+xml" title="Python - Python 코루틴 사용하기" href="/feed.xml" />
+
+
+</head>
+<body class="post-template">
+
+    <div class="site-wrapper">
+        <!-- All the main content gets inserted here, index.hbs, post.hbs, etc -->
+        <!-- default -->
+
+<!-- The tag above means: insert everything in this file
+into the {body} of the default.hbs template -->
+
+<header class="site-header outer">
+    <div class="inner">
+        <nav class="site-nav">
+    <div class="site-nav-left">
+        
+            
+                <a class="site-nav-logo" href="https://AhnSang0915.github.io/">My Coding Practice Gym</a>
+            
+        
+        
+            <ul class="nav" role="menu">
+    <li class="nav-home" role="menuitem"><a href="/">Home</a></li>
+    <li class="nav-about" role="menuitem"><a href="/about/">About</a></li>
+    <li class="nav-javascript" role="menuitem"><a href="/tag/javascript/">Javascript</a></li>
+    <li class="nav-python" role="menuitem"><a href="/tag/python/">Python</a></li>
+    <li class="nav-archive" role="menuitem">
+        <a href="/archive.html">All Posts</a>
+    </li>
+    <li class="nav-archive" role="menuitem">
+        <a href="/author_archive.html">Tag별 Posts</a>
+    </li>
+</ul>
+        
+    </div>
+    <div class="site-nav-right">
+        <div class="social-links">
+            
+            
+        </div>
+        
+            <a class="subscribe-button" href="#subscribe">Search</a>
+        
+    </div>
+</nav>
+
+    </div>
+</header>
+
+<!-- Everything inside the #post tags pulls data from the post -->
+<!-- #post -->
+
+<main id="site-main" class="site-main outer" role="main">
+    <div class="inner">
+
+        <article class="post-full  tag-python post tag-python ">
+
+            <header class="post-full-header">
+                <section class="post-full-meta">
+                    <time class="post-full-meta-date" datetime="22 April 2022">22 April 2022</time>
+                    
+                        <span class="date-divider">/</span>
+                        
+                            
+                               <a href='/tag/python/'>PYTHON</a>
+                            
+                        
+                    
+                </section>
+                <h1 class="post-full-title">Python - Python 코루틴 사용하기</h1>
+            </header>
+
+            
+            <figure class="post-full-image" style="background-image: url(/assets/built/images/python-logo.png)">
+            </figure>
+            
+
+            <section class="post-full-content">
+                <div class="kg-card-markdown">
+                    <p><span class="table-of-contents-list">Python</span></p>
+<ul class="table-of-contents-list">
+    <li><a href="./python-basic">Python 기본</a></li>
+    <li><a href="./python-basic2">Python 숫자 계산하기</a></li>
+    <li><a href="./python-basic3">Python 변수 만들기</a></li>
+    <li><a href="./python-basic4">Python 출력 방법</a></li>
+    <li><a href="./python-basic5">Python 불과 비교, 논리 연산자</a></li>
+    <li><a href="./python-basic6">Python 문자열 사용하기</a></li>
+    <li><a href="./python-basic7">Python 리스트와 튜플 사용하기</a></li>
+    <li><a href="./python-basic8">Python 시퀀스 자료형 활용하기</a></li>
+    <li><a href="./python-basic9">Python 딕셔너리 사용하기</a></li>
+    <li><a href="./python-basic10">Python if 조건문으로 특정 조건일 때 코드 실행하기</a></li>
+    <li><a href="./python-basic11">Python else를 사용하여 두 방향으로 분기하기</a></li>
+    <li><a href="./python-basic12">Python elif를 사용하여 두 방향으로 분기하기</a></li>
+    <li><a href="./python-basic13">Python for 반복문</a></li>
+    <li><a href="./python-basic14">Python while 반복문</a></li>
+    <li><a href="./python-basic15">Python break, continue로 반복문 제어하기</a></li>
+    <li><a href="./python-basic16">Python 중첩루프</a></li>
+    <li><a href="./python-basic17">Python FizzBuzz 문제</a></li>
+    <li><a href="./python-basic18">Python 터틀 그래픽스로 그림 그리기</a></li>
+    <li><a href="./python-basic19">Python 리스트와 튜플 응용하기</a></li>
+    <li><a href="./python-basic20">Python 리스트와 튜플 응용하기 - 2</a></li>
+    <li><a href="./python-basic21">Python 2차원 리스트 사용하기</a></li>
+    <li><a href="./python-basic22">Python 문자열 응용하기</a></li>
+    <li><a href="./python-basic23">Python 딕셔너리 응용하기</a></li>
+    <li><a href="./python-basic24">Python 세트 사용하기</a></li>
+    <li><a href="./python-basic25">Python 파일 사용하기</a></li>
+    <li><a href="./python-basic26">Python 회문 판별과 N-gram 만들기</a></li>
+    <li><a href="./python-basic27">Python 함수 사용하기</a></li>
+    <li><a href="./python-basic28">Python 함수에서 위치 인수와 키워드 인수 사용하기</a></li>
+    <li><a href="./python-basic29">Python 함수에서 재귀호출 사용하기</a></li>
+    <li><a href="./python-basic30">Python 람다 표현식 사용하기</a></li>
+    <li><a href="./python-basic31">Python 클로저 사용하기</a></li>
+    <li><a href="./python-basic32">Python 클래스 사용하기</a></li>
+    <li><a href="./python-basic33">Python 클래스 속성과 정적, 클래스 메서드 사용하기</a></li>
+    <li><a href="./python-basic34">Python 클래스 상속 사용하기</a></li>
+    <li><a href="./python-basic35">Python 두 점 사이의 거리 구하기</a></li>
+    <li><a href="./python-basic36">Python 예외 처리 사용하기</a></li>
+    <li><a href="./python-basic37">Python 이터레이터 사용하기</a></li>
+    <li><a href="./python-basic38">Python 제너레이터 사용하기</a></li>
+    <li><a href="./python-basic39">Python 코루틴 사용하기</a></li>
+    <li><a href="./python-basic40">Python 데코레이터 사용하기</a></li>
+    <li><a href="./python-basic41">Python 정규표현식 사용하기</a></li>
+    <li><a href="./python-basic42">Python 모듈과 패키지 사용하기</a></li>
+    <li><a href="./python-basic43">Python 모듈과 패키지 만들기</a></li>
+
+
+</ul>
+
+<h1 id="코루틴-사용하기">코루틴 사용하기</h1>
+
+<p><br />
+<br />
+다음과 같이 calc 함수 안에서 add 함수를 호출했을 때 add 함수가 끝나면 다시 calc 함수로 돌아온다. 특히 add 함수가 끝나면 이 함수에 들어있던 변수와 계산식은 모두 사라진다. 아래 소스 코드에서 calc 함수와 add함수의 관계를 살펴보자. calc가 메인루틴(main routine)이면 add는 calc의 서브루틴(sub routine)이다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="n">c</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>    <span class="c1"># add 함수가 끝나면 변수와 계산식은 사라짐
+</span>    <span class="k">print</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">'add 함수'</span><span class="p">)</span>
+ 
+<span class="k">def</span> <span class="nf">calc</span><span class="p">():</span>
+    <span class="n">add</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>    <span class="c1"># add 함수가 끝나면 다시 calc 함수로 돌아옴
+</span>    <span class="k">print</span><span class="p">(</span><span class="s">'calc 함수'</span><span class="p">)</span>
+ 
+<span class="n">calc</span><span class="p">()</span>
+
+</code></pre></div></div>
+
+<p>메인 루틴에서 서브 루틴을 호출하면 서브 루틴의 코드를 실행한 뒤 다시 메인 루틴으로 돌아온다. 특히 서브 루틴이 끝나면 서브 루틴의 내용은 모두 사라진다. 즉, 서브 루틴은 메인 루틴에 종속된 관계이다.</p>
+
+<p>코루틴은 방식이 위와는 조금 다르다. 코루틴(coroutine)은 cooperative routine을 의미하는데 서로 협력하는 루틴이라는 뜻이다. 즉, 메인루틴과 서브 루틴처럼 종속된 관계가 아니고 서로 대등한 관계이며 특정 시점에 상대방의 코드를 실행한다. 코루틴은 함수가 종료되지 않은 상태에서 메인 루틴의 코드를 실행한 뒤 다시 돌아와서 코루틴의 코드를 실행한다. 따라서 코루틴이 종료되지 않았으므로 코루틴의 내용도 계속 유지된다.</p>
+
+<p>일반 함수를 호출하면 코드를 한 번만 실행할 수 있지만, 코루틴은 코드를 여러 번 실행할 수 있다. 참고로 함수의 코드를 실행하는 지점을 진입점(entry point)이라고 하는데, 코루틴은 진입점이 여러 개인 함수이다.</p>
+
+<hr />
+
+<h2 id="1코루틴에-값-보내기">1.코루틴에 값 보내기</h2>
+<p><br />
+<br />
+코루틴은 제너레이터의 특별한 형태이다. 제너레이터는 yield로 값을 발생시켰지만 코루틴은 yield로 값을 받아올 수 있다. 다음과 같이 코루틴에 값을 보내면서 코드를 실행할 때는 send 메서드를 사용한다. sand 메서드가 보낸 값을 받아오려면(yield) 형식으로 yield를 괄호로 묶어준 뒤 변수에 저장한다.</p>
+
+<ul>
+  <li>코루틴객체.send(값)</li>
+  <li>변수 = (yield)</li>
+</ul>
+
+<p>그럼 코루틴에 숫자 1, 2, 3을 보내서 출력해보겠다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="k">def</span> <span class="nf">number_coroutine</span><span class="p">():</span>
+    <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>        <span class="c1"># 코루틴을 계속 유지하기 위해 무한 루프 사용
+</span>        <span class="n">x</span> <span class="o">=</span> <span class="p">(</span><span class="k">yield</span><span class="p">)</span>    <span class="c1"># 코루틴 바깥에서 값을 받아옴, yield를 괄호로 묶어야 함
+</span>        <span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+ 
+<span class="n">co</span> <span class="o">=</span> <span class="n">number_coroutine</span><span class="p">()</span>
+<span class="nb">next</span><span class="p">(</span><span class="n">co</span><span class="p">)</span>      <span class="c1"># 코루틴 안의 yield까지 코드 실행(최초 실행)
+</span> 
+<span class="n">co</span><span class="p">.</span><span class="n">send</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>    <span class="c1"># 코루틴에 숫자 1을 보냄
+</span><span class="n">co</span><span class="p">.</span><span class="n">send</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>    <span class="c1"># 코루틴에 숫자 2을 보냄
+</span><span class="n">co</span><span class="p">.</span><span class="n">send</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>    <span class="c1"># 코루틴에 숫자 3을 보냄
+# 실행 결과
+</span><span class="mi">1</span>
+<span class="mi">2</span>
+<span class="mi">3</span>
+
+</code></pre></div></div>
+
+<p>코루틴 number_coroutine은 while True:로 무한히 반복하도록 만든다. 왜냐하면 코루틴을 종료하지 않고 계속 유지시키기 위해 무한 루프를 사용한다. 그리고 x = (yield)와 같이 코루틴 바깥에서 보낸 값을 받아서 x에 저장하고, print로 x의 값을 출력한다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="k">def</span> <span class="nf">number_coroutine</span><span class="p">():</span>
+    <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>        <span class="c1"># 코루틴을 계속 유지하기 위해 무한 루프 사용
+</span>        <span class="n">x</span> <span class="o">=</span> <span class="p">(</span><span class="k">yield</span><span class="p">)</span>    <span class="c1"># 코루틴 바깥에서 값을 받아옴, yield를 괄호로 묶어야 함
+</span>        <span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+</code></pre></div></div>
+
+<p>코루틴 바깥에서는 co = number_coroutine()과 같이 코루틴 객체를 생성한 뒤 next(co)로 코루틴 안의 코드를 최초로 실행하여 yield까지 코드를 실행한다.</p>
+
+<ul>
+  <li>next(코루틴객체)</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="n">co</span> <span class="o">=</span> <span class="n">number_coroutine</span><span class="p">()</span>
+<span class="nb">next</span><span class="p">(</span><span class="n">co</span><span class="p">)</span>      <span class="c1"># 코루틴 안의 yield까지 코드 실행(최초 실행)
+</span>
+</code></pre></div></div>
+
+<p>그다음에 co.send로 숫자 1, 2, 3을 보내면 코루틴 안에서 숫자를 받은 뒤 print로 출력한다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="n">co</span><span class="p">.</span><span class="n">send</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>    <span class="c1"># 코루틴에 숫자 1을 보냄
+</span><span class="n">co</span><span class="p">.</span><span class="n">send</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>    <span class="c1"># 코루틴에 숫자 2을 보냄
+</span><span class="n">co</span><span class="p">.</span><span class="n">send</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>    <span class="c1"># 코루틴에 숫자 3을 보냄
+</span>
+</code></pre></div></div>
+
+<p>먼저 next(co)로 코루틴의 코드를 최초로 실행하면 x = (yield)의 yield에서 대기하고 다시 메인 루틴으로 돌아온다. 그다음에 메인 루틴에서 co.send(1)로 1을 보내면 코루틴은 대기 상태에서 풀리고 x = (yield)의 x = 부분이 실행된 뒤 print(x)로 숫자를 출력한다. 이 코루틴은 while True:로 반복하는 구조이므로 다시 x = (yield)의 yield에서 대기한다. 그러고 나서 메인 루틴으로 돌아옵니다. 이런 과정으로 send가 보낸 값을 (yield)가 받게 된다. 계속 같은 과정으로 send를 사용하여 값을 보내면 코루틴에서 값을 받아서 출력한다.</p>
+
+<p>정리하자면 next 함수(__next__ 메서드)로 코루틴의 코드를 최초로 실행하고, send 메서드로 코루틴에 값을 보내면서 대기하고 있던 코루틴의 코드를 다시 실행한다.</p>
+
+<h3 id="send로-코루틴의-코드를-최초로-실행하기">send로 코루틴의 코드를 최초로 실행하기</h3>
+<p><br />
+<br />
+지금까지 코루틴의 코드를 최초로 실행할 때 next 함수(<strong>next</strong> 메서드)를 사용했지만, 코루틴객체.send(None)과 같이 send 메서드에 None을 지정해도 코루틴의 코드를 최초로 실행할 수 있다.</p>
+
+<hr />
+
+<h2 id="2코루틴-바깥으로-값-전달하기">2.코루틴 바깥으로 값 전달하기</h2>
+<p><br />
+<br />
+코루틴에서 바깥으로 값을 전달해보자. 다음과 같이 (yield 변수) 형식으로 yield에 변수를 지정한 뒤 괄호로 묶어주면 값을 받아오면서 바깥으로 값을 전달한다. 그리고 yield를 사용하여 바깥으로 전달한 값은 next 함수(<strong>next</strong> 메서드)와 send 메서드의 반환값으로 나온다.</p>
+
+<ul>
+  <li>변수 = (yield 변수)</li>
+  <li>변수 = next(코루틴객체)</li>
+  <li>변수 = 코루틴객체.send(값)</li>
+</ul>
+
+<p>그럼 코루틴에 숫자를 보내고, 코루틴은 받은 숫자를 누적해서 바깥에 전달해보자.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="k">def</span> <span class="nf">sum_coroutine</span><span class="p">():</span>
+    <span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="p">(</span><span class="k">yield</span> <span class="n">total</span><span class="p">)</span>    <span class="c1"># 코루틴 바깥에서 값을 받아오면서 바깥으로 값을 전달
+</span>        <span class="n">total</span> <span class="o">+=</span> <span class="n">x</span>
+ 
+<span class="n">co</span> <span class="o">=</span> <span class="n">sum_coroutine</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">next</span><span class="p">(</span><span class="n">co</span><span class="p">))</span>      <span class="c1"># 0: 코루틴 안의 yield까지 코드를 실행하고 코루틴에서 나온 값 출력
+</span> 
+<span class="k">print</span><span class="p">(</span><span class="n">co</span><span class="p">.</span><span class="n">send</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>    <span class="c1"># 1: 코루틴에 숫자 1을 보내고 코루틴에서 나온 값 출력
+</span><span class="k">print</span><span class="p">(</span><span class="n">co</span><span class="p">.</span><span class="n">send</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>    <span class="c1"># 3: 코루틴에 숫자 2를 보내고 코루틴에서 나온 값 출력
+</span><span class="k">print</span><span class="p">(</span><span class="n">co</span><span class="p">.</span><span class="n">send</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>    <span class="c1"># 6: 코루틴에 숫자 3을 보내고 코루틴에서 나온 값 출력
+</span>
+<span class="c1"># 실행 결과
+</span><span class="mi">0</span>
+<span class="mi">1</span>
+<span class="mi">3</span>
+<span class="mi">6</span>
+
+</code></pre></div></div>
+
+<p>코루틴에서 값을 누적할 변수 total을 만들고 0을 할당한다. 그리고 x = (yield total)과 같이 값을 받아오면서 바깥으로 값을 전달하도록 만든다. 즉, 바깥에서 send가 보낸 값은 x에 저장되고, 코루틴 바깥으로 보낼 값은 total이다. 그 다음에 total += x 와 같이 받은 값을 누적해 준다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="k">def</span> <span class="nf">sum_coroutine</span><span class="p">():</span>
+    <span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+        <span class="n">x</span>  <span class="o">=</span> <span class="p">(</span><span class="k">yield</span> <span class="n">total</span><span class="p">)</span>    <span class="c1"># 코루틴 바깥에서 값을 받아오면서 바깥으로 값을 전달
+</span>        <span class="n">total</span> <span class="o">+=</span> <span class="n">x</span>
+
+</code></pre></div></div>
+
+<p>코루틴 바깥에서는 co = sum_coroutine()과 같이 코루틴 객체를 생성한 뒤 next(co)로 코루틴 안의 코드를 최초로 실행하여 yield까지 코드를 실행하고, print로 next(co)에서 변환된 값을 출력한다. 그다음에 co.send로 숫자 1, 2, 3을 보내고 print로 co.send에서 반환된 값을 출력한다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="n">co</span> <span class="o">=</span> <span class="n">sum_coroutine</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">next</span><span class="p">(</span><span class="n">co</span><span class="p">))</span>      <span class="c1"># 0: 코루틴 안의 yield까지 코드를 실행하고 코루틴에서 나온 값 출력
+</span> 
+<span class="k">print</span><span class="p">(</span><span class="n">co</span><span class="p">.</span><span class="n">send</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>    <span class="c1"># 1: 코루틴에 숫자 1을 보내고 코루틴에서 나온 값 출력
+</span><span class="k">print</span><span class="p">(</span><span class="n">co</span><span class="p">.</span><span class="n">send</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>    <span class="c1"># 3: 코루틴에 숫자 2를 보내고 코루틴에서 나온 값 출력
+</span><span class="k">print</span><span class="p">(</span><span class="n">co</span><span class="p">.</span><span class="n">send</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>    <span class="c1"># 6: 코루틴에 숫자 3을 보내고 코루틴에서 나온 값 출력
+</span>
+</code></pre></div></div>
+
+<p>next와 send의 차이를 살펴보면 next는 코루틴의 코드를 실행하지만 값을 보내지 않을 때 사용하고, send는 값을 보내면서 코루틴의 코드를 실행할 때 사용한다.</p>
+
+<p>먼저 next(co)로 코루틴의 코드를 최초로 실행하면 x = (yield total)의 yield에서 total을 메인 루틴으로 전달하고 대기한다. 그다음에 메인 루틴에서 print(next(co))와 같이 코루틴에서 나온 값을 출력한다. 여기서는 total에 0이 들어있으므로 0을 받아와서 출력한다.</p>
+
+<p>그리고 co.send(1)로 1을 보내면 코루틴은 대기 상태에서 풀리고 x = (yield total)의 x = 부분이 실행된뒤 total += x로 숫자를 누적한다. 이 코루틴은 while True:로 반복하는 구조이므로 다시 x=(yield total)의 yield에서 total을 메인 루틴으로 전달하고 대기한다. 그다음에 메인 루틴에서 print(co.send(1))과 같이 코루틴에서 나온 값을 출력한다. 여기서는 total에 1이들어가 있으므로 1을 받아와서 출력한다.</p>
+
+<p>이런 과정으로 (yield total)이 바깥으로 전달한 값을 next와 send의 반환값으로 받고, send가 보낸 값을 x = (yield total)의 x가 받게 된다.</p>
+
+<p>제너레이터와 코루틴의 차이점을 정리해보자.</p>
+
+<ul>
+  <li>제너레이터는 next 함수(__next__ 메서드)를 반복 호출하여 값을 얻어내는 방식</li>
+  <li>코루틴은 next 함수(__next__ 메서드)를 한 번만 호출한 뒤 send로 값을 주고 받는 방식</li>
+</ul>
+
+<h3 id="값을-보내지-않고-코루틴의-코드-실행하기">값을 보내지 않고 코루틴의 코드 실행하기</h3>
+<p><br />
+<br />
+값을 보내지 않으면서 코루틴의 코드를 실행할 때는 next 함수(<strong>next</strong> 메서드)만 사용하면 된다. 잘 생각해보면 이 방식이 일반적인 제너레이터이다.</p>
+
+<hr />
+
+<h2 id="3-코루틴을-종료하고-예외-처리하기">3. 코루틴을 종료하고 예외 처리하기</h2>
+<p><br />
+<br />
+보통 코루틴은 실행 상태를 유지하기 위해 while:True:를 사용해서 끝나지 않는 무한 루프로 동작한다. 만약 코루틴을 강제로 종료하고 싶다면 close메서드를 사용한다.</p>
+
+<ul>
+  <li>코루틴객체.close()</li>
+</ul>
+
+<p>다음은 코루틴에 숫자를 20개 보낸 뒤 코루틴을 종료한다. 코루틴 객체에서 close 메서드를 사용하면 코루틴이 종료된다. 사실 파이썬 스크립트가 끝나면 코루틴도 끝나기 때문에 close를 사용하지 않은 것과 별 차이가 없다. 하지만 close는 코루틴의 종료 시점을 아아야 할 때 사용하면 편리하다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="k">def</span> <span class="nf">number_coroutine</span><span class="p">():</span>
+    <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="p">(</span><span class="k">yield</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s">' '</span><span class="p">)</span>
+ 
+<span class="n">co</span> <span class="o">=</span> <span class="n">number_coroutine</span><span class="p">()</span>
+<span class="nb">next</span><span class="p">(</span><span class="n">co</span><span class="p">)</span>
+ 
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">20</span><span class="p">):</span>
+    <span class="n">co</span><span class="p">.</span><span class="n">send</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+ 
+<span class="n">co</span><span class="p">.</span><span class="n">close</span><span class="p">()</span>    <span class="c1"># 코루틴 종료
+</span>
+<span class="c1"># 실행 결과
+</span><span class="mi">0</span> <span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span> <span class="mi">4</span> <span class="mi">5</span> <span class="mi">6</span> <span class="mi">7</span> <span class="mi">8</span> <span class="mi">9</span> <span class="mi">10</span> <span class="mi">11</span> <span class="mi">12</span> <span class="mi">13</span> <span class="mi">14</span> <span class="mi">15</span> <span class="mi">16</span> <span class="mi">17</span> <span class="mi">18</span> <span class="mi">19</span>
+
+</code></pre></div></div>
+
+<h3 id="generatorexit-예외-처리하기">GeneratorExit 예외 처리하기</h3>
+
+<p>코루틴 객체에서 close 메서드를 호출하면 코루틴이 종료될 때 GeneratorExit 예외가 발생한다. 따라서 이 예외를 처리하면 코루틴의 종료 시점을 알 수 있다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="k">def</span> <span class="nf">number_coroutine</span><span class="p">():</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+            <span class="n">x</span> <span class="o">=</span> <span class="p">(</span><span class="k">yield</span><span class="p">)</span>
+            <span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s">' '</span><span class="p">)</span>
+    <span class="k">except</span> <span class="nb">GeneratorExit</span><span class="p">:</span>    <span class="c1"># 코루틴이 종료 될 때 GeneratorExit 예외 발생
+</span>        <span class="k">print</span><span class="p">()</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">'코루틴 종료'</span><span class="p">)</span>
+ 
+<span class="n">co</span> <span class="o">=</span> <span class="n">number_coroutine</span><span class="p">()</span>
+<span class="nb">next</span><span class="p">(</span><span class="n">co</span><span class="p">)</span>
+ 
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">20</span><span class="p">):</span>
+    <span class="n">co</span><span class="p">.</span><span class="n">send</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+ 
+<span class="n">co</span><span class="p">.</span><span class="n">close</span><span class="p">()</span>
+
+<span class="mi">0</span> <span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span> <span class="mi">4</span> <span class="mi">5</span> <span class="mi">6</span> <span class="mi">7</span> <span class="mi">8</span> <span class="mi">9</span> <span class="mi">10</span> <span class="mi">11</span> <span class="mi">12</span> <span class="mi">13</span> <span class="mi">14</span> <span class="mi">15</span> <span class="mi">16</span> <span class="mi">17</span> <span class="mi">18</span> <span class="mi">19</span> 
+<span class="n">코루틴</span> <span class="n">종료</span>
+
+</code></pre></div></div>
+
+<p>코루틴 안에서 try except로 GeneratorExit 예외가 발생하면 ‘코루틴 종료’가 출력되도록 만들었다. 이렇게 하면 close 메서드로 코루틴을 종료할 때 원하는 코드를 실행할 수 있다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+    <span class="k">except</span> <span class="nb">GeneratorExit</span><span class="p">:</span>    <span class="c1"># 코루틴이 종료 될 때 GeneratorExit 예외 발생
+</span>        <span class="k">print</span><span class="p">()</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">'코루틴 종료'</span><span class="p">)</span>
+
+</code></pre></div></div>
+
+<h3 id="코루틴-안에서-예외-발생시키기">코루틴 안에서 예외 발생시키기</h3>
+<p><br />
+<br />
+이번에는 코루틴 안에 예외를 발생시켜서 코루틴을 종료해보자.</p>
+
+<p>코루틴 안에 예외를 발생 시킬 때는 throw 메서드를 사용합니다. throw는 말그대로 던지다라는 뜻인데 예외를 코루틴 안으로 던진다. 이때 throw 메서드에 지정한 에러 메시지는 except as의 변수에 들어간다.</p>
+
+<ul>
+  <li>코루틴객체.throw(예외이름, 에러메시지)</li>
+</ul>
+
+<p>다음은 코루틴에 숫자를 보내서 누적하다가 RuntimeError 예외가 발생하면 에러 메시지를 출력하고 누적된 값을 코루틴 바깥으로 전달한다.</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="k">def</span> <span class="nf">sum_coroutine</span><span class="p">():</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+            <span class="n">x</span> <span class="o">=</span> <span class="p">(</span><span class="k">yield</span><span class="p">)</span>
+            <span class="n">total</span> <span class="o">+=</span> <span class="n">x</span>
+    <span class="k">except</span> <span class="nb">RuntimeError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+        <span class="k">yield</span> <span class="n">total</span>    <span class="c1"># 코루틴 바깥으로 값 전달
+</span> 
+<span class="n">co</span> <span class="o">=</span> <span class="n">sum_coroutine</span><span class="p">()</span>
+<span class="nb">next</span><span class="p">(</span><span class="n">co</span><span class="p">)</span>
+ 
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">20</span><span class="p">):</span>
+    <span class="n">co</span><span class="p">.</span><span class="n">send</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+ 
+<span class="k">print</span><span class="p">(</span><span class="n">co</span><span class="p">.</span><span class="n">throw</span><span class="p">(</span><span class="nb">RuntimeError</span><span class="p">,</span> <span class="s">'예외로 코루틴 끝내기'</span><span class="p">))</span> <span class="c1"># 190
+</span>                                                      <span class="c1"># 코루틴의 except에서 yield로 전달받은 값
+</span>
+
+<span class="c1"># 실행 결과
+</span><span class="n">예외로</span> <span class="n">코루틴</span> <span class="n">끝내기</span>
+<span class="mi">190</span>
+
+</code></pre></div></div>
+
+<p>코루틴 안에서 try except로 RuntimeError 예외가 발생하면 print로 에러 메시지를 출력하고 yield를 사용하여 total을 바깥으로 전달하도록 만들었다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+    <span class="k">except</span> <span class="nb">RuntimeError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+        <span class="k">yield</span> <span class="n">total</span>    <span class="c1"># 코루틴 바깥으로 값 전달
+</span>
+</code></pre></div></div>
+
+<p>코루틴 바깥에서는 co.throw(RuntimeError, ‘에외로 코루틴 끝내기’)와 같이 throw 메서드에 RuntimeError 예외와 에러 메시지를 지정하면 코루틴 안에서 예외가 발생한다. 그리고 코루틴 안의 except에서 yield를 사용하여 바깥으로 전달한 값은 throw 메서드의 반환 값으로 나온다.</p>
+
+<p>여기서는 코루틴 안에서 예외 처리를 했으므로 ‘예외로 코루틴 끝내기’가 출력되고, 코루틴 바깥에서는 누적된 값 190이 출력된다.</p>
+
+<h2 id="4-하위-코루틴의-반환값-가져오기">4. 하위 코루틴의 반환값 가져오기</h2>
+<p><br />
+<br />
+제너레이터에서 yield from을 사용하면 값을 바깥으로 여러 번 전달한다고 했습니다(‘40.3 yield from으로 값을 여러 번 바깥으로 전달하기’ 참조). 하지만 코루틴에서는 조금 다르게 사용한다. yield from에 코루틴를 지정하면 해당 코루틴에서 return으로 반환한 값을 가져온다(yield from은 파이썬 3.3 이상부터 사용 가능)</p>
+
+<ul>
+  <li>변수 = yield from 코루틴()</li>
+</ul>
+
+<p>다음은 코루틴에서 숫자를 누적한 뒤 합계를 yield from으로 가져온다.</p>
+
+<p>코루틴에 1부터 10까지 보내서 합계 55를 구하고, 다시 1부터 100까지 보내서 합계 5050을 구했다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="k">def</span> <span class="nf">accumulate</span><span class="p">():</span>
+    <span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="p">(</span><span class="k">yield</span><span class="p">)</span>         <span class="c1"># 코루틴 바깥에서 값을 받아옴
+</span>        <span class="k">if</span> <span class="n">x</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>       <span class="c1"># 받아온 값이 None이면
+</span>            <span class="k">return</span> <span class="n">total</span>    <span class="c1"># 합계 total을 반환
+</span>        <span class="n">total</span> <span class="o">+=</span> <span class="n">x</span>
+ 
+<span class="k">def</span> <span class="nf">sum_coroutine</span><span class="p">():</span>
+    <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+        <span class="n">total</span> <span class="o">=</span> <span class="k">yield</span> <span class="k">from</span> <span class="n">accumulate</span><span class="p">()</span>    <span class="c1"># accumulate의 반환값을 가져옴
+</span>        <span class="k">print</span><span class="p">(</span><span class="n">total</span><span class="p">)</span>
+ 
+<span class="n">co</span> <span class="o">=</span> <span class="n">sum_coroutine</span><span class="p">()</span>
+<span class="nb">next</span><span class="p">(</span><span class="n">co</span><span class="p">)</span>
+ 
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">11</span><span class="p">):</span>    <span class="c1"># 1부터 10까지 반복
+</span>    <span class="n">co</span><span class="p">.</span><span class="n">send</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>            <span class="c1"># 코루틴 accumulate에 숫자를 보냄
+</span><span class="n">co</span><span class="p">.</span><span class="n">send</span><span class="p">(</span><span class="bp">None</span><span class="p">)</span>             <span class="c1"># 코루틴 accumulate에 None을 보내서 숫자 누적을 끝냄
+</span> 
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">101</span><span class="p">):</span>   <span class="c1"># 1부터 100까지 반복
+</span>    <span class="n">co</span><span class="p">.</span><span class="n">send</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>            <span class="c1"># 코루틴 accumulate에 숫자를 보냄
+</span><span class="n">co</span><span class="p">.</span><span class="n">send</span><span class="p">(</span><span class="bp">None</span><span class="p">)</span>             <span class="c1"># 코루틴 accumulate에 None을 보내서 숫자 누적을 끝냄
+</span>
+<span class="c1"># 실행 결과
+</span><span class="mi">55</span>
+<span class="mi">5050</span>
+
+</code></pre></div></div>
+
+<p>먼저 숫자를 받아서 누적할 코루틴을 만든다. x = (yield)와 같이 코루틴 바깥에서 값을 받아온 뒤 total에 계속 더한다. 특히 이 코루틴은 while True:로 무한히 반복하지만 코루틴을 끝낼 방법이 필요하다. 여기서는 코루틴 바깥에서 받아온 값이 None이면 return으로 total을 반환하고 코루틴을 끝낸다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="k">def</span> <span class="nf">accumulate</span><span class="p">():</span>
+    <span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="p">(</span><span class="k">yield</span><span class="p">)</span>         <span class="c1"># 코루틴 바깥에서 값을 받아옴
+</span>        <span class="k">if</span> <span class="n">x</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>       <span class="c1"># 받아온 값이 None이면
+</span>            <span class="k">return</span> <span class="n">total</span>    <span class="c1"># 합계 total을 반환, 코루틴을 끝냄
+</span>        <span class="n">total</span> <span class="o">+=</span> <span class="n">x</span>
+
+</code></pre></div></div>
+
+<p>이제 합계를 출력할 코루틴을 만든다. 먼저 while True:로 무한히 반복한다. 그리고 total = yield from accumulate()와 같이 yield from을 사용하여 코루틴 accumulate의 반환값을 가져온다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="n">co</span> <span class="o">=</span> <span class="n">sum_coroutine</span><span class="p">()</span>
+<span class="nb">next</span><span class="p">(</span><span class="n">co</span><span class="p">)</span>
+ 
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">11</span><span class="p">):</span>    <span class="c1"># 1부터 10까지 반복
+</span>    <span class="n">co</span><span class="p">.</span><span class="n">send</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>            <span class="c1"># 코루틴 accumulate에 숫자를 보냄
+</span>
+</code></pre></div></div>
+
+<p>코루틴에서 yield from을 사용하면 코루틴 바깥에서 send로 하위 코루틴까지 값을 보낼 수 있다. 따라서 co = sum_coroutine()으로 코루틴 객체를 만든 뒤 co.send로 값을 보내면 accumulate에서 값을 받는다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="n">co</span> <span class="o">=</span> <span class="n">sum_coroutine</span><span class="p">()</span>
+<span class="nb">next</span><span class="p">(</span><span class="n">co</span><span class="p">)</span>
+ 
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">11</span><span class="p">):</span>    <span class="c1"># 1부터 10까지 반복
+</span>    <span class="n">co</span><span class="p">.</span><span class="n">send</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>            <span class="c1"># 코루틴 accumulate에 숫자를 보냄
+</span>
+</code></pre></div></div>
+
+<p>co.send로 숫자를 계속 내보내다가 누적을 끝내고 싶으면 None을 보내면 된다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="n">co</span><span class="p">.</span><span class="n">send</span><span class="p">(</span><span class="bp">None</span><span class="p">)</span>             <span class="c1"># 코루틴 accumulate에 None을 보내서 숫자 누적을 끝냄
+</span>
+</code></pre></div></div>
+
+<p>이때 accumulate는 None을 받으면 코루틴이 완전히 끝나지만 sum_coroutine에서 무한 루프로 반복하고 있으므로 print로 total을 출력한 뒤 다시 yield from accumulate()로 accumulate를 실행하게 된다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="k">def</span> <span class="nf">sum_coroutine</span><span class="p">():</span>
+    <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+        <span class="n">total</span> <span class="o">=</span> <span class="k">yield</span> <span class="k">from</span> <span class="n">accumulate</span><span class="p">()</span>    <span class="c1"># accumulate가 끝나면 yield from으로 다시 실행
+</span>        <span class="k">print</span><span class="p">(</span><span class="n">total</span><span class="p">)</span>
+
+</code></pre></div></div>
+
+<h3 id="stopiteration-예외-발생시키기">StopIteration 예외 발생시키기</h3>
+<p><br />
+<br />
+코루틴도 제너레이터이므로 return을 사용하면 StopIteration이 발생한다. 그래서 코루틴에서 return 값은 raise StopIteration(값)처럼 사용할 수도 있다(파이썬 3.6 이하). 이렇게 raise로 StopIteration 예외를 직접 발생시키고 값을 지정하면 yield from으로 값을 가져올 수 있다(단, 파이썬 3.7부터는 제너레이터 안에서 raise로 StopIteration 예외를 직접 발생시키면 RuntimeError로 바뀌므로 이 방법은 사용할 수 없다. 파이썬 3.7부터는 그냥 return 값을 사용하자)</p>
+
+<ul>
+  <li>raise StopIteration(값)</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="k">def</span> <span class="nf">accumulate</span><span class="p">():</span>
+    <span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="p">(</span><span class="k">yield</span><span class="p">)</span>                       <span class="c1"># 코루틴 바깥에서 값을 받아옴
+</span>        <span class="k">if</span> <span class="n">x</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>                     <span class="c1"># 받아온 값이 None이면
+</span>            <span class="k">raise</span> <span class="nb">StopIteration</span><span class="p">(</span><span class="n">total</span><span class="p">)</span>    <span class="c1"># StopIteration에 반환할 값을 지정(파이썬 3.6 이하)
+</span>        <span class="n">total</span> <span class="o">+=</span> <span class="n">x</span>
+ 
+<span class="k">def</span> <span class="nf">sum_coroutine</span><span class="p">():</span>
+    <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+        <span class="n">total</span> <span class="o">=</span> <span class="k">yield</span> <span class="k">from</span> <span class="n">accumulate</span><span class="p">()</span>    <span class="c1"># accumulate의 반환값을 가져옴
+</span>        <span class="k">print</span><span class="p">(</span><span class="n">total</span><span class="p">)</span>
+ 
+<span class="n">co</span> <span class="o">=</span> <span class="n">sum_coroutine</span><span class="p">()</span>
+<span class="nb">next</span><span class="p">(</span><span class="n">co</span><span class="p">)</span>
+ 
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">11</span><span class="p">):</span>    <span class="c1"># 1부터 10까지 반복
+</span>    <span class="n">co</span><span class="p">.</span><span class="n">send</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>            <span class="c1"># 코루틴 accumulate에 숫자를 보냄
+</span><span class="n">co</span><span class="p">.</span><span class="n">send</span><span class="p">(</span><span class="bp">None</span><span class="p">)</span>             <span class="c1"># 코루틴 accumulate에 None을 보내서 숫자 누적을 끝냄
+</span> 
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">101</span><span class="p">):</span>   <span class="c1"># 1부터 100까지 반복
+</span>    <span class="n">co</span><span class="p">.</span><span class="n">send</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>            <span class="c1"># 코루틴 accumulate에 숫자를 보냄
+</span><span class="n">co</span><span class="p">.</span><span class="n">send</span><span class="p">(</span><span class="bp">None</span><span class="p">)</span>             <span class="c1"># 코루틴 accumulate에 None을 보내서 숫자 누적을 끝냄
+</span>
+<span class="c1"># 실행 결과
+</span><span class="mi">55</span>
+<span class="mi">5050</span>
+
+</code></pre></div></div>
+
+<p>accumulate에서 return total 대신 raise StopIteration(total)을 사용했다. 이때도 yield from은 accumulate의 total을 가져오게 된다.</p>
+
+<h3 id="코루틴의-yield-from으로-값을-발생시키기">코루틴의 yield from으로 값을 발생시키기</h3>
+<p><br />
+<br />
+아래 예제에서는  x = (yield)와 같이 코루틴 바깥에서 보낸 값만 받아왔다. 하지만 코루틴에서 yield에 값을 지정해서 바깥으로 전달했다면 yield from은 해당 값을 다시 바깥으로 전달된다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="k">def</span> <span class="nf">number_coroutine</span><span class="p">():</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="bp">None</span>
+    <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="p">(</span><span class="k">yield</span> <span class="n">x</span><span class="p">)</span>    <span class="c1"># 코루틴 바깥에서 값을 받아오면서 바깥으로 값을 전달
+</span>        <span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">x</span>
+ 
+<span class="k">def</span> <span class="nf">print_coroutine</span><span class="p">():</span>
+    <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="k">yield</span> <span class="k">from</span> <span class="n">number_coroutine</span><span class="p">()</span>   <span class="c1"># 하위 코루틴의 yield에 지정된 값을 다시 바깥으로 전달
+</span>        <span class="k">print</span><span class="p">(</span><span class="s">'print_coroutine:'</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+ 
+<span class="n">co</span> <span class="o">=</span> <span class="n">print_coroutine</span><span class="p">()</span>
+<span class="nb">next</span><span class="p">(</span><span class="n">co</span><span class="p">)</span>
+ 
+<span class="n">x</span> <span class="o">=</span> <span class="n">co</span><span class="p">.</span><span class="n">send</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>    <span class="c1"># number_coroutine으로 1을 보냄
+</span><span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>          <span class="c1"># 1: number_coroutine의 yield에서 바깥으로 전달한 값
+</span><span class="n">x</span> <span class="o">=</span> <span class="n">co</span><span class="p">.</span><span class="n">send</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>    <span class="c1"># number_coroutine으로 2를 보냄
+</span><span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>          <span class="c1"># 2: number_coroutine의 yield에서 바깥으로 전달한 값
+</span><span class="n">co</span><span class="p">.</span><span class="n">send</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>        <span class="c1"># 3을 보내서 반환값을 출력하도록 만듦
+</span>
+<span class="c1"># 실행 결과
+</span><span class="mi">1</span>
+<span class="mi">2</span>
+<span class="n">print_coroutine</span><span class="p">:</span> <span class="mi">3</span>
+
+</code></pre></div></div>
+
+<hr />
+
+<h3 id="예제1">예제1</h3>
+<p><br />
+<br />
+다음 소스 코드를 완성하여 문자열에서 특정 단어가 있으면 True, 없으면 False가 출력되게 만드세요. find 함수는 코루틴으로 작성해야 합니다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="n">_________________________________</span>
+<span class="p">...</span>
+<span class="n">_________________________________</span>
+ 
+<span class="n">f</span> <span class="o">=</span> <span class="n">find</span><span class="p">(</span><span class="s">'Python'</span><span class="p">)</span>
+<span class="nb">next</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+ 
+<span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="p">.</span><span class="n">send</span><span class="p">(</span><span class="s">'Hello, Python!'</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="p">.</span><span class="n">send</span><span class="p">(</span><span class="s">'Hello, world!'</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="p">.</span><span class="n">send</span><span class="p">(</span><span class="s">'Python Script'</span><span class="p">))</span>
+ 
+<span class="n">f</span><span class="p">.</span><span class="n">close</span><span class="p">()</span>
+                                                     
+ 
+
+<span class="n">실행</span> <span class="n">결과</span>
+<span class="bp">True</span>
+<span class="bp">False</span>
+<span class="bp">True</span>
+
+</code></pre></div></div>
+
+<p>답</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="k">def</span> <span class="nf">find</span><span class="p">(</span><span class="n">word</span><span class="p">):</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="bp">False</span>
+    <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+        <span class="n">line</span> <span class="o">=</span> <span class="p">(</span><span class="k">yield</span> <span class="n">result</span><span class="p">)</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">lineㅇ</span>
+
+</code></pre></div></div>
+
+<h3 id="예제2">예제2</h3>
+<p><br />
+<br />
+표준 입력으로 사칙연산 계산식이 여러 개 입력됩니다. 다음 소스 코드에서 각 계산식의 결과를 구하는 코루틴을 만드세요. 계산식은 문자열 형태이며 값과 연산자는 공백으로 구분됩니다. 그리고 값은 정수로 변환하여 사용하고, 나눗셈은 / 연산자를 사용하세요.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="n">________________</span>
+<span class="n">________________</span>
+<span class="n">________________</span>
+<span class="n">________________</span>
+<span class="n">________________</span>
+<span class="n">________________</span>
+<span class="n">________________</span>
+<span class="n">________________</span>
+<span class="n">________________</span>
+<span class="n">________________</span>
+<span class="n">________________</span>
+<span class="n">________________</span>
+<span class="n">________________</span>
+<span class="n">________________</span>
+<span class="n">________________</span>
+<span class="n">________________</span>
+
+<span class="n">expressions</span> <span class="o">=</span> <span class="nb">input</span><span class="p">().</span><span class="n">split</span><span class="p">(</span><span class="s">', '</span><span class="p">)</span>
+ 
+<span class="n">c</span> <span class="o">=</span> <span class="n">calc</span><span class="p">()</span>
+<span class="nb">next</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+ 
+<span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">expressions</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">c</span><span class="p">.</span><span class="n">send</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
+ 
+<span class="n">c</span><span class="p">.</span><span class="n">close</span><span class="p">()</span>
+
+<span class="c1"># 입력
+</span><span class="mi">1</span> <span class="o">+</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span> <span class="o">-</span> <span class="mi">9</span>
+<span class="c1"># 결과
+</span><span class="mi">3</span>
+<span class="o">-</span><span class="mi">5</span>
+<span class="c1"># 입력
+</span><span class="mi">3</span> <span class="o">*</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">10</span> <span class="o">/</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">20</span> <span class="o">+</span> <span class="mi">39</span>
+<span class="c1"># 결과
+</span><span class="mi">12</span>
+<span class="mf">2.0</span>
+<span class="mi">59</span>
+
+</code></pre></div></div>
+
+<p>답</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="k">def</span> <span class="nf">calc</span><span class="p">():</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="p">(</span><span class="k">yield</span> <span class="n">result</span><span class="p">)</span>
+        <span class="n">a</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">x</span><span class="p">.</span><span class="n">split</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">y</span> <span class="o">==</span> <span class="s">'+'</span><span class="p">:</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">+</span> <span class="nb">int</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">y</span> <span class="o">==</span> <span class="s">'-'</span><span class="p">:</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">-</span> <span class="nb">int</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">y</span> <span class="o">==</span> <span class="s">'/'</span><span class="p">:</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">/</span> <span class="nb">int</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">y</span> <span class="o">==</span> <span class="s">'*'</span><span class="p">:</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">*</span> <span class="nb">int</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+
+</code></pre></div></div>
+
+<p>코루틴으로 무한루프를 만들고 (yield 변수) 형식으로 바깥으로 값을 전달한다. 전달한 값은 next(c)함수와 send메서드의 반환값으로 들어가게 된다. expressions에 입력 받은 값을 split 함수로 각 문자열로 쪼개면 expressions[0].split()-&gt;[‘1’, ‘+’, ‘2’] 이런 형태가 되는데 a, y, b = x.split()로 각 요소를 a, y, b변수에 할당해 준다. 그리고 if와 elif 조건문으로 y의 값이 특정 값일때의 조건을 넣어주면 된다.</p>
+
+
+                </div>
+            </section>
+
+            <!-- Email subscribe form at the bottom of the page -->
+            
+                <section class="subscribe-form">
+                    <h3 class="subscribe-form-title">Subscribe to My Coding Practice Gym</h3>
+                    <p>Get the latest posts delivered right to your inbox</p>
+                    <span id="searchform" method="post" action="/subscribe/" class="">
+    <input class="confirm" type="hidden" name="confirm"  />
+    <input class="location" type="hidden" name="location"  />
+    <input class="referrer" type="hidden" name="referrer"  />
+
+    <div class="form-group">
+        <input class="subscribe-email" onkeyup="myFunc()" 
+               id="searchtext" type="text" name="searchtext"  
+               placeholder="Search..." />
+    </div>
+    <script type="text/javascript">
+        function myFunc() {
+            if(event.keyCode == 13) {
+                var url = encodeURIComponent($("#searchtext").val());
+                location.href = "/search.html?query=" + url;
+            }
+        }
+    </script>
+</span>
+                </section>
+            
+
+            <footer class="post-full-footer">
+                <!-- Everything inside the #author tags pulls data from the author -->
+                <!-- #author-->
+                
+                    
+                        <section class="author-card">
+                            
+                                <img class="author-profile-image" src="/assets/built/images/author-logo.jpg" alt="AhnSang0915" />
+                            
+                            <section class="author-card-content">
+                                <h4 class="author-card-name"><a href="/author/AhnSang0915">AhnSang0915</a></h4>
+                                
+                                    <p><a href="https://github.com/AhnSang0915"> 개발 달려</p>
+                                
+                            </section>
+                        </section>
+                        <div class="post-full-footer-right">
+                            <a class="author-card-button" href="/author/AhnSang0915">Read More</a>
+                        </div>
+                    
+                
+                <!-- /author  -->
+            </footer>
+
+            <!-- If you use Disqus comments, just uncomment this block.
+            The only thing you need to change is "test-apkdzgmqhj" - which
+            should be replaced with your own Disqus site-id. -->
+            
+                <section class="post-full-comments">
+                    <div id="disqus_thread"></div>
+                    <script>
+                        var disqus_config = function () {
+                            var this_page_url = 'https://AhnSang0915.github.io/python-basic39';
+                            var this_page_identifier = '/python-basic39';
+                            var this_page_title = 'Python - Python 코루틴 사용하기';
+                        };
+                        (function() {
+                            var d = document, s = d.createElement('script');
+                            s.src = 'https://xxxxxxxx.disqus.com/embed.js';
+                            s.setAttribute('data-timestamp', +new Date());
+                            (d.head || d.body).appendChild(s);
+                        })();
+                    </script>
+                </section>
+            
+
+        </article>
+
+    </div>
+</main>
+
+<!-- Links to Previous/Next posts -->
+<aside class="read-next outer">
+    <div class="inner">
+        <div class="read-next-feed">
+            
+                
+                
+                
+                
+                    <article class="read-next-card"
+                        
+                            style="background-image: url(/assets/built/images/blog-cover1.jpg)"
+                        
+                    >
+                        <header class="read-next-card-header">
+                            <small class="read-next-card-header-sitetitle">&mdash; My Coding Practice Gym &mdash;</small>
+                            
+                                <h3 class="read-next-card-header-title"><a href="/tag/python/">Python</a></h3>
+                            
+                        </header>
+                        <div class="read-next-divider"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 14.5s2 3 5 3 5.5-2.463 5.5-5.5S21 6.5 18 6.5c-5 0-7 11-12 11C2.962 17.5.5 15.037.5 12S3 6.5 6 6.5s4.5 3.5 4.5 3.5"/></svg>
+</div>
+                        <div class="read-next-card-content">
+                            <ul>
+                                
+                                
+                                  
+                                    
+                                        
+                                        
+                                            <li><a href="/practice-3">Python으로 웹 스크래퍼 만들기-2</a></li>
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                            <li><a href="/python-basic43">Python - Python 모듈과 패키지 만들기</a></li>
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                            <li><a href="/python-basic42">Python - Python 모듈과 패키지 사용하기</a></li>
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                            </ul>
+                        </div>
+                        <footer class="read-next-card-footer">
+                            <a href="/tag/python/">
+                                
+                                    See all 45 posts  →
+                                
+                            </a>
+                        </footer>
+                    </article>
+                
+            
+
+            <!-- If there's a next post, display it using the same markup included from - partials/post-card.hbs -->
+            
+                
+
+    <article class="post-card post-template">
+        
+            <a class="post-card-image-link" href="/python-basic40">
+                <div class="post-card-image" style="background-image: url(/assets/built/images/python-logo.png)"></div>
+            </a>
+        
+        <div class="post-card-content">
+            <a class="post-card-content-link" href="/python-basic40">
+                <header class="post-card-header">
+                    
+                        
+                            
+                                <span class="post-card-tags">Python</span>
+                            
+                        
+                    
+
+                    <h2 class="post-card-title">Python - Python 데코레이터 사용하기</h2>
+                </header>
+                <section class="post-card-excerpt">
+                    
+                        <p>Python Python 기본 Python 숫자 계산하기 Python 변수 만들기 Python 출력 방법 Python 불과 비교, 논리 연산자 Python 문자열 사용하기 Python 리스트와 튜플 사용하기 Python 시퀀스 자료형 활용하기 Python 딕셔너리 사용하기 Python if</p>
+                    
+                </section>
+            </a>
+            <footer class="post-card-meta">
+                
+                    
+                        
+                        <img class="author-profile-image" src="/assets/built/images/author-logo.jpg" alt="AhnSang0915" />
+                        
+                        <span class="post-card-author">
+                            <a href="/author/AhnSang0915/">AhnSang0915</a>
+                        </span>
+                    
+                
+                <span class="reading-time">
+                    
+                    
+                      14 min read
+                    
+                </span>
+            </footer>
+        </div>
+    </article>
+
+            
+
+            <!-- If there's a previous post, display it using the same markup included from - partials/post-card.hbs -->
+            
+                
+
+    <article class="post-card post-template">
+        
+            <a class="post-card-image-link" href="/python-basic38">
+                <div class="post-card-image" style="background-image: url(/assets/built/images/python-logo.png)"></div>
+            </a>
+        
+        <div class="post-card-content">
+            <a class="post-card-content-link" href="/python-basic38">
+                <header class="post-card-header">
+                    
+                        
+                            
+                                <span class="post-card-tags">Python</span>
+                            
+                        
+                    
+
+                    <h2 class="post-card-title">Python - Python 제너레이터 사용하기</h2>
+                </header>
+                <section class="post-card-excerpt">
+                    
+                        <p>Python Python 기본 Python 숫자 계산하기 Python 변수 만들기 Python 출력 방법 Python 불과 비교, 논리 연산자 Python 문자열 사용하기 Python 리스트와 튜플 사용하기 Python 시퀀스 자료형 활용하기 Python 딕셔너리 사용하기 Python if</p>
+                    
+                </section>
+            </a>
+            <footer class="post-card-meta">
+                
+                    
+                        
+                        <img class="author-profile-image" src="/assets/built/images/author-logo.jpg" alt="AhnSang0915" />
+                        
+                        <span class="post-card-author">
+                            <a href="/author/AhnSang0915/">AhnSang0915</a>
+                        </span>
+                    
+                
+                <span class="reading-time">
+                    
+                    
+                      7 min read
+                    
+                </span>
+            </footer>
+        </div>
+    </article>
+
+            
+
+        </div>
+    </div>
+</aside>
+
+<!-- Floating header which appears on-scroll, included from includes/floating-header.hbs -->
+<div class="floating-header">
+    <div class="floating-header-logo">
+        <a href="https://AhnSang0915.github.io/">
+            
+            <span>My Coding Practice Gym</span>
+        </a>
+    </div>
+    <span class="floating-header-divider">&mdash;</span>
+    <div class="floating-header-title">Python - Python 코루틴 사용하기</div>
+    <div class="floating-header-share">
+        <div class="floating-header-share-label">Share this <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <path d="M7.5 15.5V4a1.5 1.5 0 1 1 3 0v4.5h2a1 1 0 0 1 1 1h2a1 1 0 0 1 1 1H18a1.5 1.5 0 0 1 1.5 1.5v3.099c0 .929-.13 1.854-.385 2.748L17.5 23.5h-9c-1.5-2-5.417-8.673-5.417-8.673a1.2 1.2 0 0 1 1.76-1.605L7.5 15.5zm6-6v2m-3-3.5v3.5m6-1v2"/>
+</svg>
+</div>
+        <a class="floating-header-share-tw" href="https://twitter.com/share?text=Python+-+Python+%EC%BD%94%EB%A3%A8%ED%8B%B4+%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0&amp;url=https://AhnSang0915.github.iopython-basic39"
+            onclick="window.open(this.href, 'share-twitter', 'width=550,height=235');return false;">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"/></svg>
+
+        </a>
+        <a class="floating-header-share-fb" href="https://www.facebook.com/sharer/sharer.php?u=https://AhnSang0915.github.iopython-basic39"
+            onclick="window.open(this.href, 'share-facebook','width=580,height=296');return false;">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M19 6h5V0h-5c-3.86 0-7 3.14-7 7v3H8v6h4v16h6V16h5l1-6h-6V7c0-.542.458-1 1-1z"/></svg>
+
+        </a>
+    </div>
+    <progress class="progress" value="0">
+        <div class="progress-container">
+            <span class="progress-bar"></span>
+        </div>
+    </progress>
+</div>
+
+
+<!-- /post -->
+
+<!-- The #contentFor helper here will send everything inside it up to the matching #block helper found in default.hbs -->
+
+
+        <!-- Previous/next page links - displayed on every page -->
+        
+
+        <!-- The footer at the very bottom of the screen -->
+        <footer class="site-footer outer">
+            <div class="site-footer-content inner">
+                <section class="copyright"><a href="https://AhnSang0915.github.io/">My Coding Practice Gym</a> &copy; 2022</section>
+                <section class="poweredby">Proudly published with <a href="https://jekyllrb.com/">Jekyll</a> &
+                    <a href="https://pages.github.com/" target="_blank" rel="noopener">GitHub Pages</a> using
+                    <a href="https://github.com/jekyllt/jasper2" target="_blank" rel="noopener">Jasper2</a></section>
+                <nav class="site-footer-nav">
+                    <a href="/">Latest Posts</a>
+                    
+                    
+                    <a href="https://ghost.org" target="_blank" rel="noopener">Ghost</a>
+                </nav>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- The big email subscribe modal content -->
+    
+    <div id="subscribe" class="subscribe-overlay">
+        <a class="subscribe-overlay-close" href="#"></a>
+            <div class="subscribe-overlay-content">
+                
+                <h1 class="subscribe-overlay-title">Search My Coding Practice Gym</h1>
+                <p class="subscribe-overlay-description">
+                블로그 포스팅 검색 </p>
+                <span id="searchform" method="post" action="/subscribe/" class="">
+    <input class="confirm" type="hidden" name="confirm"  />
+    <input class="location" type="hidden" name="location"  />
+    <input class="referrer" type="hidden" name="referrer"  />
+
+    <div class="form-group">
+        <input class="subscribe-email" onkeyup="myFunc()" 
+               id="searchtext" type="text" name="searchtext"  
+               placeholder="Search..." />
+    </div>
+    <script type="text/javascript">
+        function myFunc() {
+            if(event.keyCode == 13) {
+                var url = encodeURIComponent($("#searchtext").val());
+                location.href = "/search.html?query=" + url;
+            }
+        }
+    </script>
+</span>
+            </div>
+    </div>
+    
+
+    <!-- highlight.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.10.0/components/prism-abap.min.js"></script>
+    <script>$(document).ready(function() {
+      $('pre code').each(function(i, block) {
+        hljs.highlightBlock(block);
+      });
+    });</script>
+
+    <!-- jQuery + Fitvids, which makes all video embeds responsive -->
+    <script
+        src="https://code.jquery.com/jquery-3.2.1.min.js"
+        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous">
+    </script>
+    <script type="text/javascript" src="/assets/js/jquery.fitvids.js"></script>
+    <script type="text/javascript" src="https://demo.ghost.io/assets/js/jquery.fitvids.js?v=724281a32e"></script>
+
+
+    <!-- Paginator increased to "infinit" in _config.yml -->
+    <!-- if paginator.posts  -->
+    <!-- <script>
+        var maxPages = parseInt('');
+    </script>
+    <script src="/assets/js/infinitescroll.js"></script> -->
+    <!-- /endif -->
+
+    
+
+
+    <!-- Add Google Analytics  -->
+    <!-- Google Analytics Tracking code -->
+ <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-xxxxxxxx-x', 'auto');
+  ga('send', 'pageview');
+
+ </script>
+
+
+    <!-- The #block helper will pull in data from the #contentFor other template files. In this case, there's some JavaScript which we only want to use in post.hbs, but it needs to be included down here, after jQuery has already loaded. -->
+    
+        <script>
+
+// NOTE: Scroll performance is poor in Safari
+// - this appears to be due to the events firing much more slowly in Safari.
+//   Dropping the scroll event and using only a raf loop results in smoother
+//   scrolling but continuous processing even when not scrolling
+$(document).ready(function () {
+    // Start fitVids
+    var $postContent = $(".post-full-content");
+    $postContent.fitVids();
+    // End fitVids
+
+    var progressBar = document.querySelector('progress');
+    var header = document.querySelector('.floating-header');
+    var title = document.querySelector('.post-full-title');
+
+    var lastScrollY = window.scrollY;
+    var lastWindowHeight = window.innerHeight;
+    var lastDocumentHeight = $(document).height();
+    var ticking = false;
+
+    function onScroll() {
+        lastScrollY = window.scrollY;
+        requestTick();
+    }
+
+    function onResize() {
+        lastWindowHeight = window.innerHeight;
+        lastDocumentHeight = $(document).height();
+        requestTick();
+    }
+
+    function requestTick() {
+        if (!ticking) {
+            requestAnimationFrame(update);
+        }
+        ticking = true;
+    }
+
+    function update() {
+        var trigger = title.getBoundingClientRect().top + window.scrollY;
+        var triggerOffset = title.offsetHeight + 35;
+        var progressMax = lastDocumentHeight - lastWindowHeight;
+
+        // show/hide floating header
+        if (lastScrollY >= trigger + triggerOffset) {
+            header.classList.add('floating-active');
+        } else {
+            header.classList.remove('floating-active');
+        }
+
+        progressBar.setAttribute('max', progressMax);
+        progressBar.setAttribute('value', lastScrollY);
+
+        ticking = false;
+    }
+
+    window.addEventListener('scroll', onScroll, {passive: true});
+    window.addEventListener('resize', onResize, false);
+
+    update();
+});
+</script>
+
+    
+
+    <!-- Ghost outputs important scripts and data with this tag - it should always be the very last thing before the closing body tag -->
+    <!-- ghost_foot -->
+
+</body>
+</html>
